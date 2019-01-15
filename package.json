@@ -1,0 +1,48 @@
+{
+    "name": "pretty-checkbox-react",
+    "version": "1.0.0",
+    "description": "Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React",
+    "keywords": [
+        "Pretty",
+        "Radio",
+        "Switch",
+        "Pretty Checkbox",
+        "pretty-checkbox",
+        "Components",
+        "React",
+        "React.js",
+        "React 16",
+        "WebComponents",
+        "CSS",
+        "Checkbox"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/atomicpages/pretty-checkbox-react.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/atomicpages/pretty-checkbox-react/issues"
+    },
+    "homepage": "https://github.com/atomicpages/pretty-checkbox-react#readme",
+    "peerDependencies": {
+        "pretty-checkbox": "^3.0.3",
+        "react": "^16.7.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/preset-env": "^7.2.3",
+        "@babel/preset-flow": "^7.0.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-jest": "^23.6.0",
+        "jest": "^23.6.0",
+        "pretty-checkbox": "^3.0.3",
+        "react-testing-library": "^5.4.4",
+        "rollup": "^1.1.0"
+    }
+}
