@@ -1,4 +1,5 @@
 {
+    "exclude": "node_modules/**",
     "presets": [
         "@babel/preset-flow",
         "@babel/preset-react",
@@ -8,5 +9,9 @@
                 "useBuiltIns": "usage"
             }
         ]
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-proposal-class-properties"
     ]
 }
