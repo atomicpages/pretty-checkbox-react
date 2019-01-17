@@ -6,10 +6,10 @@ import { Title } from '../components/Title';
 import { CollapseContainer } from '../components/CollapseContainer';
 
 import {
-  LiveProvider,
-  LiveEditor,
-  LiveError,
-  LivePreview
+    LiveProvider,
+    LiveEditor,
+    LiveError,
+    LivePreview
 } from 'react-live';
 
 const scope = { Checkbox };
@@ -18,22 +18,22 @@ const basicCheckbox = `// make changes and I'll update!
 
 <>
     <Checkbox>Default</Checkbox>
-    <Checkbox className="p-fill">Fill</Checkbox>
-    <Checkbox className="p-thick">Thick</Checkbox>
+    <Checkbox style="fill">Fill</Checkbox>
+    <Checkbox style="thick">Thick</Checkbox>
 </>
 `;
 
 const basicCheckboxCurve = `<>
-    <Checkbox className="p-curve">Default</Checkbox>
-    <Checkbox className="p-curve p-fill">Fill</Checkbox>
-    <Checkbox className="p-curve p-thick">Thick</Checkbox>
+    <Checkbox shape="curve">Default</Checkbox>
+    <Checkbox shape="curve" style="fill">Fill</Checkbox>
+    <Checkbox shape="curve" style="thick">Thick</Checkbox>
 </>
 `;
 
 const basicCheckboxRound = `<>
-    <Checkbox className="p-round">Default</Checkbox>
-    <Checkbox className="p-round p-fill">Fill</Checkbox>
-    <Checkbox className="p-round p-thick">Thick</Checkbox>
+    <Checkbox shape="round">Default</Checkbox>
+    <Checkbox shape="round" style="fill">Fill</Checkbox>
+    <Checkbox shape="round" style="thick">Thick</Checkbox>
 </>
 `;
 
@@ -42,8 +42,8 @@ function BasicCheckbox() {
         <>
             <Title>Basic Checkbox</Title>
             <div className="content">
-                <p>These are simple checkboxes with three shapes. Add class <strong>p-default</strong> as like mentioned in above example.</p>
-                    <p>By default, it will be in <i>Square</i> shape. To change, add class <strong>p-curve</strong> or <strong>p-round</strong>.</p>
+                <p>These are simple checkboxes with three shapes: <strong>default</strong>, <strong>curve</strong>, and <strong>round</strong>. Use the <strong>shape</strong> prop to customize.</p>
+                <p>Additionally, there are two variants, or <strong>style</strong> of checkboxes: <strong>fill</strong> and <strong>thick</strong>. Customize these via the <strong>style</strong> prop.</p>
             </div>
             <LiveProvider code={basicCheckbox} scope={scope}>
                 <CollapseContainer title="Default" demo={<LivePreview />}>

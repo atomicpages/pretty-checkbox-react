@@ -1,0 +1,447 @@
+{
+    "src/components/Checkbox.js": {
+        "description": "",
+        "displayName": "Checkbox",
+        "methods": [],
+        "props": {
+            "indeterminate": {
+                "required": false,
+                "flowType": {
+                    "name": "boolean"
+                },
+                "description": "Set true when the checkbox is in an indeterminate state."
+            }
+        },
+        "composes": [
+            "InputProps"
+        ]
+    },
+    "src/components/Input.js": {
+        "description": "",
+        "displayName": "Input",
+        "methods": [],
+        "props": {
+            "type": {
+                "required": true,
+                "flowType": {
+                    "name": "union",
+                    "raw": "\"checkbox\" | \"radio\"",
+                    "elements": [{
+                            "name": "literal",
+                            "value": "\"checkbox\""
+                        },
+                        {
+                            "name": "literal",
+                            "value": "\"radio\""
+                        }
+                    ]
+                },
+                "description": "Select the type if component: checkbox or radio."
+            },
+            "children": {
+                "required": false,
+                "flowType": {
+                    "name": "union",
+                    "raw": "React.Node | (() => React.Node)",
+                    "elements": [{
+                            "name": "ReactNode",
+                            "raw": "React.Node"
+                        },
+                        {
+                            "name": "signature",
+                            "type": "function",
+                            "raw": "() => React.Node",
+                            "signature": {
+                                "arguments": [],
+                                "return": {
+                                    "name": "ReactNode",
+                                    "raw": "React.Node"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "description": "Specify label values or render your own children for\nthings like icons and states."
+            },
+            "style": {
+                "required": false,
+                "flowType": {
+                    "name": "union",
+                    "raw": "\"fill\" | \"thick\" | void",
+                    "elements": [{
+                            "name": "literal",
+                            "value": "\"fill\""
+                        },
+                        {
+                            "name": "literal",
+                            "value": "\"thick\""
+                        },
+                        {
+                            "name": "void"
+                        }
+                    ]
+                },
+                "description": "The style of the checkbox or radio."
+            },
+            "shape": {
+                "required": false,
+                "flowType": {
+                    "name": "union",
+                    "raw": "\"round\" | \"curve\" | void",
+                    "elements": [{
+                            "name": "literal",
+                            "value": "\"round\""
+                        },
+                        {
+                            "name": "literal",
+                            "value": "\"curve\""
+                        },
+                        {
+                            "name": "void"
+                        }
+                    ]
+                },
+                "description": "The shape of the checkbox or radio component."
+            },
+            "icon": {
+                "required": false,
+                "flowType": {
+                    "name": "union",
+                    "raw": "{| svg: React.Node |} | {| image: React.Node |} | {| icon: React.Node |}",
+                    "elements": [{
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{| svg: React.Node |}",
+                            "signature": {
+                                "properties": [{
+                                    "key": "svg",
+                                    "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                    }
+                                }]
+                            }
+                        },
+                        {
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{| image: React.Node |}",
+                            "signature": {
+                                "properties": [{
+                                    "key": "image",
+                                    "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                    }
+                                }]
+                            }
+                        },
+                        {
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{| icon: React.Node |}",
+                            "signature": {
+                                "properties": [{
+                                    "key": "icon",
+                                    "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                    }
+                                }]
+                            }
+                        }
+                    ]
+                },
+                "description": "Render a custom font icon in the checkbox or radio."
+            },
+            "svg": {
+                "required": false,
+                "flowType": {
+                    "name": "union",
+                    "raw": "{| svg: React.Node |} | {| image: React.Node |} | {| icon: React.Node |}",
+                    "elements": [{
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{| svg: React.Node |}",
+                            "signature": {
+                                "properties": [{
+                                    "key": "svg",
+                                    "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                    }
+                                }]
+                            }
+                        },
+                        {
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{| image: React.Node |}",
+                            "signature": {
+                                "properties": [{
+                                    "key": "image",
+                                    "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                    }
+                                }]
+                            }
+                        },
+                        {
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{| icon: React.Node |}",
+                            "signature": {
+                                "properties": [{
+                                    "key": "icon",
+                                    "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                    }
+                                }]
+                            }
+                        }
+                    ]
+                },
+                "description": "Render a custom `.svg` in the checkbox or radio."
+            },
+            "image": {
+                "required": false,
+                "flowType": {
+                    "name": "union",
+                    "raw": "{| svg: React.Node |} | {| image: React.Node |} | {| icon: React.Node |}",
+                    "elements": [{
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{| svg: React.Node |}",
+                            "signature": {
+                                "properties": [{
+                                    "key": "svg",
+                                    "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                    }
+                                }]
+                            }
+                        },
+                        {
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{| image: React.Node |}",
+                            "signature": {
+                                "properties": [{
+                                    "key": "image",
+                                    "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                    }
+                                }]
+                            }
+                        },
+                        {
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{| icon: React.Node |}",
+                            "signature": {
+                                "properties": [{
+                                    "key": "icon",
+                                    "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                    }
+                                }]
+                            }
+                        }
+                    ]
+                },
+                "description": "Render a custom `img` in the checkbox or radio."
+            },
+            "className": {
+                "required": false,
+                "flowType": {
+                    "name": "string"
+                },
+                "description": "Additional class selectors to pass to the `pretty` element."
+            },
+            "value": {
+                "required": false,
+                "flowType": {
+                    "name": "union",
+                    "raw": "string | number | string[]",
+                    "elements": [{
+                            "name": "string"
+                        },
+                        {
+                            "name": "number"
+                        },
+                        {
+                            "name": "Array",
+                            "elements": [{
+                                "name": "string"
+                            }],
+                            "raw": "string[]"
+                        }
+                    ]
+                },
+                "description": "Specify a value for the underlying `input` element."
+            },
+            "onChange": {
+                "required": false,
+                "flowType": {
+                    "name": "signature",
+                    "type": "function",
+                    "raw": "(SyntheticMouseEvent<HTMLInputElement>) => void",
+                    "signature": {
+                        "arguments": [{
+                            "name": "",
+                            "type": {
+                                "name": "SyntheticMouseEvent",
+                                "elements": [{
+                                    "name": "HTMLInputElement"
+                                }],
+                                "raw": "SyntheticMouseEvent<HTMLInputElement>"
+                            }
+                        }],
+                        "return": {
+                            "name": "void"
+                        }
+                    }
+                },
+                "description": "Add an event handler when the radio/checkbox/switch changes."
+            },
+            "id": {
+                "required": false,
+                "flowType": {
+                    "name": "string"
+                },
+                "description": "Need a11y? Add your `id` here and it'll automatically be added to the `label`\nwhen you use `children` as a prop and not a function."
+            },
+            "inputProps": {
+                "required": false,
+                "flowType": {
+                    "name": "signature",
+                    "type": "object",
+                    "raw": "{}",
+                    "signature": {
+                        "properties": []
+                    }
+                },
+                "description": "Additional input props to pass to the input component."
+            },
+            "color": {
+                "required": false,
+                "flowType": {
+                    "name": "string"
+                },
+                "description": "Specify colors to add to the checkbox, radio, or switch."
+            },
+            "animation": {
+                "required": false,
+                "flowType": {
+                    "name": "string"
+                },
+                "description": "Specify animations to add to the checkbox, radio, or switch."
+            },
+            "checked": {
+                "required": false,
+                "flowType": {
+                    "name": "boolean"
+                },
+                "description": "Control the state of your component by deciding when it can be checked/unchecked."
+            },
+            "disabled": {
+                "required": false,
+                "flowType": {
+                    "name": "boolean"
+                },
+                "description": "Disable the checkbox, radio, or switch."
+            },
+            "locked": {
+                "required": false,
+                "flowType": {
+                    "name": "boolean"
+                },
+                "description": "Lock the checkbox, radio, or switch."
+            },
+            "bigger": {
+                "required": false,
+                "flowType": {
+                    "name": "boolean"
+                },
+                "description": "Make the checkbox, radio, or switch bigger."
+            }
+        }
+    },
+    "src/components/Radio.js": {
+        "description": "",
+        "displayName": "Radio",
+        "methods": []
+    },
+    "src/components/Switch.js": {
+        "description": "",
+        "displayName": "Switch",
+        "methods": [],
+        "props": {
+            "animation": {
+                "required": true,
+                "flowType": {
+                    "name": "union",
+                    "raw": "\"smooth\" | \"jelly\" | \"tada\" | void",
+                    "elements": [{
+                            "name": "literal",
+                            "value": "\"smooth\""
+                        },
+                        {
+                            "name": "literal",
+                            "value": "\"jelly\""
+                        },
+                        {
+                            "name": "literal",
+                            "value": "\"tada\""
+                        },
+                        {
+                            "name": "void"
+                        }
+                    ]
+                },
+                "description": "Specify animation for the `Switch` component."
+            },
+            "shape": {
+                "required": true,
+                "flowType": {
+                    "name": "union",
+                    "raw": "\"outline\" | \"fill\" | \"slim\" | void",
+                    "elements": [{
+                            "name": "literal",
+                            "value": "\"outline\""
+                        },
+                        {
+                            "name": "literal",
+                            "value": "\"fill\""
+                        },
+                        {
+                            "name": "literal",
+                            "value": "\"slim\""
+                        },
+                        {
+                            "name": "void"
+                        }
+                    ]
+                },
+                "description": "The shape of the `Switch` component."
+            }
+        },
+        "composes": [
+            "InputPropsRevised"
+        ]
+    }
+}

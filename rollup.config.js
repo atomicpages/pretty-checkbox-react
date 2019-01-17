@@ -14,7 +14,12 @@ const commonPlugins = [
     commonjs({
         include: 'node_modules/**',
         namedExports: {
-            'node_modules/react/index.js': ['createElement', 'Fragment']
+            'node_modules/react/index.js': [
+                'createElement',
+                'Fragment',
+                'cloneElement',
+                'Children'
+            ]
         }
     }),
     json()
@@ -40,7 +45,7 @@ const umd_export = {
     plugins: [
         babel(),
         ...commonPlugins,
-        uglify()
+        // uglify()
     ]
 };
 

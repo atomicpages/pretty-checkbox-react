@@ -3,20 +3,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-const blacklist = {
-    'p-default': [
-        'p-switch',
-        'p-icon',
-        'p-plain',
-        'p-svg',
-        'p-image',
-        'p-jelly',
-        'p-tada',
-        'p-rotate',
-        'p-pulse'
-    ],
-    'p-switch': ['p-rotate', 'p-pulse']
-};
+/**
+ * The base prefix for all pretty-checkbox class names.
+ */
+export const PREFIX: string = 'p-';
 
 export type InputProps = {
     /**
@@ -25,10 +15,47 @@ export type InputProps = {
     type: "checkbox" | "radio",
 
     /**
-     * Specify label values or render your own children for
-     * things like icons and states.
+     * Customize the rendering of the checkbox, radio,
+     * or switch.
+     *
+     * **Note:** You are responsible for providing
+     * the details of pretty-checkbox's `div.state`.
      */
-    children: React.Node | (() => React.Node),
+    children?: React.Node | (() => React.Node),
+
+    /**
+     * Customize the rendering of the checkbox, radio,
+     * or switch.
+     *
+     * **Note:** You are responsible for providing
+     * the details of pretty-checkbox's `div.state`.
+     */
+    render?: (() => React.Node),
+
+    /**
+     * The style of the checkbox or radio.
+     */
+    style?: "fill" | "thick",
+
+    /**
+     * The shape of the checkbox or radio component.
+     */
+    shape?: "round" | "curve",
+
+    /**
+     * Render a custom font icon in the checkbox or radio.
+     */
+    icon?: React.Node,
+
+    /**
+     * Render a custom `.svg` in the checkbox or radio.
+     */
+    svg?: React.Element<'svg'>,
+
+    /**
+     * Render a custom `img` in the checkbox or radio.
+     */
+    image?: React.Element<'img'>,
 
     /**
      * Additional class selectors to pass to the `pretty` element.
@@ -64,7 +91,7 @@ export type InputProps = {
     /**
      * Specify animations to add to the checkbox, radio, or switch.
      */
-    animation?: string,
+    animation?: "smooth" | "jelly" | "tada" | "rotate" | "pulse",
 
     /**
      * Control the state of your component by deciding when it can be checked/unchecked.
@@ -87,41 +114,71 @@ export type InputProps = {
     bigger?: boolean
 };
 
-const getPrettySelector = ({ className }) => {
-    if (
-        !className ||
-        blacklist['p-default'].every(selector => !className.includes(selector))
-    ) {
-        return 'p-default';
+const fillClassNameForIcons = (component: React.Node, className: string): React.Node => {
+    if (!component) {
+        return null;
     }
+
+    return React.cloneElement(component, {
+        ...component.props,
+        className: classNames(className, component.props.className)
+    });
+};
+
+/**
+ * Handles custom or default rendering of the pretty-checkbox `div.state` class.
+ */
+const PrettyInputState = ({ children, render, id, color, icon, svg, image }: InputProps): React.Node => {
+    if (typeof children === 'function') {
+        return children();
+    }
+
+    if (typeof render === 'function') {
+        return render();
+    }
+
+    return (
+        <div className={classNames('state', color ? PREFIX + color : null)}>
+            {fillClassNameForIcons(icon, 'icon') || fillClassNameForIcons(svg, 'svg') || fillClassNameForIcons(image, 'image') || null}
+            {children ? <label htmlFor={id}>{children}</label> : null}
+        </div>
+    );
 };
 
 function Input(props: InputProps) {
     const {
         className,
-        children,
         value,
         onChange,
         id,
         type,
         inputProps,
-        color,
         animation,
         checked,
         disabled,
         locked,
-        bigger
+        bigger,
+        shape,
+        style,
+        image,
+        svg,
+        icon
     } = props;
+
+    if ((icon && svg) || (icon && image) || (svg && image)) {
+        throw new Error('icon, svg, and image are mutually exclusive props; choose one');
+    }
 
     return (
         <div
             className={classNames(
                 'pretty',
-                getPrettySelector(props),
-                animation,
+                animation ? PREFIX + animation : null,
                 className,
-                locked ? 'p-locked' : null,
-                bigger ? 'p-bigger' : null
+                shape ? PREFIX + shape : null,
+                style ? PREFIX + style : null,
+                locked ? `${PREFIX}locked` : null,
+                bigger ? `${PREFIX}bigger` : null
             )}
         >
             <input
@@ -133,13 +190,7 @@ function Input(props: InputProps) {
                 disabled={disabled}
                 {...inputProps}
             />
-            <div className={classNames('state', color)}>
-                {typeof children === 'function' ? (
-                    children()
-                ) : (
-                    <label htmlFor={id || null}>{children}</label>
-                )}
-            </div>
+            <PrettyInputState {...props} />
         </div>
     );
 }

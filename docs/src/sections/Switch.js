@@ -1,23 +1,23 @@
 import React from 'react';
 
-import { Checkbox } from 'pretty-checkbox-react';
+import { Switch as ReactSwitch } from 'pretty-checkbox-react';
 
 import { Title } from '../components/Title';
 import { CollapseContainer } from '../components/CollapseContainer';
 
 import {
-  LiveProvider,
-  LiveEditor,
-  LiveError,
-  LivePreview
+    LiveProvider,
+    LiveEditor,
+    LiveError,
+    LivePreview
 } from 'react-live';
 
-const scope = { Checkbox };
+const scope = { ReactSwitch };
 
 const basicSwitch = `<>
-    <Checkbox className="p-switch">Outline</Checkbox>
-    <Checkbox className="p-switch p-fill">Fill</Checkbox>
-    <Checkbox className="p-switch p-slim">Slim</Checkbox>
+    <ReactSwitch>Outline</ReactSwitch>
+    <ReactSwitch shape="fill">Fill</ReactSwitch>
+    <ReactSwitch shape="slim">Slim</ReactSwitch>
 </>`;
 
 function Switch() {
@@ -25,7 +25,9 @@ function Switch() {
         <>
             <Title>Switch</Title>
             <div className="content">
-                <p>Add class <strong>p-switch</strong>. For shapes add class, <strong>p-outline</strong> or <strong>p-fill</strong> or <strong>p-slim</strong></p>
+                <p>Use the <strong>Switch</strong> component to start using switches as a checkbox or a radio.
+                Customize the feel of switches via <strong>shape</strong> props. Use any of the following values:
+                {' '}<strong>outline</strong> (default), <strong>fill</strong>, or <strong>slim</strong>.</p>
             </div>
             <LiveProvider code={basicSwitch} scope={scope}>
                 <CollapseContainer title="iOS Style" demo={<LivePreview />}>
