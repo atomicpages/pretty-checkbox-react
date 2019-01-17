@@ -11,6 +11,10 @@ import Image from './sections/Image';
 import Animations from './sections/Animations';
 import Plain from './sections/Plain';
 import Indeterminate from './sections/Indeterminate';
+import DisableLock from './sections/DisableLock';
+import Size from './sections/Size';
+import PrettyRadio from './sections/Radio';
+import Customize from './sections/Customize';
 
 import './styles/app.scss';
 
@@ -87,6 +91,18 @@ function App() {
                 </div>
                 <div className="col-md-8 mx-auto">
                     <section className="section" id="indeterminate"><Indeterminate /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="disable-lock"><DisableLock /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="size"><Size /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="radio"><PrettyRadio /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="scss-settings"><Customize /></section>
                 </div>
             </div>
             <div className="footer text-center">Made with ❤ by Dennis Thompson</div>

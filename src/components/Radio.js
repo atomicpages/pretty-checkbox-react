@@ -3,27 +3,45 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Input from './Input';
+import Input, { PREFIX } from './Input';
 import type { InputProps } from './Input';
 
-const getDefaultSelector = ({ className }): string | null => {
-    if (!className || (className && className.indexOf('p-switch') === -1)) {
-        return 'p-round';
-    }
+type RadioProps = {
+    ...InputProps,
 
-    return null;
+    /**
+     * The name of the radio group.
+     */
+    name: string
 };
 
-function Radio(props: InputProps) {
-    const { className, ...rest } = props;
+const getBaseClassName = ({ icon, image, svg }: RadioProps) => {
+    let base = `${PREFIX}default`;
+
+    if (icon) {
+        base = `${PREFIX}icon`;
+    } else if (svg) {
+        base = `${PREFIX}svg`;
+    } else if (image) {
+        base = `${PREFIX}image`;
+    }
+
+    return base;
+};
+
+function Radio(props: RadioProps) {
+    const { className, name, inputProps, ...rest } = props;
 
     return (
         <Input
             type="radio"
-            className={classNames(getDefaultSelector(props), className)}
+            className={classNames(getBaseClassName(props), className)}
+            inputProps={{ ...inputProps, name: name }}
             {...rest}
         />
     );
 }
+
+Radio.defaultProps = { shape: 'round' };
 
 export default Radio;

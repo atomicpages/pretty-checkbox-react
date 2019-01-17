@@ -1,5 +1,7 @@
 <h4 align="center">Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React</h4>
 
+![](https://img.shields.io/apm/l/gh-pages.svg?style=flat-square)
+
 <p align="center">
  <a href="https://github.com/atomicpages/pretty-checkbox-react/releases">
     <img src="https://img.shields.io/github/release/atomicpages/pretty-checkbox-react.svg?style=flat-square&colorA=8033b0&colorB=75b7dd" alt="Github Release">
@@ -16,7 +18,7 @@
 <div class="highlight highlight-source-shell">
 <pre>
 <div align="center"><strong >Demo and documentation</strong></div>
-<div align="center"><a align="center" href="https://lokesh-coder.github.io/pretty-checkbox/">https://lokesh-coder.github.io/pretty-checkbox/</a></div>
+<div align="center"><a align="center" href="https://atomicpages.github.io/pretty-checkbox-react/">https://atomicpages.github.io/pretty-checkbox-react/</a></div>
 </pre>
 </div>
 
@@ -35,8 +37,11 @@ Include the script file and then the component:
 <script type="text/javascript">
 function App() {
     return React.createElement(
-        Checkbox,
-        { animation: 'p-smooth' },
+        PrettyCheckboxReact.Checkbox,
+        {
+            animation: 'smooth',
+            shape: 'curve'
+        },
         React.createElement(
             'label',
             null,
@@ -49,8 +54,40 @@ ReactDOM.render(App, document.querySelector('body'));
 </script>
 ```
 
+#### Webpack + Rollup
+If you're using webpack or rollup then with JSX you can write this more succulently:
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { Checkbox } from 'pretty-checkbox-react';
+
+function App() {
+    return <Checkbox animation="smooth" shape="curve">Check me!</Checkbox>;
+}
+
+ReactDOM.render(App, document.querySelector('body'));
+```
+
+### Getting Started
+Install `pretty-checkbox` and `pretty-checkbox-react` through NPM or yarn:
+
+```bash
+yarn pretty-checkbox pretty-checkbox-react # or
+npm i pretty-checkbox pretty-checkbox-react --save
+```
+
+> `pretty-checkbox` is a _peer_ dependency so you need to install it yourself!
+
+Make the dependencies available and begin using! `pretty-checkbox-react` exposes three components for your use:
+
+* Checkbox
+* Radio
+* Switch
+
 ### Contributions
-Thanks to all those good people who spend their valuable time and helped to improve this library. Any Contributions are welcome!
+Shout out to [Lokesh](https://github.com/lokesh-coder) for creating the original [pretty-checkbox library](https://github.com/lokesh-coder/pretty-checkbox)!
 
 ### License
 This project is licensed under the MIT License

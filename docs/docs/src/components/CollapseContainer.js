@@ -3,33 +3,50 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type Props = {
+type Props = {|
     title: string,
     children: React.Node,
-    demo: React.Node
-}
+    demo: React.Node,
+    canCollapse: boolean
+|};
 
-export class CollapseContainer extends React.Component {    
-    state = { collapsed: true };
+type State = {| collapsed: boolean |};
+
+const ToggleSwitch = ({ handleToggleCode, collapsed, canCollapse }: { handleToggleCode: () => void, collapsed: boolean, canCollapse: boolean }): React.Element<'div'> | null => {
+    if (!canCollapse) {
+        return null;
+    }
+
+    return (
+        <div className="show-code" onClick={handleToggleCode}>
+            {collapsed ? 'show' : 'hide'}
+            {' code '}
+            <i className={classNames('mdi', collapsed ? 'mdi-code-tags' : 'mdi-chevron-down')} />
+        </div>
+    );
+};
+
+export class CollapseContainer extends React.Component<Props, State> {
+    state: State = { collapsed: true };
+
+    static defaultProps = { canCollapse: true };
 
     handleToggleCode = () => this.setState({ collapsed: !this.state.collapsed });
 
-    render(props: Props) {
+    render() {
         return (
             <div className="block card light mb-3">
                 <div className="card-header bg-transparent d-flex justify-content-between">
                     <h6 className="mb-0">{this.props.title}</h6>
-                    <div className="show-code" onClick={this.handleToggleCode}>
-                        {this.state.collapsed ? 'show' : 'hide'}
-                        {' code '}
-                        <i className={classNames('mdi', this.state.collapsed ? 'mdi-code-tags' : 'mdi-chevron-down')} />
-                    </div>
+                    <ToggleSwitch handleToggleCode={this.handleToggleCode}
+                        collapsed={this.state.collapsed}
+                        canCollapse={this.props.canCollapse} />
                 </div>
                 <div className="card-body">{this.props.demo}</div>
                 <div className={classNames('card-footer animated', this.state.collapsed ? 'hide' : 'fadeIn')}>
                     {this.props.children}
                 </div>
             </div>
-        )
+        );
     }
 }

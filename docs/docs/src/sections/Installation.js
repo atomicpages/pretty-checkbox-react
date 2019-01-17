@@ -5,7 +5,7 @@ import { Card } from '../components/Card';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/dist/styles/prism';
 
-const basicUsgae = `import { Checkbox } from 'pretty-checkbox-react';
+const basicUsage = `import { Checkbox } from 'pretty-checkbox-react';
 
 function Demo() {
     return <Checkbox>Aswesome!</Checkbox>;
@@ -55,7 +55,7 @@ function Installation() {
                     {' frameworks.'}
                 </p>
                 <Card>
-                    <SyntaxHighlighter language="jsx" style={darcula}>{basicUsgae}</SyntaxHighlighter>
+                    <SyntaxHighlighter language="jsx" style={darcula}>{basicUsage}</SyntaxHighlighter>
                 </Card>
             </div>
         </>
