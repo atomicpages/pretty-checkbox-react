@@ -111,10 +111,15 @@ export type InputProps = {
     /**
      * Make the checkbox, radio, or switch bigger.
      */
-    bigger?: boolean
+    bigger?: boolean,
+
+    /**
+     * Style the checkbox or radio as plain.
+     */
+    plain?: boolean
 };
 
-const fillClassNameForIcons = (component: React.Node, className: string): React.Node => {
+const fillClassNameForIcons = (component: React.Component<any>, className: string): React.Node => {
     if (!component) {
         return null;
     }
@@ -162,7 +167,8 @@ function Input(props: InputProps) {
         style,
         image,
         svg,
-        icon
+        icon,
+        plain
     } = props;
 
     if ((icon && svg) || (icon && image) || (svg && image)) {
@@ -178,7 +184,8 @@ function Input(props: InputProps) {
                 shape ? PREFIX + shape : null,
                 style ? PREFIX + style : null,
                 locked ? `${PREFIX}locked` : null,
-                bigger ? `${PREFIX}bigger` : null
+                bigger ? `${PREFIX}bigger` : null,
+                plain ? `${PREFIX}plain` : null
             )}
         >
             <input

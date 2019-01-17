@@ -6,6 +6,11 @@ import BasicCheckbox from './sections/BasicCheckbox';
 import Switch from './sections/Switch';
 import Colors from './sections/Colors';
 import FontIcons from './sections/FontIcons';
+import SVG from './sections/SVG';
+import Image from './sections/Image';
+import Animations from './sections/Animations';
+import Plain from './sections/Plain';
+import Indeterminate from './sections/Indeterminate';
 
 import './styles/app.scss';
 
@@ -67,6 +72,21 @@ function App() {
                 </div>
                 <div className="col-md-8 mx-auto">
                     <section className="section" id="fonticons"><FontIcons /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="svg"><SVG /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="image"><Image /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="animations"><Animations /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="plain"><Plain /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="indeterminate"><Indeterminate /></section>
                 </div>
             </div>
             <div className="footer text-center">Made with ❤ by Dennis Thompson</div>

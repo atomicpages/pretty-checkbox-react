@@ -15,7 +15,7 @@ type CheckboxProps = {
     indeterminate?: boolean
 };
 
-const getBaseClassName = ({ animation, icon, image, svg }: CheckboxProps) => {
+const getBaseClassName = ({ icon, image, svg }: CheckboxProps) => {
     let base = `${PREFIX}default`;
 
     if (icon) {
@@ -26,18 +26,14 @@ const getBaseClassName = ({ animation, icon, image, svg }: CheckboxProps) => {
         base = `${PREFIX}image`;
     }
 
-    if (animation) {
-        base += PREFIX + animation;
-    }
-
     return base;
 };
 
 function Checkbox(props: CheckboxProps) {
     const { animation, icon, image, svg } = props;
 
-    if (animation && animation !== 'smooth' && (!icon || !image || !svg)) {
-        throw new Error(`${animation} is incompatible with default checkbox styles. You must specify an icon, image, or a svg.`);
+    if (animation && animation !== 'smooth' && animation !== 'pulse' && !icon && !image && !svg) {
+        throw new Error(`animation '${animation}' is incompatible with default checkbox styles. You must specify an icon, image, or a svg.`);
     }
 
     return <Input className={classNames(
