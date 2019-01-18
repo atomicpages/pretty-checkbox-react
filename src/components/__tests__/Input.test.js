@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, cleanup, getByTestId, fireEvent, getElementError } from 'react-testing-library';
+import { render, cleanup, getByTestId } from 'react-testing-library';
 import 'jest-dom/extend-expect';
 
 import Input from '../Input';
@@ -25,16 +25,6 @@ describe('Input tests', function () {
     });
 
     describe('Input className auto prefix', function () {
-        const { container } = render(
-            <Input color="primary"
-                animation="smooth"
-                style="fill"
-                bigger
-                locked>
-                Hello there.
-            </Input>
-        );
-
         it('should prefix colors', function () {
             const { container } = render(<Input color="primary">Hello there.</Input>);
             expect(getByTestId(container, 'pcr-state')).toHaveClass('p-primary');

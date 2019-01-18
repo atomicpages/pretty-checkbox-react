@@ -1,6 +1,6 @@
 {
     "name": "pretty-checkbox-react",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React",
     "keywords": [
         "Pretty",
@@ -82,7 +82,13 @@
     "jest": {
         "collectCoverage": true,
         "coverageDirectory": "<rootDir>/coverage",
-        "coverageReporters": ["json", "lcov", "text", "clover", "html"],
+        "coverageReporters": [
+            "json",
+            "lcov",
+            "text",
+            "clover",
+            "html"
+        ],
         "coverageThreshold": {
             "global": {
                 "branches": 90,
