@@ -1,6 +1,6 @@
 {
     "name": "pretty-checkbox-react",
-    "version": "1.0.0",
+    "version": "0.0.6",
     "description": "Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React",
     "keywords": [
         "Pretty",
@@ -20,10 +20,11 @@
     "module": "dist/pretty-checkbox-react.es.js",
     "browser": "dist/pretty-checkbox-react.umd.min.js",
     "scripts": {
-        "flow": "flow check src/**",
+        "flow": "flow focus-check src/**",
         "lint": "eslint src/**",
+        "pretest": "eslint src/**",
         "build": "rimraf dist/** && rollup -c rollup.config.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -59,6 +60,7 @@
         "flow": "^0.2.3",
         "flow-bin": "^0.90.0",
         "jest": "^23.6.0",
+        "jest-dom": "^3.0.0",
         "prettier": "^1.15.3",
         "pretty-checkbox": "^3.0.3",
         "react": "^16.7.0",
@@ -74,6 +76,20 @@
         "rollup-plugin-uglify": "^6.0.1"
     },
     "dependencies": {
+        "babel-core": "^7.0.0-bridge.0",
         "classnames": "^2.2.6"
+    },
+    "jest": {
+        "collectCoverage": true,
+        "coverageDirectory": "<rootDir>/coverage",
+        "coverageReporters": ["json", "lcov", "text", "clover", "html"],
+        "coverageThreshold": {
+            "global": {
+                "branches": 90,
+                "functions": 95,
+                "lines": 90,
+                "statements": 90
+            }
+        }
     }
 }

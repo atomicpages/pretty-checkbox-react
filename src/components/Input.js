@@ -45,7 +45,7 @@ export type InputProps = {
     /**
      * Render a custom font icon in the checkbox or radio.
      */
-    icon?: React.Node,
+    icon?: React.Element<any>,
 
     /**
      * Render a custom `.svg` in the checkbox or radio.
@@ -119,7 +119,14 @@ export type InputProps = {
     plain?: boolean
 };
 
-const fillClassNameForIcons = (component: React.Component<any>, className: string): React.Node => {
+/**
+ * Automatically append the className for icon component. This will automatically add
+ * `icon` to icon prop components, `svg` to prop svg components, and `image` to
+ * image prop components.
+ * @param {React.Element<*>} component The component to add the className to.
+ * @param {string} className The className to fill on the element.
+ */
+const fillClassNameForIcons = (component: React.Element<any> | void, className: string): React.Node => {
     if (!component) {
         return null;
     }
@@ -143,7 +150,7 @@ const PrettyInputState = ({ children, render, id, color, icon, svg, image }: Inp
     }
 
     return (
-        <div className={classNames('state', color ? PREFIX + color : null)}>
+        <div className={classNames('state', color ? PREFIX + color : null)} data-testid="pcr-state">
             {fillClassNameForIcons(icon, 'icon') || fillClassNameForIcons(svg, 'svg') || fillClassNameForIcons(image, 'image') || null}
             {children ? <label htmlFor={id}>{children}</label> : null}
         </div>
@@ -177,6 +184,7 @@ function Input(props: InputProps) {
 
     return (
         <div
+            data-testid="pcr-wrapper"
             className={classNames(
                 'pretty',
                 animation ? PREFIX + animation : null,
@@ -195,6 +203,7 @@ function Input(props: InputProps) {
                 onChange={onChange}
                 checked={checked}
                 disabled={disabled}
+                data-testid="pcr-input"
                 {...inputProps}
             />
             <PrettyInputState {...props} />

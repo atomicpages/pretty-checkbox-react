@@ -1,12 +1,12 @@
 {
-    "exclude": "node_modules/**",
     "presets": [
         "@babel/preset-flow",
         "@babel/preset-react",
         [
             "@babel/preset-env",
             {
-                "useBuiltIns": "usage"
+                "useBuiltIns": "usage",
+                "targets": "> 0.25%, not dead"
             }
         ]
     ],

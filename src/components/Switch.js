@@ -28,7 +28,7 @@ export type SwitchProps = {
 function Switch(props: SwitchProps) {
     const { type, shape, className, name, inputProps, ...rest } = props;
 
-    if (!shape && shape !== 'outline'  && shape !== 'fill' && shape !== 'slim') {
+    if (!shape || (shape !== 'outline'  && shape !== 'fill' && shape !== 'slim')) {
         throw new Error('Shape can be one of the following: outline, fill, or slim');
     }
 
@@ -40,6 +40,11 @@ function Switch(props: SwitchProps) {
         throw new Error('Switch animations can be one of the following: smooth, jelly, or tada');
     }
 
+    // if (type === 'radio' && !name) {
+    //     console.warn('Using a radio control without a name specified can lead to unexpected behavior');
+    // }
+
+    // $ExpectError
     return (
         <Input className={classNames(`${PREFIX}switch`, className)}
             type={type}

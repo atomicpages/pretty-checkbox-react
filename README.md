@@ -1,13 +1,11 @@
 <h4 align="center">Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React</h4>
 
-![](https://img.shields.io/apm/l/gh-pages.svg?style=flat-square)
-
 <p align="center">
  <a href="https://github.com/atomicpages/pretty-checkbox-react/releases">
     <img src="https://img.shields.io/github/release/atomicpages/pretty-checkbox-react.svg?style=flat-square&colorA=8033b0&colorB=75b7dd" alt="Github Release">
   </a>
    <a href="LICENSE">
-    <img src="https://img.shields.io/npm/l/pretty-checkbox-react.svg?style=flat-square&colorA=8033b0&colorB=75b7dd" alt="Licence">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/atomicpages/pretty-checkbox-react.svg?style=flat-square">
   </a>
    <a href="#">
     <img src="https://img.shields.io/npm/dm/pretty-checkbox-react.svg?style=flat-square&colorA=8033b0&colorB=75b7dd" alt="Downloads">

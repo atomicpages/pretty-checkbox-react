@@ -1,7 +1,15 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es6": true
+        "node": true,
+        "es6": true,
+        "jest": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect",
+            "flowVersion": "0.90.0"
+        }
     },
     "extends": [
         "eslint:recommended",
