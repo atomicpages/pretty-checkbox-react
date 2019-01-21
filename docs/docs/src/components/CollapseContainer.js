@@ -7,7 +7,8 @@ type Props = {|
     title: string,
     children: React.Node,
     demo: React.Node,
-    canCollapse: boolean
+    canCollapse: boolean,
+    collapsed?: boolean
 |};
 
 type State = {| collapsed: boolean |};
@@ -27,9 +28,12 @@ const ToggleSwitch = ({ handleToggleCode, collapsed, canCollapse }: { handleTogg
 };
 
 export class CollapseContainer extends React.Component<Props, State> {
-    state: State = { collapsed: true };
+    state: State = { collapsed: this.props.collapsed };
 
-    static defaultProps = { canCollapse: true };
+    static defaultProps = {
+        canCollapse: true,
+        collapsed: true
+    };
 
     handleToggleCode = () => this.setState({ collapsed: !this.state.collapsed });
 
@@ -42,7 +46,7 @@ export class CollapseContainer extends React.Component<Props, State> {
                         collapsed={this.state.collapsed}
                         canCollapse={this.props.canCollapse} />
                 </div>
-                <div className="card-body">{this.props.demo}</div>
+                {this.props.demo ? <div className="card-body">{this.props.demo}</div> : null }
                 <div className={classNames('card-footer animated', this.state.collapsed ? 'hide' : 'fadeIn')}>
                     {this.props.children}
                 </div>

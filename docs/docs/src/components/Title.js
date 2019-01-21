@@ -1,3 +1,7 @@
-import React from 'react';
+// @flow
 
-export const Title = ({ children }) => <h5 className="mb-3">{children}</h5>;
+import * as React from 'react';
+
+type Props = { children: React.Node };
+
+export const Title = ({ children }: Props) => <h5 className="mb-3">{children}</h5>;

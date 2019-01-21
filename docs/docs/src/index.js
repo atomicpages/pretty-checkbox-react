@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import ListProps from './components/ListProps';
 import Installation from './sections/Installation';
 import BasicCheckbox from './sections/BasicCheckbox';
 import Switch from './sections/Switch';
@@ -36,6 +37,12 @@ function App() {
                         </a>
                     </li>
                     <li className="nav-item">
+                        <a className="nav-link" href="#list-props">
+                            <i className="mdi mdi-cogs"></i>
+                            <span className="d-none d-sm-inline">Props</span>
+                        </a>
+                    </li>
+                    <li className="nav-item">
                         <a className="nav-link" href="#basic-checkbox">
                             <i className="mdi mdi-checkbox-marked"></i>
                             <span className="d-none d-sm-inline">Checkboxes</span>
@@ -64,6 +71,9 @@ function App() {
             <div className="container">
                 <div className="col-md-8 mx-auto">
                     <section className="section" id="installation"><Installation /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="list-props"><ListProps /></section>
                 </div>
                 <div className="col-md-8 mx-auto">
                     <section className="section" id="basic-checkbox"><BasicCheckbox /></section>

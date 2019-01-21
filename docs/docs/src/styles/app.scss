@@ -318,3 +318,9 @@ section h5 {
     position: relative;
     top: 7px;
 }
+table td { font-family: Consolas, Monaco, "Andale Mono", monospace; }
+table * { cursor: default; }
+.has-tooltip {
+    border-bottom: 1px dotted black;
+    cursor: help;
+}

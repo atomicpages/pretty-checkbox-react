@@ -1,5 +1,7 @@
 docs/
+src/
 node_modules/
 coverage/
 flow-typed/
 *.gif
+.travis.yml
