@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/pretty-checkbox-react/static/js/runtime~main.5fa05ba9.js"
   },
   {
-    "revision": "b7fac1d7f4f4fc20d606",
-    "url": "/pretty-checkbox-react/static/js/main.b7fac1d7.chunk.js"
+    "revision": "41b19d002dec0d6e08a5",
+    "url": "/pretty-checkbox-react/static/js/main.41b19d00.chunk.js"
   },
   {
     "revision": "eb2fa0ec2a7691a48d11",
     "url": "/pretty-checkbox-react/static/js/1.eb2fa0ec.chunk.js"
   },
   {
-    "revision": "b7fac1d7f4f4fc20d606",
-    "url": "/pretty-checkbox-react/static/css/main.1f5885cd.chunk.css"
+    "revision": "41b19d002dec0d6e08a5",
+    "url": "/pretty-checkbox-react/static/css/main.2e003ba1.chunk.css"
   },
   {
-    "revision": "c9c6917720fa3f69114e0505c92c031b",
+    "revision": "d382078455cca9f904efd64cf25cc31e",
     "url": "/pretty-checkbox-react/index.html"
   }
 ];
