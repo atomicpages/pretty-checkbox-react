@@ -12,7 +12,7 @@ jobs:
   include:
     - stage: Coverage Report
     - node_js node
-    - script: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+    - script: jest && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
 
 deploy:
   provider: npm
