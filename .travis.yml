@@ -3,9 +3,17 @@ node_js:
 - '9'
 - '10'
 - '11'
+
 script:
-- npm run test
-- npm run build
+  - npm run test
+  - npm run build
+
+jobs:
+  include:
+    - stage: Coverage Report
+    - node_js node
+    - script: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+
 deploy:
   provider: npm
   email: djtthompson@gmail.com

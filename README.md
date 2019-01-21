@@ -13,6 +13,9 @@
   <a href="https://travis-ci.org/atomicpages/pretty-checkbox-react" target="_blank" rel="nofollow noreferred noopener">
     <img alt="Build Status" src="https://img.shields.io/travis/atomicpages/pretty-checkbox-react.svg?style=flat-square">
   </a>
+  <a href='https://coveralls.io/github/atomicpages/pretty-checkbox-react?branch=master'>
+    <img src='https://coveralls.io/repos/github/atomicpages/pretty-checkbox-react/badge.svg?branch=master' alt='Coverage Status' />
+  </a>
 </p>
 <br>
 
