@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Checkbox } from 'pretty-checkbox-react';
-
 import { Title } from '../components/Title';
 import { CollapseContainer } from '../components/CollapseContainer';
 

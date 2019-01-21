@@ -2,6 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
+import { getBaseClassName } from '../utils/utils';
 
 import Input, { PREFIX } from './Input';
 import type { InputProps } from './Input';
@@ -15,20 +16,6 @@ type CheckboxProps = {
     indeterminate?: boolean
 };
 
-const getBaseClassName = ({ icon, image, svg }: CheckboxProps) => {
-    let base = `${PREFIX}default`;
-
-    if (icon) {
-        base = `${PREFIX}icon`;
-    } else if (svg) {
-        base = `${PREFIX}svg`;
-    } else if (image) {
-        base = `${PREFIX}image`;
-    }
-
-    return base;
-};
-
 function Checkbox(props: CheckboxProps) {
     const { animation, icon, image, svg } = props;
 
@@ -37,7 +24,7 @@ function Checkbox(props: CheckboxProps) {
     }
 
     return <Input className={classNames(
-        getBaseClassName(props),
+        getBaseClassName(props, PREFIX),
         props.indeterminate ? 'p-has-indeterminate' : null
     )} type="checkbox" {...props} />;
 }

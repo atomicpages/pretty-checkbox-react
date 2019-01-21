@@ -25,7 +25,15 @@ function App() {
             <div className="jumbotron jumbotron-fluid mb-0 text-center">
                 <div className="container">
                     <h1 className="brand">pretty checkbox react</h1>
-                    <p>A tiny react wrapper around pretty checkbox CSS library</p>
+                    <p>
+                        A tiny react wrapper around pretty checkbox CSS library{' '}
+                        <iframe src="https://ghbtns.com/github-btn.html?user=atomicpages&repo=pretty-checkbox-react&type=star&count=true"
+                            frameBorder="0"
+                            scrolling="0"
+                            width="170px"
+                            height="20px"
+                            title="Github Stargazers"></iframe>
+                    </p>
                 </div>
             </div>
             <nav className="navbar navbar-expand-lg navbar-light bg-white borbot mb-3">

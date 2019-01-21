@@ -45,7 +45,7 @@ const umd_export = {
     plugins: [
         babel(),
         ...commonPlugins,
-        // uglify()
+        uglify()
     ]
 };
 
@@ -54,14 +54,14 @@ export default [
         ...baseConfig,
         output: [
             {
-                file: 'dist/pretty-checkbox-react.es.js',
+                file: pkg.module,
                 sourcemap: 'inline',
                 format: 'esm',
                 banner: `/* ${pkg.module}:${pkg.version} */`,
                 compact: true
             },
             {
-                file: 'dist/pretty-checkbox-react.cjs.js',
+                file: pkg.main,
                 sourcemap: 'inline',
                 format: 'cjs',
                 banner: `/* ${pkg.main}:${pkg.version} */`,
