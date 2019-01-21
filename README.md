@@ -4,18 +4,19 @@
  <a href="https://github.com/atomicpages/pretty-checkbox-react/releases">
     <img src="https://img.shields.io/github/release/atomicpages/pretty-checkbox-react.svg?style=flat-square&colorA=8033b0&colorB=75b7dd" alt="Github Release">
   </a>
-   <a href="LICENSE">
+   <a href="https://github.com/atomicpages/pretty-checkbox-react/blob/master/LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/github/license/atomicpages/pretty-checkbox-react.svg?style=flat-square">
   </a>
-   <a href="#">
     <img src="https://img.shields.io/npm/dm/pretty-checkbox-react.svg?style=flat-square&colorA=8033b0&colorB=75b7dd" alt="Downloads">
-  </a>
   <a href="https://travis-ci.org/atomicpages/pretty-checkbox-react" target="_blank" rel="nofollow noreferred noopener">
     <img alt="Build Status" src="https://img.shields.io/travis/atomicpages/pretty-checkbox-react.svg?style=flat-square">
   </a>
   <a href='https://coveralls.io/github/atomicpages/pretty-checkbox-react?branch=master'>
     <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/atomicpages/pretty-checkbox-react/master.svg?style=flat-square">
   </a>
+  <a href="https://codeclimate.com/github/atomicpages/pretty-checkbox-react/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/e7cca7813f2905d7aca7/maintainability" />
+    </a>
 </p>
 <br>
 
