@@ -11,10 +11,10 @@
   <a href="https://travis-ci.org/atomicpages/pretty-checkbox-react" target="_blank" rel="nofollow noreferred noopener">
     <img alt="Build Status" src="https://img.shields.io/travis/atomicpages/pretty-checkbox-react.svg?style=flat-square">
   </a>
-  <a href='https://coveralls.io/github/atomicpages/pretty-checkbox-react?branch=master'>
+  <a href='https://coveralls.io/github/atomicpages/pretty-checkbox-react?branch=master' target="_blank">
     <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/atomicpages/pretty-checkbox-react/master.svg?style=flat-square">
   </a>
-  <a href="https://codeclimate.com/github/atomicpages/pretty-checkbox-react/maintainability">
+  <a href="https://codeclimate.com/github/atomicpages/pretty-checkbox-react/maintainability" target="_blank">
     <img src="https://api.codeclimate.com/v1/badges/e7cca7813f2905d7aca7/maintainability" />
     </a>
 </p>
