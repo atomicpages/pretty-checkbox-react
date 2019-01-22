@@ -324,3 +324,6 @@ table * { cursor: default; }
     border-bottom: 1px dotted black;
     cursor: help;
 }
+.table {
+    th { border-top: 0 none; }
+}

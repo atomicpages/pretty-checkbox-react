@@ -31,6 +31,7 @@ type Prop = {
             properties: Array<string>
         }
     },
+    defaultValue: string,
     description: string
 };
 
@@ -101,12 +102,13 @@ export default function ListProps() {
 
                     return (
                         <CollapseContainer collapsed={index !== 0} key={index} title={key}>
-                            <table>
+                            <table className="table table-striped table-hover table-sm">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
                                         <th>Type</th>
                                         <th>Required</th>
+                                        <th width="20%">Default Value</th>
                                         <th>Description</th>
                                     </tr>
                                 </thead>
@@ -117,9 +119,12 @@ export default function ListProps() {
                                                 <tr key={key}>
                                                     <td>{key}</td>
                                                     <td title={value.flowType.raw}>
-                                                        <span className={classNames(value.flowType.raw ? 'has-tooltip' : null)}>{value.flowType.name}</span>
+                                                        <span className={classNames(value.flowType.raw ? 'has-tooltip' : null)}>
+                                                            {value.flowType.name === 'signature' ? value.flowType.type : value.flowType.name}
+                                                        </span>
                                                     </td>
                                                     <td>{value.required.toString()}</td>
+                                                    <td>{value.defaultValue  ? value.defaultValue.value : null}</td>
                                                     <td dangerouslySetInnerHTML={{__html: markdown.toHTML(value.description)}}></td>
                                                 </tr>
                                             );

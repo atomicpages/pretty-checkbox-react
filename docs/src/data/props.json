@@ -137,6 +137,17 @@
                 },
                 "description": "Additional class selectors to pass to the `pretty` element."
             },
+            "prettySelector": {
+                "required": false,
+                "flowType": {
+                    "name": "string"
+                },
+                "defaultValue": {
+                    "computed": false,
+                    "value": "pretty"
+                },
+                "description": "Set this to your custom value for `$pretty--class-name`. If you have not changed this in `.scss` then _do not modify this prop_."
+            },
             "value": {
                 "required": false,
                 "flowType": {
@@ -404,6 +415,17 @@
                     "name": "string"
                 },
                 "description": "Additional class selectors to pass to the `pretty` element."
+            },
+            "prettySelector": {
+                "required": false,
+                "flowType": {
+                    "name": "string"
+                },
+                "defaultValue": {
+                    "computed": false,
+                    "value": "pretty"
+                },
+                "description": "Set this to your custom value for `$pretty--class-name`. If you have not changed this in `.scss` then _do not modify this prop_."
             },
             "value": {
                 "required": false,
@@ -697,6 +719,17 @@
                     "name": "string"
                 },
                 "description": "Additional class selectors to pass to the `pretty` element."
+            },
+            "prettySelector": {
+                "required": false,
+                "flowType": {
+                    "name": "string"
+                },
+                "defaultValue": {
+                    "computed": false,
+                    "value": "pretty"
+                },
+                "description": "Set this to your custom value for `$pretty--class-name`. If you have not changed this in `.scss` then _do not modify this prop_."
             },
             "value": {
                 "required": false,

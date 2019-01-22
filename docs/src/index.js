@@ -80,7 +80,7 @@ function App() {
                 <div className="col-md-8 mx-auto">
                     <section className="section" id="installation"><Installation /></section>
                 </div>
-                <div className="col-md-8 mx-auto">
+                <div className="col-md-12 mx-auto">
                     <section className="section" id="list-props"><ListProps /></section>
                 </div>
                 <div className="col-md-8 mx-auto">

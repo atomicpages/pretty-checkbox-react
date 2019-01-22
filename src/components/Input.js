@@ -63,6 +63,12 @@ export type InputProps = {
     className?: string,
 
     /**
+     * Set this to your custom value for `$pretty--class-name`. If you have not changed
+     * this in `.scss` then _do not modify this prop_.
+     */
+    prettySelector?: string,
+
+    /**
      * Specify a value for the underlying `input` element.
      */
     value?: string | number | string[],
@@ -186,7 +192,7 @@ function Input(props: InputProps) {
         <div
             data-testid="pcr-wrapper"
             className={classNames(
-                'pretty',
+                props.prettySelector,
                 animation ? PREFIX + animation : null,
                 className,
                 shape ? PREFIX + shape : null,
@@ -210,5 +216,7 @@ function Input(props: InputProps) {
         </div>
     );
 }
+
+Input.defaultProps = { prettySelector: 'pretty' };
 
 export default Input;
