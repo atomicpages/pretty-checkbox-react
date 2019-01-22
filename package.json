@@ -24,6 +24,7 @@
         "lint": "eslint src/**",
         "pretest": "eslint src/**",
         "build": "rimraf dist/** && rollup -c rollup.config.js",
+        "prepublish": "rimraf dist/** && rollup -c rollup.config.js",
         "test": "jest"
     },
     "repository": {

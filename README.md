@@ -11,28 +11,34 @@
   <a href="https://travis-ci.org/atomicpages/pretty-checkbox-react" target="_blank" rel="nofollow noreferred noopener">
     <img alt="Build Status" src="https://img.shields.io/travis/atomicpages/pretty-checkbox-react.svg?style=flat-square">
   </a>
-  <a href='https://coveralls.io/github/atomicpages/pretty-checkbox-react?branch=master' target="_blank">
+  <a href='https://coveralls.io/github/atomicpages/pretty-checkbox-react?branch=master' target="_blank" rel="nofollow noreferred noopener">
     <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/atomicpages/pretty-checkbox-react/master.svg?style=flat-square">
   </a>
-  <a href="https://codeclimate.com/github/atomicpages/pretty-checkbox-react/maintainability" target="_blank">
+  <a href="https://codeclimate.com/github/atomicpages/pretty-checkbox-react/maintainability" target="_blank" rel="nofollow noreferred noopener">
     <img src="https://api.codeclimate.com/v1/badges/e7cca7813f2905d7aca7/maintainability" />
     </a>
 </p>
 <br>
 
-<div class="highlight highlight-source-shell">
-<pre>
-<div align="center"><strong >Demo and documentation</strong></div>
-<div align="center"><a align="center" href="https://atomicpages.github.io/pretty-checkbox-react/">https://atomicpages.github.io/pretty-checkbox-react/</a></div>
-</pre>
-</div>
-
 <div align="center">
     <img src="preview.gif" alt="Pretty checkbox preview" />
 </div>
 
+### Demos and Docs
+Checkout the awesome [doc website](https://atomicpages.github.io/pretty-checkbox-react/) with sweet code examples that will update in real time after you make changes!
+
+#### IDC, just show me the Props
+Just want to see the props? [As you wish](https://atomicpages.github.io/pretty-checkbox-react/#list-props).
+
+#### Code Sandbox
+Fancy something else? Want a standalone example? Looking for customize the `pretty-checkbox` theme? How about forking and testing your own changes in code sandbox? It will allow you to prototype and make complex examples all within your browser.
+
+[![Edit pretty-checkbox-react](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/40v46649m0)
+
 ### Browser
-Include the script file and then the component:
+Include the script file and all dependencies.
+
+> Note: keep reading for examples using webpack/rollup/or some other modern web bundler.
 
 ```html
 <script type="text/javascript" src="node_modules/react/umd/react.production.min.js"></script>
@@ -83,7 +89,7 @@ yarn pretty-checkbox pretty-checkbox-react # or
 npm i pretty-checkbox pretty-checkbox-react --save
 ```
 
-> `pretty-checkbox` is a _peer_ dependency so you need to install it yourself!
+> `pretty-checkbox` is a _peer_ dependency so you need to install it yourself or reference the CSS manually!
 
 Make the dependencies available and begin using! `pretty-checkbox-react` exposes three components for your use:
 
@@ -92,7 +98,7 @@ Make the dependencies available and begin using! `pretty-checkbox-react` exposes
 * Switch
 
 ### Contributions
-Shout out to [Lokesh](https://github.com/lokesh-coder) for creating the original [pretty-checkbox library](https://github.com/lokesh-coder/pretty-checkbox)!
+Shout out to [Lokesh](https://github.com/lokesh-coder) for creating the original [pretty-checkbox library](https://github.com/lokesh-coder/pretty-checkbox) :star:
 
 ### License
 This project is licensed under the MIT License
