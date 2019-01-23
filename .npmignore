@@ -5,3 +5,7 @@ coverage/
 flow-typed/
 *.gif
 .travis.yml
+.eslintrc.js
+.eslintignore
+.gitignore
+.prettierrc

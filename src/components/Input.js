@@ -8,7 +8,29 @@ import classNames from 'classnames';
  */
 export const PREFIX: string = 'p-';
 
-export type InputProps = {
+type SVG = {|
+    /**
+     * Render a custom `.svg` in the checkbox or radio.
+     */
+    svg: React.Element<'svg'>
+|};
+
+
+type Image = {|
+    /**
+     * Render a custom `img` in the checkbox or radio.
+     */
+    image: React.Element<'img'>
+|};
+
+type Icon = {|
+    /**
+     * Render a custom font icon in the checkbox or radio.
+     */
+    icon: React.Element<any>
+|};
+
+type BaseProps = {
     /**
      * Select the type if component: checkbox or radio.
      */
@@ -40,22 +62,7 @@ export type InputProps = {
     /**
      * The shape of the checkbox or radio component.
      */
-    shape?: "round" | "curve",
-
-    /**
-     * Render a custom font icon in the checkbox or radio.
-     */
-    icon?: React.Element<any>,
-
-    /**
-     * Render a custom `.svg` in the checkbox or radio.
-     */
-    svg?: React.Element<'svg'>,
-
-    /**
-     * Render a custom `img` in the checkbox or radio.
-     */
-    image?: React.Element<'img'>,
+    shape?: "round" | "curve" | "outline" | "fill" | "slim",
 
     /**
      * Additional class selectors to pass to the `pretty` element.
@@ -125,6 +132,17 @@ export type InputProps = {
     plain?: boolean
 };
 
+export type InputProps = {
+    ...BaseProps,
+    ...SVG
+} | {
+    ...BaseProps,
+    ...Image
+} | {
+    ...BaseProps,
+    ...Icon
+};
+
 /**
  * Automatically append the className for icon component. This will automatically add
  * `icon` to icon prop components, `svg` to prop svg components, and `image` to
@@ -146,7 +164,32 @@ const fillClassNameForIcons = (component: React.Element<any> | void, className: 
 /**
  * Handles custom or default rendering of the pretty-checkbox `div.state` class.
  */
-const PrettyInputState = ({ children, render, id, color, icon, svg, image }: InputProps): React.Node => {
+const PrettyInputState = (props: InputProps): React.Node => {
+    let node: {|
+        className: string,
+        node: any
+    |} | null = null;
+
+    const { children, render, id, color } = props;
+
+    // yuck, needed for type refinement :(
+    if (props.svg) {
+        node = {
+            className: 'svg',
+            node: props.svg
+        };
+    } else if (props.icon) {
+        node = {
+            className: 'icon',
+            node: props.icon
+        };
+    } else if (props.image) {
+        node = {
+            className: 'image',
+            node: props.image
+        };
+    }
+
     if (typeof children === 'function') {
         return children();
     }
@@ -157,7 +200,7 @@ const PrettyInputState = ({ children, render, id, color, icon, svg, image }: Inp
 
     return (
         <div className={classNames('state', color ? PREFIX + color : null)} data-testid="pcr-state">
-            {fillClassNameForIcons(icon, 'icon') || fillClassNameForIcons(svg, 'svg') || fillClassNameForIcons(image, 'image') || null}
+            {node ? fillClassNameForIcons(node.node, node.className) : null}
             {children ? <label htmlFor={id}>{children}</label> : null}
         </div>
     );
@@ -178,13 +221,10 @@ function Input(props: InputProps) {
         bigger,
         shape,
         style,
-        image,
-        svg,
-        icon,
         plain
     } = props;
 
-    if ((icon && svg) || (icon && image) || (svg && image)) {
+    if ((props.icon && props.svg) || (props.icon && props.image) || (props.svg && props.image)) {
         throw new Error('icon, svg, and image are mutually exclusive props; choose one');
     }
 
@@ -212,7 +252,10 @@ function Input(props: InputProps) {
                 data-testid="pcr-input"
                 {...inputProps}
             />
-            <PrettyInputState {...props} />
+            {
+                // $ExpectError
+                <PrettyInputState {...props} />
+            }
         </div>
     );
 }

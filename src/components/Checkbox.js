@@ -17,13 +17,19 @@ type CheckboxProps = {
 };
 
 function Checkbox(props: CheckboxProps) {
-    const { animation, icon, image, svg } = props;
+    const { animation } = props;
 
-    if (animation && animation !== 'smooth' && animation !== 'pulse' && !icon && !image && !svg) {
+    if (animation
+        && animation !== 'smooth'
+        && animation !== 'pulse'
+        && !props.icon
+        && !props.image
+        && !props.svg) {
         throw new Error(`animation '${animation}' is incompatible with default checkbox styles. You must specify an icon, image, or a svg.`);
     }
 
     return <Input className={classNames(
+        // $ExpectError
         getBaseClassName(props, PREFIX),
         props.indeterminate ? 'p-has-indeterminate' : null
     )} type="checkbox" {...props} />;

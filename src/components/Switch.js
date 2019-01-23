@@ -40,11 +40,6 @@ function Switch(props: SwitchProps) {
         throw new Error('Switch animations can be one of the following: smooth, jelly, or tada');
     }
 
-    // if (type === 'radio' && !name) {
-    //     console.warn('Using a radio control without a name specified can lead to unexpected behavior');
-    // }
-
-    // $ExpectError
     return (
         <Input className={classNames(`${PREFIX}switch`, className)}
             type={type}

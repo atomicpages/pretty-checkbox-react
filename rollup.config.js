@@ -30,7 +30,8 @@ const baseConfig = {
     plugins: [
         babel(),
         ...commonPlugins
-    ]
+    ],
+    external: ['react']
 };
 
 const umd_export = {
