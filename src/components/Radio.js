@@ -7,7 +7,7 @@ import { getBaseClassName } from '../utils/utils';
 import Input, { PREFIX } from './Input';
 import type { InputProps } from './Input';
 
-type RadioProps = {
+export type RadioProps = {
     ...InputProps,
 
     /**
