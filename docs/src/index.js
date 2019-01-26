@@ -16,6 +16,7 @@ import DisableLock from './sections/DisableLock';
 import Size from './sections/Size';
 import PrettyRadio from './sections/Radio';
 import Customize from './sections/Customize';
+import FAQ from './sections/FAQ';
 
 import './styles/app.scss';
 
@@ -69,9 +70,9 @@ function App() {
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#more">
-                            <i className="mdi mdi-dots-horizontal"></i>
-                            <span className="d-none d-sm-inline">More</span>
+                        <a className="nav-link" href="#faq">
+                            <i className="mdi mdi-help-circle"></i>
+                            <span className="d-none d-sm-inline">FAQ</span>
                         </a>
                     </li>
                 </ul>
@@ -121,6 +122,9 @@ function App() {
                 </div>
                 <div className="col-md-8 mx-auto">
                     <section className="section" id="scss-settings"><Customize /></section>
+                </div>
+                <div className="col-md-8 mx-auto">
+                    <section className="section" id="faq"><FAQ /></section>
                 </div>
             </div>
             <div className="footer text-center">Made with ❤ by Dennis Thompson</div>

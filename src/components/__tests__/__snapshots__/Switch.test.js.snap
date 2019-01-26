@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch tests Switch usage as a radio should behave as a radio 1`] = `
+<div>
+  <div
+    class="pretty p-switch p-slim"
+    data-testid="pcr-wrapper"
+  >
+    <input
+      data-testid="pcr-input"
+      id="foo"
+      type="radio"
+      value=""
+    />
+    <div
+      class="state"
+      data-testid="pcr-state"
+    />
+  </div>
+</div>
+`;
+
+exports[`Switch tests Switch usage as a radio should behave as a radio group 1`] = `
+<div>
+  <div
+    class="pretty p-switch p-outline"
+    data-testid="pcr-wrapper"
+  >
+    <input
+      data-testid="pcr-input"
+      id="demo"
+      name="radio-1"
+      type="radio"
+      value="r1"
+    />
+    <div
+      class="state"
+      data-testid="pcr-state"
+    >
+      <label
+        for="demo"
+      >
+        Hello there.
+      </label>
+    </div>
+  </div>
+  <div
+    class="pretty p-switch p-outline"
+    data-testid="pcr-wrapper"
+  >
+    <input
+      data-testid="pcr-input"
+      id="demo"
+      name="radio-1"
+      type="radio"
+      value="r2"
+    />
+    <div
+      class="state"
+      data-testid="pcr-state"
+    >
+      <label
+        for="demo"
+      >
+        General Kenobi. You are a bold one.
+      </label>
+    </div>
+  </div>
+  <div
+    class="pretty p-switch p-outline"
+    data-testid="pcr-wrapper"
+  >
+    <input
+      data-testid="pcr-input"
+      id="demo"
+      name="radio-1"
+      type="radio"
+      value="r3"
+    />
+    <div
+      class="state"
+      data-testid="pcr-state"
+    >
+      <label
+        for="demo"
+      >
+        Your move.
+      </label>
+    </div>
+  </div>
+</div>
+`;

@@ -30,6 +30,11 @@ type Icon = {|
     icon: React.Element<any>
 |};
 
+type Node = {|
+    className: string,
+    node: any
+|} | null;
+
 type BaseProps = {
     /**
      * Select the type if component: checkbox or radio.
@@ -43,7 +48,7 @@ type BaseProps = {
      * **Note:** You are responsible for providing
      * the details of pretty-checkbox's `div.state`.
      */
-    children?: React.Node | (() => React.Node),
+    children?: React.Node | ((Node) => React.Node),
 
     /**
      * Customize the rendering of the checkbox, radio,
@@ -52,7 +57,7 @@ type BaseProps = {
      * **Note:** You are responsible for providing
      * the details of pretty-checkbox's `div.state`.
      */
-    render?: (() => React.Node),
+    render?: ((Node) => React.Node),
 
     /**
      * The style of the checkbox or radio.
@@ -165,10 +170,7 @@ const fillClassNameForIcons = (component: React.Element<any> | void, className: 
  * Handles custom or default rendering of the pretty-checkbox `div.state` class.
  */
 const PrettyInputState = (props: InputProps): React.Node => {
-    let node: {|
-        className: string,
-        node: any
-    |} | null = null;
+    let node: Node = null;
 
     const { children, render, id, color } = props;
 
@@ -191,11 +193,11 @@ const PrettyInputState = (props: InputProps): React.Node => {
     }
 
     if (typeof children === 'function') {
-        return children();
+        return children(node);
     }
 
     if (typeof render === 'function') {
-        return render();
+        return render(node);
     }
 
     return (

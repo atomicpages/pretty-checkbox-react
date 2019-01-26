@@ -25,6 +25,7 @@ describe('Checkbox tests', function () {
 
             expect(handleChange).toHaveBeenCalledTimes(2);
             expect(getByTestId(container, 'pcr-input').checked).toBe(false);
+            expect(container).toMatchSnapshot();
         });
 
         it('should render icons with the correct classNames', function () {

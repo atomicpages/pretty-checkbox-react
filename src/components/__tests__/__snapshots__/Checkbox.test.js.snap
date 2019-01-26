@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox tests Basic Checkbox usage should behave as a checkbox 1`] = `
+<div>
+  <div
+    class="pretty p-default"
+    data-testid="pcr-wrapper"
+  >
+    <input
+      data-testid="pcr-input"
+      id="foo"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="state"
+      data-testid="pcr-state"
+    />
+  </div>
+</div>
+`;

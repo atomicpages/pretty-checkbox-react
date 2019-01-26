@@ -42,6 +42,7 @@ describe('Switch tests', function () {
 
             expect(handleChange).toHaveBeenCalledTimes(1);
             expect(getByTestId(container, 'pcr-input').checked).toBe(true);
+            expect(container).toMatchSnapshot();
         });
 
         it('should behave as a radio group', function () {
@@ -77,6 +78,7 @@ describe('Switch tests', function () {
             expect(r1.checked).toBe(false);
             expect(r2.checked).toBe(false);
             expect(r3.checked).toBe(true);
+            expect(container).toMatchSnapshot();
         });
     });
 

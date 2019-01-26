@@ -15,6 +15,7 @@ describe('Input tests', function () {
 
             rerender(<Input type="checkbox" render={() => <p data-testid="custom-test">Hello</p>} />);
             expect(() => getByTestId(container, 'custom-test')).not.toThrow();
+            expect(container).toMatchSnapshot();
         });
     });
 
