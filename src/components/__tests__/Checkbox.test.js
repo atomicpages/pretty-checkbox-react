@@ -11,9 +11,12 @@ describe('Checkbox tests', function () {
     describe('Basic Checkbox usage', function () {
         it('should behave as a checkbox', function () {
             const handleChange = jest.fn();
-            const { container } = render(<Checkbox id="foo" onChange={handleChange} />);
+            const { container, debug } = render(<Checkbox className="dummy-selector" id="foo" onChange={handleChange} />);
+
+            debug();
 
             expect(getByTestId(container, 'pcr-input')).toHaveAttribute('type', 'checkbox');
+            expect(getByTestId(container, 'pcr-wrapper')).toHaveClass('dummy-selector');
 
             fireEvent.click(getByTestId(container, 'pcr-input'));
 

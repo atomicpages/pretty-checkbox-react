@@ -3,7 +3,7 @@
 exports[`Checkbox tests Basic Checkbox usage should behave as a checkbox 1`] = `
 <div>
   <div
-    class="pretty p-default"
+    class="pretty p-default dummy-selector"
     data-testid="pcr-wrapper"
   >
     <input

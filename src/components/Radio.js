@@ -22,9 +22,13 @@ function Radio(props: RadioProps) {
     return (
         <Input
             type="radio"
-            className={classNames(
-                // $ExpectError
-                getBaseClassName(props, PREFIX), className)}
+            className={
+                classNames(
+                    // $ExpectError
+                    getBaseClassName(props, PREFIX),
+                    className
+                )
+            }
             inputProps={{ ...inputProps, name: name }}
             {...rest}
         />

@@ -17,6 +17,7 @@ const scss = `// @import ...
 
 const jsx = `import { Checkbox } from 'pretty-checkbox-react';
 
+// pass a custom className to Checkbox, Radio, or Switch
 <Checkbox className="my-icon"
     icon={<i className="fas fas-question-circle" />}>
     Label
@@ -41,16 +42,14 @@ function FAQ() {
             <Title>FAQ</Title>
             <div className="content">
                 <ol>
-                    <QA title={<>Formik overrides <code>p-icon</code> styles</>}>
-                        If you are using Formik and adding a pretty-checkbox or pretty-checkbox-react component, then you might be seeing visual discrepancies.
-                        We can get around this by using the render prop or child render function exposed by <strong>pretty-react-checkbox</strong>.
+                    <QA title={<> Something is overriding <code>pretty-checkbox</code> styles!</>}>
+                        Sometimes things aren't perfect and styles get messed up. Thankfully, we can fix this easily!
                         The easiest way to get around this is to custom build pretty-checkbox <code>.scss</code> source files.
                         Once you have that in place we need to make a few tweaks.
                         <SyntaxHighlighter language="scss" style={darcula}>{scss}</SyntaxHighlighter>
                         With the magic of using Sass <code>@extends</code> we can essentially "copy" the pretty-checkbox base styles to our own selector.
                         After this, our usage becomes a bit different as well.
                         <SyntaxHighlighter language="jsx" style={darcula}>{jsx}</SyntaxHighlighter>
-                        Formik will still apply styles to <code>p-icon</code>, but the styles shouldn't clash anymore.
                     </QA>
                     <QA title="How can I customize pretty-checkbox state div?">
                         Good question! All components offer <code>render</code> prop and <code>children</code> render function support. It's as easy as this:
