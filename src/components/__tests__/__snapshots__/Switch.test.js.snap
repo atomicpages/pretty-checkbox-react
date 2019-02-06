@@ -15,7 +15,11 @@ exports[`Switch tests Switch usage as a radio should behave as a radio 1`] = `
     <div
       class="state"
       data-testid="pcr-state"
-    />
+    >
+      <label
+        for="foo"
+      />
+    </div>
   </div>
 </div>
 `;

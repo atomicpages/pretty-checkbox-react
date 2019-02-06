@@ -8248,10 +8248,10 @@ pretty-bytes@^4.0.2:
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-4.0.2.tgz#b2bf82e7350d65c6c33aa95aaa5a4f6327f61cd9"
   integrity sha1-sr+C5zUNZcbDOqlaqlpPYyf2HNk=
 
-pretty-checkbox-react@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/pretty-checkbox-react/-/pretty-checkbox-react-0.0.10.tgz#31471b2fe8c1ec58911badc0e1cd81b41194a00f"
-  integrity sha512-qV95HUpQa4h6x6LRZSJKn+skKqo0TXDmuXybot2EaT9gOFcHIheNC17yE11t74n2N8x1Q/Hcq8+eO/+MR51DXw==
+pretty-checkbox-react@^1.0.0:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/pretty-checkbox-react/-/pretty-checkbox-react-1.0.4.tgz#1a5a0afaa5d3b6ae1d0445286b2140c21d8a6124"
+  integrity sha512-cSWUkVavIcPPIvCcYA+UZe6yclcrQ6D+a5v3MpqAqfvNh1hj9xMIaiPvwTB/0GH2LoqkbSVxsLTulEgZH8wLaw==
   dependencies:
     classnames "^2.2.6"
 

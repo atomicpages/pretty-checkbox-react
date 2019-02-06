@@ -203,7 +203,7 @@ const PrettyInputState = (props: InputProps): React.Node => {
     return (
         <div className={classNames('state', color ? PREFIX + color : null)} data-testid="pcr-state">
             {node ? fillClassNameForIcons(node.node, node.className) : null}
-            {children ? <label htmlFor={id}>{children}</label> : null}
+            <label htmlFor={id}>{children}</label>
         </div>
     );
 };

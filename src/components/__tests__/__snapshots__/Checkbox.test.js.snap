@@ -15,7 +15,11 @@ exports[`Checkbox tests Basic Checkbox usage should behave as a checkbox 1`] = `
     <div
       class="state"
       data-testid="pcr-state"
-    />
+    >
+      <label
+        for="foo"
+      />
+    </div>
   </div>
 </div>
 `;
