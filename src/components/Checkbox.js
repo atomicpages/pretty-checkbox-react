@@ -36,6 +36,7 @@ function Checkbox(props: CheckboxProps) {
                 props.indeterminate ? 'p-has-indeterminate' : null,
                 className
             )}
+            animation={animation}
             {...rest} />
     );
 }

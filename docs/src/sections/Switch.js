@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Switch as ReactSwitch } from 'pretty-checkbox-react';
+import { Switch } from 'pretty-checkbox-react';
 
 import { Title } from '../components/Title';
 import { CollapseContainer } from '../components/CollapseContainer';
@@ -12,15 +12,15 @@ import {
     LivePreview
 } from 'react-live';
 
-const scope = { ReactSwitch };
+const scope = { Switch };
 
 const basicSwitch = `<>
-    <ReactSwitch>Outline</ReactSwitch>
-    <ReactSwitch shape="fill">Fill</ReactSwitch>
-    <ReactSwitch shape="slim">Slim</ReactSwitch>
+    <Switch>Outline</Switch>
+    <Switch shape="fill">Fill</Switch>
+    <Switch shape="slim">Slim</Switch>
 </>`;
 
-function Switch() {
+function SwitchPage() {
     return (
         <>
             <Title>Switch</Title>
@@ -41,4 +41,4 @@ function Switch() {
     );
 }
 
-export default Switch;
+export default SwitchPage;

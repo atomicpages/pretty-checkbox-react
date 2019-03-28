@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import ListProps from './components/ListProps';
 import Installation from './sections/Installation';
 import BasicCheckbox from './sections/BasicCheckbox';
-import Switch from './sections/Switch';
+import SwitchPage from './sections/Switch';
 import Colors from './sections/Colors';
 import FontIcons from './sections/FontIcons';
 import SVG from './sections/SVG';
@@ -88,7 +88,7 @@ function App() {
                     <section className="section" id="basic-checkbox"><BasicCheckbox /></section>
                 </div>
                 <div className="col-md-8 mx-auto">
-                    <section className="section" id="switch"><Switch /></section>
+                    <section className="section" id="switch"><SwitchPage /></section>
                 </div>
                 <div className="col-md-8 mx-auto">
                     <section className="section" id="colors"><Colors /></section>

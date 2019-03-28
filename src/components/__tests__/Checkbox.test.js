@@ -11,9 +11,7 @@ describe('Checkbox tests', function () {
     describe('Basic Checkbox usage', function () {
         it('should behave as a checkbox', function () {
             const handleChange = jest.fn();
-            const { container, debug } = render(<Checkbox className="dummy-selector" id="foo" onChange={handleChange} />);
-
-            debug();
+            const { container } = render(<Checkbox className="dummy-selector" id="foo" onChange={handleChange} />);
 
             expect(getByTestId(container, 'pcr-input')).toHaveAttribute('type', 'checkbox');
             expect(getByTestId(container, 'pcr-wrapper')).toHaveClass('dummy-selector');
@@ -45,6 +43,33 @@ describe('Checkbox tests', function () {
     describe('Checkbox errors', function () {
         it('should throw when using an unsupported animation', function () {
             expect(() => render(<Checkbox animation="tada">Hello there.</Checkbox>)).toThrow();
+        });
+    });
+
+    describe('Checkbox supports animations', function () {
+        it('should have the correct smooth className', function () {
+            const { container } = render(<Checkbox shape="round" color="primary" animation="smooth">Monday</Checkbox>);
+            expect(getByTestId(container, 'pcr-wrapper')).toHaveClass('p-smooth');
+        });
+
+        it('should have the correct jelly className', function () {
+            const { container } = render(<Checkbox shape="round" color="primary" icon={<i className="mdi mdi-check" />} animation="jelly">Interested</Checkbox>);
+            expect(getByTestId(container, 'pcr-wrapper')).toHaveClass('p-jelly');
+        });
+
+        it('should have the correct tada className', function () {
+            const { container } = render(<Checkbox shape="round" color="primary-o" icon={<i className="mdi mdi-heart" />} animation="tada">Good</Checkbox>);
+            expect(getByTestId(container, 'pcr-wrapper')).toHaveClass('p-tada');
+        });
+
+        it('should have the correct rotate className', function () {
+            const { container } = render(<Checkbox color="success" icon={<i className="mdi mdi-check" />} animation="rotate">Friends</Checkbox>);
+            expect(getByTestId(container, 'pcr-wrapper')).toHaveClass('p-rotate');
+        });
+
+        it('should have the correct pulse className', function () {
+            const { container } = render(<Checkbox color="warning-o" animation="pulse">Family</Checkbox>);
+            expect(getByTestId(container, 'pcr-wrapper')).toHaveClass('p-pulse');
         });
     });
 

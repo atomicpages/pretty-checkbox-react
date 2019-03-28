@@ -31,8 +31,8 @@ const customRender = `<Checkbox>{({ className, node }) => (
 
 const QA = ({ title, children }: { title: React.Node, children: React.Node }) => (
     <li>
-        <p className="q-title">{title}</p>
-        <p className="q-resp">{children}</p>
+        <div className="q-title">{title}</div>
+        <div className="q-resp">{children}</div>
     </li>
 );
 
