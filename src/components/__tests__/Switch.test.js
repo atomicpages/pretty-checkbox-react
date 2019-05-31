@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, cleanup, getByLabelText, getByTestId, fireEvent } from 'react-testing-library';
+import { render, cleanup, getByLabelText, getByTestId, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 
 import Switch from '../Switch';

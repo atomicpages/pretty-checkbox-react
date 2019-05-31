@@ -12,34 +12,33 @@ type SVG = {|
     /**
      * Render a custom `.svg` in the checkbox or radio.
      */
-    svg: React.Element<'svg'>
+    svg: React.Element<'svg'>,
 |};
-
 
 type Image = {|
     /**
      * Render a custom `img` in the checkbox or radio.
      */
-    image: React.Element<'img'>
+    image: React.Element<'img'>,
 |};
 
 type Icon = {|
     /**
      * Render a custom font icon in the checkbox or radio.
      */
-    icon: React.Element<any>
+    icon: React.Element<any>,
 |};
 
 type Node = {|
     className: string,
-    node: any
+    node: any,
 |} | null;
 
 type BaseProps = {
     /**
      * Select the type if component: checkbox or radio.
      */
-    type: "checkbox" | "radio",
+    type: 'checkbox' | 'radio',
 
     /**
      * Customize the rendering of the checkbox, radio,
@@ -48,7 +47,7 @@ type BaseProps = {
      * **Note:** You are responsible for providing
      * the details of pretty-checkbox's `div.state`.
      */
-    children?: React.Node | ((Node) => React.Node),
+    children?: React.Node | (Node => React.Node),
 
     /**
      * Customize the rendering of the checkbox, radio,
@@ -57,17 +56,17 @@ type BaseProps = {
      * **Note:** You are responsible for providing
      * the details of pretty-checkbox's `div.state`.
      */
-    render?: ((Node) => React.Node),
+    render?: Node => React.Node,
 
     /**
      * The style of the checkbox or radio.
      */
-    style?: "fill" | "thick",
+    style?: 'fill' | 'thick',
 
     /**
      * The shape of the checkbox or radio component.
      */
-    shape?: "round" | "curve" | "outline" | "fill" | "slim",
+    shape?: 'round' | 'curve' | 'outline' | 'fill' | 'slim',
 
     /**
      * Additional class selectors to pass to the `pretty` element.
@@ -109,7 +108,7 @@ type BaseProps = {
     /**
      * Specify animations to add to the checkbox, radio, or switch.
      */
-    animation?: "smooth" | "jelly" | "tada" | "rotate" | "pulse",
+    animation?: 'smooth' | 'jelly' | 'tada' | 'rotate' | 'pulse',
 
     /**
      * Control the state of your component by deciding when it can be checked/unchecked.
@@ -134,19 +133,22 @@ type BaseProps = {
     /**
      * Style the checkbox or radio as plain.
      */
-    plain?: boolean
+    plain?: boolean,
 };
 
-export type InputProps = {
-    ...BaseProps,
-    ...SVG
-} | {
-    ...BaseProps,
-    ...Image
-} | {
-    ...BaseProps,
-    ...Icon
-};
+export type InputProps =
+    | {
+          ...BaseProps,
+          ...SVG,
+      }
+    | {
+          ...BaseProps,
+          ...Image,
+      }
+    | {
+          ...BaseProps,
+          ...Icon,
+      };
 
 /**
  * Automatically append the className for icon component. This will automatically add
@@ -155,14 +157,17 @@ export type InputProps = {
  * @param {React.Element<*>} component The component to add the className to.
  * @param {string} className The className to fill on the element.
  */
-const fillClassNameForIcons = (component: React.Element<any> | void, className: string): React.Node => {
+const fillClassNameForIcons = (
+    component: React.Element<any> | void,
+    className: string
+): React.Node => {
     if (!component) {
         return null;
     }
 
     return React.cloneElement(component, {
         ...component.props,
-        className: classNames(className, component.props.className)
+        className: classNames(className, component.props.className),
     });
 };
 
@@ -178,17 +183,17 @@ const PrettyInputState = (props: InputProps): React.Node => {
     if (props.svg) {
         node = {
             className: 'svg',
-            node: props.svg
+            node: props.svg,
         };
     } else if (props.icon) {
         node = {
             className: 'icon',
-            node: props.icon
+            node: props.icon,
         };
     } else if (props.image) {
         node = {
             className: 'image',
-            node: props.image
+            node: props.image,
         };
     }
 
@@ -201,7 +206,10 @@ const PrettyInputState = (props: InputProps): React.Node => {
     }
 
     return (
-        <div className={classNames('state', color ? PREFIX + color : null)} data-testid="pcr-state">
+        <div
+            className={classNames('state', color ? PREFIX + color : null)}
+            data-testid="pcr-state"
+        >
             {node ? fillClassNameForIcons(node.node, node.className) : null}
             <label htmlFor={id}>{children}</label>
         </div>
@@ -223,11 +231,17 @@ function Input(props: InputProps) {
         bigger,
         shape,
         style,
-        plain
+        plain,
     } = props;
 
-    if ((props.icon && props.svg) || (props.icon && props.image) || (props.svg && props.image)) {
-        throw new Error('icon, svg, and image are mutually exclusive props; choose one');
+    if (
+        (props.icon && props.svg) ||
+        (props.icon && props.image) ||
+        (props.svg && props.image)
+    ) {
+        throw new Error(
+            'icon, svg, and image are mutually exclusive props; choose one'
+        );
     }
 
     return (

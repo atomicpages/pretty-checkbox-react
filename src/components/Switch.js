@@ -12,46 +12,60 @@ export type SwitchProps = {
     /**
      * Specify animation for the `Switch` component.
      */
-    animation?: "smooth" | "jelly" | "tada",
+    animation?: 'smooth' | 'jelly' | 'tada',
 
     /**
      * The shape of the `Switch` component.
      */
-    shape?: "outline" | "fill" | "slim",
+    shape?: 'outline' | 'fill' | 'slim',
 
     /**
      * Provide a name when `type` is `radio`.
      */
-    name?: string
+    name?: string,
 };
 
 function Switch(props: SwitchProps) {
     const { type, shape, className, name, inputProps, ...rest } = props;
 
-    if (!shape || (shape !== 'outline'  && shape !== 'fill' && shape !== 'slim')) {
-        throw new Error('Shape can be one of the following: outline, fill, or slim');
+    if (
+        !shape ||
+        (shape !== 'outline' && shape !== 'fill' && shape !== 'slim')
+    ) {
+        throw new Error(
+            'Shape can be one of the following: outline, fill, or slim'
+        );
     }
 
     if (!type) {
         throw new Error('type is required to be set');
     }
 
-    if (rest.animation && rest.animation !== 'smooth' && rest.animation !== 'jelly' && rest.animation !== 'tada') {
-        throw new Error('Switch animations can be one of the following: smooth, jelly, or tada');
+    if (
+        rest.animation &&
+        rest.animation !== 'smooth' &&
+        rest.animation !== 'jelly' &&
+        rest.animation !== 'tada'
+    ) {
+        throw new Error(
+            'Switch animations can be one of the following: smooth, jelly, or tada'
+        );
     }
 
     return (
-        <Input className={classNames(`${PREFIX}switch`, className)}
+        <Input
+            className={classNames(`${PREFIX}switch`, className)}
             type={type}
             shape={shape}
             inputProps={{ ...inputProps, name: name }}
-            {...rest} />
+            {...rest}
+        />
     );
 }
 
 Switch.defaultProps = {
     shape: 'outline',
-    type: 'checkbox'
+    type: 'checkbox',
 };
 
 export default Switch;

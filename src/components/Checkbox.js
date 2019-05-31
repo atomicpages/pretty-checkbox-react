@@ -13,23 +13,28 @@ export type CheckboxProps = {
     /**
      * Set true when the checkbox is in an indeterminate state.
      */
-    indeterminate?: boolean
+    indeterminate?: boolean,
 };
 
 function Checkbox(props: CheckboxProps) {
     const { animation, className, ...rest } = props;
 
-    if (animation
-        && animation !== 'smooth'
-        && animation !== 'pulse'
-        && !props.icon
-        && !props.image
-        && !props.svg) {
-        throw new Error(`animation '${animation}' is incompatible with default checkbox styles. You must specify an icon, image, or a svg.`);
+    if (
+        animation &&
+        animation !== 'smooth' &&
+        animation !== 'pulse' &&
+        !props.icon &&
+        !props.image &&
+        !props.svg
+    ) {
+        throw new Error(
+            `animation '${animation}' is incompatible with default checkbox styles. You must specify an icon, image, or a svg.`
+        );
     }
 
     return (
-        <Input type="checkbox"
+        <Input
+            type="checkbox"
             className={classNames(
                 // $ExpectError
                 getBaseClassName(props, PREFIX),
@@ -37,7 +42,8 @@ function Checkbox(props: CheckboxProps) {
                 className
             )}
             animation={animation}
-            {...rest} />
+            {...rest}
+        />
     );
 }
 

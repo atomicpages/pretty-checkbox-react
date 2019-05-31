@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, cleanup, getByTestId, fireEvent } from 'react-testing-library';
+import { render, cleanup, getByTestId, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 
 import Radio from '../Radio';

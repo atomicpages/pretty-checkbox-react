@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, cleanup, getByTestId } from 'react-testing-library';
+import { render, cleanup, getByTestId } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 
 import Input from '../Input';

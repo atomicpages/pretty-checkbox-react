@@ -13,7 +13,7 @@ export type RadioProps = {
     /**
      * The name of the radio group.
      */
-    name: string
+    name: string,
 };
 
 function Radio(props: RadioProps) {
@@ -22,13 +22,11 @@ function Radio(props: RadioProps) {
     return (
         <Input
             type="radio"
-            className={
-                classNames(
-                    // $ExpectError
-                    getBaseClassName(props, PREFIX),
-                    className
-                )
-            }
+            className={classNames(
+                // $ExpectError
+                getBaseClassName(props, PREFIX),
+                className
+            )}
             inputProps={{ ...inputProps, name: name }}
             {...rest}
         />
