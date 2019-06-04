@@ -2,7 +2,7 @@
     "name": "@pcr/docs",
     "private": true,
     "description": "Pretty Checkbox React docs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Dennis Thompson",
     "homepage": "https://atomicpages.github.io/pretty-checkbox-react/",
     "dependencies": {
@@ -46,6 +46,6 @@
         "format": "prettier --write src/**/*.{js,jsx}",
         "start": "npm run develop",
         "serve": "gatsby serve",
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d public"
     }
 }
