@@ -25,8 +25,8 @@ export type SwitchProps = {
     name?: string,
 };
 
-function Switch(props: SwitchProps) {
-    const { type, shape, className, name, inputProps, ...rest } = props;
+const Switch = React.forwardRef<SwitchProps, HTMLInputElement>((props, ref) => {
+    const { type = 'checkbox', shape = 'outline', className, name, inputProps, ...rest } = props;
 
     if (
         !shape ||
@@ -57,15 +57,13 @@ function Switch(props: SwitchProps) {
             className={classNames(`${PREFIX}switch`, className)}
             type={type}
             shape={shape}
+            ref={ref}
             inputProps={{ ...inputProps, name: name }}
             {...rest}
         />
     );
-}
+});
 
-Switch.defaultProps = {
-    shape: 'outline',
-    type: 'checkbox',
-};
+Switch.displayName = 'Switch';
 
 export default Switch;

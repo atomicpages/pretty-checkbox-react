@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 // @flow
 
 import * as React from 'react';
@@ -216,7 +218,7 @@ const PrettyInputState = (props: InputProps): React.Node => {
     );
 };
 
-function Input(props: InputProps) {
+const Input = React.forwardRef<InputProps, HTMLInputElement>((props, ref) => {
     const {
         className,
         value,
@@ -232,6 +234,7 @@ function Input(props: InputProps) {
         shape,
         style,
         plain,
+        prettySelector = 'pretty',
     } = props;
 
     if (
@@ -248,7 +251,7 @@ function Input(props: InputProps) {
         <div
             data-testid="pcr-wrapper"
             className={classNames(
-                props.prettySelector,
+                prettySelector,
                 animation ? PREFIX + animation : null,
                 className,
                 shape ? PREFIX + shape : null,
@@ -266,6 +269,7 @@ function Input(props: InputProps) {
                 checked={checked}
                 disabled={disabled}
                 data-testid="pcr-input"
+                ref={ref}
                 {...inputProps}
             />
             {
@@ -274,8 +278,8 @@ function Input(props: InputProps) {
             }
         </div>
     );
-}
+});
 
-Input.defaultProps = { prettySelector: 'pretty' };
+Input.displayName = 'Input';
 
 export default Input;

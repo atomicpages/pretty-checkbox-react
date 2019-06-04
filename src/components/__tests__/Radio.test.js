@@ -74,4 +74,14 @@ describe('Radio tests', function () {
             expect(getByTestId(r3, 'pcr-wrapper')).toHaveClass('p-image');
         });
     });
+
+    describe('Radio ref tests', function() {
+        it('should accept custom refs', function () {
+            const ref = React.createRef();
+
+            render(<Radio ref={ref} />);
+            expect(ref.current).toBeDefined();
+            expect(ref.current).toBeInstanceOf(HTMLInputElement);
+        });
+    });
 });

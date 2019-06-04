@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import '../../node_modules/@mdi/font/css/materialdesignicons.min.css';
+
+:root {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 100vh;
+}
+
+body {
+    margin: 0 auto;
+    background-color: #f1f3f5;
+    color: #333;
+    height: 100vh;
+    & > div,
+    & > div > div,
+    .grid-container {
+        height: 100vh;
+    }
+}
+
+@import './layout';
+@import './header';
+@import './typography';
+
+.sidebar,
+.content {
+    overflow: auto;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    color: lighten(#5a656b, 25%);
+}
+
+.sidebar {
+    background: white;
+    border-right: 1px solid #ddd;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        ul { margin-left: 1rem; }
+    }
+    &__nav {
+        &__item {
+            border-left: 5px solid transparent;
+            a {
+                padding: 0.75rem;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                color: #333;
+                &:hover,
+                &[aria-current="page"] {
+                    text-decoration: underline;
+                    color: #8033b0;
+                }
+            }
+            &__ec {
+                font-size: 1.15rem;
+                margin-left: 0.5rem;
+            }
+            &:not(.nested-link):hover,
+            &--active:not(.nested-link):hover,
+            &--expanded:not(.nested-link) {
+                border-left-color: #8033b0;
+            }
+        }
+    }
+}
+
+.content {
+    margin: 1rem;
+}
+
+pre,
+code { font-family: Consolas, 'Courier New', Courier, monospace; }
+
+pre[class*="language-plain"] {
+    background: transparent;
+    color: inherit;
+}
+
+pre {
+    padding: 8px;
+    line-height: 1.5;
+}
+
+.code-example {
+    margin-bottom: 3rem;
+    &__preview {
+        border: 2px solid #eee;
+        padding: 3rem;
+        background: white;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    &__editor {
+        background: #333;
+        cursor: text;
+        caret-color: white;
+    }
+
+    &__editor-toggle {
+        -webkit-appearance: none;
+        outline: none;
+        border: none;
+        font-size: 1em;
+        background: transparent;
+        padding: 1em;
+        cursor: pointer;
+        font-weight: 500;
+        &:hover {
+            color: #8033b0;
+        }
+    }
+    pre {
+        overflow: auto;
+    }
+}
+
+:not(pre) > code[class*='language-'] {
+    background: darken(#ddd, 2%);
+    padding: 2px;
+    color: #222;
+    border-radius: 0;
+}
+
+button.link.toggle-props {
+    font-weight: 700;
+    border-bottom: 3px solid transparent;
+    color: #333;
+    margin-bottom: 1rem;
+    &:focus {
+        outline: 0 none;
+        border-bottom-color: #8033b0;
+    }
+    &:hover {
+        text-decoration: none;
+        border-bottom-color: #8033b0;
+    }
+}
+
+.props-table {
+    background: rgba(255, 255, 255, 0.75);
+    border-collapse: collapse;
+
+    th {
+        text-align: left;
+        padding-top: 1rem;
+    }
+
+    th:first-child,
+    td:first-child { padding-left: 1rem; }
+
+    th:last-child,
+    td:last-child { padding-right: 1rem; }
+
+    tr:nth-child(even) { background: rgba(0, 0, 0, 0.1); }
+}
+
+blockquote {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 100%;
+    }
+}

@@ -1,6 +1,6 @@
 {
     "name": "pretty-checkbox-react",
-    "version": "1.0.7",
+    "version": "1.1.0",
     "description": "Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React",
     "keywords": [
         "Pretty",
@@ -64,7 +64,8 @@
         "coveralls": "^3.0.3",
         "eslint": "5.6.0",
         "eslint-config-prettier": "^3.6.0",
-        "eslint-plugin-flowtype": "^3.4.2",
+        "eslint-plugin-flowtype": "^3.9.1",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
         "eslint-plugin-prettier": "^3.0.1",
         "eslint-plugin-react": "^7.12.4",
         "flow": "^0.2.3",
@@ -88,14 +89,15 @@
         "rollup-plugin-uglify": "^6.0.2"
     },
     "dependencies": {
-        "classnames": "^2.2.6"
+        "classnames": "^2.2.6",
+        "hoist-non-react-statics": "^3.3.0"
     },
     "jest": {
         "collectCoverage": true,
         "coverageDirectory": "<rootDir>/coverage",
         "testPathIgnorePatterns": [
             "/node_modules/",
-            "<rootDir>/site/.cache"
+            "<rootDir>/docs/.cache"
         ],
         "coverageReporters": [
             "json",

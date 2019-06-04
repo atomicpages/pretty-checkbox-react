@@ -1,8 +1,3 @@
-node_modules/
-coverage/
-dist/
-docs/build/
-
 # Logs
 logs
 *.log

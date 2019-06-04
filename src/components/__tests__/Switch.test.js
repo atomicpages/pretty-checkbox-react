@@ -99,4 +99,14 @@ describe('Switch tests', function () {
             expect(() => render(<Switch id="demo" animation="pulse" >hello there</Switch>)).toThrow();
         });
     });
+
+    describe('Switch ref tests', function() {
+        it('should accept custom refs', function () {
+            const ref = React.createRef();
+
+            render(<Switch ref={ref} />);
+            expect(ref.current).toBeDefined();
+            expect(ref.current).toBeInstanceOf(HTMLInputElement);
+        });
+    });
 });

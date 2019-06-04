@@ -80,4 +80,14 @@ describe('Checkbox tests', function () {
             expect(getByTestId(container, 'pcr-wrapper')).toHaveClass('p-has-indeterminate');
         });
     });
+
+    describe('Checkbox ref tests', function() {
+        it('should accept custom refs', function () {
+            const ref = React.createRef();
+
+            render(<Checkbox ref={ref} />);
+            expect(ref.current).toBeDefined();
+            expect(ref.current).toBeInstanceOf(HTMLInputElement);
+        });
+    });
 });

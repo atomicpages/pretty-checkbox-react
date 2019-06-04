@@ -16,8 +16,8 @@ export type RadioProps = {
     name: string,
 };
 
-function Radio(props: RadioProps) {
-    const { className, name, inputProps, ...rest } = props;
+const Radio = React.forwardRef<RadioProps, HTMLInputElement>((props, ref) => {
+    const { className, name, inputProps, shape = 'round', ...rest } = props;
 
     return (
         <Input
@@ -28,11 +28,13 @@ function Radio(props: RadioProps) {
                 className
             )}
             inputProps={{ ...inputProps, name: name }}
+            shape={shape}
+            ref={ref}
             {...rest}
         />
     );
-}
+});
 
-Radio.defaultProps = { shape: 'round' };
+Radio.displayName = 'Radio';
 
 export default Radio;

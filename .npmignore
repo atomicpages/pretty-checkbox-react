@@ -9,3 +9,4 @@ flow-typed/
 .eslintignore
 .gitignore
 .prettierrc
+site/

@@ -1,0 +1,50 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1.5fr 7fr;
+    grid-template-areas: 'header header' 'sidebar content';
+    &--alt {
+        grid-template-rows: 0.25fr 9.5fr;
+    }
+}
+
+.header {
+    grid-area: header;
+}
+
+.content {
+    grid-area: content;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+@media all and (-ms-high-contrast: none) {
+    .grid-container {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 5fr;
+        -ms-grid-rows: 1.5fr 7fr;
+    }
+
+    .header {
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 1;
+        -ms-grid-col: 1;
+        -ms-grid-col-span: 2;
+    }
+
+    .content {
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1;
+        -ms-grid-col: 2;
+        -ms-grid-col-span: 1;
+    }
+
+    .sidebar {
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1;
+        -ms-grid-col: 1;
+        -ms-grid-col-span: 1;
+    }
+}
