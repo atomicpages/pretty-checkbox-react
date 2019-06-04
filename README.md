@@ -27,10 +27,7 @@
 </div>
 
 ### Demos and Docs
-Checkout the awesome [doc website](https://atomicpages.github.io/pretty-checkbox-react/) with sweet code examples that will update in real time after you make changes!
-
-#### IDC, just show me the Props
-Just want to see the props? [As you wish](https://atomicpages.github.io/pretty-checkbox-react/#list-props).
+Checkout the awesome [doc website](https://atomicpages.github.io/pretty-checkbox-react/home/) with sweet code examples that will update in real time after you make changes!
 
 #### Code Sandbox
 Fancy something else? Want a standalone example? Looking for customize the `pretty-checkbox` theme? How about forking and testing your own changes in code sandbox? It will allow you to prototype and make complex examples all within your browser.
