@@ -1,106 +1,97 @@
-<h4 align="center">Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React</h4>
-
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
- <a href="https://github.com/atomicpages/pretty-checkbox-react/releases">
-    <img src="https://img.shields.io/github/release/atomicpages/pretty-checkbox-react.svg?style=flat-square&colorA=8033b0&colorB=75b7dd" alt="Github Release">
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
   </a>
-   <a href="https://github.com/atomicpages/pretty-checkbox-react/blob/master/LICENSE">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/atomicpages/pretty-checkbox-react.svg?style=flat-square">
-  </a>
-  <a href="https://www.npmjs.com/package/pretty-checkbox-react" target="_blank" rel="nofollow noreferred noopener">
-    <img src="https://img.shields.io/npm/dm/pretty-checkbox-react.svg?style=flat-square" alt="Downloads">
-  </a>
-  <a href="https://travis-ci.org/atomicpages/pretty-checkbox-react" target="_blank" rel="nofollow noreferred noopener">
-    <img alt="Build Status" src="https://img.shields.io/travis/atomicpages/pretty-checkbox-react.svg?style=flat-square">
-  </a>
-  <a href='https://coveralls.io/github/atomicpages/pretty-checkbox-react?branch=master' target="_blank" rel="nofollow noreferred noopener">
-    <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/atomicpages/pretty-checkbox-react/master.svg?style=flat-square">
-  </a>
-  <a href="https://codeclimate.com/github/atomicpages/pretty-checkbox-react/maintainability" target="_blank" rel="nofollow noreferred noopener">
-    <img src="https://api.codeclimate.com/v1/badges/e7cca7813f2905d7aca7/maintainability" />
-    </a>
 </p>
-<br>
+<h1 align="center">
+  Gatsby's default starter
+</h1>
 
-<div align="center">
-    <img src="preview.gif" alt="Pretty checkbox preview" />
-</div>
+Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-### Demos and Docs
-Checkout the awesome [doc website](https://atomicpages.github.io/pretty-checkbox-react/) with sweet code examples that will update in real time after you make changes!
+_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
-#### IDC, just show me the Props
-Just want to see the props? [As you wish](https://atomicpages.github.io/pretty-checkbox-react/#list-props).
+## 🚀 Quick start
 
-#### Code Sandbox
-Fancy something else? Want a standalone example? Looking for customize the `pretty-checkbox` theme? How about forking and testing your own changes in code sandbox? It will allow you to prototype and make complex examples all within your browser.
+1.  **Create a Gatsby site.**
 
-[![Edit pretty-checkbox-react](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/40v46649m0)
+    Use the Gatsby CLI to create a new site, specifying the default starter.
 
-### Browser
-Include the script file and all dependencies.
+    ```sh
+    # create a new Gatsby site using the default starter
+    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
+    ```
 
-> Note: keep reading for examples using webpack/rollup/or some other modern web bundler.
+1.  **Start developing.**
 
-```html
-<script type="text/javascript" src="node_modules/react/umd/react.production.min.js"></script>
-<script type="text/javascript" src="node_modules/react-dom/umd/react-dom.production.min.js"></script>
-<script type="text/javascript" src="node_modules/pretty-checkbox-react/dist/pretty-checkbox-react.min.js"></script>
+    Navigate into your new site’s directory and start it up.
 
-<script type="text/javascript">
-function App() {
-    return React.createElement(
-        PrettyCheckboxReact.Checkbox,
-        {
-            animation: 'smooth',
-            shape: 'curve'
-        },
-        React.createElement(
-            'label',
-            null,
-            'Check me!'
-        )
-    )
-}
+    ```sh
+    cd my-default-starter/
+    gatsby develop
+    ```
 
-ReactDOM.render(App, document.querySelector('body'));
-</script>
-```
+1.  **Open the source code and start editing!**
 
-#### Webpack + Rollup
-If you're using webpack or rollup then with JSX you can write this more succulently:
+    Your site is now running at `http://localhost:8000`!
 
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-import { Checkbox } from 'pretty-checkbox-react';
+    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-function App() {
-    return <Checkbox animation="smooth" shape="curve">Check me!</Checkbox>;
-}
+## 🧐 What's inside?
 
-ReactDOM.render(App, document.querySelector('body'));
-```
+A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-### Getting Started
-Install `pretty-checkbox` and `pretty-checkbox-react` through NPM or yarn:
+    .
+    ├── node_modules
+    ├── src
+    ├── .gitignore
+    ├── .prettierrc
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    └── README.md
 
-```bash
-yarn pretty-checkbox pretty-checkbox-react # or
-npm i pretty-checkbox pretty-checkbox-react --save
-```
+1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-> `pretty-checkbox` is a _peer_ dependency so you need to install it yourself or reference the CSS manually!
+2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-Make the dependencies available and begin using! `pretty-checkbox-react` exposes three components for your use:
+3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-* Checkbox
-* Radio
-* Switch
+4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-### Contributions
-Shout out to [Lokesh](https://github.com/lokesh-coder) for creating the original [pretty-checkbox library](https://github.com/lokesh-coder/pretty-checkbox) :star:
+5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-### License
-This project is licensed under the MIT License
+6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+
+7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+
+8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+
+9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+
+10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+
+11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+
+12. **`README.md`**: A text file containing useful reference information about your project.
+
+## 🎓 Learning Gatsby
+
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+
+- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+
+- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+
+## 💫 Deploy
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+
+<!-- AUTO-GENERATED-CONTENT:END -->

@@ -1,118 +1,51 @@
 {
-    "name": "pretty-checkbox-react",
-    "version": "1.1.0",
-    "description": "Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React",
-    "keywords": [
-        "Pretty",
-        "Radio",
-        "Switch",
-        "Pretty Checkbox",
-        "pretty-checkbox",
-        "Components",
-        "React",
-        "React.js",
-        "React 16",
-        "WebComponents",
-        "CSS",
-        "Checkbox"
-    ],
-    "main": "dist/pretty-checkbox-react.cjs.js",
-    "module": "dist/pretty-checkbox-react.es.js",
-    "browser": "dist/pretty-checkbox-react.umd.min.js",
-    "scripts": {
-        "build:flow": "flow focus-check src/components/** && flow-copy-source src dist",
-        "lint": "eslint src/**",
-        "pretest": "eslint src/**",
-        "build": "rimraf dist/** && rollup -c rollup.config.js && npm run build:flow",
-        "prepublish": "flow-copy-source src dist && rollup -c rollup.config.js",
-        "test": "jest"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run test",
-            "pre-push": "npm run test"
-        }
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/atomicpages/pretty-checkbox-react.git"
-    },
-    "author": "Dennis Thompson <atomicpages@gmail.com>",
-    "maintainers": [
-        "Dennis Thompson <atomicpages@gmail.com>"
-    ],
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/atomicpages/pretty-checkbox-react/issues"
-    },
-    "homepage": "https://github.com/atomicpages/pretty-checkbox-react#readme",
-    "peerDependencies": {
+    "name": "@pcr/docs",
+    "private": true,
+    "description": "Pretty Checkbox React docs",
+    "version": "1.0.0",
+    "author": "Dennis Thompson",
+    "homepage": "https://atomicpages.github.io/pretty-checkbox-react/",
+    "dependencies": {
+        "@mdi/font": "^3.6.95",
+        "classnames": "^2.2.6",
+        "gatsby-plugin-client-side-redirect": "0.0.2",
+        "gatsby-remark-prismjs": "^3.2.9",
+        "markdown": "^0.5.0",
         "pretty-checkbox": "^3.0.3",
-        "react": "^16.7.0"
+        "pretty-checkbox-react": "^1.0.7",
+        "prismjs": "=1.15.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-github-btn": "^1.0.5",
+        "react-helmet": "^5.2.1",
+        "react-live": "^2.1.2",
+        "rehype-react": "^3.1.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.4.0",
-        "@babel/plugin-proposal-class-properties": "^7.4.0",
-        "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
-        "@babel/preset-env": "^7.4.2",
-        "@babel/preset-flow": "^7.0.0",
-        "@babel/preset-react": "^7.0.0",
-        "@testing-library/react": "^8.0.1",
-        "babel-core": "^7.0.0-bridge.0",
-        "babel-eslint": "^10.0.1",
-        "babel-jest": "^23.6.0",
-        "coveralls": "^3.0.3",
-        "eslint": "5.6.0",
-        "eslint-config-prettier": "^3.6.0",
-        "eslint-plugin-flowtype": "^3.9.1",
-        "eslint-plugin-jsx-a11y": "^6.2.1",
-        "eslint-plugin-prettier": "^3.0.1",
-        "eslint-plugin-react": "^7.12.4",
         "flow": "^0.2.3",
         "flow-bin": "^0.100.0",
-        "flow-copy-source": "^2.0.3",
-        "flow-coverage-report": "^0.6.1",
-        "husky": "^2.3.0",
-        "jest": "^24.5.0",
-        "jest-dom": "^3.1.3",
-        "prettier": "^1.16.4",
-        "pretty-checkbox": "^3.0.3",
-        "react": "^16.8.5",
-        "react-docgen": "^4.1.0",
-        "react-dom": "^16.8.5",
-        "rimraf": "^2.6.3",
-        "rollup": "^1.7.4",
-        "rollup-plugin-babel": "^4.3.2",
-        "rollup-plugin-commonjs": "^10.0.0",
-        "rollup-plugin-json": "^4.0.0",
-        "rollup-plugin-node-resolve": "^5.0.1",
-        "rollup-plugin-uglify": "^6.0.2"
+        "gatsby": "^2.8.2",
+        "gatsby-image": "^2.1.2",
+        "gatsby-plugin-manifest": "^2.1.1",
+        "gatsby-plugin-offline": "^2.1.1",
+        "gatsby-plugin-react-helmet": "^3.0.12",
+        "gatsby-plugin-sass": "^2.0.11",
+        "gatsby-plugin-sharp": "^2.1.3",
+        "gatsby-source-filesystem": "^2.0.38",
+        "gatsby-transformer-remark": "^2.3.12",
+        "gatsby-transformer-sharp": "^2.1.21",
+        "gh-pages": "^2.0.1",
+        "node-sass": "^4.12.0",
+        "prettier": "^1.17.1"
     },
-    "dependencies": {
-        "classnames": "^2.2.6",
-        "hoist-non-react-statics": "^3.3.0"
-    },
-    "jest": {
-        "collectCoverage": true,
-        "coverageDirectory": "<rootDir>/coverage",
-        "testPathIgnorePatterns": [
-            "/node_modules/",
-            "<rootDir>/docs/.cache"
-        ],
-        "coverageReporters": [
-            "json",
-            "lcov",
-            "text",
-            "clover",
-            "html"
-        ],
-        "coverageThreshold": {
-            "global": {
-                "branches": 90,
-                "functions": 95,
-                "lines": 90,
-                "statements": 90
-            }
-        }
+    "keywords": [],
+    "license": "MIT",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "format": "prettier --write src/**/*.{js,jsx}",
+        "start": "npm run develop",
+        "serve": "gatsby serve",
+        "deploy": "gh-pages -d build"
     }
 }
