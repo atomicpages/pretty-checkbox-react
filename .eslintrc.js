@@ -1,38 +1,12 @@
 module.exports = {
     env: {
+        jest: true,
         browser: true,
         node: true,
-        es6: true,
-        jest: true,
-    },
-    settings: {
-        react: {
-            version: 'detect',
-            flowVersion: '0.90.0',
-        },
     },
     extends: [
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:flowtype/recommended',
-        'plugin:jsx-a11y/recommended',
-        'prettier',
+        '@djthoms/eslint-config',
+        '@djthoms/eslint-config/react',
+        '@djthoms/eslint-config/flow',
     ],
-    parser: 'babel-eslint',
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
-        },
-        ecmaVersion: 2018,
-        sourceType: 'module',
-    },
-    plugins: ['react', 'flowtype', 'prettier'],
-    rules: {
-        indent: ['error', 4],
-        'linebreak-style': ['error', 'unix'],
-        quotes: ['error', 'single'],
-        semi: ['error', 'always'],
-        'react/prop-types': 1,
-        'no-console': 'warn'
-    },
 };
