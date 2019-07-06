@@ -1,0 +1,74 @@
+---
+name: Radio
+---
+
+import { useRadioState, Radio, RadioGroup } from './Radio.js';
+import { Playground, Props } from 'docz';
+
+# Radio
+
+<Props of={Radio} />
+
+## Basic Usage with useRadioState
+
+<Playground>
+    {() => {
+        const radio = useRadioState();
+
+        return (
+            <>
+                <Radio {...radio} value="apple" name="fruit">Apple</Radio>
+                <Radio {...radio} value="orange" name="fruit">Orange</Radio>
+                <Radio {...radio} value="watermelon" name="fruit">Watermelon</Radio>
+            </>
+        );
+    }}
+</Playground>
+
+### Using without the HTML `name` attribute
+Previously in PCR 1.0 the `name` prop was required. Well this is no more! Radio groups will
+behave as expected with or without the name prop.
+
+<Playground>
+    {() => {
+        const radio = useRadioState();
+
+        return (
+            <>
+                <Radio {...radio} value="apple">Apple</Radio>
+                <Radio {...radio} value="orange">Orange</Radio>
+                <Radio {...radio} value="watermelon">Watermelon</Radio>
+            </>
+        );
+    }}
+</Playground>
+
+## Basic usage without Hooks
+Similar to Checkbox, Radio can be used using a `class`.
+
+## Disabled and Locked Radio
+
+<Playground>
+    <>
+        <Radio disabled>Disabled</Radio>
+        <Radio locked>Locked</Radio>
+    </>
+</Playground>
+
+## RadioGroup
+PCR 2.0 introduces a new component called `RadioGroup`.
+It's just a wrapper around HTML `fieldset` that pre-configures ARIA `role` for a radio group.
+
+<Playground>
+    {() => {
+        const radio = useRadioState();
+
+        return (
+            <RadioGroup arial-label="fruits">
+                <Radio {...radio} value="apple">Apple</Radio>
+                <Radio {...radio} value="orange">Orange</Radio>
+                <Radio {...radio} value="watermelon">Watermelon</Radio>
+            </RadioGroup>
+        );
+    }}
+</Playground>

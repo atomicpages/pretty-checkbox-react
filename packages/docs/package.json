@@ -1,0 +1,57 @@
+{
+    "name": "gatsby-starter-mdx-basic",
+    "description": "Gatsby starter MDX basic",
+    "version": "1.0.0",
+    "author": "Chris Biscardi <chris@christopherbiscardi.com>",
+    "dependencies": {
+        "@mdi/font": "^3.7.95",
+        "@mdx-js/mdx": "^1.0.10",
+        "@mdx-js/react": "^1.0.6",
+        "classnames": "^2.2.6",
+        "gatsby": "^2.3.24",
+        "gatsby-image": "^2.0.39",
+        "gatsby-mdx": "^0.6.2",
+        "gatsby-plugin-manifest": "^2.0.29",
+        "gatsby-plugin-offline": "^2.0.25",
+        "gatsby-plugin-react-helmet": "^3.0.12",
+        "gatsby-plugin-sharp": "^2.0.35",
+        "gatsby-remark-prismjs": "^3.3.0",
+        "gatsby-source-filesystem": "^2.0.29",
+        "gatsby-transformer-remark": "^2.5.0",
+        "gatsby-transformer-sharp": "^2.1.18",
+        "pretty-checkbox": "^3.0.3",
+        "pretty-checkbox-react": "^1.1.0",
+        "prism-react-renderer": "^0.1.6",
+        "prismjs": "^1.16.0",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-github-btn": "^1.0.5",
+        "react-helmet": "^5.2.0",
+        "react-live": "^2.1.2"
+    },
+    "keywords": [
+        "gatsby"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "start": "npm run develop",
+        "format": "prettier --write \"src/**/*.js\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "@djthoms/eslint-config": "^1.0.0",
+        "@djthoms/prettier-config": "^1.0.0",
+        "eslint": "^5.16.0",
+        "gatsby-plugin-sass": "^2.1.0",
+        "mdx-utils": "^0.1.1",
+        "node-sass": "^4.12.0",
+        "prettier": "^1.17.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/christopherbiscardi/gatsby-starter-mdx-basic"
+    }
+}

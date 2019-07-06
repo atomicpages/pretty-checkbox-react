@@ -1,0 +1,141 @@
+---
+name: Switch
+---
+
+import { Switch, useSwitchState } from './Switch';
+import { Playground, Props } from 'docz';
+
+# Switch
+
+<Props of={Switch} />
+
+## Intro
+Switches are an interested pattern that was popularized by mobile operating systems like iOS and Android. Switches are typically associated with simple
+boolean values (e.g. yes/no) and they offer a way to break out of the banalities of using checkboxes. PCR allows you to use Switch either as
+a checkbox or as a radio; however, by default Switch is configured to act as a **checkbox**.
+
+While using this can be exciting, there are a few things that need to considered:
+
+* When used as a Checkbox
+    * No `mixed` or `indeterminate` state
+    * Not valid to represent a tree-like structure of items
+* When used as a Radio/Radio Group
+    * Works as a series of radio options, but will not scale to more than a few options
+    * Can lead to a confusing experience
+
+Finally, the examples below serve as a means to _highlight features_ of the Switch component. They do not serve as UX guidelines.
+
+### Switch Differences
+Switch has a few key differences from Checkbox and Radio worth noting:
+
+* No `icon` prop
+* `fill` modes are different (see example)
+* `type` prop exposed, can be `checkbox` or `radio`
+
+## Basic Switch with Hooks
+
+<Playground>
+    {() => {
+        // because switch is a reserved word
+        const switchHook = useSwitchState();
+
+        return (
+            <Switch {...switchHook}>
+                Basic Switch with Hooks
+            </Switch>
+        );
+    }}
+</Playground>
+
+## Basic Switch without Hooks
+Similar to Radio and Checkbox, Switch can be used without hooks if you're still in the process of migrating to hooks.
+
+## Switch as a Radio
+Switch can be used as a checkbox or a radio. Just specify the `type` prop and everything it taken care of for you.
+
+<Playground>
+    {() => {
+        // because switch is a reserved word
+        const switchHook = useSwitchState();
+
+        return (
+            <Switch type="radio" {...switchHook}>
+                Basic Switch as a Radio
+            </Switch>
+        );
+    }}
+</Playground>
+
+## Fill Modes
+Switch has different fill modes compared to Radio and Checkbox. The three choices are:
+
+* `outline` (default)
+* `fill`
+* `slim`
+
+<Playground>
+    {() => {
+        // because switch is a reserved word
+        const switchHook = useSwitchState();
+
+        return (
+            <>
+                <Switch type="radio" value="outline" {...switchHook}>
+                    Outline
+                </Switch>
+                <Switch type="radio" fill="fill" value="fill" {...switchHook}>
+                    Fill
+                </Switch>
+                <Switch type="radio" fill="slim" value="slim" {...switchHook}>
+                    Slim
+                </Switch>
+            </>
+        );
+    }}
+</Playground>
+
+
+## Composing Switches using Hooks
+One of the patterns mentioned above is using the Switch component in a settings page. Since we can use the switch as a checkbox _or_ radio
+we can compose one or more hooks to represent the state of the entire page. Let's see an example:
+
+<Playground>
+    {() => {
+        const switchState = useSwitchState(["enableEmail", "enablePush"]);
+
+        return (
+            <table
+                style={{
+                    borderCollapse: 'collapse',
+                    width: '50%'
+                }}>
+                <tbody>
+                    <tr style={{ borderBottom: '1px solid #ccc' }}>
+                        <td>Enable email notifications</td>
+                        <td>
+                            <Switch value="enableEmail" {...switchState} />
+                        </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #ccc' }}>
+                        <td>Enable push notifications</td>
+                        <td>
+                            <Switch value="enablePush"{...switchState} />
+                        </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #ccc' }}>
+                        <td>Allow app to use location</td>
+                        <td>
+                            <Switch value="allowLoc" {...switchState} />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Display avatar</td>
+                        <td>
+                            <Switch value="useAvatar" {...switchState} />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        );
+    }}
+</Playground>

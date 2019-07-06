@@ -1,0 +1,37 @@
+---
+title: Switch
+order: 4
+path: /switch
+---
+
+import SEO from '../components/seo';
+
+<SEO title="Switch" keywords={['pretty-checkbox-react', 'switch', 'checkbox', 'radio', 'react']} />
+
+Want a mobile feel on the web? Use the `Switch` component to start using switches as a checkbox or a radio. Customize the feel of switches via `shape` prop which accepts the following values:
+
+* `outline` (default)
+* `fill`
+* `slim`
+
+#### Checkbox
+By default `Switch` components behave as a checkbox. You can override this behavior by passing the `type` prop.
+
+```jsx live
+<>
+    <Switch>Outline</Switch>
+    <Switch shape="fill">Fill</Switch>
+    <Switch shape="slim">Slim</Switch>
+</>
+```
+
+#### Radio
+You're free to mix-and-match colors too!
+
+```jsx live
+<>
+    <Switch type="radio" color="success" name="radio">Summer</Switch>
+    <Switch type="radio" color="success" style="fill" name="radio">Winter</Switch>
+    <Switch type="radio" color="success" style="slim" name="radio">Fall</Switch>
+</>
+```
