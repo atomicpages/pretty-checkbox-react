@@ -4,7 +4,7 @@ import SEO from '../components/seo';
 
 export default ({ children }) => (
     <Layout>
-        <SEO title={post.frontmatter.title} />
+        {/* <SEO title={post.frontmatter.title} /> */}
         {children}
     </Layout>
 )

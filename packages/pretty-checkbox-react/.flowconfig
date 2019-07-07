@@ -11,6 +11,6 @@ rollup.conifg.js
 [lints]
 
 [options]
-suppress_comment= \\(.\\|\n\\)*\\$ExpectError
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 
 [strict]

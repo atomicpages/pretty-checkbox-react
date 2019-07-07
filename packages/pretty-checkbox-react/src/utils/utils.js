@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-const __DEV__ = process.env.NODE_ENV === 'development';
+const __DEV__ = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
 
 export function warn(...args: string[]): void {
     if (__DEV__ && console && console.warn) {
@@ -38,7 +38,7 @@ export function warnOnce(...args: string[]): void {
     warn(...args);
 }
 
-export function mergeRefs(...refs: Array<React.Ref<any> | undefined>) {
+export function mergeRefs(...refs: Array<React.Ref<any> | typeof undefined>) {
     const filteredRefs = refs.filter(Boolean);
 
     if (!filteredRefs.length) {
@@ -54,6 +54,7 @@ export function mergeRefs(...refs: Array<React.Ref<any> | undefined>) {
             if (typeof ref === 'function') {
                 ref(instance);
             } else if (ref) {
+                // $FlowFixMe
                 ref.current = instance;
             }
         }
@@ -77,7 +78,7 @@ export function removeIndexFromArray(array: any[], index: number) {
  * TODO: Check the actual JSX node to determine if the type is valid.
  */
 export const isValidIconType = (type: string | null) =>
-    !type || type !== 'svg' || type !== 'image' || type !== 'icon';
+    !type || type === 'svg' || type === 'image' || type === 'icon';
 
 export const isBoolean = (value?: string) => typeof value === 'undefined';
 

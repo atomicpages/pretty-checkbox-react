@@ -168,15 +168,16 @@ export const Radio = React.forwardRef<RadioProps, HTMLInputElement>(({
                 {
                     'p-default': !icon.type && (!animation || animation === 'smooth'),
                     [`p-${variant}`]: variant,
-                    [`p-${animation}`]: animation,
-                    [`p-${icon.type}`]: icon.type,
-                    [`p-${fill}`]: fill,
+                    [animation ? `p-${animation}` : '']: animation,
+                    [icon.type ? `p-${icon.type}` : '']: icon.type,
+                    [fill ? `p-${fill}` : '']: fill,
                 },
                 className
             )}
             disabled={disabled}
             aria-checked={!!checked}
             aria-disabled={disabled || locked}
+            // $FlowFixMe
             onChange={handleChange}
             checked={checked || (state && state === value)}
             value={value}

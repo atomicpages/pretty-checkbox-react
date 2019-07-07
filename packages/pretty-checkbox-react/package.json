@@ -16,18 +16,34 @@
         "CSS",
         "Checkbox"
     ],
-    "main": "dist/pretty-checkbox-react.cjs.js",
-    "module": "dist/pretty-checkbox-react.es.js",
-    "browser": "dist/pretty-checkbox-react.umd.min.js",
+    "@pika/pack": {
+        "pipeline": [
+            [
+                "@pika/plugin-standard-pkg",
+                {
+                    "exclude": [
+                        "**/*.mdx",
+                        "__tests__/**/*"
+                    ]
+                }
+            ],
+            [
+                "@pika/plugin-build-web"
+            ],
+            [
+                "@pika/plugin-build-umd",
+                {
+                    "name": "PrettyCheckboxReact"
+                }
+            ]
+        ]
+    },
     "scripts": {
         "build:flow": "flow focus-check src/components/** && flow-copy-source src dist",
         "lint": "eslint src/**",
         "pretest": "eslint src/**",
-        "build": "rimraf dist/** && rollup -c rollup.config.js && npm run build:flow",
-        "prepublish": "flow-copy-source src dist && rollup -c rollup.config.js",
-        "test": "jest",
-        "docz:dev": "docz dev",
-        "docz:build": "docz build"
+        "build": "rimraf pkg/** && pack build && npm run build:flow",
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -48,41 +64,37 @@
         "react-dom": "^16.8.6"
     },
     "devDependencies": {
-        "@babel/core": "^7.4.0",
-        "@babel/plugin-proposal-class-properties": "^7.4.0",
-        "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+        "@babel/core": "^7.5.0",
+        "@babel/plugin-proposal-class-properties": "^7.5.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.5.1",
         "@babel/plugin-transform-computed-properties": "^7.2.0",
-        "@babel/preset-env": "^7.4.2",
+        "@babel/preset-env": "^7.5.0",
         "@babel/preset-flow": "^7.0.0",
         "@babel/preset-react": "^7.0.0",
         "@djthoms/eslint-config": "^1.0.0",
         "@djthoms/prettier-config": "^1.0.0",
+        "@pika/pack": "^0.4.0",
+        "@pika/plugin-build-umd": "^0.4.0",
+        "@pika/plugin-build-web": "^0.4.0",
+        "@pika/plugin-standard-pkg": "^0.4.0",
         "@testing-library/react": "^8.0.1",
         "babel-core": "^7.0.0-bridge.0",
         "babel-eslint": "^10.0.2",
         "babel-jest": "^24.8.0",
         "coveralls": "^3.0.4",
-        "docz": "^1.2.0",
-        "docz-theme-default": "^1.2.0",
-        "eslint": "^6.0.0",
+        "eslint": "^5.16.0",
         "flow": "^0.2.3",
         "flow-bin": "^0.102.0",
-        "flow-copy-source": "^2.0.3",
+        "flow-copy-source": "^2.0.7",
         "flow-coverage-report": "^0.6.1",
-        "husky": "^2.4.1",
+        "husky": "^3.0.0",
         "jest": "^24.5.0",
         "jest-dom": "^3.5.0",
         "prettier": "^1.18.2",
         "pretty-checkbox": "^3.0.3",
         "react": "^16.8.5",
         "react-dom": "^16.8.6",
-        "rimraf": "^2.6.3",
-        "rollup": "^1.16.2",
-        "rollup-plugin-babel": "^4.3.3",
-        "rollup-plugin-commonjs": "^10.0.0",
-        "rollup-plugin-json": "^4.0.0",
-        "rollup-plugin-node-resolve": "^5.0.4",
-        "rollup-plugin-uglify": "^6.0.2"
+        "rimraf": "^2.6.3"
     },
     "dependencies": {
         "classnames": "^2.2.6"

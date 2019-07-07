@@ -11,6 +11,8 @@ import {
     type IconPropType,
 } from '../../types';
 
+type ChangeType = { currentTarget: ?HTMLElement } | SyntheticMouseEvent<HTMLInputElement>;
+
 export type BaseProps = {
     className: string,
     type: string,
@@ -21,9 +23,7 @@ export type BaseProps = {
     icon?: IconPropType,
     tabIndex: string,
     children?: React.Node | ((...props: Object) => React.Node),
-    onChange: (
-        e: { currentTarget: ?HTMLElement } | SyntheticMouseEvent<HTMLInputElement>
-    ) => ?boolean,
+    onChange: (e: ChangeType) => ?boolean,
 };
 
 const ENTER = 13;
@@ -65,7 +65,7 @@ export const BaseInput = React.forwardRef<BaseProps, HTMLInputElement>(
                 {typeof children === 'function' ? (
                     children({ color, icon })
                 ) : (
-                    <div className={classNames('state', { [`p-${color}`]: color })}>
+                    <div className={classNames('state', { [color ? `p-${color}` : '']: color })}>
                         <Icon {...icon} />
                         <label>{children}</label>
                     </div>

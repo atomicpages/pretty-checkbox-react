@@ -8,68 +8,324 @@ import SEO from '../components/seo';
 
 <SEO title="Checkbox" keywords={['pretty-checkbox-react', 'checkbox', 'react']} />
 
-The Checkbox component is easy to use -- even easier then using a regular HTML checkbox. All components implemented by pretty-checkbox-react are simple stateless function components.
+# Checkbox
 
-There are three shapes: `default`, `curve`, and `round`. Use the `shape` prop to customize.
+Pretty Checkbox React (PCR) is flexible and allows you to completely control the state of the checkbox yourself.
+While there are a few ways of doing this, we recommend using the `useCheckboxState` hook to make this happen.
+Of course, you may control checkbox state using `checked` and `onChange` props if you fancy too.
 
-#### Default Checkbox
+## Basic Usage with `useCheckboxState` Hook
 
 ```jsx live
-<>
-    <Checkbox>Default</Checkbox>
-    <Checkbox style="fill">Fill</Checkbox>
-    <Checkbox style="thick">Thick</Checkbox>
-</>
+function App() {
+    const checkbox = useCheckboxState();
+
+    return <Checkbox {...checkbox}>Basic Checkbox with Hooks</Checkbox>;
+}
 ```
 
-#### Curve Checkbox
+## Basic Controlled example with Hooks
+
+PCR still offers a controlled (by you) mode, which you can achieve using hooks.
+
+```jsx live
+function App() {
+    const [checked, dispatch] = React.useReducer(state => !state, false);
+
+    return (
+        <Checkbox fill="thick" checked={checked} onChange={dispatch}>
+            Controlled by You
+        </Checkbox>
+    );
+}
+```
+
+## Basic Usage without Hooks
+
+Not on the hooks train yet? No worries 😉
+
+```jsx live
+class MyCheckbox extends React.Component {
+    constructor() {
+        this.state = { checked: false };
+        this.toggleCheckbox = this.toggleCheckbox.bind(this);
+    }
+
+    toggleCheckbox() {
+        this.setState({ checked: !this.state.checked });
+    }
+
+    render() {
+        return (
+            <Checkbox variant="curve" checked={this.state.checked} onChange={this.toggleCheckbox}>
+                Basic Checkbox without Hooks
+            </Checkbox>
+        );
+    }
+}
+```
+
+## Indeterminate
+
+Indeterminate, or tri-state, checkboxes in React are a source of pain.
+No, really. It's a [legitimate problem](https://github.com/facebook/react/issues/1798).
+Thankfully PCR takes care of that for you. PCR internally creates a `ref` on you behalf.
+You can always supply your own `ref` if you need extra control and we'll use that instead!
+
+```jsx live
+function App() {
+    const checkbox = useCheckboxState();
+
+    const handleMakeIndeterminate = React.useCallback(() => {
+        checkbox.setState('indeterminate');
+    }, [checkbox.setState]);
+
+    return (
+        <>
+            <Checkbox
+                variant="curve"
+                icon={{
+                    icon: (
+                        <i className="material-icons">
+                            {checkbox.state !== 'indeterminate' ? 'check' : 'remove'}
+                        </i>
+                    ),
+                    type: 'icon',
+                }}
+                {...checkbox}>
+                Indeterminate
+            </Checkbox>
+            <button onClick={handleMakeIndeterminate}>Apply</button>
+        </>
+    );
+}
+```
+
+Theory this is nice, but compared to PCR 1.0, we can see how easy it is to create an
+entire state tree using built-in hooks from PCR 2.0!
+
+> Shout out to [Diego Haz](https://github.com/diegohaz) for his awesome work on [reakit](https://reakit.io/).
+> The example below is adapted from the Checkbox example on the reakit docs.
+
+```jsx live
+(function() {
+    // example lifted from https://reakit.io/docs/checkbox/
+    function useTreeState({ values }) {
+        const group = useCheckboxState();
+        const items = useCheckboxState();
+
+        React.useEffect(() => {
+            if (group.state === true) {
+                items.setState(values);
+            } else if (group.state === false) {
+                items.setState([]);
+            }
+        }, [group.state]);
+
+        React.useEffect(() => {
+            if (items.state.length === values.length) {
+                group.setState(true);
+            } else if (items.state.length) {
+                group.setState('indeterminate');
+            } else {
+                group.setState(false);
+            }
+        }, [items.state]);
+
+        return { group, items };
+    }
+
+    return () => {
+        const values = ['Apple', 'Orange', 'Watermelon'];
+        const { group, items } = useTreeState({ values });
+
+        return (
+            <ul>
+                <li>
+                    <Checkbox
+                        {...group}
+                        icon={{
+                            icon: (
+                                <i className="material-icons">
+                                    {group.state !== 'indeterminate' ? 'check' : 'remove'}
+                                </i>
+                            ),
+                            type: 'icon',
+                        }}>
+                        Fruits
+                    </Checkbox>
+                </li>
+                <ul>
+                    {values.map((value, i) => (
+                        <li key={i}>
+                            <Checkbox
+                                {...items}
+                                value={value}
+                                icon={{
+                                    icon: <i className="material-icons">check</i>,
+                                    type: 'icon',
+                                }}>
+                                {value}
+                            </Checkbox>
+                        </li>
+                    ))}
+                </ul>
+            </ul>
+        );
+    };
+})();
+```
+
+## Checkbox Variants
+
+The awesome underlying CSS library that powers PCR offers various combinations
+of fill modes and variants. Here's a comprenhesive list.
+
+### Square Checkbox
 
 ```jsx live
 <>
-    <Checkbox shape="curve">Default</Checkbox>
-    <Checkbox shape="curve" style="fill">
+    <Checkbox checked>Default</Checkbox>
+    <Checkbox fill="fill" checked>
         Fill
     </Checkbox>
-    <Checkbox shape="curve" style="thick">
+    <Checkbox fill="thick" checked>
         Thick
     </Checkbox>
 </>
 ```
 
-#### Round Checkbox
+### Curved Checkbox
 
 ```jsx live
 <>
-    <Checkbox shape="round">Default</Checkbox>
-    <Checkbox shape="round" style="fill">
+    <Checkbox variant="curve" checked>
+        Default
+    </Checkbox>
+    <Checkbox variant="curve" fill="fill" checked>
         Fill
     </Checkbox>
-    <Checkbox shape="round" style="thick">
+    <Checkbox variant="curve" fill="thick" checked>
         Thick
     </Checkbox>
 </>
 ```
 
-#### Custom Rendering
-Pretty Checkbox React APIs are relative inflexible. This is because the underlying TPL, pretty checkbox, is _very_ selector dependent. Almost all the props exposed by pretty checkbox react just append selectors to elements. Like most things, this can lead to challenges. If you're facing issues getting pretty checkbox react to work _exactly_ how you want it to, then you can pass your own children render function or `render` prop to `Checkbox`, `Switch`, or `Radio`.
+### Round Checkbox
 
-**Note:** in most cases you can make things work using CSS. Please do not misuse this feature. Be sure you understand how `pretty-checkbox` works **before** custom rendering. Consult the [docs](https://lokesh-coder.github.io/pretty-checkbox/) for more information.
+```jsx live
+<>
+    <Checkbox variant="round" checked>
+        Default
+    </Checkbox>
+    <Checkbox variant="round" fill="fill" checked>
+        Fill
+    </Checkbox>
+    <Checkbox variant="round" fill="thick" checked>
+        Thick
+    </Checkbox>
+</>
+```
 
-##### Children Render Function
+## Disabled and Locked Checkbox
+
+```jsx live
+<>
+    <Checkbox variant="round" checked locked>
+        Locked
+    </Checkbox>
+    <Checkbox variant="round" fill="fill" checked disabled>
+        Disabled
+    </Checkbox>
+</>
+```
+
+## Animations
+
+The CSS library that powers PCR comes with lovely in-house animatons, five to be exact.
+
+-   smooth
+-   pulse
+-   jelly - requires an icon
+-   tada - requires an icon
+-   rotate - requires an icon
+
+```jsx live
+function App() {
+    const items = useCheckboxState([]);
+
+    return (
+        <>
+            <Checkbox animation="smooth" value="smooth" {...items}>
+                Smooth
+            </Checkbox>
+            <Checkbox
+                animation="jelly"
+                variant="round"
+                value="jelly"
+                icon={{
+                    type: 'icon',
+                    icon: <i className="material-icons">check</i>,
+                }}
+                color="primary"
+                {...items}>
+                Jelly
+            </Checkbox>
+            <Checkbox
+                animation="tada"
+                value="tada"
+                color="danger"
+                icon={{
+                    type: 'icon',
+                    icon: <i className="material-icons">whatshot</i>,
+                }}
+                {...items}>
+                Tada
+            </Checkbox>
+            <Checkbox
+                animation="pulse"
+                value="pulse"
+                color="warning"
+                icon={{
+                    type: 'icon',
+                    icon: <i className="material-icons">wb_sunny</i>,
+                }}
+                {...items}>
+                Pulse
+            </Checkbox>
+            <Checkbox
+                animation="rotate"
+                value="rotate"
+                icon={{
+                    type: 'icon',
+                    icon: <i className="material-icons">rotate_right</i>,
+                }}
+                {...items}>
+                Rotate
+            </Checkbox>
+        </>
+    );
+}
+```
+
+## Custom Rendering
+
+Need something custom? No worries 👍. We got your back. You can supply a child render function to any component and have full
+control over the `.state` element of [pretty checkbox](https://lokesh-coder.github.io/pretty-checkbox/).
+
+As a convenience to you, PCR will give you the following props:
+
+-   `color: string`
+-   `icon: { type: 'image' | 'svg' | 'icon' | null, icon: React.Node | null }`
+
 ```jsx
 // node is the svg, icon, or image node
-<Checkbox>{({ className, node }) => (
-    <div className={classNames("state", className, "custom-handle")}>
-        <label>My custom label</label>
-    </div>
-)}</Checkbox>
-```
-
-##### Render Prop
-```jsx
-<Checkbox render={({ className, node }) => (
-    <div className={classNames("state", className, "custom-handle")}>
-        <label>My custom label</label>
-    </div>
-)} />
+<Checkbox>
+    {({ color, icon }) => (
+        <div className={`state p-${color}`}>
+            <label>My custom label</label>
+            {icon.icon}
+        </div>
+    )}
+</Checkbox>
 ```

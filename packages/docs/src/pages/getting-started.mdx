@@ -8,32 +8,45 @@ import SEO from '../components/seo';
 
 <SEO title="Getting Started" keywords={['pretty-checkbox-react', 'react']} />
 
-### Installation
+# Getting Started
 
-pretty-checkbox-react and peer dependencies can be added via NPM or Yarn:
+Pretty Checkbox React (PCR) is a tiny wrapper around the super popular pretty-checkbox CSS library.
+
+## Installation
+
+First make sure you have these peer depdencies installed:
+
+-   React
+-   ReactDOM
+-   pretty-checkbox
 
 ```bash
 npm i pretty-checkbox pretty-checkbox-react --save
 yarn add pretty-checkbox pretty-checkbox-react
 ```
 
-The default export is a UMD module which means it's compatible with CommonJS, AMD, and global. In the `dist/` folder there are builds to ES Modules and Node. The correct entry points are already set in the `package.json` so there shouldn't be extra effort to load the optimal bundle for webpack or rollup.
+## Usage
 
-### Loading from CDN
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
+
+function App() {
+    const checkbox = useCheckboxState();
+
+    return <Checkbox {...checkbox}>Do you agree to the terms and conditions?</Checkbox>;
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+## CDN
 
 You can also directly add a script tag loading pretty-checkbox and pretty-checkbox-react from one of the CDNs providing it:
 
-##### unpkg.com
+#### unpkg.com
 
 -   https://unpkg.com/pretty-checkbox
 -   https://unpkg.com/pretty-checkbox-react
-
-### Basic Example
-
-```jsx live
-function ConsentForm() {
-    return (
-        <Checkbox>I agree to the terms and conditions</Checkbox>
-    );
-}
-```

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
-// @import '../../node_modules/@mdi/font/css/materialdesignicons.min.css';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 :root {
     font-family: sans-serif;
@@ -22,6 +22,12 @@ body {
     .grid-container {
         height: 100vh;
     }
+}
+
+abbr[title] {
+    text-decoration: none;
+    border-bottom: 1px dotted black;
+    cursor: help;
 }
 
 @import './layout';

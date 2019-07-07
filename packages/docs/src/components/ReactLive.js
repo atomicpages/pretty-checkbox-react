@@ -1,9 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 
-import { Checkbox, Radio, Switch } from 'pretty-checkbox-react';
+import {
+    Checkbox,
+    useCheckboxState,
+    Radio,
+    RadioGroup,
+    useRadioState,
+    Switch,
+    useSwitchState,
+} from 'pretty-checkbox-react';
+
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
 const ReactLive = ({ children, className }) => {
+    // console.log(Checkbox, useCheckboxState);
+
     const [expanded, toggleExpanded] = React.useReducer(state => !state, false);
 
     return (
@@ -12,17 +23,18 @@ const ReactLive = ({ children, className }) => {
                 code={children}
                 scope={{
                     Checkbox,
+                    useCheckboxState,
                     Radio,
+                    useRadioState,
                     Switch,
+                    useSwitchState,
                 }}>
                 <div className="code-example__preview">
                     <LivePreview />
                     <LiveError />
                 </div>
 
-                <button
-                    className="code-example__editor-toggle"
-                    onClick={toggleExpanded}>
+                <button className="code-example__editor-toggle" onClick={toggleExpanded}>
                     {!expanded ? 'Show Code' : 'Hide Code'}
                 </button>
                 {expanded ? (

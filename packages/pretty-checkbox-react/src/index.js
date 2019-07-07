@@ -1,6 +1,5 @@
 // @flow
 
-// export { default as Input } from './components/Input';
 export { Checkbox, useCheckboxState } from './components/Checkbox/Checkbox';
-// export { default as Radio } from './components/Radio';
-// export { default as Switch } from './components/Switch';
+export { Radio, RadioGroup, useRadioState } from './components/Radio/Radio';
+export { Switch, useSwitchState } from './components/Switch/Switch';

@@ -154,13 +154,14 @@ export const Switch = React.forwardRef<SwitchProps, HTMLInputElement>(({
             className={classNames(
                 'p-switch',
                 {
-                    [`p-${fill}`]: fill,
+                    [fill ? `p-${fill}` : '']: fill,
                 },
                 className
             )}
             disabled={disabled}
             aria-checked={!!checked}
             aria-disabled={disabled || locked}
+            // $FlowFixMe
             onChange={handleChange}
             checked={checked || (state && state === value)}
             value={value}

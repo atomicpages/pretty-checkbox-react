@@ -130,7 +130,7 @@ export const __handleCheckboxChange = ({
     bool,
 }: {
     setState: (state: CheckboxState) => void,
-    state: CheckboxState,
+    state?: CheckboxState | string,
     value?: string,
     bool: boolean,
 }) => {
@@ -138,7 +138,7 @@ export const __handleCheckboxChange = ({
         setState(!state);
     } else {
         const array = Array.isArray(state) ? state : [];
-        const index = state.indexOf(value);
+        const index = array.indexOf(value);
 
         if (index === -1) {
             setState([...array, value]);
@@ -175,7 +175,7 @@ export const Checkbox = React.forwardRef<CheckboxProps, HTMLInputElement>(
         const checkboxRef = React.useRef(mergeRefs(ref, React.createRef()));
 
         const handleChange = React.useCallback(
-            (e: SyntheticEvent<HTMLInputElement>) => {
+            (e: SyntheticMouseEvent<HTMLInputElement>) => {
                 if (disabled || locked) {
                     return;
                 }
@@ -207,8 +207,11 @@ export const Checkbox = React.forwardRef<CheckboxProps, HTMLInputElement>(
 
             if (checkboxRef.current) {
                 if (state === 'indeterminate') {
+                    // $FlowFixMe
                     checkboxRef.current.indeterminate = true;
+                    // $FlowFixMe
                 } else if (checkboxRef.current.indeterminate) {
+                    // $FlowFixMe
                     checkboxRef.current.indeterminate = false;
                 }
             }
@@ -227,6 +230,7 @@ export const Checkbox = React.forwardRef<CheckboxProps, HTMLInputElement>(
                 disabled={disabled}
                 aria-checked={state === 'indeterminate' ? 'mixed' : checked}
                 aria-disabled={disabled || locked}
+                // $FlowFixMe
                 onChange={handleChange}
                 checked={checked}
                 value={value}
@@ -234,10 +238,10 @@ export const Checkbox = React.forwardRef<CheckboxProps, HTMLInputElement>(
                 className={classNames(
                     {
                         'p-default': !icon.type && (!animation || animation === 'smooth'),
-                        [`p-${variant}`]: variant,
-                        [`p-${animation}`]: animation,
-                        [`p-${icon.type}`]: icon.type,
-                        [`p-${fill}`]: fill,
+                        [variant ? `p-${variant}`: '']: variant,
+                        [animation ? `p-${animation}` : '']: animation,
+                        [icon.type ? `p-${icon.type}` : '']: icon.type,
+                        [fill ? `p-${fill}`: '']: fill,
                     },
                     className
                 )}>

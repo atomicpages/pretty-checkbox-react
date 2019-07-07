@@ -8,34 +8,62 @@ import SEO from '../components/seo';
 
 <SEO title="Radio" keywords={['pretty-checkbox-react', 'radio', 'react']} />
 
-Like Checkbox and Switch, Radio has an almost identical API.
+# Radio
 
-#### Basic Example
+## Basic Usage with `useRadioState` Hook
+
+> Previously in PCR 1.0 the `name` prop was required. This restirction has been removed in 2.0
+
+```jsx live
+function App() {
+    const radio = useRadioState();
+
+    return (
+        <>
+            <Radio {...radio} value="apple">
+                Apple
+            </Radio>
+            <Radio {...radio} value="orange">
+                Orange
+            </Radio>
+            <Radio {...radio} value="watermelon">
+                Watermelon
+            </Radio>
+        </>
+    );
+}
+```
+
+## Disabled and Locked Radio
+
 ```jsx live
 <>
-    <Radio name="radio-1">Same Day</Radio>
-    <Radio name="radio-1">Next Day</Radio>
-    <Radio name="radio-1">Standard Ground</Radio>
+    <Radio disabled>Disabled</Radio>
+    <Radio locked>Locked</Radio>
 </>
 ```
 
-#### Colors
-```jsx live
-<>
-    <Radio color="primary-o" shape="curve" name="radio-2">Primary</Radio>
-    <Radio color="success-o" shape="curve" name="radio-2">Success</Radio>
-    <Radio color="info-o" shape="curve" name="radio-2">Info</Radio>
-    <Radio color="warning-o" shape="curve" name="radio-2">Warning</Radio>
-    <Radio color="danger-o" shape="curve" name="radio-2">Danger</Radio>
-</>
-```
+## RadioGroup
 
-#### Radio Group with a Disabled Item
+PCR 2.0 introduces a new component called `RadioGroup`.
+It's just a wrapper around HTML `fieldset` that pre-configures ARIA `role` for a radio group.
+
 ```jsx live
-<>
-    <p>Choose your shipping method:</p>
-    <Radio name="radio-3" disabled>Same Day</Radio>
-    <Radio name="radio-3">Next Day</Radio>
-    <Radio name="radio-3">Standard Ground</Radio>
-</>
+function App() {
+    const radio = useRadioState();
+
+    return (
+        <RadioGroup arial-label="fruits">
+            <Radio {...radio} value="apple">
+                Apple
+            </Radio>
+            <Radio {...radio} value="orange">
+                Orange
+            </Radio>
+            <Radio {...radio} value="watermelon">
+                Watermelon
+            </Radio>
+        </RadioGroup>
+    );
+}
 ```
