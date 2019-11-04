@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 import { useMemoizedIcon } from '../useMemoizedIcon';
 
 const DummyIcon = () => <i className="icon" />;
