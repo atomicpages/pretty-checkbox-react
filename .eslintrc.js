@@ -2,37 +2,17 @@ module.exports = {
     env: {
         browser: true,
         node: true,
-        es6: true,
         jest: true,
-    },
-    settings: {
-        react: {
-            version: 'detect',
-            flowVersion: '0.90.0',
-        },
+        es6: true,
     },
     extends: [
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:flowtype/recommended',
-        'plugin:jsx-a11y/recommended',
-        'prettier',
+        '@djthoms/eslint-config',
+        '@djthoms/eslint-config/react',
+        '@djthoms/eslint-config/typescript',
     ],
-    parser: 'babel-eslint',
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
-        },
-        ecmaVersion: 2018,
-        sourceType: 'module',
-    },
-    plugins: ['react', 'flowtype', 'prettier'],
     rules: {
-        indent: ['error', 4],
-        'linebreak-style': ['error', 'unix'],
-        quotes: ['error', 'single'],
-        semi: ['error', 'always'],
-        'react/prop-types': 1,
-        'no-console': 'warn'
+        '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/ban-ts-ignore': 'warn',
+        '@typescript-eslint/no-this-alias': 'warn',
     },
 };
