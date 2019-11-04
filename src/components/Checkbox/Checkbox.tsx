@@ -26,8 +26,7 @@ export const Checkbox = React.forwardRef(
     ) => {
         const ref = React.useRef<HTMLInputElement>(null);
 
-        const { onChange: defaultOnChange } = useCheckboxChange({
-            state,
+        const defaultOnChange = useCheckboxChange({
             setState,
             value,
             disabled,

@@ -21,8 +21,6 @@ export function useMemoizedIcon(
         if (typeof icon.type !== 'string') {
             warnOnce('Function/Class components passed as icons need to merge className props');
             warnOnce('Cannot infer `icon` type. Specify p-svg, p-icon, or p-image on Checkbox');
-
-            return icon;
         } else if (icon.type === 'svg') {
             iconType.current = 'svg';
         } else if (icon.type === 'img') {

@@ -118,7 +118,7 @@ function Main() {
                         Buy Groceries
                     </Checkbox>
                     <Checkbox icon={<Foo />} className="p-icon">
-                        Buy Groceries
+                        Pick up Couch
                     </Checkbox>
                 </>
             </section>
@@ -138,7 +138,7 @@ function Main() {
                         Fuel Refill
                     </Checkbox>
                     <Checkbox animation="tada" icon={<i className="mdi mdi-close-outline" />}>
-                        Buy Groceries
+                        Pick up Couch
                     </Checkbox>
                     <Checkbox animation="rotate" icon={<Foo />} className="p-icon">
                         Buy Groceries

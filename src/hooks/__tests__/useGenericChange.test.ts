@@ -13,14 +13,10 @@ describe('useGenericChange hook tests', () => {
             })
         );
 
-        expect(result.current).toEqual(
-            expect.objectContaining({
-                onChange: expect.any(Function),
-            })
-        );
+        expect(result.current).toBeInstanceOf(Function);
 
         act(() => {
-            result.current.onChange();
+            result.current();
         });
 
         expect(onChange).toHaveBeenCalledWith(

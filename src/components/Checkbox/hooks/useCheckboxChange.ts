@@ -3,8 +3,7 @@ import { removeIndexFromArray } from '../../../utils/utils';
 import { useGenericChange } from '../../../hooks/useGenericChange';
 
 export type CheckboxChangeArgs = {
-    setState: (state: CheckboxState) => void;
-    state?: CheckboxState | string;
+    setState: React.Dispatch<React.SetStateAction<CheckboxState>>;
     value?: string;
     locked?: boolean;
     disabled?: boolean;
@@ -15,23 +14,26 @@ export type CheckboxChangeArgs = {
  * an array of values. This is passed to and called by
  * `useGenericChange`.
  */
-function onChange({ setState, state, value }: CheckboxChangeArgs) {
-    if (Array.isArray(state)) {
-        const array = Array.isArray(state) ? state : [];
-        const index = array.indexOf(value);
+function onChange({ setState, value }: CheckboxChangeArgs) {
+    setState(state => {
+        if (Array.isArray(state)) {
+            const array = Array.isArray(state) ? state : [];
+            const index = array.indexOf(value);
 
-        if (index === -1) {
-            setState([...array, value]);
-        } else {
-            setState([...removeIndexFromArray(array, index)]);
+            if (index === -1) {
+                setState([...array, value]);
+            } else {
+                setState([...removeIndexFromArray(array, index)]);
+            }
         }
-    }
+
+        return state;
+    });
 }
 
 /**
  * Internal hook to generalize checkbox onChange behavior. Used by
- * Checkbox and Switch. Since state will change every onChange, we don't
- * need to memozie this.
+ * Checkbox and Switch.
  */
 export const useCheckboxChange = (args: CheckboxChangeArgs) => {
     return useGenericChange<CheckboxState>({

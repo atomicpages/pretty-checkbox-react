@@ -63,8 +63,7 @@ export const Switch = React.forwardRef(
         }: SwitchProps,
         htmlRef: React.Ref<HTMLInputElement>
     ) => {
-        const { onChange: defaultOnChange } = useGenericChange({
-            state,
+        const defaultOnChange = useGenericChange<SwitchState>({
             setState,
             value,
             disabled,

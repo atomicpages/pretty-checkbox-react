@@ -22,7 +22,7 @@ describe('useMemoizedIcon hook tests', () => {
     it('should allow function components to be passed as icons', () => {
         // @ts-ignore
         global.console = { warn: jest.fn() };
-        render(DummyIcon);
+        render(<DummyIcon />);
 
         expect(console.warn).toHaveBeenCalledTimes(2);
     });

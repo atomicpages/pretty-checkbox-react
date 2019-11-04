@@ -1,20 +1,20 @@
+import * as React from 'react';
 import { isBoolean } from '../utils/utils';
 
 export type ChangeArgs<S> = {
-    setState: (state: S) => void;
-    state?: S | string;
-    value?: string;
+    setState: React.Dispatch<React.SetStateAction<S>>;
+    onChange?: (args: any) => void;
     locked?: boolean;
     disabled?: boolean;
-    onChange?: (args: any) => void;
+    value?: string;
 };
 
 /**
  * Super generic change handlers for toggling the input
  * controls.
  */
-function onChange(args: ChangeArgs<any>) {
-    const { setState, state, value, locked, disabled, onChange } = args;
+function baseChangeHandler(args: ChangeArgs<any>) {
+    const { setState, value, locked, disabled, onChange } = args;
 
     if (locked || disabled) {
         return;
@@ -25,7 +25,7 @@ function onChange(args: ChangeArgs<any>) {
     }
 
     if (isBoolean(value)) {
-        setState(!state);
+        setState((currentState: boolean) => !currentState);
     }
 }
 
@@ -35,7 +35,9 @@ function onChange(args: ChangeArgs<any>) {
  * need to memozie this.
  */
 export function useGenericChange<S>(args: ChangeArgs<S>) {
-    return {
-        onChange: () => onChange(args),
-    };
+    const handleChange = React.useCallback(() => {
+        baseChangeHandler(args);
+    }, [args]);
+
+    return handleChange;
 }

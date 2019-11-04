@@ -34,8 +34,7 @@ export const Radio = React.forwardRef(
         }: RadioProps,
         htmlRef: React.Ref<HTMLInputElement>
     ) => {
-        const { onChange: defaultOnChange } = useGenericChange({
-            state,
+        const defaultOnChange = useGenericChange<RadioState>({
             setState,
             value,
             disabled,
