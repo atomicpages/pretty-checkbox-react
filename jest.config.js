@@ -4,7 +4,7 @@ module.exports = {
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'html', 'text-summary', 'lcov'],
     collectCoverageFrom: ['src/**/*.{ts,tsx}'],
-    modulePathIgnorePatterns: ['pkg/', 'resources/'],
+    modulePathIgnorePatterns: ['pkg/', 'resources/', 'playground/'],
     testPathIgnorePatterns: ['<rootDir>/src/index.ts'],
     globals: {
         'ts-jest': {
