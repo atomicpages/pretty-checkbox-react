@@ -16,6 +16,7 @@
         "esModuleInterop": true,
         "downlevelIteration": true,
         "noImplicitAny": false,
+        "resolveJsonModule": true,
         "lib": ["dom", "es2015"]
     },
     "exclude": ["playground/**", "pkg/**"]
