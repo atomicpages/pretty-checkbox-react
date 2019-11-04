@@ -9,12 +9,12 @@ import { useGenericState } from '../../hooks/useGenericState';
 
 export type CheckboxState = boolean | 'indeterminate' | any[] | undefined;
 
-export interface CheckboxProps extends BaseProps<CheckboxState> {
+export type CheckboxProps = BaseProps<CheckboxState> & {
     /**
      * Specify one of the fill modes.
      */
     fill?: RadioCheckboxFillModes;
-}
+};
 
 export const useCheckboxState = (initialState: CheckboxState = false) =>
     useGenericState<CheckboxState>(initialState);

@@ -22,7 +22,7 @@
         "test": "jest --silent",
         "clean": "rimraf pkg/**",
         "build": "npm run clean && pika build",
-        "build:test": "npm run clean && tsc src/index.ts --pretty --jsx react --esModuleInterop  --downLevelIteration --outDir pkg",
+        "ts-check": "tsc --noEmit",
         "version": "npm run test && npm run lint && npm run build"
     },
     "repository": {

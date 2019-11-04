@@ -6,12 +6,12 @@ import { useGenericState } from '../../hooks/useGenericState';
 
 export type RadioState = boolean | string | undefined;
 
-export interface RadioProps extends BaseProps<RadioState> {
+export type RadioProps = BaseProps<RadioState> & {
     /**
      * The name of the input field.
      */
     name: string;
-}
+};
 
 export const useRadioState = (initialState: RadioState = false) =>
     useGenericState<RadioState>(initialState);

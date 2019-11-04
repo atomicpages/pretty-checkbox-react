@@ -18,5 +18,5 @@
         "noImplicitAny": false,
         "lib": ["dom", "es2015"]
     },
-    "exclude": ["playground/**"]
+    "exclude": ["playground/**", "pkg/**"]
 }

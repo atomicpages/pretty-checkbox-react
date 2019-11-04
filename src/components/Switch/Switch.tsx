@@ -11,7 +11,7 @@ import { useGenericState } from '../../hooks/useGenericState';
 
 export type SwitchState = boolean | string | any[] | undefined;
 
-export interface SwitchProps extends BaseProps<SwitchState> {
+export type SwitchProps = BaseProps<SwitchState> & {
     /**
      * The name of the input field.
      */
@@ -37,7 +37,7 @@ export interface SwitchProps extends BaseProps<SwitchState> {
      * Specify one of the animations.
      */
     animation?: SwitchAnimations;
-}
+};
 
 export const useSwitchState = (initialState: SwitchState = false) =>
     useGenericState<SwitchState>(initialState);

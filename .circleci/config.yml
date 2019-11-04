@@ -15,3 +15,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run: npm t && cat ./coverage/lcov.info | npx coveralls && rm -rf ./coverage
       - run: npm run build
+      - store_test_results:
+            path: coverage
