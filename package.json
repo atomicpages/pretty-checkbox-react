@@ -21,7 +21,7 @@
         "lint": "eslint \"src/**/*.{ts,tsx}\"",
         "test": "jest --silent",
         "clean": "rimraf pkg/**",
-        "build": "npm run clean && pika build",
+        "build": "npm run ts-check && npm run lint && npm run clean && pika build",
         "ts-check": "tsc --noEmit",
         "version": "npm run test && npm run lint && npm run build"
     },

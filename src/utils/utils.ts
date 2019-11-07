@@ -1,4 +1,5 @@
 import { BaseProps } from '../typings/BaseProps';
+import { ReactComponentElement } from 'react';
 
 const __DEV__ = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
 const alreadyWarned: { [key: string]: Date } = {};
