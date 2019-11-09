@@ -1,11 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { BaseProps } from '../../typings/BaseProps';
+import { BaseProps } from '../../types/BaseProps';
 import { BaseInput } from '../BaseInput/BaseInput';
 
 import { useGenericChange, ChangeArgs } from '../../hooks/useGenericChange';
-import { SwitchFillModes, SwitchAnimations } from '../../typings/types';
+import { SwitchFillModes, SwitchAnimations } from '../../types/types';
 import { getChecked } from '../../utils/utils';
 import { useGenericState } from '../../hooks/useGenericState';
 

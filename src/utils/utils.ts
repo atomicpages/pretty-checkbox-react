@@ -1,4 +1,4 @@
-import { BaseProps } from '../typings/BaseProps';
+import { BaseProps } from '../types/BaseProps';
 import { ReactComponentElement } from 'react';
 
 const __DEV__ = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';

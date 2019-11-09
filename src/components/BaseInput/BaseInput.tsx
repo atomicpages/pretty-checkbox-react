@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BaseProps } from '../../typings/BaseProps';
+import { BaseProps } from '../../types/BaseProps';
 import classNames from 'classnames';
 import { isDefaultStyle } from '../../utils/utils';
 import { useMemoizedIcon } from '../../hooks/useMemoizedIcon';

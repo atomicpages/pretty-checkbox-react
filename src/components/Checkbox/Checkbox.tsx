@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { useCheckboxChange } from './hooks/useCheckboxChange';
 import { mergeRefs, warn, getChecked } from '../../utils/utils';
-import { BaseProps } from '../../typings/BaseProps';
-import { RadioCheckboxFillModes } from '../../typings/types';
+import { BaseProps } from '../../types/BaseProps';
+import { RadioCheckboxFillModes } from '../../types/types';
 import { BaseInput } from '../BaseInput/BaseInput';
 import { useGenericState } from '../../hooks/useGenericState';
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BaseProps } from '../../typings/BaseProps';
+import { BaseProps } from '../../types/BaseProps';
 import { BaseInput } from '../BaseInput/BaseInput';
 import { useGenericChange, ChangeArgs } from '../../hooks/useGenericChange';
 import { useGenericState } from '../../hooks/useGenericState';
