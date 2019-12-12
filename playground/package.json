@@ -12,24 +12,23 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "@hot-loader/react-dom": "^16.10.2",
+        "@hot-loader/react-dom": "^16.11.0",
         "@types/reach__router": "^1.2.6",
-        "@types/react-dom": "^16.9.3",
-        "css-loader": "^3.1.0",
+        "@types/react-dom": "^16.9.4",
+        "css-loader": "^3.3.0",
         "html-webpack-plugin": "^3.2.0",
         "mini-css-extract-plugin": "^0.8.0",
         "node-sass": "^4.13.0",
         "postcss-loader": "^3.0.0",
-        "react-hot-loader": "^4.12.15",
+        "react-hot-loader": "^4.12.18",
         "sass-loader": "^8.0.0",
-        "style-loader": "^1.0.0",
+        "style-loader": "^1.0.1",
         "ts-loader": "^6.2.1",
         "webpack": "^4.41.2",
         "webpack-cli": "^3.3.10",
         "webpack-dev-server": "^3.9.0"
     },
     "dependencies": {
-        "@reach/router": "^1.2.1",
         "pretty-checkbox": "^3.0.3"
     }
 }

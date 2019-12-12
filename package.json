@@ -65,6 +65,9 @@
                     },
                     "sourcemap": true
                 }
+            ],
+            [
+                "pika-plugin-typedefs-to-flow"
             ]
         ]
     },
@@ -77,30 +80,31 @@
         "@djthoms/eslint-config": "^2.0.1",
         "@djthoms/prettier-config": "^1.0.0",
         "@pika/pack": "^0.5.0",
-        "@pika/plugin-build-node": "^0.7.1",
-        "@pika/plugin-build-web": "^0.7.1",
-        "@pika/plugin-ts-standard-pkg": "^0.7.1",
-        "@testing-library/jest-dom": "^4.2.3",
-        "@testing-library/react": "^9.3.1",
-        "@testing-library/react-hooks": "^3.1.1",
+        "@pika/plugin-build-node": "^0.8.1",
+        "@pika/plugin-build-web": "^0.8.1",
+        "@pika/plugin-ts-standard-pkg": "^0.8.1",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.3",
+        "@testing-library/react-hooks": "^3.2.1",
         "@types/classnames": "^2.2.9",
-        "@types/jest": "^24.0.21",
-        "@types/react": "^16.9.11",
-        "babel-jest": "^24.9.0",
-        "coveralls": "^3.0.7",
-        "eslint": "^6.6.0",
-        "husky": "^3.0.9",
+        "@types/jest": "^24.0.23",
+        "@types/react": "^16.9.16",
+        "coveralls": "^3.0.9",
+        "eslint": "^6.7.2",
+        "flowgen": "^1.10.0",
+        "husky": "^3.1.0",
         "jest": "^24.9.0",
         "npm-run-all": "^4.1.5",
         "pika-plugin-legacy-browser": "^1.1.1",
-        "prettier": "^1.18.2",
+        "pika-plugin-typedefs-to-flow": "0.0.2",
+        "prettier": "^1.19.1",
         "pretty-checkbox": "^3.0.3",
-        "react": "^16.11.0",
-        "react-dom": "^16.11.0",
-        "react-test-renderer": "^16.11.0",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0",
+        "react-test-renderer": "^16.12.0",
         "rimraf": "^3.0.0",
-        "ts-jest": "^24.1.0",
-        "typescript": "^3.6.4"
+        "ts-jest": "^24.2.0",
+        "typescript": "^3.7.3"
     },
     "dependencies": {
         "classnames": "^2.2.6"

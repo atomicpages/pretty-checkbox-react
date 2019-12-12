@@ -18,5 +18,5 @@
         "resolveJsonModule": true,
         "lib": ["dom", "es2015"]
     },
-    "exclude": ["playground/**", "pkg/**"]
+    "include": ["src/**/*"]
 }

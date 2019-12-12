@@ -52,7 +52,6 @@ module.exports = {
         compress: true,
         hot: true,
         open: true,
-        historyApiFallback: true, // curious? https://tylermcginnis.com/react-router-cannot-get-url-refresh/
         port: 9000,
     },
 };

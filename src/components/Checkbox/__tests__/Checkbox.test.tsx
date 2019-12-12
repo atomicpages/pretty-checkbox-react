@@ -71,7 +71,9 @@ describe('Checkbox tests', () => {
             const ref = React.createRef<HTMLInputElement>();
             const checkbox = mockUseCheckboxState();
 
-            const { container, rerender } = render(<Checkbox ref={ref} {...checkbox}></Checkbox>);
+            const { container, rerender } = render(
+                <Checkbox name="testing" ref={ref} {...checkbox}></Checkbox>
+            );
 
             act(() => {
                 fireEvent.click(getByRole(container, 'checkbox'));

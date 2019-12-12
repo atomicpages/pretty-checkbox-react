@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import { isDefaultStyle } from '../../utils/utils';
 import { useMemoizedIcon } from '../../hooks/useMemoizedIcon';
 
-export interface BaseInputProps extends BaseProps<any> {
+export type BaseInputProps<S> = BaseProps<S> & {
     /**
      * Specify the type of input control.
      */
-    type?: 'radio' | 'checkbox';
-}
+    type?: 'radio' | 'checkbox' | string;
+};
 
 export const BaseInput = React.forwardRef(
     (
@@ -30,7 +30,7 @@ export const BaseInput = React.forwardRef(
             bigger,
             type = 'checkbox',
             ...rest
-        }: BaseInputProps,
+        }: BaseInputProps<any>,
         htmlRef: React.Ref<HTMLInputElement>
     ) => {
         const [iconType, memoizedIcon] = useMemoizedIcon(icon);

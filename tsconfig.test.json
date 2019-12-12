@@ -1,23 +1,8 @@
 {
+    "extends": "./tsconfig.json",
     "compilerOptions": {
-        "target": "ES2019",
-        "module": "ESNext",
-        "jsx": "react",
-        "declaration": true,
-        "declarationMap": true,
-        "sourceMap": true,
-        "strict": true,
-        "strictNullChecks": true,
-        "noImplicitThis": true,
-        "alwaysStrict": true,
         "noUnusedLocals": false,
         "noUnusedParameters": false,
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "downlevelIteration": true,
         "noImplicitAny": false,
-        "resolveJsonModule": true,
-        "lib": ["dom", "es2015"]
-    },
-    "exclude": ["playground/**", "pkg/**"]
+    }
 }

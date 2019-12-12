@@ -7,7 +7,7 @@ import { RadioCheckboxFillModes } from '../../types/types';
 import { BaseInput } from '../BaseInput/BaseInput';
 import { useGenericState } from '../../hooks/useGenericState';
 
-export type CheckboxState = boolean | 'indeterminate' | any[] | undefined;
+export type CheckboxState = boolean | 'indeterminate' | unknown[] | undefined;
 
 export type CheckboxProps = BaseProps<CheckboxState> & {
     /**

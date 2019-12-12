@@ -9,7 +9,13 @@ import {
     SwitchFillModes,
 } from './types';
 
-export type BaseProps<S> = React.HTMLAttributes<HTMLInputElement> & {
+type PCRInputProps = Pick<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'checked' | 'name' | 'form' | 'required' | 'readOnly' | 'tabIndex' | 'title'
+> &
+    React.HTMLAttributes<HTMLInputElement>;
+
+export type BaseProps<S> = PCRInputProps & {
     /**
      * The current checkbox state.
      */
