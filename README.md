@@ -84,7 +84,7 @@ ReactDOM.render(App, document.querySelector('body'));
 Install `pretty-checkbox` and `pretty-checkbox-react` through NPM or yarn:
 
 ```bash
-yarn pretty-checkbox pretty-checkbox-react # or
+yarn add pretty-checkbox pretty-checkbox-react # or
 npm i pretty-checkbox pretty-checkbox-react --save
 ```
 
