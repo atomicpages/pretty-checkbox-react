@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useCheckboxState, Checkbox } from '../../src';
 import classNames from 'classnames';
 
-function useTreeState({ values }) {
+function useTreeState({ values }: { values: string[] }) {
     const group = useCheckboxState();
-    const items = useCheckboxState([]);
+    const items = useCheckboxState();
 
     // updates items when group is toggled
     React.useEffect(() => {
@@ -13,7 +13,6 @@ function useTreeState({ values }) {
         } else if (group.state === false) {
             items.setState([]);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [group.state]);
 
     // updates group when items is toggled
@@ -25,7 +24,6 @@ function useTreeState({ values }) {
         } else {
             group.setState(false);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [items.state]);
 
     return { group, items };
@@ -42,8 +40,7 @@ export function TreeCheckbox() {
                     {...group}
                     icon={
                         <i
-                            className={classNames({
-                                mdi: group.state,
+                            className={classNames('mdi', {
                                 'mdi-minus': group.state === 'indeterminate',
                                 'mdi-check': group.state === true,
                             })}
@@ -55,7 +52,10 @@ export function TreeCheckbox() {
             <ul>
                 {values.map((value, i) => (
                     <li key={i}>
-                        <Checkbox {...items} value={value} icon={<i className="mdi mdi-check" />}>
+                        <Checkbox
+                            {...items}
+                            icon={<i className="mdi mdi-check" />}
+                            value={value}>
                             {value}
                         </Checkbox>
                     </li>

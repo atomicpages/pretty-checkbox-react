@@ -36,29 +36,32 @@ function RadioGroup() {
 
     return (
         <>
-            <Radio name="gender" value="M" {...radio}>
-                M
+            <Radio name="gender" value="male" {...radio}>
+                Male
             </Radio>
-            <Radio name="gender" value="F" {...radio}>
-                F
+            <Radio name="gender" value="female" {...radio}>
+                Female
+            </Radio>
+            <Radio name="gender" value="other" {...radio}>
+                Other
             </Radio>
         </>
     );
 }
 
 function SwitchGroup() {
-    const switchState = useSwitchState();
+    const switchState = useSwitchState({ type: 'radio' });
 
     return (
         <>
-            <Switch name="greeting" type="radio" value="hello" {...switchState}>
-                Hello
+            <Switch name="greeting" value="yes" {...switchState}>
+                Yes
             </Switch>
-            <Switch name="greeting" type="radio" fill="fill" value="john" {...switchState}>
-                John
+            <Switch name="greeting" shape="fill" value="no" {...switchState}>
+                No
             </Switch>
-            <Switch name="greeting" type="radio" fill="slim" value="wayne" {...switchState}>
-                Wayne
+            <Switch name="greeting" shape="slim" value="maybe" {...switchState}>
+                Maybe
             </Switch>
         </>
     );
@@ -69,7 +72,7 @@ function Main() {
         <main>
             <section>
                 <h2>Basic Checkboxes</h2>
-                <Checkbox ref={React.createRef()}>Hello, World</Checkbox>
+                <Checkbox>Hello, World</Checkbox>
                 <br />
                 <br />
                 <Checkbox disabled>Disabled Checkbox</Checkbox>
@@ -150,7 +153,7 @@ function Main() {
             </section>
             <section>
                 <h2>Plain</h2>
-                <Checkbox animation="smooth" variant="plain" icon={<i className="mdi mdi-check" />}>
+                <Checkbox animation="smooth" plain icon={<i className="mdi mdi-check" />}>
                     Pay Rent
                 </Checkbox>
             </section>
@@ -167,15 +170,11 @@ function Main() {
                 <RadioGroup />
             </section>
             <section>
-                <h2>Switch as Checkboxes</h2>
-                <Switch {...useSwitchState()}>Hello</Switch>
-                <Switch fill="fill" {...useSwitchState()}>
-                    John
-                </Switch>
-                <Switch fill="slim" {...useSwitchState()}>
-                    Wayne
-                </Switch>
-                <h2>Switch as Radio</h2>
+                <h2>Switch</h2>
+                <Switch {...useSwitchState()}>Yes, I want spam!</Switch>
+            </section>
+            <section>
+                <h2>Switch as a Radio Group</h2>
                 <SwitchGroup />
             </section>
         </main>
