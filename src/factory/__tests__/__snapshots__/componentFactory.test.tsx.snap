@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`componentFactory tests createInput tests should be checked when rendered 1`] = `
+<input
+  checked={true}
+  disabled={false}
+  onChange={[MockFunction]}
+  tabIndex={-1}
+  type="checkbox"
+/>
+`;
+
+exports[`componentFactory tests createInput tests should match the snapshot 1`] = `
+<input
+  checked={false}
+  disabled={false}
+  onChange={[MockFunction]}
+  tabIndex={-1}
+  type="checkbox"
+/>
+`;
+
+exports[`componentFactory tests createLabel tests should match the snapshot 1`] = `
+<div
+  className="state"
+>
+  <label>
+    testing
+  </label>
+</div>
+`;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { CommonProps, SwitchShape } from '../types/CommonProps';
-import { createPrettyComponent } from '../factory/createPrettyComponent';
+import { PrettyComponent } from '../factory/PrettyComponent';
 import { useCheckboxState, CheckboxState } from './Checkbox';
 import { useRadioState, RadioState } from './Radio';
 
@@ -26,7 +26,7 @@ export const useSwitchState = ({
 export const Switch: React.FC<SwitchProps> = ({ value: userValue, ...rest }: SwitchProps) => {
     const value = typeof userValue === 'undefined' ? '' : userValue;
 
-    return createPrettyComponent({
+    return React.createElement(PrettyComponent, {
         type: 'checkbox',
         isSwitch: true,
         value,

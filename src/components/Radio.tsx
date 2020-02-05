@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useIcon } from '../hooks/useIcon';
 import { CommonCheckboxRadioProps } from '../types/CommonProps';
-import { createPrettyComponent } from '../factory/createPrettyComponent';
+import { PrettyComponent } from '../factory/PrettyComponent';
 import { isBoolean } from '../factory/utils';
 
 export type RadioState = boolean | string;
@@ -30,7 +30,7 @@ export const Radio: React.FC<RadioProps> = ({
     const { icon, iconType } = useIcon(userIcon);
     const value = typeof userValue === 'undefined' ? '' : userValue;
 
-    return createPrettyComponent({
+    return React.createElement(PrettyComponent, {
         type: 'radio',
         shape,
         icon,

@@ -91,19 +91,19 @@ function Main() {
                 </>
                 <h2>Mixed Colors</h2>
                 <>
-                    <Checkbox variant="round" fill="thick" color="primary-o">
+                    <Checkbox shape="round" fill="thick" color="primary-o">
                         Primary
                     </Checkbox>
-                    <Checkbox variant="round" color="success-o">
+                    <Checkbox shape="round" color="success-o">
                         Success
                     </Checkbox>
                     <Checkbox fill="fill" color="info">
                         Info
                     </Checkbox>
-                    <Checkbox variant="curve" fill="thick" color="warning-o">
+                    <Checkbox shape="curve" fill="thick" color="warning-o">
                         Warning
                     </Checkbox>
-                    <Checkbox variant="curve" fill="thick" color="danger-o">
+                    <Checkbox shape="curve" fill="thick" color="danger-o">
                         Danger
                     </Checkbox>
                 </>
@@ -111,10 +111,10 @@ function Main() {
             <section>
                 <h2>Images</h2>
                 <>
-                    <Checkbox variant="round" icon={<i className="mdi mdi-check" />}>
+                    <Checkbox shape="round" icon={<i className="mdi mdi-check" />}>
                         Pay Bills
                     </Checkbox>
-                    <Checkbox variant="curve" icon={<i className="mdi mdi-close" />}>
+                    <Checkbox shape="curve" icon={<i className="mdi mdi-close" />}>
                         Fuel Refill
                     </Checkbox>
                     <Checkbox icon={<i className="mdi mdi-close-outline" />}>
@@ -130,13 +130,13 @@ function Main() {
                 <>
                     <Checkbox
                         animation="smooth"
-                        variant="round"
+                        shape="round"
                         icon={<i className="mdi mdi-check" />}>
                         Pay Rent
                     </Checkbox>
                     <Checkbox
                         animation="jelly"
-                        variant="curve"
+                        shape="curve"
                         icon={<i className="mdi mdi-close" />}>
                         Fuel Refill
                     </Checkbox>

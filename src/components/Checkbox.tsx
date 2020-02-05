@@ -2,8 +2,7 @@ import * as React from 'react';
 
 import { useIcon } from '../hooks/useIcon';
 import { CommonCheckboxRadioProps } from '../types/CommonProps';
-
-import { createPrettyComponent } from '../factory/createPrettyComponent';
+import { PrettyComponent } from '../factory/PrettyComponent';
 
 export type CheckboxState = boolean | any[] | 'indeterminate';
 
@@ -49,7 +48,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     const { icon, iconType } = useIcon(userIcon);
     const value = typeof userValue === 'undefined' ? '' : userValue;
 
-    return createPrettyComponent({
+    return React.createElement(PrettyComponent, {
         type: 'checkbox',
         icon,
         iconType,
