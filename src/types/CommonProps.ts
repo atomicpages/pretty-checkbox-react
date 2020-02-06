@@ -23,6 +23,7 @@ export type CommonProps<S> = InputHTMLAttributes<HTMLInputElement> & {
     bigger?: boolean;
     className?: string;
     type?: 'checkbox' | 'radio';
+    baseId?: string;
 };
 
 export type CommonCheckboxRadioProps<S = any> = CommonProps<S> & CheckboxRadioProps;

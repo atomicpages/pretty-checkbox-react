@@ -88,6 +88,7 @@
         "@testing-library/react-hooks": "^3.2.1",
         "@types/classnames": "^2.2.9",
         "@types/jest": "^25.1.1",
+        "@types/nanoid": "^2.1.0",
         "@types/react": "^16.9.19",
         "coveralls": "^3.0.9",
         "eslint": "^6.8.0",
@@ -109,6 +110,7 @@
         "typescript": "^3.7.5"
     },
     "dependencies": {
-        "classnames": "^2.2.6"
+        "classnames": "^2.2.6",
+        "nanoid": "^2.1.11"
     }
 }

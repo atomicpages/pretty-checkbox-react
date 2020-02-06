@@ -10,6 +10,7 @@ import {
     useRadioState,
     Switch,
     useSwitchState,
+    Group,
 } from '../../src/index';
 
 import 'pretty-checkbox/src/pretty-checkbox.scss';
@@ -17,6 +18,18 @@ import { TreeCheckbox } from './TreeCheckbox';
 
 function Foo({ className, rest }: any = {}) {
     return <i {...rest} className={`mdi mdi-check${className ? ' ' + className : ''}`} />;
+}
+
+function TestGroup() {
+    const radio = useRadioState({ state: "orange" });
+
+    return (
+        <Group {...radio} aria-label="fruits">
+            <Radio {...radio} name="fruits" value="apple">Apple</Radio>
+            <Radio {...radio} name="fruits" value="orange">Orange</Radio>
+            <Radio {...radio} name="fruits" value="watermelon">Watermelon</Radio>
+        </Group>
+    )
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, any>(({ children, ...rest }, ref) => {
@@ -164,6 +177,10 @@ function Main() {
             <section>
                 <h2>Size</h2>
                 <Checkbox bigger>Pay Rent</Checkbox>
+            </section>
+            <section>
+                <h2>Group</h2>
+                <TestGroup />
             </section>
             <section>
                 <h2>Radio</h2>

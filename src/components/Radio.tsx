@@ -2,13 +2,15 @@ import * as React from 'react';
 
 import { useIcon } from '../hooks/useIcon';
 import { CommonCheckboxRadioProps } from '../types/CommonProps';
-import { PrettyComponent } from '../factory/PrettyComponent';
+import { Pretty } from '../factory/Pretty';
 import { isBoolean } from '../factory/utils';
+import { useUUID } from '../hooks/useUUID';
+import { Group, GroupProps } from './Group';
 
 export type RadioState = boolean | string;
 export type RadioProps = CommonCheckboxRadioProps<RadioState>;
 
-export const useRadioState = ({ initialState = false }: { initialState?: RadioState } = {}) => {
+export const useRadioState = ({ state: initialState = false }: { state?: RadioState } = {}) => {
     const [state, setState] = React.useState<RadioState>(initialState);
 
     return {
@@ -16,10 +18,23 @@ export const useRadioState = ({ initialState = false }: { initialState?: RadioSt
         setState,
         onChange: React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
             const value = e.currentTarget.value;
-            setState(prev => (isBoolean(prev) ? !prev : value));
+
+            setState(prev => {
+                // (isBoolean(prev) ? !prev : value)
+                if (isBoolean(prev)) {
+                    return !prev;
+                }
+
+                return value;
+            });
         }, []),
+        ...useUUID(),
     };
 };
+
+export const RadioGroup = (props: GroupProps) => (
+    <Group as="fieldset" role="radiogroup" {...props} />
+);
 
 export const Radio: React.FC<RadioProps> = ({
     value: userValue,
@@ -30,7 +45,7 @@ export const Radio: React.FC<RadioProps> = ({
     const { icon, iconType } = useIcon(userIcon);
     const value = typeof userValue === 'undefined' ? '' : userValue;
 
-    return React.createElement(PrettyComponent, {
+    return React.createElement(Pretty, {
         type: 'radio',
         shape,
         icon,

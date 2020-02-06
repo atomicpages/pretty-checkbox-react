@@ -2,8 +2,10 @@ import * as React from 'react';
 
 import { useIcon } from '../hooks/useIcon';
 import { CommonCheckboxRadioProps } from '../types/CommonProps';
-import { PrettyComponent } from '../factory/PrettyComponent';
+import { Pretty } from '../factory/Pretty';
+import { useUUID } from '../hooks/useUUID';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type CheckboxState = boolean | any[] | 'indeterminate';
 
 export type CheckboxProps = Omit<CommonCheckboxRadioProps<CheckboxState>, 'type'> & {
@@ -11,8 +13,8 @@ export type CheckboxProps = Omit<CommonCheckboxRadioProps<CheckboxState>, 'type'
 };
 
 export const useCheckboxState = ({
-    initialState = false,
-}: { initialState?: CheckboxState } = {}) => {
+    state: initialState = false,
+}: { state?: CheckboxState } = {}) => {
     const [state, setState] = React.useState<CheckboxState>(initialState);
 
     return {
@@ -37,6 +39,7 @@ export const useCheckboxState = ({
                 return !state;
             });
         }, []),
+        ...useUUID(),
     };
 };
 
@@ -48,7 +51,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     const { icon, iconType } = useIcon(userIcon);
     const value = typeof userValue === 'undefined' ? '' : userValue;
 
-    return React.createElement(PrettyComponent, {
+    return React.createElement(Pretty, {
         type: 'checkbox',
         icon,
         iconType,

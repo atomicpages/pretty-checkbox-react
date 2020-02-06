@@ -2,40 +2,45 @@ import * as React from 'react';
 
 import { getClassNames } from './utils';
 import { CommonCheckboxRadioProps, SwitchShape } from '../types/CommonProps';
-import { createInput, createLabel } from './componentFactory';
+import { PrettyInput } from './PrettyInput';
+import { PrettyLabel } from './PrettyLabel';
 
-type PrettyComponentProps = Omit<CommonCheckboxRadioProps, 'icon' | 'shape'> & {
+type PrettyProps = Omit<CommonCheckboxRadioProps, 'icon' | 'shape'> & {
     as?: string | React.FunctionComponent | React.ComponentClass;
     icon?: React.ReactElement;
     shape?: SwitchShape | CommonCheckboxRadioProps['shape'];
     isSwitch?: boolean;
 };
 
-export const PrettyComponent = (props: PrettyComponentProps) => {
+export const Pretty = (props: PrettyProps) => {
     const {
         as = 'div',
         iconType,
         type,
         children,
         animation,
-        icon,
         bigger,
         plain,
         shape,
         fill,
+        color,
+        icon,
         className,
-        setState,
-        state,
         locked,
         disabled,
+        setState,
+        state,
         onChange,
         checked,
         value,
-        color,
         name,
         isSwitch,
+        baseId,
         ...rest
     } = props;
+
+    const inputProps = { onChange, disabled, value, state, locked, type, name, checked, baseId };
+    const labelProps = { color, icon, children, baseId };
 
     return React.createElement<any>(
         as,
@@ -59,8 +64,10 @@ export const PrettyComponent = (props: PrettyComponentProps) => {
             ...rest,
         },
         <>
-            {createInput(props)}
-            {createLabel(props)}
+            <PrettyInput {...inputProps} />
+            <PrettyLabel {...labelProps} />
         </>
     );
 };
+
+Pretty.displayName = 'Pretty';

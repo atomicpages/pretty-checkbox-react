@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { CommonProps, SwitchShape } from '../types/CommonProps';
-import { PrettyComponent } from '../factory/PrettyComponent';
+import { Pretty } from '../factory/Pretty';
 import { useCheckboxState, CheckboxState } from './Checkbox';
 import { useRadioState, RadioState } from './Radio';
 
@@ -12,11 +12,12 @@ export type SwitchProps = CommonProps<SwitchState> & {
 
 export const useSwitchState = ({
     type = 'checkbox',
-    initialState = false,
+    state: initialState = false,
 }: {
     type?: CommonProps<SwitchState>['type'];
-    initialState?: any;
+    state?: any;
 } = {}) => {
+    // TODO: might be an issue if the baseId changes if folks change from checkbox > radio
     const checkbox = useCheckboxState(initialState);
     const radio = useRadioState(initialState);
 
@@ -26,7 +27,7 @@ export const useSwitchState = ({
 export const Switch: React.FC<SwitchProps> = ({ value: userValue, ...rest }: SwitchProps) => {
     const value = typeof userValue === 'undefined' ? '' : userValue;
 
-    return React.createElement(PrettyComponent, {
+    return React.createElement(Pretty, {
         type: 'checkbox',
         isSwitch: true,
         value,

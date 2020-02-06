@@ -16,7 +16,8 @@
         "esModuleInterop": true,
         "downlevelIteration": true,
         "resolveJsonModule": true,
-        "lib": ["dom", "es2015"]
+        "lib": ["dom", "es2015"],
+        "noErrorTruncation": true
     },
     "include": ["src/**/*"]
 }

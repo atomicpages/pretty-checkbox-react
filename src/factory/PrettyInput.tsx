@@ -1,10 +1,14 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
 import { getChecked } from './utils';
 import { CommonCheckboxRadioProps } from '../types/CommonProps';
 
-export const createInput = ({
+export type PrettyInputProps = Pick<
+    CommonCheckboxRadioProps,
+    'onChange' | 'disabled' | 'value' | 'state' | 'locked' | 'type' | 'name' | 'checked' | 'baseId'
+>;
+
+export const PrettyInput: React.FC<PrettyInputProps> = ({
     onChange,
     disabled,
     value,
@@ -13,13 +17,15 @@ export const createInput = ({
     type,
     name,
     checked,
-}: CommonCheckboxRadioProps) => {
+    baseId,
+}: PrettyInputProps) => {
     return (
         <input
             onChange={onChange}
             type={type}
             value={value}
             name={name}
+            id={baseId}
             tabIndex={-1}
             checked={
                 typeof checked === 'undefined'
@@ -31,12 +37,4 @@ export const createInput = ({
     );
 };
 
-export const createLabel = ({ color, icon, children }: CommonCheckboxRadioProps) => (
-    <div
-        className={classNames('state', {
-            [`p-${color}`]: color,
-        })}>
-        {icon}
-        <label>{children}</label>
-    </div>
-);
+PrettyInput.displayName = 'Pretty.Input';
