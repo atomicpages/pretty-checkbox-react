@@ -3,10 +3,13 @@ import { hot } from 'react-hot-loader/root';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+import { Rover, useRoverState } from 'reakit';
+
 import {
     Checkbox as PCRCheckbox,
     useCheckboxState,
     Radio,
+    RadioGroup as PCRRadioGroup,
     useRadioState,
     Switch,
     useSwitchState,
@@ -16,20 +19,39 @@ import {
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import { TreeCheckbox } from './TreeCheckbox';
 
+function ReakitIntegration() {
+    const radio = useRadioState();
+    const rover = useRoverState({ loop: true });
+
+    return (
+        <PCRRadioGroup baseId="test">
+            <Rover as={Radio} name="test" value="test" {...radio} {...rover}>Test</Rover>
+            <Rover as={Radio} name="test" value="test_2" {...radio} {...rover}>Test 2</Rover>
+            <Rover as={Radio} name="test" value="test_3" {...radio} {...rover}>Test 3</Rover>
+        </PCRRadioGroup>
+    )
+}
+
 function Foo({ className, rest }: any = {}) {
     return <i {...rest} className={`mdi mdi-check${className ? ' ' + className : ''}`} />;
 }
 
 function TestGroup() {
-    const radio = useRadioState({ state: "orange" });
+    const radio = useRadioState({ state: 'orange' });
 
     return (
-        <Group {...radio} aria-label="fruits">
-            <Radio {...radio} name="fruits" value="apple">Apple</Radio>
-            <Radio {...radio} name="fruits" value="orange">Orange</Radio>
-            <Radio {...radio} name="fruits" value="watermelon">Watermelon</Radio>
-        </Group>
-    )
+        <PCRRadioGroup {...radio} aria-label="fruits">
+            <Radio {...radio} name="fruits" value="apple">
+                Apple
+            </Radio>
+            <Radio {...radio} name="fruits" value="orange">
+                Orange
+            </Radio>
+            <Radio {...radio} name="fruits" value="watermelon">
+                Watermelon
+            </Radio>
+        </PCRRadioGroup>
+    );
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, any>(({ children, ...rest }, ref) => {
@@ -193,6 +215,10 @@ function Main() {
             <section>
                 <h2>Switch as a Radio Group</h2>
                 <SwitchGroup />
+            </section>
+            <section>
+                <h2>Reakit Rover</h2>
+                <ReakitIntegration />
             </section>
         </main>
     );

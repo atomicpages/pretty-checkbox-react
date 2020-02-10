@@ -36,23 +36,21 @@ export const RadioGroup = (props: GroupProps) => (
     <Group as="fieldset" role="radiogroup" {...props} />
 );
 
-export const Radio: React.FC<RadioProps> = ({
-    value: userValue,
-    icon: userIcon,
-    shape = 'round',
-    ...rest
-}: RadioProps) => {
-    const { icon, iconType } = useIcon(userIcon);
-    const value = typeof userValue === 'undefined' ? '' : userValue;
+export const Radio: React.FC<RadioProps> = React.forwardRef<HTMLDivElement, RadioProps>(
+    ({ value: userValue, icon: userIcon, shape = 'round', ...rest }: RadioProps, ref) => {
+        const { icon, iconType } = useIcon(userIcon);
+        const value = typeof userValue === 'undefined' ? '' : userValue;
 
-    return React.createElement(Pretty, {
-        type: 'radio',
-        shape,
-        icon,
-        iconType,
-        value,
-        ...rest,
-    });
-};
+        return React.createElement(Pretty, {
+            type: 'radio',
+            shape,
+            icon,
+            iconType,
+            value,
+            ref,
+            ...rest,
+        });
+    }
+);
 
 Radio.displayName = 'Radio';

@@ -13,6 +13,7 @@ export type GroupProps = {
 };
 
 export const Group: React.FC<GroupProps> = (props: GroupProps) => {
+    // TODO: find a better way to filter through non-HTML attribute noise
     const { baseId, state, setState, onChange, ...propsWithoutState } = props;
     const { as = 'div', children, ...htmlProps } = propsWithoutState;
 

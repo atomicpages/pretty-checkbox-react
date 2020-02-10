@@ -43,21 +43,20 @@ export const useCheckboxState = ({
     };
 };
 
-export const Checkbox: React.FC<CheckboxProps> = ({
-    value: userValue,
-    icon: userIcon,
-    ...rest
-}: CheckboxProps) => {
-    const { icon, iconType } = useIcon(userIcon);
-    const value = typeof userValue === 'undefined' ? '' : userValue;
+export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<HTMLDivElement, CheckboxProps>(
+    ({ value: userValue, icon: userIcon, ...rest }: CheckboxProps, ref) => {
+        const { icon, iconType } = useIcon(userIcon);
+        const value = typeof userValue === 'undefined' ? '' : userValue;
 
-    return React.createElement(Pretty, {
-        type: 'checkbox',
-        icon,
-        iconType,
-        value,
-        ...rest,
-    });
-};
+        return React.createElement(Pretty, {
+            type: 'checkbox',
+            icon,
+            iconType,
+            value,
+            ref,
+            ...rest,
+        });
+    }
+);
 
 Checkbox.displayName = 'Checkbox';

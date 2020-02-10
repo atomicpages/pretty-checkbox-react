@@ -121,6 +121,30 @@ class Demo extends React.Component {
 }
 ```
 
+## Grouping Controls
+
+To make working with managed form solutions easier, PCR has a generic `Group` component for usage with checkboxes and switches. For radio inputs, however, there is a special `RadioGroup` component.
+
+```jsx
+import * as React from 'react';
+import { Radio, useRadioState, RadioGroup } from 'pretty-checkbox-react';
+
+function App() {
+    const radio = useRadioState();
+
+    return (
+        <RadioGroup {...radio}>
+            <Radio value="yes" name="sub" {...radio}>
+                Yes! I want emails
+            </Radio>
+            <Radio value="no" name="sub" {...radio}>
+                No, I do not want emails
+            </Radio>
+        </RadioGroup>
+    );
+}
+```
+
 ### Changelog
 
 See the releases page.

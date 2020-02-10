@@ -29,6 +29,7 @@
         "webpack-dev-server": "^3.10.2"
     },
     "dependencies": {
-        "pretty-checkbox": "^3.0.3"
+        "pretty-checkbox": "^3.0.3",
+        "reakit": "^1.0.0-beta.16"
     }
 }

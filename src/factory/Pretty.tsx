@@ -12,7 +12,7 @@ type PrettyProps = Omit<CommonCheckboxRadioProps, 'icon' | 'shape'> & {
     isSwitch?: boolean;
 };
 
-export const Pretty = (props: PrettyProps) => {
+export const Pretty = React.forwardRef<HTMLDivElement, PrettyProps>((props: PrettyProps, ref) => {
     const {
         as = 'div',
         iconType,
@@ -61,6 +61,7 @@ export const Pretty = (props: PrettyProps) => {
                 [onChange, disabled, locked]
             ),
             role: type,
+            ref,
             ...rest,
         },
         <>
@@ -68,6 +69,6 @@ export const Pretty = (props: PrettyProps) => {
             <PrettyLabel {...labelProps} />
         </>
     );
-};
+});
 
 Pretty.displayName = 'Pretty';

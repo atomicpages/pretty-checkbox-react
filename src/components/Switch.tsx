@@ -24,15 +24,18 @@ export const useSwitchState = ({
     return Object.assign({ type }, type === 'checkbox' ? checkbox : radio);
 };
 
-export const Switch: React.FC<SwitchProps> = ({ value: userValue, ...rest }: SwitchProps) => {
-    const value = typeof userValue === 'undefined' ? '' : userValue;
+export const Switch: React.FC<SwitchProps> = React.forwardRef<HTMLDivElement, SwitchProps>(
+    ({ value: userValue, ...rest }: SwitchProps, ref) => {
+        const value = typeof userValue === 'undefined' ? '' : userValue;
 
-    return React.createElement(Pretty, {
-        type: 'checkbox',
-        isSwitch: true,
-        value,
-        ...rest,
-    });
-};
+        return React.createElement(Pretty, {
+            type: 'checkbox',
+            isSwitch: true,
+            value,
+            ref,
+            ...rest,
+        });
+    }
+);
 
 Switch.displayName = 'Switch';
