@@ -50,6 +50,7 @@ export const Pretty = React.forwardRef<HTMLDivElement, PrettyProps>((props: Pret
             'aria-checked': state === 'indeterminate' ? 'mixed' : !!state,
             tabIndex: 0,
             onKeyPress: React.useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+                /* istanbul ignore next */
                 e.preventDefault();
             }, []),
             onKeyUp: React.useCallback(

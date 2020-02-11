@@ -18,15 +18,7 @@ export const useRadioState = ({ state: initialState = false }: { state?: RadioSt
         setState,
         onChange: React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
             const value = e.currentTarget.value;
-
-            setState(prev => {
-                // (isBoolean(prev) ? !prev : value)
-                if (isBoolean(prev)) {
-                    return !prev;
-                }
-
-                return value;
-            });
+            setState(prev => (isBoolean(prev) ? !prev : value));
         }, []),
         ...useUUID(),
     };

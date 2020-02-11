@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { useUUID } from '../useUUID';
 import nanoid from 'nanoid';

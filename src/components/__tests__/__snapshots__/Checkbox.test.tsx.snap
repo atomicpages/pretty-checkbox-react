@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox tests should match the snapshot 1`] = `
+<div>
+  <div
+    aria-checked="false"
+    class="pretty p-default"
+    role="checkbox"
+    tabindex="0"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value="apples"
+    />
+    <div
+      class="state"
+    >
+      <label />
+    </div>
+  </div>
+</div>
+`;

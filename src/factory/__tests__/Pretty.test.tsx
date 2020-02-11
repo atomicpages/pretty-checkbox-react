@@ -9,21 +9,38 @@ describe('PrettyComponent tests', () => {
         }).not.toThrow();
     });
 
-    it.skip('should be keyboard interactive', () => {
+    it('should be keyboard interactive', () => {
         const mockChange = jest.fn();
-        const { container } = render(<Pretty onChange={mockChange} state={false} />);
+        const { getByTestId } = render(
+            <Pretty onChange={mockChange} state={false} data-testid="pretty" />
+        );
+
+        const pretty = getByTestId('pretty');
 
         act(() => {
-            fireEvent.keyUp(container, { keyCode: 14 });
+            fireEvent.keyUp(pretty, { keyCode: 14 });
         });
 
         expect(mockChange).not.toHaveBeenCalled();
 
         act(() => {
-            fireEvent.keyUp(container, { keyCode: 13 });
-            fireEvent.keyUp(container, { keyCode: 32 });
+            fireEvent.keyUp(pretty, { keyCode: 13 });
+            fireEvent.keyUp(pretty, { keyCode: 32 });
         });
 
         expect(mockChange).toHaveBeenCalledTimes(2);
+    });
+
+    it('should be mixed when checkbox is indeterminate', () => {
+        const { getByTestId } = render(
+            <Pretty
+                onChange={jest.fn()}
+                state="indeterminate"
+                data-testid="pretty"
+                type="checkbox"
+            />
+        );
+
+        expect(getByTestId('pretty').getAttribute('aria-checked')).toBe('mixed');
     });
 });
