@@ -11,6 +11,7 @@ describe('PrettyComponent tests', () => {
 
     it('should be keyboard interactive', () => {
         const mockChange = jest.fn();
+
         const { getByTestId } = render(
             <Pretty onChange={mockChange} state={false} data-testid="pretty" />
         );
@@ -29,6 +30,20 @@ describe('PrettyComponent tests', () => {
         });
 
         expect(mockChange).toHaveBeenCalledTimes(2);
+    });
+
+    it('should prevent keyboard focus on disabled items', () => {
+        const mockFocus = jest.fn();
+
+        const { container } = render(
+            <Pretty onChange={jest.fn()} disabled state={false} onFocus={mockFocus} />
+        );
+
+        act(() => {
+            fireEvent.focus(container);
+        });
+
+        expect(mockFocus).not.toHaveBeenCalled();
     });
 
     it('should be mixed when checkbox is indeterminate', () => {

@@ -1,6 +1,20 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { useCheckboxState } from '../Checkbox';
 
+export const sharedCheckboxAssertions = (result: any) => {
+    act(() => {
+        result.current.onChange({ currentTarget: { value: '' } } as any);
+    });
+
+    expect(result.current.state).toBe(true);
+
+    act(() => {
+        result.current.onChange({ currentTarget: { value: '' } } as any);
+    });
+
+    expect(result.current.state).toBe(false);
+};
+
 describe('useCheckboxState tests', () => {
     it('should update when change is called', () => {
         const { result } = renderHook(() => useCheckboxState());
@@ -11,17 +25,7 @@ describe('useCheckboxState tests', () => {
             onChange: expect.any(Function),
         });
 
-        act(() => {
-            result.current.onChange({ currentTarget: { value: '' } } as any);
-        });
-
-        expect(result.current.state).toBe(true);
-
-        act(() => {
-            result.current.onChange({ currentTarget: { value: '' } } as any);
-        });
-
-        expect(result.current.state).toBe(false);
+        sharedCheckboxAssertions(result);
     });
 
     it('should handle arrays of items', () => {

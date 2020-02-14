@@ -48,18 +48,21 @@ export const Pretty = React.forwardRef<HTMLDivElement, PrettyProps>((props: Pret
             className: getClassNames(props),
             'aria-disabled': disabled,
             'aria-checked': state === 'indeterminate' ? 'mixed' : !!state,
-            tabIndex: 0,
-            onKeyPress: React.useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
-                /* istanbul ignore next */
-                e.preventDefault();
-            }, []),
+            tabIndex: locked || disabled ? -1 : 0,
+            onKeyPress: React.useCallback(
+                /* istanbul ignore next */ (e: React.KeyboardEvent<HTMLDivElement>) => {
+                    /* istanbul ignore next */
+                    e.preventDefault();
+                },
+                []
+            ),
             onKeyUp: React.useCallback(
                 (e: React.KeyboardEvent<HTMLDivElement>) => {
-                    if (!disabled && !locked && (e.keyCode === 32 || e.keyCode === 13)) {
-                        onChange((e as unknown) as React.ChangeEvent<HTMLInputElement>);
+                    if (e.keyCode === 32 || e.keyCode === 13) {
+                        onChange((e as unknown) as React.ChangeEvent<HTMLInputElement>, value);
                     }
                 },
-                [onChange, disabled, locked]
+                [onChange, value]
             ),
             role: type,
             ref,

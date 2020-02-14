@@ -20,8 +20,8 @@ export const useCheckboxState = ({
     return {
         state,
         setState,
-        onChange: React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-            const value = e.currentTarget.value;
+        onChange: React.useCallback((e: React.ChangeEvent<HTMLInputElement>, args?: any) => {
+            const value = args || e.currentTarget.value;
 
             setState(state => {
                 if (Array.isArray(state)) {

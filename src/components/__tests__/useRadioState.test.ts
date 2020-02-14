@@ -1,6 +1,20 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { useRadioState } from '../Radio';
 
+export const sharedRadioAssertions = (result: any) => {
+    act(() => {
+        result.current.onChange({ currentTarget: {} } as any);
+    });
+
+    expect(result.current.state).toBeUndefined();
+
+    act(() => {
+        result.current.onChange({ currentTarget: {} } as any);
+    });
+
+    expect(result.current.state).toBe(true);
+};
+
 describe('useRadioState tests', () => {
     it('should work with boolean values', () => {
         const { result } = renderHook(() => useRadioState());
@@ -11,16 +25,6 @@ describe('useRadioState tests', () => {
             onChange: expect.any(Function),
         });
 
-        act(() => {
-            result.current.onChange({ currentTarget: {} } as any);
-        });
-
-        expect(result.current.state).toBeUndefined();
-
-        act(() => {
-            result.current.onChange({ currentTarget: {} } as any);
-        });
-
-        expect(result.current.state).toBe(true);
+        sharedRadioAssertions(result);
     });
 });

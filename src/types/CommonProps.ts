@@ -17,7 +17,7 @@ export type SwitchShape = 'fill' | 'outline' | 'slim';
 export type CommonProps<S> = InputHTMLAttributes<HTMLInputElement> & {
     state: S;
     setState?: React.Dispatch<React.SetStateAction<S>>;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>, value?: any) => void;
     color?: Colors | ColorsOutline;
     locked?: boolean;
     bigger?: boolean;
