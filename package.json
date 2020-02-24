@@ -23,7 +23,7 @@
         "clean": "rimraf pkg/**",
         "build": "npm-run-all --parallel ts-check lint clean test && pika build",
         "ts-check": "tsc --noEmit",
-        "version": "npm-run-all lint test build"
+        "version": "npm run build"
     },
     "repository": {
         "type": "git",
