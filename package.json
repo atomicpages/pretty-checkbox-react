@@ -40,7 +40,7 @@
     "husky": {
         "hooks": {
             "pre-commit": "npm test",
-            "pre-push": "npm version"
+            "pre-push": "npm run version"
         }
     },
     "homepage": "https://github.com/atomicpages/pretty-checkbox-react#readme",
