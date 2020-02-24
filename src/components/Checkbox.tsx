@@ -43,7 +43,7 @@ export const useCheckboxState = ({
     };
 };
 
-export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<HTMLDivElement, CheckboxProps>(
+export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     ({ value: userValue, icon: userIcon, ...rest }: CheckboxProps, ref) => {
         const { icon, iconType } = useIcon(userIcon);
         const value = typeof userValue === 'undefined' ? '' : userValue;

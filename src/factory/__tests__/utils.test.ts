@@ -1,6 +1,6 @@
 import React from 'react';
-import { isBoolean, getChecked, isDefaultStyle, getClassNames } from '../utils';
-import { CommonProps } from '../../types/CommonProps';
+import { isBoolean, getChecked, isDefaultStyle, getClassNames } from '../utils/utils';
+import { CommonControlledProps } from '../../types/CommonProps';
 
 describe('utils tests', () => {
     it('should check for undefined values as booleans', () => {
@@ -10,7 +10,7 @@ describe('utils tests', () => {
     });
 
     describe('getChecked tests', () => {
-        const props: CommonProps<any> = {
+        const props: CommonControlledProps<any> = {
             disabled: false,
             locked: false,
             state: 'other',

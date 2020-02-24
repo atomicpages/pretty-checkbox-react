@@ -14,7 +14,7 @@ type CheckboxRadioProps = {
 
 export type SwitchShape = 'fill' | 'outline' | 'slim';
 
-export type CommonProps<S> = InputHTMLAttributes<HTMLInputElement> & {
+export type CommonControlledProps<S> = InputHTMLAttributes<HTMLInputElement> & {
     state: S;
     setState?: React.Dispatch<React.SetStateAction<S>>;
     onChange: (e: React.ChangeEvent<HTMLInputElement>, value?: any) => void;
@@ -26,4 +26,5 @@ export type CommonProps<S> = InputHTMLAttributes<HTMLInputElement> & {
     baseId?: string;
 };
 
-export type CommonCheckboxRadioProps<S = any> = CommonProps<S> & CheckboxRadioProps;
+// export type CommonUncontrolledProps<S> = Partial<CommonControlledProps<S>>;
+export type CommonCheckboxRadioProps<S = any> = CommonControlledProps<S> & CheckboxRadioProps;

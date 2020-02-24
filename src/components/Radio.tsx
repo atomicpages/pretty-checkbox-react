@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useIcon } from '../hooks/useIcon';
 import { CommonCheckboxRadioProps } from '../types/CommonProps';
 import { Pretty } from '../factory/Pretty';
-import { isBoolean } from '../factory/utils';
+import { isBoolean } from '../factory/utils/utils';
 import { useUUID } from '../hooks/useUUID';
 import { Group, GroupProps } from './Group';
 
@@ -28,7 +28,7 @@ export const RadioGroup = (props: GroupProps) => (
     <Group as="fieldset" role="radiogroup" {...props} />
 );
 
-export const Radio: React.FC<RadioProps> = React.forwardRef<HTMLDivElement, RadioProps>(
+export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     ({ value: userValue, icon: userIcon, shape = 'round', ...rest }: RadioProps, ref) => {
         const { icon, iconType } = useIcon(userIcon);
         const value = typeof userValue === 'undefined' ? '' : userValue;

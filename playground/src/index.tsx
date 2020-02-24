@@ -25,11 +25,17 @@ function ReakitIntegration() {
 
     return (
         <PCRRadioGroup baseId="test">
-            <Rover as={Radio} name="test" value="test" {...radio} {...rover}>Test</Rover>
-            <Rover as={Radio} name="test" value="test_2" {...radio} {...rover}>Test 2</Rover>
-            <Rover as={Radio} name="test" value="test_3" {...radio} {...rover}>Test 3</Rover>
+            <Rover as={Radio} name="test" value="test" {...radio} {...rover}>
+                Test
+            </Rover>
+            <Rover as={Radio} name="test" value="test_2" {...radio} {...rover}>
+                Test 2
+            </Rover>
+            <Rover as={Radio} name="test" value="test_3" {...radio} {...rover}>
+                Test 3
+            </Rover>
         </PCRRadioGroup>
-    )
+    );
 }
 
 function Foo({ className, rest }: any = {}) {
@@ -102,6 +108,29 @@ function SwitchGroup() {
     );
 }
 
+function UncontrolledInput() {
+    const ref = React.useRef<HTMLInputElement>();
+
+    return (
+        <form
+            onSubmit={e => {
+                e.preventDefault();
+
+                if (!ref.current.checked) {
+                    alert('You must agree to the terms and conditions!');
+                } else {
+                    alert('Form submitted');
+                }
+            }}>
+            <Checkbox ref={ref}>
+                Do you agree to the terms and conditions?
+            </Checkbox>
+            <br />
+            <button type="submit">Submit</button>
+        </form>
+    );
+}
+
 function Main() {
     return (
         <main>
@@ -114,6 +143,10 @@ function Main() {
                 <br />
                 <br />
                 <Checkbox locked>Locked Checkbox</Checkbox>
+            </section>
+            <section>
+                <h2>Uncontrolled Input</h2>
+                <UncontrolledInput />
             </section>
             <section>
                 <h2>Colors</h2>
@@ -178,10 +211,10 @@ function Main() {
                     <Checkbox animation="tada" icon={<i className="mdi mdi-close-outline" />}>
                         Pick up Couch
                     </Checkbox>
-                    <Checkbox animation="rotate" icon={<Foo />} className="p-icon">
+                    <Checkbox animation="rotate" icon={<Foo />} className="custom-selector">
                         Buy Groceries
                     </Checkbox>
-                    <Checkbox animation="pulse" icon={<Foo />} className="p-icon">
+                    <Checkbox animation="pulse" icon={<Foo />}>
                         Pay Cellphone
                     </Checkbox>
                 </>

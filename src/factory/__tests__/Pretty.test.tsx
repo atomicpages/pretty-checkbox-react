@@ -58,4 +58,12 @@ describe('PrettyComponent tests', () => {
 
         expect(getByTestId('pretty').getAttribute('aria-checked')).toBe('mixed');
     });
+
+    it('should be able to be used as an uncontrolled component', () => {
+        const ref = React.createRef<HTMLInputElement>();
+        // @ts-ignore
+        render(<Pretty ref={ref} defaultChecked={true} />);
+
+        expect(ref.current).toBeInstanceOf(HTMLInputElement);
+    });
 });

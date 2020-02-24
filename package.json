@@ -1,6 +1,6 @@
 {
     "name": "pretty-checkbox-react",
-    "version": "2.0.0-rc.0",
+    "version": "2.0.0-rc.1",
     "description": "A set of React components build around Pretty Checkbox",
     "keywords": [
         "Pretty",
@@ -36,6 +36,12 @@
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/atomicpages/pretty-checkbox-react/issues"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm test",
+            "pre-push": "npm version"
+        }
     },
     "homepage": "https://github.com/atomicpages/pretty-checkbox-react#readme",
     "@pika/pack": {
@@ -73,7 +79,7 @@
         ]
     },
     "peerDependencies": {
-        "pretty-checkbox": "^3.0.3",
+        "pretty-checkbox": "^3.0.0",
         "react": ">=16.8.0",
         "react-dom": ">=16.8.0"
     },
@@ -84,7 +90,7 @@
         "@pika/plugin-build-node": "^0.9.2",
         "@pika/plugin-build-web": "^0.9.2",
         "@pika/plugin-ts-standard-pkg": "^0.9.2",
-        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/jest-dom": "^5.1.1",
         "@testing-library/react": "^9.4.0",
         "@testing-library/react-hooks": "^3.2.1",
         "@types/classnames": "^2.2.9",
@@ -108,10 +114,11 @@
         "react-ts-docgen": "^1.0.1",
         "rimraf": "^3.0.2",
         "ts-jest": "^25.2.0",
-        "typescript": "^3.7.5"
+        "typescript": "^3.8.2"
     },
     "dependencies": {
-        "classnames": "^2.2.6",
-        "nanoid": "^2.1.11"
-    }
+        "classnames": "^2.0.0",
+        "nanoid": "^2.0.0"
+    },
+    "prettier": "@djthoms/prettier-config"
 }

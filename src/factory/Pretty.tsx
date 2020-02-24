@@ -1,54 +1,30 @@
 import * as React from 'react';
 
-import { getClassNames } from './utils';
+import { getClassNames } from './utils/utils';
 import { CommonCheckboxRadioProps, SwitchShape } from '../types/CommonProps';
 import { PrettyInput } from './PrettyInput';
 import { PrettyLabel } from './PrettyLabel';
+import { organizeProps } from './utils/propUtils';
 
-type PrettyProps = Omit<CommonCheckboxRadioProps, 'icon' | 'shape'> & {
+export type PrettyProps = Omit<CommonCheckboxRadioProps, 'icon' | 'shape'> & {
     as?: string | React.FunctionComponent | React.ComponentClass;
     icon?: React.ReactElement;
     shape?: SwitchShape | CommonCheckboxRadioProps['shape'];
     isSwitch?: boolean;
 };
 
-export const Pretty = React.forwardRef<HTMLDivElement, PrettyProps>((props: PrettyProps, ref) => {
-    const {
-        as = 'div',
-        iconType,
-        type,
-        children,
-        animation,
-        bigger,
-        plain,
-        shape,
-        fill,
-        color,
-        icon,
-        className,
-        locked,
-        disabled,
-        setState,
-        state,
-        onChange,
-        checked,
-        value,
-        name,
-        isSwitch,
-        baseId,
-        ...rest
-    } = props;
-
-    const inputProps = { onChange, disabled, value, state, locked, type, name, checked, baseId };
-    const labelProps = { color, icon, children, baseId };
+export const Pretty = React.forwardRef<HTMLInputElement, PrettyProps>((props: PrettyProps, ref) => {
+    const { as = 'div', ...rest } = props;
+    const { inputProps, labelProps, htmlProps } = organizeProps(rest);
 
     return React.createElement<any>(
         as,
         {
+            // @ts-ignore
             className: getClassNames(props),
-            'aria-disabled': disabled,
-            'aria-checked': state === 'indeterminate' ? 'mixed' : !!state,
-            tabIndex: locked || disabled ? -1 : 0,
+            'aria-disabled': inputProps.disabled,
+            'aria-checked': inputProps.state === 'indeterminate' ? 'mixed' : !!inputProps.state,
+            tabIndex: inputProps.locked || inputProps.disabled ? -1 : 0,
             onKeyPress: React.useCallback(
                 /* istanbul ignore next */ (e: React.KeyboardEvent<HTMLDivElement>) => {
                     /* istanbul ignore next */
@@ -58,18 +34,24 @@ export const Pretty = React.forwardRef<HTMLDivElement, PrettyProps>((props: Pret
             ),
             onKeyUp: React.useCallback(
                 (e: React.KeyboardEvent<HTMLDivElement>) => {
-                    if (e.keyCode === 32 || e.keyCode === 13) {
-                        onChange((e as unknown) as React.ChangeEvent<HTMLInputElement>, value);
+                    if (
+                        (e.keyCode === 32 || e.keyCode === 13) &&
+                        typeof inputProps.onChange === 'function'
+                    ) {
+                        inputProps.onChange(
+                            (e as unknown) as React.ChangeEvent<HTMLInputElement>,
+                            inputProps.value
+                        );
                     }
                 },
-                [onChange, value]
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+                [inputProps.onChange, inputProps.value]
             ),
-            role: type,
-            ref,
-            ...rest,
+            role: inputProps.type,
+            ...htmlProps,
         },
         <>
-            <PrettyInput {...inputProps} />
+            <PrettyInput ref={ref} {...inputProps} />
             <PrettyLabel {...labelProps} />
         </>
     );

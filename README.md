@@ -30,7 +30,7 @@
 
 Pretty Checkbox React is a tiny react wrapper around the awesome pretty checkbox.
 
-### Getting Started
+## Getting Started
 
 > pretty checkbox react depends on react >=16.8. Make sure you have React 16.8 or above installed.
 
@@ -45,29 +45,7 @@ yarn add pretty-checkbox pretty-checkbox-react
 
 ```jsx
 import React from 'react';
-import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
-
-function App() {
-    const checkbox = useCheckboxState();
-
-    React.useEffect(() => {
-        if (checkbox.state) {
-            // perform some side effect
-            // when the state changes
-        }
-    }, [chekbox.state]);
-
-    return <Checkbox {...checkbox}>Yes! I want emails!</Checkbox>;
-}
-```
-
-### Basic Controlled Example
-
-Want to control things without a hook? No problem.
-
-```jsx
-import React from 'react';
-import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
+import { Checkbox } from 'pretty-checkbox-react';
 
 function App() {
     const [checked, setChecked] = React.useState(false);
@@ -90,6 +68,59 @@ function App() {
         <Checkbox state={checked} onChange={handleChange}>
             Yes! I want emails!
         </Checkbox>
+    );
+}
+```
+
+### `useState` Hooks
+
+For your convenience, each component has a "useState" hook to takes care of connecting all the pieces together.
+
+```jsx
+import React from 'react';
+import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
+
+function App() {
+    const checkbox = useCheckboxState();
+
+    React.useEffect(() => {
+        if (checkbox.state) {
+            // perform some side effect
+            // when the state changes
+        }
+    }, [chekbox.state]);
+
+    return <Checkbox {...checkbox}>Yes! I want emails!</Checkbox>;
+}
+```
+
+### Basic Uncontrolled Example
+
+PCR works as an uncontrolled component too. This allows you to easily integrate with tools like react-hook-form and other uncontrolled form solutions.
+
+```jsx
+import React from 'react';
+import { Checkbox } from 'pretty-checkbox-react';
+
+const ref = React.createRef();
+
+function App() {
+    // or you can add a ref in your component
+    // const ref = React.useRef();
+
+    return (
+        <form
+            onSubmit={e => {
+                e.preventDefault();
+
+                if (!ref.current.checked) {
+                    alert('You must agree to the terms and conditions!');
+                }
+
+                // do something else...
+            }}>
+            <Checkbox ref={ref}>I agree to the terms and conditions</Checkbox>
+        </form>
     );
 }
 ```
