@@ -56,7 +56,7 @@ import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
 
 function App() {
     const checkbox = useCheckboxState();
-    
+
     return <Checkbox {...checkbox}>Hello</Checkbox>
 }
 
