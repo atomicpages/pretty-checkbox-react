@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-// https://docs.cypress.io/guides/tooling/typescript-support.html#Transpiling-TypeScript-test-files
 const wp = require('@cypress/webpack-preprocessor');
 
 const webpackOptions = {
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', '.tsx'],
     },
     module: {
         rules: [

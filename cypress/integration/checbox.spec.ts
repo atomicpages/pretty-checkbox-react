@@ -1,3 +1,5 @@
+/// <reference path="../support/index.d.ts" />
+
 describe('Checkbox spec', () => {
     it('Successfully loads', () => {
         cy.visit('http://localhost:9000/');
@@ -33,11 +35,32 @@ describe('Checkbox spec', () => {
             .should('be.checked');
     });
 
-    it('should supports colors', () => {
+    it('should support colors', () => {
         cy.queryByText('Colors')
             .parent()
             .find('.pretty')
-            .click({ multiple: true })
-            .find('label::before');
+            .click({ multiple: true });
+
+        cy.queryByText('Colors', { exact: true })
+            .parent()
+            .find('.pretty label')
+            .after('background-color')
+            .then((colors: string[]) => {
+                const c = [
+                    'rgb(66, 139, 202)',
+                    'rgb(92, 184, 92)',
+                    'rgb(91, 192, 222)',
+                    'rgb(240, 173, 78)',
+                    'rgb(217, 83, 79)',
+                    'rgb(66, 139, 202)',
+                    'rgb(92, 184, 92)',
+                    'rgb(91, 192, 222)',
+                    'rgb(240, 173, 78)',
+                    'rgb(217, 83, 79)',
+                ];
+
+                expect(colors.length).equal(c.length);
+                expect(colors).to.deep.equal(c);
+            });
     });
 });
