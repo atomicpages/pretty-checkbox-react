@@ -6,7 +6,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "prestart": "is-ci && [ ! -d node_modules ] && npm ci",
+        "prestart": "[ ! -d node_modules ] && npm ci",
         "start:ci": "npm run prestart && npm run start",
         "start": "NODE_ENV=development webpack-dev-server --quiet --mode development",
         "start:dev": "NODE_ENV=development webpack-dev-server --open --hot --progress --mode development"
