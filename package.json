@@ -73,7 +73,7 @@
         "flow-bin": "^0.108.0",
         "flow-copy-source": "^2.0.7",
         "flow-coverage-report": "^0.6.1",
-        "husky": "^3.0.4",
+        "husky": "^4.2.5",
         "jest": "^24.9.0",
         "jest-dom": "^4.0.0",
         "prettier": "^1.18.2",
