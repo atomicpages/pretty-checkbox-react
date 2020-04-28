@@ -40,6 +40,7 @@ Include the script file and all dependencies.
 > Note: keep reading for examples using webpack/rollup/or some other modern web bundler.
 
 ```html
+<link rel="stylesheet" href="https://unpkg.com/pretty-checkbox@3.0.3/dist/pretty-checkbox.min.css" />
 <script type="text/javascript" src="node_modules/react/umd/react.production.min.js"></script>
 <script type="text/javascript" src="node_modules/react-dom/umd/react-dom.production.min.js"></script>
 <script type="text/javascript" src="node_modules/pretty-checkbox-react/dist/pretty-checkbox-react.min.js"></script>
@@ -70,6 +71,7 @@ If you're using webpack or rollup then with JSX you can write this more succulen
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'pretty-checkbox';
 
 import { Checkbox } from 'pretty-checkbox-react';
 
