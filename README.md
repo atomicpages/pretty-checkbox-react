@@ -47,6 +47,8 @@ yarn add pretty-checkbox pretty-checkbox-react
 import React from 'react';
 import { Checkbox } from 'pretty-checkbox-react';
 
+import 'pretty-checkbox';
+
 function App() {
     const [checked, setChecked] = React.useState(false);
 
@@ -80,6 +82,8 @@ For your convenience, each component has a "useState" hook to takes care of conn
 import React from 'react';
 import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
 
+import 'pretty-checkbox';
+
 function App() {
     const checkbox = useCheckboxState();
 
@@ -101,6 +105,8 @@ PCR works as an uncontrolled component too. This allows you to easily integrate 
 ```jsx
 import React from 'react';
 import { Checkbox } from 'pretty-checkbox-react';
+
+import 'pretty-checkbox';
 
 const ref = React.createRef();
 
@@ -130,6 +136,11 @@ function App() {
 React 16.8 is required for pretty checkbox react to work. If you're on the required version, then you can use class components too:
 
 ```jsx
+import * as React from 'react';
+import { Checkbox } from 'pretty-checkbox-react';
+
+import 'pretty-checkbox';
+
 class Demo extends React.Component {
     constructor(props) {
         super(props);
@@ -159,6 +170,8 @@ To make working with managed form solutions easier, PCR has a generic `Group` co
 ```jsx
 import * as React from 'react';
 import { Radio, useRadioState, RadioGroup } from 'pretty-checkbox-react';
+
+import 'pretty-checkbox';
 
 function App() {
     const radio = useRadioState();
