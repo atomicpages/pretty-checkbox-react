@@ -8,7 +8,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "NODE_ENV=development webpack-dev-server --quiet --mode development",
         "start:dev": "NODE_ENV=development webpack-dev-server --open --hot --progress --mode development",
-        "build": "webpack",
+        "prebuild": "npm ci",
+        "build": "npm run prebuild && webpack",
         "start:ci": "serve -s dist/"
     },
     "keywords": [],
