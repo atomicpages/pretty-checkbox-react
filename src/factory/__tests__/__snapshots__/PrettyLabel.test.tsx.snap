@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrettyLabel tests should append colors to the root div 1`] = `
+<div>
+  <div
+    class="state p-danger"
+  >
+    <label>
+      Testing
+    </label>
+  </div>
+</div>
+`;
+
+exports[`PrettyLabel tests should render children inside the label 1`] = `
+<div>
+  <div
+    class="state"
+  >
+    <label
+      for="abc"
+    >
+      Testing
+    </label>
+  </div>
+</div>
+`;

@@ -2,11 +2,11 @@ docs/
 src/
 node_modules/
 coverage/
-flow-typed/
 *.gif
-.travis.yml
 .eslintrc.js
 .eslintignore
 .gitignore
 .prettierrc
-site/
+.circleci/
+.github/
+playground/

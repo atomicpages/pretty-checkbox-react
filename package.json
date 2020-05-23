@@ -1,120 +1,136 @@
 {
     "name": "pretty-checkbox-react",
-    "version": "1.1.0",
-    "description": "Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React",
+    "version": "2.0.0-rc.1",
+    "description": "A set of React components build around Pretty Checkbox",
     "keywords": [
         "Pretty",
         "Radio",
         "Switch",
         "Pretty Checkbox",
+        "Pretty Checkbox React",
         "pretty-checkbox",
+        "pretty-checkbox-react",
         "Components",
+        "input controls",
         "React",
-        "React.js",
-        "React 16",
-        "WebComponents",
+        "React Hooks",
         "CSS",
         "Checkbox"
     ],
-    "main": "dist/pretty-checkbox-react.cjs.js",
-    "module": "dist/pretty-checkbox-react.es.js",
-    "browser": "dist/pretty-checkbox-react.umd.min.js",
     "scripts": {
-        "build:flow": "flow focus-check src/components/** && flow-copy-source src dist",
-        "lint": "eslint src/**",
-        "pretest": "eslint src/**",
-        "build": "rimraf dist/** && rollup -c rollup.config.js && npm run build:flow",
-        "prepublish": "flow-copy-source src dist && rollup -c rollup.config.js",
-        "test": "jest --silent"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm t",
-            "pre-push": "npm t"
-        }
+        "lint": "eslint \"src/**/*.{ts,tsx}\"",
+        "test": "jest --silent",
+        "clean": "rimraf pkg/**",
+        "build": "npm-run-all --parallel ts-check lint clean test && pika build",
+        "start:pg": "cd playground && npm run start",
+        "start:ci": "cd playground && npm run build && npm run start:ci",
+        "ts-check": "tsc --noEmit",
+        "version": "npm run build"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/atomicpages/pretty-checkbox-react.git"
     },
-    "author": "Dennis Thompson <atomicpages@gmail.com>",
+    "author": "Dennis Thompson",
     "maintainers": [
-        "Dennis Thompson <atomicpages@gmail.com>"
+        "Dennis Thompson"
     ],
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/atomicpages/pretty-checkbox-react/issues"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm t",
+            "pre-push": "npm run version"
+        }
+    },
     "homepage": "https://github.com/atomicpages/pretty-checkbox-react#readme",
+    "@pika/pack": {
+        "pipeline": [
+            [
+                "@pika/plugin-ts-standard-pkg",
+                {
+                    "excludes": "playground/**"
+                }
+            ],
+            [
+                "@pika/plugin-build-web"
+            ],
+            [
+                "@pika/plugin-build-node"
+            ],
+            [
+                "pika-plugin-legacy-browser",
+                {
+                    "name": "PrettyCheckboxReact",
+                    "format": "umd",
+                    "minify": true,
+                    "external": [
+                        "react"
+                    ],
+                    "globals": {
+                        "react": "React"
+                    },
+                    "sourcemap": true
+                }
+            ],
+            [
+                "pika-plugin-typedefs-to-flow"
+            ]
+        ]
+    },
     "peerDependencies": {
-        "pretty-checkbox": "^3.0.3",
-        "react": "^16.8.0"
+        "pretty-checkbox": "^3.0.0",
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.9.6",
-        "@babel/plugin-proposal-class-properties": "^7.8.3",
-        "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
-        "@babel/preset-env": "^7.9.6",
-        "@babel/preset-flow": "^7.9.0",
-        "@babel/preset-react": "^7.9.4",
-        "@rollup/plugin-babel": "^5.0.2",
-        "@rollup/plugin-commonjs": "^12.0.0",
-        "@rollup/plugin-json": "^4.0.3",
-        "@rollup/plugin-node-resolve": "^8.0.0",
+        "@cypress/webpack-preprocessor": "^5.4.1",
+        "@djthoms/eslint-config": "^2.1.0",
+        "@djthoms/prettier-config": "^2.0.0",
+        "@pika/pack": "^0.5.0",
+        "@pika/plugin-build-node": "^0.9.2",
+        "@pika/plugin-build-web": "^0.9.2",
+        "@pika/plugin-ts-standard-pkg": "^0.9.2",
+        "@testing-library/cypress": "^6.0.0",
         "@testing-library/jest-dom": "^5.8.0",
         "@testing-library/react": "^10.0.4",
-        "babel-core": "^7.0.0-bridge.0",
-        "babel-eslint": "^10.1.0",
-        "babel-jest": "^26.0.1",
+        "@testing-library/react-hooks": "^3.2.1",
+        "@types/classnames": "^2.2.10",
+        "@types/jest": "^25.2.3",
+        "@types/jquery": "^3.3.38",
+        "@types/nanoid": "^2.1.0",
+        "@types/node": "^14.0.5",
+        "@types/react": "^16.9.35",
+        "@types/testing-library__cypress": "^5.0.5",
         "coveralls": "^3.1.0",
+        "cypress": "^4.6.0",
         "eslint": "^7.1.0",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-flowtype": "^5.1.0",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
-        "eslint-plugin-prettier": "^3.1.3",
-        "eslint-plugin-react": "^7.20.0",
-        "flow": "^0.2.3",
-        "flow-bin": "^0.125.1",
-        "flow-copy-source": "^2.0.9",
-        "flow-coverage-report": "^0.7.0",
+        "eslint-plugin-cypress": "^2.10.3",
+        "flowgen": "^1.10.0",
         "husky": "^4.2.5",
         "jest": "^26.0.1",
-        "jest-dom": "^4.0.0",
+        "npm-run-all": "^4.1.5",
+        "pika-plugin-legacy-browser": "^1.3.0",
+        "pika-plugin-typedefs-to-flow": "^0.0.2",
         "prettier": "^2.0.5",
         "pretty-checkbox": "^3.0.3",
         "react": "^16.13.1",
-        "react-docgen": "^5.3.0",
+        "react-docgen-typescript": "^1.16.4",
         "react-dom": "^16.13.1",
+        "react-test-renderer": "^16.13.1",
+        "react-ts-docgen": "^1.0.1",
         "rimraf": "^3.0.2",
-        "rollup": "^2.10.8",
-        "rollup-plugin-uglify": "^6.0.4"
+        "shx": "^0.3.2",
+        "ts-jest": "^26.0.0",
+        "ts-loader": "^7.0.4",
+        "typescript": "^3.9.3",
+        "webpack": "^4.43.0"
     },
     "dependencies": {
-        "classnames": "^2.2.6",
-        "hoist-non-react-statics": "^3.3.2"
+        "classnames": "^2.0.0",
+        "nanoid": "^3.0.0"
     },
-    "jest": {
-        "collectCoverage": true,
-        "coverageDirectory": "<rootDir>/coverage",
-        "testPathIgnorePatterns": [
-            "/node_modules/",
-            "<rootDir>/docs/",
-            "<rootDir>/pkg/"
-        ],
-        "coverageReporters": [
-            "json",
-            "lcov",
-            "text",
-            "clover",
-            "html"
-        ],
-        "coverageThreshold": {
-            "global": {
-                "branches": 90,
-                "functions": 95,
-                "lines": 90,
-                "statements": 90
-            }
-        }
-    }
+    "prettier": "@djthoms/prettier-config"
 }

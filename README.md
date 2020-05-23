@@ -26,80 +26,177 @@
     <img src="preview.gif" alt="Pretty checkbox preview" />
 </div>
 
-### Demos and Docs
-Checkout the awesome [doc website](https://atomicpages.github.io/pretty-checkbox-react/home/) with sweet code examples that will update in real time after you make changes!
+# Pretty Checkbox React
 
-#### Code Sandbox
-Fancy something else? Want a standalone example? Looking for customize the `pretty-checkbox` theme? How about forking and testing your own changes in code sandbox? It will allow you to prototype and make complex examples all within your browser.
+Pretty Checkbox React is a tiny react wrapper around the awesome pretty checkbox.
 
-[![Edit pretty-checkbox-react](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/40v46649m0)
+## Getting Started
 
-### Browser
-Include the script file and all dependencies.
+> pretty checkbox react depends on react >=16.8. Make sure you have React 16.8 or above installed.
 
-> Note: keep reading for examples using webpack/rollup/or some other modern web bundler.
+```sh
+npm i pretty-checkbox pretty-checkbox-react
 
-```html
-<link rel="stylesheet" href="https://unpkg.com/pretty-checkbox@3.0.3/dist/pretty-checkbox.min.css" />
-<script type="text/javascript" src="node_modules/react/umd/react.production.min.js"></script>
-<script type="text/javascript" src="node_modules/react-dom/umd/react-dom.production.min.js"></script>
-<script type="text/javascript" src="node_modules/pretty-checkbox-react/dist/pretty-checkbox-react.min.js"></script>
-
-<script type="text/javascript">
-function App() {
-    return React.createElement(
-        PrettyCheckboxReact.Checkbox,
-        {
-            animation: 'smooth',
-            shape: 'curve'
-        },
-        React.createElement(
-            'label',
-            null,
-            'Check me!'
-        )
-    )
-}
-
-ReactDOM.render(App, document.querySelector('body'));
-</script>
+# or with yarn
+yarn add pretty-checkbox pretty-checkbox-react
 ```
 
-#### Webpack + Rollup
-If you're using webpack or rollup then with JSX you can write this more succulently:
+### Basic Example
 
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom';
-import 'pretty-checkbox';
-
 import { Checkbox } from 'pretty-checkbox-react';
 
+import 'pretty-checkbox';
+
 function App() {
-    return <Checkbox animation="smooth" shape="curve">Check me!</Checkbox>;
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChange = React.useCallback(() => {
+        setChecked(prev => !prev);
+    }, []);
+
+    // or useReducer for shorthand...
+    // const [checked, handleChange] = React.useReducer(state => !state, false);
+
+    React.useEffect(() => {
+        if (checked) {
+            // perform some side effect
+            // when the state changes
+        }
+    }, [checked]);
+
+    return (
+        <Checkbox state={checked} onChange={handleChange}>
+            Yes! I want emails!
+        </Checkbox>
+    );
 }
-
-ReactDOM.render(App, document.querySelector('body'));
 ```
 
-### Getting Started
-Install `pretty-checkbox` and `pretty-checkbox-react` through NPM or yarn:
+### `useState` Hooks
 
-```bash
-yarn pretty-checkbox pretty-checkbox-react # or
-npm i pretty-checkbox pretty-checkbox-react --save
+For your convenience, each component has a "useState" hook to takes care of connecting all the pieces together.
+
+```jsx
+import React from 'react';
+import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
+
+import 'pretty-checkbox';
+
+function App() {
+    const checkbox = useCheckboxState();
+
+    React.useEffect(() => {
+        if (checkbox.state) {
+            // perform some side effect
+            // when the state changes
+        }
+    }, [chekbox.state]);
+
+    return <Checkbox {...checkbox}>Yes! I want emails!</Checkbox>;
+}
 ```
 
-> `pretty-checkbox` is a _peer_ dependency so you need to install it yourself or reference the CSS manually!
+### Basic Uncontrolled Example
 
-Make the dependencies available and begin using! `pretty-checkbox-react` exposes three components for your use:
+PCR works as an uncontrolled component too. This allows you to easily integrate with tools like react-hook-form and other uncontrolled form solutions.
 
-* Checkbox
-* Radio
-* Switch
+```jsx
+import React from 'react';
+import { Checkbox } from 'pretty-checkbox-react';
+
+import 'pretty-checkbox';
+
+const ref = React.createRef();
+
+function App() {
+    // or you can add a ref in your component
+    // const ref = React.useRef();
+
+    return (
+        <form
+            onSubmit={e => {
+                e.preventDefault();
+
+                if (!ref.current.checked) {
+                    alert('You must agree to the terms and conditions!');
+                }
+
+                // do something else...
+            }}>
+            <Checkbox ref={ref}>I agree to the terms and conditions</Checkbox>
+        </form>
+    );
+}
+```
+
+### With Class Components
+
+React 16.8 is required for pretty checkbox react to work. If you're on the required version, then you can use class components too:
+
+```jsx
+import * as React from 'react';
+import { Checkbox } from 'pretty-checkbox-react';
+
+import 'pretty-checkbox';
+
+class Demo extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { checked: false };
+        this.handleChange = this._handleChange.bind(this);
+    }
+
+    _handleChange() {
+        this.setState({ checked: true });
+    }
+
+    render() {
+        return (
+            <Checkbox state={this.state.checked} onChange={this.handleChange}>
+                Yes! I want emails!
+            </Checkbox>
+        );
+    }
+}
+```
+
+## Grouping Controls
+
+To make working with managed form solutions easier, PCR has a generic `Group` component for usage with checkboxes and switches. For radio inputs, however, there is a special `RadioGroup` component.
+
+```jsx
+import * as React from 'react';
+import { Radio, useRadioState, RadioGroup } from 'pretty-checkbox-react';
+
+import 'pretty-checkbox';
+
+function App() {
+    const radio = useRadioState();
+
+    return (
+        <RadioGroup {...radio}>
+            <Radio value="yes" name="sub" {...radio}>
+                Yes! I want emails
+            </Radio>
+            <Radio value="no" name="sub" {...radio}>
+                No, I do not want emails
+            </Radio>
+        </RadioGroup>
+    );
+}
+```
+
+### Changelog
+
+See the releases page.
 
 ### Contributions
+
 Shout out to [Lokesh](https://github.com/lokesh-coder) for creating the original [pretty-checkbox library](https://github.com/lokesh-coder/pretty-checkbox) :star:
 
 ### License
+
 This project is licensed under the MIT License
