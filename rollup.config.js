@@ -1,37 +1,23 @@
 import pkg from './package.json';
 
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import json from 'rollup-plugin-json';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import json from '@rollup/plugin-json';
 import { uglify } from 'rollup-plugin-uglify';
 
 const commonPlugins = [
-    resolve({
-        jsnext: true,
-        main: true
-    }),
+    resolve(),
     commonjs({
         include: 'node_modules/**',
-        namedExports: {
-            'node_modules/react/index.js': [
-                'createElement',
-                'Fragment',
-                'cloneElement',
-                'Children'
-            ]
-        }
     }),
-    json()
+    json(),
 ];
 
 const baseConfig = {
     input: './src/index.js',
-    plugins: [
-        babel(),
-        ...commonPlugins
-    ],
-    external: ['react']
+    plugins: [babel(), ...commonPlugins],
+    external: ['react'],
 };
 
 const umd_export = {
@@ -41,13 +27,9 @@ const umd_export = {
         format: 'umd',
         sourcemap: 'inline',
         globals: { react: 'React' },
-        banner: `/* ${pkg.browser}:${pkg.version} */`
+        banner: `/* ${pkg.browser}:${pkg.version} */`,
     },
-    plugins: [
-        babel(),
-        ...commonPlugins,
-        uglify()
-    ]
+    plugins: [babel(), ...commonPlugins, uglify()],
 };
 
 export default [
@@ -59,19 +41,19 @@ export default [
                 sourcemap: 'inline',
                 format: 'esm',
                 banner: `/* ${pkg.module}:${pkg.version} */`,
-                compact: true
+                compact: true,
             },
             {
                 file: pkg.main,
                 sourcemap: 'inline',
                 format: 'cjs',
                 banner: `/* ${pkg.main}:${pkg.version} */`,
-                compact: true
-            }
-        ]
+                compact: true,
+            },
+        ],
     },
     {
         ...baseConfig,
-        ...umd_export
-    }
+        ...umd_export,
+    },
 ];
