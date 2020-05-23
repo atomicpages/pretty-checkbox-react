@@ -2,7 +2,7 @@
 
 describe('Checkbox spec', () => {
     it('Successfully loads', () => {
-        cy.visit('http://localhost:9000/');
+        cy.visit('http://localhost:5000/');
     });
 
     it('should work as a basic controlled component', () => {

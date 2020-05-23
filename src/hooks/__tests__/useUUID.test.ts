@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { useUUID } from '../useUUID';
-import nanoid from 'nanoid';
+import { nanoid } from 'nanoid';
 
 jest.mock('nanoid');
 
