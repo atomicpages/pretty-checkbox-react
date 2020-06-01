@@ -5,17 +5,25 @@ import * as ReactDOM from 'react-dom';
 
 import { Basic } from './sections/basic';
 import { Functional } from './sections/functional';
+import { AllRadio } from './sections/radio';
+import { AllSwitch } from './sections/switch';
+import { Formik } from './sections/formik';
+import { RHF } from './sections/rhf';
 
 import 'pretty-checkbox';
-import { AllRadio } from './sections/radio';
 
 function Main() {
     return (
-        <main>
-            <Basic />
-            <Functional />
-            <AllRadio />
-        </main>
+        <React.StrictMode>
+            <main>
+                <Basic />
+                <Functional />
+                <AllRadio />
+                <AllSwitch />
+                <Formik />
+                <RHF />
+            </main>
+        </React.StrictMode>
     );
 }
 

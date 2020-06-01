@@ -13,8 +13,8 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css',
+            filename: '[name].[contenthash].css',
+            chunkFilename: '[id].[contenthash].css',
         }),
         new HtmlWebpackPlugin({ template: path.resolve('./public/index.html') }),
     ],
@@ -41,8 +41,22 @@ module.exports = {
                             reloadAll: true,
                         },
                     },
-                    'css-loader',
-                    'sass-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            sourceMap: true,
+                            modules: {
+                                auto: true,
+                            },
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            implementation: require('sass'),
+                        },
+                    },
                 ],
             },
         ],
