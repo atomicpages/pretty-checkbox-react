@@ -19,7 +19,7 @@
     ],
     "scripts": {
         "lint": "eslint \"src/**/*.{ts,tsx}\"",
-        "test": "jest --silent",
+        "test": "jest",
         "clean": "rimraf pkg/**",
         "build": "npm-run-all --parallel ts-check lint clean test && pika build",
         "ts-check": "tsc --noEmit",

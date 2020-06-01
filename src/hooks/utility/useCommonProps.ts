@@ -1,5 +1,4 @@
 import { useUUID } from '../useUUID';
-
 import { CommonProps } from '../../typings/PCRCommonProps';
 
 /**
@@ -10,7 +9,6 @@ import { CommonProps } from '../../typings/PCRCommonProps';
  */
 export const useCommonProps = <S>(props: CommonProps<S>) => {
     const defaultId = useUUID();
-    // const { checked, state, setState, ...others } = useControlled<S>(props);
 
     const {
         locked,

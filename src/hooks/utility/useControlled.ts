@@ -23,7 +23,7 @@ export const useControlled = <P = any>(props: P) => {
             // otherwise set checked true if the value is contained
             // within the state.
             checked = state.includes(value);
-        } else {
+        } else if (isNullish(checked)) {
             // The type is not a boolean and is probably a string.
             // If you're attempting to use this hook in a different
             // way, then you should considering controlling the component

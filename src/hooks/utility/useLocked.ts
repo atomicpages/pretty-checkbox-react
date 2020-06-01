@@ -2,7 +2,7 @@ import * as React from 'react';
 import { CommonProps } from '../../typings/PCRCommonProps';
 
 export type UseLockedArgs = {
-    locked: CommonProps<any>['locked'];
+    locked: CommonProps<unknown>['locked'];
     style?: React.CSSProperties;
 };
 

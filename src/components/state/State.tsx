@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { PCRCheckboxRadioProps } from '../../typings/PCRCheckboxRadioProps';
 
 type StateProps = React.HTMLAttributes<HTMLDivElement> & {
-    color: PCRCheckboxRadioProps['color'];
+    color?: PCRCheckboxRadioProps['color'];
     icon?: React.ReactNode;
 };
 
@@ -11,9 +11,9 @@ type StateProps = React.HTMLAttributes<HTMLDivElement> & {
  * A tiny component to abstract away pretty-checkbox "state" div.
  * Shared by all components.
  */
-export const State = ({ color, icon, id, children }: StateProps) => {
+export const State = ({ color, icon, id, children, ...rest }: StateProps) => {
     return (
-        <div className={classNames('state', color && `p-${color}`)}>
+        <div className={classNames('state', color && `p-${color}`)} {...rest}>
             {icon}
             <label htmlFor={id}>{children}</label>
         </div>

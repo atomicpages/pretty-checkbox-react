@@ -5,7 +5,7 @@ export type UseCheckboxState = {
     onChange?: React.InputHTMLAttributes<HTMLInputElement>['onChange'];
 };
 
-const dispatch = (value: any) => (state: UseCheckboxState['state']) => {
+const dispatch = (value: string) => (state: UseCheckboxState['state']) => {
     if (Array.isArray(state)) {
         const index = state.indexOf(value);
 

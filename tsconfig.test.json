@@ -4,5 +4,8 @@
         "noUnusedLocals": false,
         "noUnusedParameters": false,
         "noImplicitAny": false,
+        "module": "CommonJS",
+        "lib": ["ES2019", "DOM"],
+        "target": "ES2019"
     }
 }
