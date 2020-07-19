@@ -11,6 +11,7 @@ import { Formik } from './sections/formik';
 import { RHF } from './sections/rhf';
 
 import 'pretty-checkbox';
+import '@mdi/font/css/materialdesignicons.css';
 
 function Main() {
     return (

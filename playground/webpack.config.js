@@ -59,6 +59,10 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.(woff2?|svg|ttf|otf|eot)$/,
+                loader: 'file-loader',
+            },
         ],
     },
     devtool: 'cheap-module-eval-source-map',
