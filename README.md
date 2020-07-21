@@ -28,7 +28,7 @@
 
 # Pretty Checkbox React
 
-Pretty Checkbox React is a pretty small react wrapper around the the pretty awesome library pretty checkbox.
+Pretty Checkbox React (PCR for short) is a small react wrapper around the the pretty awesome library pretty checkbox.
 
 ## Getting Started
 
@@ -40,6 +40,94 @@ npm i pretty-checkbox pretty-checkbox-react
 # or with yarn
 yarn add pretty-checkbox pretty-checkbox-react
 ```
+
+## Basic Usage
+
+PCR components are easy to use and require no additional setup. They support controlled and uncontrolled modes and pass pretty much all props down to the underlying `input` element.
+
+```tsx
+import * as React from 'react';
+import { Checkbox } from 'pretty-checkbox-react';
+
+function App() {
+    return <Checkbox>Do you agree to the terms and conditions?</Checkbox>;
+}
+```
+
+### Colors &amp; Variants
+
+Like `pretty-checkbox`, `colors`, `variant`, and `shapes` are supported via props:
+
+```tsx
+import * as React from 'react';
+import { Checkbox } from 'pretty-checkbox-react';
+
+function App() {
+    return (
+        <Checkbox color="primary" shape="curve" variant="thick">
+            Do you agree to the terms and conditions?
+        </Checkbox>
+    );
+}
+```
+
+### Uncontrolled Usage
+
+Add a `ref` and get access to the input element. Uncontrolled mode allows for seamless integration with form solutions like `react-hook-form`:
+
+```tsx
+import * as React from 'react';
+import { Checkbox } from 'pretty-checkbox-react';
+
+function App() {
+    const ref = React.useRef(null);
+
+    React.useEffect(() => {
+        if (ref.current) {
+            // do something awesome
+        }
+    }, []);
+
+    return <Checkbox ref={ref}>Do you agree to the terms and conditions?</Checkbox>;
+}
+```
+
+### Controlled Mode
+
+For your state needs, PCR components can be controlled, too. For convenience, there are hooks provided that abstract the typical, mundane tasks or creating stateful components:
+
+```tsx
+import * as React from 'react';
+import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
+
+function App() {
+    const checkbox = useCheckboxState();
+
+    const onSubmit = React.useCallback(
+        e => {
+            e.preventDefault();
+
+            if (!checkbox.state) {
+                // update the state manually from the `confirm` result
+                checkbox.setState(confirm('Do you agree to the terms and conditions?'));
+            }
+        },
+        [checkbox]
+    );
+
+    return (
+        <form onSubmit={onSubmit}>
+            <Checkbox name="tac" value="" {...checkbox}>
+                Do you agree to the terms and conditions?
+            </Checkbox>
+        </form>
+    );
+}
+```
+
+### Loading CSS
+
+PCR provides an API around `pretty-checkbox` which means the CSS needs to get loaded by your application. If you're using webpack, [`css-loader`](https://webpack.js.org/loaders/css-loader/) probably would be ideal since you can import it alongside your app. Not using webpack? Add it to your `index.html` :+1:
 
 ### Changelog
 
