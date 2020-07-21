@@ -2,6 +2,7 @@ node_modules/
 coverage/
 dist/
 pkg/
+docs/.docusaurus
 
 # Logs
 logs
