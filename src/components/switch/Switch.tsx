@@ -26,6 +26,7 @@ export const Switch = React.forwardRef<HTMLInputElement, PCRSwitchProps>((props,
             <input
                 ref={ref}
                 type="checkbox"
+                role="switch"
                 value={value}
                 id={id}
                 checked={checked}

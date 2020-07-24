@@ -4,7 +4,7 @@ title: Get Started
 sidebar_label: Installation
 ---
 
-Pretty Checkbox React (PCR) is a small wrapper around the already great Pretty Checkbox :star:
+Pretty Checkbox React (PCR) is a small, a11y friendly implementation of Pretty Checkbox :star: with easy as pie usage :pie:
 
 ## Installation
 
@@ -25,7 +25,7 @@ npm i pretty-checkbox pretty-checkbox-react
 While PCR supports a multitude of use cases, we'll start simple :smile:. The example below will render a basic checkbox:
 
 :::info
-Webpack and other modern bundles support loading, process, or otherwise "making available" imported CSS. If you're not using a modern bunlder you can import CSS via [unpkg.com](https://unpkg.com/browse/pretty-checkbox/dist/)
+Webpack and other modern bundles support loading, process, or otherwise "making available" imported CSS. If you're not using a modern bundler you can import CSS via [unpkg.com](https://unpkg.com/browse/pretty-checkbox/dist/)
 :::
 
 ```jsx
@@ -40,7 +40,7 @@ function App() {
 }
 ```
 
-... and of course a real example :grin:
+... and of course an interactive example :grin:
 
 ```jsx live
 function App() {

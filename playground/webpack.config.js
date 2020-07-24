@@ -27,11 +27,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
-            },
-            {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     {
@@ -39,6 +34,12 @@ module.exports = {
                         options: {
                             hmr: process.env.NODE_ENV === 'development',
                             reloadAll: true,
+                        },
+                    },
+                    {
+                        loader: '@teamsupercell/typings-for-css-modules-loader',
+                        options: {
+                            formatter: 'prettier',
                         },
                     },
                     {
@@ -58,6 +59,11 @@ module.exports = {
                         },
                     },
                 ],
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.(woff2?|svg|ttf|otf|eot)$/,

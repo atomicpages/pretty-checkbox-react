@@ -4,101 +4,64 @@ title: Basic Concepts
 sidebar_label: Basic Concepts
 ---
 
-Pretty Checkbox React is a small wrapper around Pretty Checkbox, but exposes a intuitive and flexible API to make common tasks easier.
+Pretty Checkbox React (PCR) is a tiny implementation of a `radio`, `checkbox`, and mobile-like switch control _powered by_ [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/). That being said, PCR is more than a component library, there are APIs to help with various integrations and tasks including:
+
+-   Hooks to help manage state
+-   Easy checkbox indeterminate support
+-   Works with managed-state form solutions (e.g. `formik`)
+-   Works with uncontrolled form solutions (e.g. `react-hook-form`)
+-   and more...
 
 ## Components
 
-Pretty Checkbox defines three "controls" that are available. In `pretty-checkbox-react` these controls are exported:
+At the core of PCR lies three components:
 
-1. `Checkbox`
-2. `Radio`
-3. `Switch`
+-   `Checkbox`
+-   `Radio`
+-   `Switch`
 
-## Hook API
-
-:::info
-`Switch` can be used as a checkbox or a radio so you can use either of these hooks 🎉
-:::
-
-There are two hooks exported for make controlling input easier:
-
-1. `useCheckboxState`
-2. `useRadioState`
-
-Hooks receive the same arguments as an object:
-
-```typescript
-type Options<S> = {
-    state?: S;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
-```
-
-Each hook returns an object with the following shape:
-
-```typescript
-type HookResult<S> = {
-    state: S;
-    setState: React.Dispatch<React.SetStateAction<S>>;
-    onChange: React.ChangeEventHandler<HTMLInput>;
-};
-```
-
-## Controlled Mode
-
-[Controlling inputs and forms](https://reactjs.org/docs/forms.html#controlled-components) is arguably the defacto standard when writing React components.
-
-PCR allows you to control state yourself via the `checked` prop, or you can use one of tje convenience hooks do to this for you:
-
-```jsx {2,5}
-import React from 'react';
-import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
-
-function App() {
-    const checkbox = useCheckboxState();
-
-    return <Checkbox {...checkbox}>Do you agree?</Checkbox>;
-}
-```
+By themselves, the components render regular old HTML.
 
 ```jsx live
 function App() {
-    const checkbox = useCheckboxState();
-
     return (
         <>
-            <Checkbox {...checkbox}>Do you agree?</Checkbox>
-            Checked? {checkbox.state ? 'Yes' : 'No'}
+            <Checkbox>Click me!</Checkbox>
+            <Radio>Select me!</Radio>
+            <Switch>Click me!</Switch>
         </>
     );
 }
 ```
 
-😲 No hook-ups required and simple-as-pie usage! Be sure to checkout the [checkbox docs](/docs/checkbox) for more detailed examples.
+## Uncontrolled Usage
 
-## Uncontrolled Mode
+When using as a standalone component or in a form, all PCR components support [uncontrolled usage](https://reactjs.org/docs/uncontrolled-components.html).
 
-In certain cases it's advantageous to let the DOM handle input state. Thankfully, PCR has you covered :wink: All `refs` are forwarded to the underlying `HTMLInputElement` for ease of use.
+:::info
+When we pass a `ref` it will be attached to the underlying HTML `input` element.
+:::
 
-```jsx {5}
-import React from 'react';
-import { Checkbox } from 'pretty-checkbox-react';
-
-function App() {
-    const ref = React.useRef(null);
-
-    return <Checkbox ref={ref}>Do you agree?</Checkbox>;
-}
-```
+Below is a contrived example where we check the checkbox automatically after three seconds.
 
 ```jsx live
 function App() {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
-        ref.current.indeterminate = true;
+        const id = setTimeout(() => {
+            if (ref.current) {
+                ref.current.checked = true;
+            }
+        }, 3000);
+
+        return () => {
+            clearTimeout(id);
+        };
     }, []);
 
-    return <Checkbox ref={ref}>Do you agree?</Checkbox>;
+    return <Checkbox ref={ref}>I will get checked in 3 seconds</Checkbox>;
 }
 ```
+
+## Controlled Usage
