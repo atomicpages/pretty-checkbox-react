@@ -41,7 +41,7 @@ function copyStyles(styles: StyleSheetList, target: Document) {
 
 export const useOpenInNewWindow = ({
     container,
-    features = 'width=600,height=400',
+    features = 'width=600,height=400,scrollbars=true,noopener=true',
 }: UseOpenInNewWindow) => {
     const open = React.useRef(false);
     const win = React.useRef<Window>(null);
