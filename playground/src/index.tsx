@@ -9,9 +9,10 @@ import { AllRadio } from './sections/radio';
 import { AllSwitch } from './sections/switch';
 import { Formik } from './sections/formik';
 import { RHF } from './sections/rhf';
+import { Indeterminate } from './sections/Indeterminate';
 
 import 'pretty-checkbox';
-import '@mdi/font/css/materialdesignicons.css';
+// import '@mdi/font/css/materialdesignicons.css';
 
 function Main() {
     return (
@@ -19,6 +20,7 @@ function Main() {
             <main>
                 <Basic />
                 <Functional />
+                <Indeterminate />
                 <AllRadio />
                 <AllSwitch />
                 <Formik />

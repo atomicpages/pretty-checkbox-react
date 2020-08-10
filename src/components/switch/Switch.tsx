@@ -12,7 +12,8 @@ import { useCommonProps } from '../../hooks/utility/useCommonProps';
 import { UseCheckboxState } from '../checkbox/Checkbox';
 
 export const Switch = React.forwardRef<HTMLInputElement, PCRSwitchProps>((props, ref) => {
-    const { checked, value, ...rest } = useControlled<
+    const { checked, value, state, ...rest } = useControlled<
+        UseRadioState['state'] | UseCheckboxState['state'],
         PCRSwitchProps<UseRadioState['state'] | UseCheckboxState['state']>
     >(props);
 

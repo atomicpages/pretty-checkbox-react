@@ -16,7 +16,8 @@ export const Radio = React.forwardRef<
     HTMLInputElement,
     PCRCheckboxRadioProps<UseRadioState['state']>
 >((props, ref) => {
-    const { checked, value, ...rest } = useControlled<
+    const { checked, value, state, ...rest } = useControlled<
+        UseRadioState['state'],
         PCRCheckboxRadioProps<UseRadioState['state']>
     >(props);
 

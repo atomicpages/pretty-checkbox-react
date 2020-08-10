@@ -1,3 +1,5 @@
+import { CommonProps } from "../../typings/PCRCommonProps";
+
 const isBoolean = (e: unknown) => typeof e === 'boolean';
 const isNullish = (e: unknown) => e === null || e === undefined;
 
@@ -6,16 +8,15 @@ const isNullish = (e: unknown) => e === null || e === undefined;
  * removing  state hook return results, setting `checked`,
  * and `value` props too.
  */
-export const useControlled = <P = any>(props: P) => {
-    // remove state and state disaptch from the props
-    // @ts-ignore
+export const useControlled = <S, P extends CommonProps<S>>(props: P) => {
+    // remove state and state dispatch from the props
     // eslint-disable-next-line prefer-const
     let { checked, state, setState, value, defaultValue, ...rest } = props;
 
-    // if a disaptcher is used, then we're good to run the rest
+    // if a dispatcher is used, then we're good to run the rest
     // of the logic
     if (setState) {
-        // if state is defined and vchecked is NOT defined
+        // if state is defined and checked is NOT defined
         // then use state to set the value of checked.
         if (isBoolean(state) && !isBoolean(checked) && isNullish(checked)) {
             checked = (state as unknown) as boolean;
@@ -39,5 +40,5 @@ export const useControlled = <P = any>(props: P) => {
         }
     }
 
-    return { checked, value, ...rest };
+    return { checked, value, state, ...rest };
 };

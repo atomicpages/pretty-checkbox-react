@@ -114,7 +114,8 @@
     },
     "dependencies": {
         "classnames": "^2.0.0",
-        "nanoid": "^3.1.10"
+        "nanoid": "^3.1.10",
+        "react-merge-refs": "^1.1.0"
     },
     "prettier": "@djthoms/prettier-config"
 }

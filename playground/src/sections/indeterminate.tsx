@@ -27,7 +27,8 @@ const IndeterminateCheckbox = () => {
 const values = ['Apple', 'Orange', 'Watermelon'];
 
 const Tree = () => {
-    const { group, items } = useTreeState({ values });
+    // be sure to pass in a copy of values
+    const { group, items } = useTreeState({ values: [...values] });
 
     return (
         <ul>
@@ -71,9 +72,7 @@ export const Indeterminate = () => {
                 <p>
                     Set indeterminate status intuitively using the <code>indeterminate</code> prop
                 </p>
-                <Checkbox indeterminate icon={<i className="mdi mdi-minus" />}>
-                    Indeterminate Checkbox
-                </Checkbox>
+                <Checkbox icon={<i className="mdi mdi-minus" />}>Indeterminate Checkbox</Checkbox>
             </Section>
             <Section>
                 <IndeterminateCheckbox />

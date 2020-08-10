@@ -5,6 +5,8 @@ export type UseCheckboxState = {
     onChange?: React.InputHTMLAttributes<HTMLInputElement>['onChange'];
 };
 
+const INDETERMINATE_STATE = 'indeterminate';
+
 const dispatch = (value: string) => (state: UseCheckboxState['state']) => {
     if (Array.isArray(state)) {
         const index = state.indexOf(value);
@@ -28,7 +30,7 @@ export const useCheckboxState = ({
     onChange,
 }: UseCheckboxState = {}) => {
     const [state, setState] = React.useState(() => {
-        if (typeof initialState === 'string') {
+        if (typeof initialState === 'string' && initialState !== INDETERMINATE_STATE) {
             return [initialState];
         }
 
