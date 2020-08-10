@@ -8,6 +8,7 @@ module.exports = {
     favicon: 'img/favicon.ico',
     organizationName: 'atomicpages', // Usually your GitHub org/user name.
     projectName: 'pretty-checkbox-react', // Usually your repo name.
+    stylesheets: ['https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css'],
     themeConfig: {
         navbar: {
             title: 'Pretty Checkbox React',
@@ -15,7 +16,7 @@ module.exports = {
                 alt: 'Pretty Checkbox React Logo',
                 src: 'img/logo.svg',
             },
-            links: [
+            items: [
                 {
                     to: 'docs/',
                     activeBasePath: 'docs',

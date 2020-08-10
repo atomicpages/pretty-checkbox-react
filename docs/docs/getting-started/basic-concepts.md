@@ -65,3 +65,24 @@ function App() {
 ```
 
 ## Controlled Usage
+
+Controlled components are driven by changes in state. To make this a whole lot easier, PCR has hooks for that!
+
+-   `useCheckboxState`
+-   `useRadioState`
+-   `useSwitchState`
+
+Using the hooks is like eating cake :cake:
+
+```jsx live
+function App() {
+    const checkbox = useCheckboxState();
+
+    return (
+        <>
+            <Checkbox {...checkbox}>Controlled Mode</Checkbox>
+            <p>Checked {checkbox.state + ''}</p>
+        </>
+    );
+}
+```
