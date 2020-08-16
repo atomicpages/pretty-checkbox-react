@@ -15,8 +15,8 @@ export const useIcon = (icon: PCRCheckboxRadioProps['icon']) => {
             }
 
             return {
-                iconType: type,
-                icon: !icon.props.className.includes('icon')
+                iconType: icon.props['data-type'] || type,
+                icon: !icon.props.className?.includes('icon')
                     ? React.cloneElement(icon, {
                           ...icon.props,
                           className: classNames(icon.props.className, 'icon'),
