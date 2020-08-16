@@ -1,7 +1,9 @@
+import './wdyr';
+import 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
 
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { Basic } from './sections/basic';
 import { Functional } from './sections/functional';
@@ -11,7 +13,7 @@ import { Formik } from './sections/formik';
 import { RHF } from './sections/rhf';
 import { Indeterminate } from './sections/Indeterminate';
 
-import 'pretty-checkbox';
+import 'pretty-checkbox/src/pretty-checkbox.scss';
 // import '@mdi/font/css/materialdesignicons.css';
 
 function Main() {

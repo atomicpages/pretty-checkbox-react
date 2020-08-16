@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Checkbox, useCheckboxState } from '../../../src/index';
 import { Section } from '../components/Section';
 
@@ -23,6 +23,8 @@ const ControlledStateHook = () => {
     );
 };
 
+ControlledStateHook.whyDidYouRender = true;
+
 const ControlledManually = () => {
     const [checked, toggle] = React.useReducer(s => !s, false);
 
@@ -36,6 +38,8 @@ const ControlledManually = () => {
     );
 };
 
+ControlledManually.whyDidYouRender = true;
+
 const ControlledWithValue = () => {
     const checkbox = useCheckboxState();
 
@@ -48,6 +52,8 @@ const ControlledWithValue = () => {
         </>
     );
 };
+
+ControlledWithValue.whyDidYouRender = true;
 
 export const Functional = () => {
     return (

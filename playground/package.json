@@ -18,12 +18,13 @@
     "devDependencies": {
         "@hot-loader/react-dom": "^16.13.0",
         "@teamsupercell/typings-for-css-modules-loader": "^2.2.1",
-        "@types/react": "^16.9.45",
+        "@types/react": "^16.9.46",
         "@types/react-dom": "^16.9.8",
+        "@welldone-software/why-did-you-render": "^4.3.1",
         "css-loader": "^4.2.1",
         "file-loader": "^6.0.0",
         "html-webpack-plugin": "^4.3.0",
-        "mini-css-extract-plugin": "^0.9.0",
+        "mini-css-extract-plugin": "^0.10.0",
         "postcss-loader": "^3.0.0",
         "react-hot-loader": "^4.12.21",
         "sass": "^1.26.10",
@@ -35,12 +36,13 @@
         "webpack-dev-server": "^3.11.0"
     },
     "dependencies": {
-        "@mdi/font": "^5.4.55",
+        "@mdi/font": "^5.5.55",
         "formik": "^2.0.0",
         "is-ci": "^2.0.0",
         "pretty-checkbox": "^3.0.3",
-        "react-hook-form": "^6.3.1",
-        "reakit": "^1.2.0",
+        "react-feather": "^2.0.8",
+        "react-hook-form": "^6.4.0",
+        "reakit": "^1.2.1",
         "serve": "^11.0.0"
     }
 }

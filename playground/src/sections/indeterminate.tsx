@@ -59,6 +59,8 @@ const Tree = () => {
     );
 };
 
+Tree.whyDidYouRender = true;
+
 export const Indeterminate = () => {
     return (
         <>
@@ -69,10 +71,9 @@ export const Indeterminate = () => {
                 <code>checked</code> and <code>indeterminate</code> properties manually.
             </p>
             <Section>
-                <p>
-                    Set indeterminate status intuitively using the <code>indeterminate</code> prop
-                </p>
-                <Checkbox icon={<i className="mdi mdi-minus" />}>Indeterminate Checkbox</Checkbox>
+                <Checkbox indeterminate icon={<i className="mdi mdi-minus" />}>
+                    Indeterminate by prop
+                </Checkbox>
             </Section>
             <Section>
                 <IndeterminateCheckbox />
