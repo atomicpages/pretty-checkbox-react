@@ -76,7 +76,7 @@ Checkbox has various states that might come in handy, too :wrench:
 
 ### Disabled &amp; Locked
 
-Of course `disabled` is supported, but there's also a secondary state called `locked`. This unique approach to preventing user action doesn't visually display the checkbox as disabled; however, user action is prevented (keyboard focus, clicking, etc.). Confused? Check it out!
+Of course `disabled` is supported, but there's also a secondary state called `locked`. This unique approach to preventing user action doesn't visually display the checkbox as disabled; however, user action is prevented (keyboard focus, clicking, etc.). Weird much? Check it out!
 
 ```jsx live
 <>
@@ -84,4 +84,52 @@ Of course `disabled` is supported, but there's also a secondary state called `lo
     <Checkbox disabled>Disabled</Checkbox>
     <Checkbox locked>Locked</Checkbox>
 </>
+```
+
+### Scalability
+
+Out of the box, PCR offers a `bigger` prop to make all input controls just a tad bit larger:
+
+```jsx live
+<>
+    <Checkbox>Regular</Checkbox>
+    <Checkbox bigger>Bigger</Checkbox>
+</>
+```
+
+Need more control? Use the `font-size` CSS property!
+
+:::info
+`font-size` added to a wrapping `div` to maintain visually pleasing spacing. You can add `style` directly to `Checkbox` otherwise.
+:::
+
+```jsx live
+function App() {
+    const [size, setSize] = React.useState(14);
+
+    return (
+        <>
+            <input
+                type="range"
+                min="8"
+                max="120"
+                step="1"
+                value={size}
+                onChange={React.useCallback(e => {
+                    setSize(parseInt(e.currentTarget.value));
+                }, [])}
+            />
+            <input
+                type="reset"
+                onClick={React.useCallback(e => {
+                    setSize(14);
+                }, [])}
+            />
+            <div style={{ fontSize: size }}>
+                <Checkbox>Regular</Checkbox>
+            </div>
+            <p>Current <code>font-size: {size}px</code></p>
+        </>
+    );
+}
 ```

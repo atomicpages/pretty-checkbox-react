@@ -5,12 +5,12 @@
  * work well for content-centric websites.
  */
 
-@import "~pretty-checkbox";
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
 
 /* You can override the default Infima variables here. */
 :root {
-    --ifm-color-primary: #8033B0;
-    --ifm-color-primary-dark: #8033B0;
+    --ifm-color-primary: #8033b0;
+    --ifm-color-primary-dark: #8033b0;
     --ifm-color-primary-darker: rgb(31, 165, 136);
     --ifm-color-primary-darkest: rgb(82, 128, 118);
     --ifm-color-primary-light: rgb(70, 203, 174);
@@ -24,4 +24,42 @@
     display: block;
     margin: 0 calc(-1 * var(--ifm-pre-padding));
     padding: 0 var(--ifm-pre-padding);
+}
+
+.color-preview {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    margin: 0 2px;
+
+    &.primary {
+        background-color: $pretty--color-primary;
+    }
+    &.info {
+        background-color: $pretty--color-info;
+    }
+    &.success {
+        background-color: $pretty--color-success;
+    }
+    &.warning {
+        background-color: $pretty--color-warning;
+    }
+    &.danger {
+        background-color: $pretty--color-danger;
+    }
+}
+
+.form {
+    // width: 100%;
+    display: table;
+
+    &__group {
+        display: table-row;
+
+        & > * {
+            display: table-cell;
+            // padding-bottom: 0.5em;
+        }
+    }
 }
