@@ -12,14 +12,12 @@ import { useCheckboxRadioProps } from '../../hooks/utility/useCheckboxRadioProps
 import { PCRCheckboxRadioProps } from '../../typings/PCRCheckboxRadioProps';
 import { UseRadioState, useRadioState } from './useRadioState';
 
-export const Radio = React.forwardRef<
-    HTMLInputElement,
-    PCRCheckboxRadioProps<UseRadioState['state']>
->((props, ref) => {
-    const { checked, value, state, ...rest } = useControlled<
-        UseRadioState['state'],
-        PCRCheckboxRadioProps<UseRadioState['state']>
-    >(props);
+export type RadioProps = Omit<PCRCheckboxRadioProps<UseRadioState['state']>, 'indeterminate'>;
+
+export const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref) => {
+    const { checked, value, state, ...rest } = useControlled<UseRadioState['state'], RadioProps>(
+        props
+    );
 
     const {
         shape = 'round',
@@ -31,7 +29,7 @@ export const Radio = React.forwardRef<
         style,
         icon: propsIcon,
         htmlProps,
-    } = useCheckboxRadioProps(rest);
+    } = useCheckboxRadioProps<UseRadioState['state'], RadioProps>(rest);
 
     const styles = useLocked({ locked, style });
     const { icon, iconType } = useIcon(propsIcon);

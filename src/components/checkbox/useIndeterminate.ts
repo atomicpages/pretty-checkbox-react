@@ -4,11 +4,13 @@ import { UseCheckboxState } from './useCheckboxState';
 export type UseIndeterminateOptions = {
     checked?: boolean;
     state?: UseCheckboxState['state'];
+    indeterminate?: boolean;
 };
 
 export const useIndeterminate = ({
     checked,
     state,
+    indeterminate: indeterminateFromProps,
 }: UseIndeterminateOptions): {
     ref: React.RefObject<HTMLInputElement>;
     'aria-checked': React.AriaAttributes['aria-checked'];
@@ -18,12 +20,24 @@ export const useIndeterminate = ({
 
     React.useEffect(() => {
         if (state !== undefined && ref.current) {
-            const status = state === 'indeterminate';
-
-            setStatus(status);
-            ref.current.indeterminate = status;
+            setStatus(state === 'indeterminate');
         }
     }, [state]);
+
+    // if a prop is passed mark the indeterminate state
+    // we should check to ensure state isn't set to indeterminate
+    // since we don't want ot clobber the state value if
+    // it is defined.
+    React.useEffect(() => {
+        if (
+            state !== 'indeterminate' &&
+            ref.current &&
+            typeof indeterminateFromProps !== 'undefined'
+        ) {
+            ref.current.checked = indeterminateFromProps;
+            setStatus(indeterminateFromProps);
+        }
+    }, [indeterminateFromProps, state]);
 
     return {
         ref,

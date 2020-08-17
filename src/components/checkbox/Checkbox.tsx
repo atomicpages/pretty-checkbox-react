@@ -13,16 +13,15 @@ import { PCRCheckboxRadioProps } from '../../typings/PCRCheckboxRadioProps';
 import { State } from '../state/State';
 import { useIndeterminate } from './useIndeterminate';
 
-export const Checkbox = React.forwardRef<
-    HTMLInputElement,
-    PCRCheckboxRadioProps<UseCheckboxState['state']>
->((props, ref) => {
+export type CheckboxProps = PCRCheckboxRadioProps<UseCheckboxState['state']> & {
+    indeterminate?: boolean;
+};
+
+export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
     const { checked, value, state, ...rest } = useControlled<
         UseCheckboxState['state'],
-        PCRCheckboxRadioProps<UseCheckboxState['state']>
+        CheckboxProps
     >(props);
-
-    const { ref: intRef, ...aria } = useIndeterminate({ state, checked });
 
     const {
         children,
@@ -31,9 +30,12 @@ export const Checkbox = React.forwardRef<
         id,
         className,
         style,
+        indeterminate,
         icon: propsIcon,
         htmlProps,
-    } = useCheckboxRadioProps(rest);
+    } = useCheckboxRadioProps<UseCheckboxState['state'], CheckboxProps>(rest);
+
+    const { ref: intRef, ...aria } = useIndeterminate({ state, checked, indeterminate });
 
     const styles = useLocked({ locked, style });
     const { icon, iconType } = useIcon(propsIcon);

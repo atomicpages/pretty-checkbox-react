@@ -9,6 +9,7 @@ export type PCRCheckboxRadioProps<S = any> = Omit<CommonProps<S>, 'type'> & {
     variant?: Fill;
     animation?: Animation;
     plain?: boolean;
+    indeterminate?: boolean;
     icon?: React.ReactElement<any, 'svg' | 'i' | 'em' | 'img'>;
     iconType?: 'svg' | 'icon' | 'image';
 };

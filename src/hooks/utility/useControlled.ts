@@ -1,7 +1,8 @@
-import { CommonProps } from "../../typings/PCRCommonProps";
+import { CommonProps } from '../../typings/PCRCommonProps';
 
 const isBoolean = (e: unknown) => typeof e === 'boolean';
 const isNullish = (e: unknown) => e === null || e === undefined;
+const isIndeterminate = (e: unknown) => e === 'indeterminate';
 
 /**
  * A generic way to setup controlled components by
@@ -18,8 +19,12 @@ export const useControlled = <S, P extends CommonProps<S>>(props: P) => {
     if (setState) {
         // if state is defined and checked is NOT defined
         // then use state to set the value of checked.
-        if (isBoolean(state) && !isBoolean(checked) && isNullish(checked)) {
-            checked = (state as unknown) as boolean;
+        if (
+            (isBoolean(state) || isIndeterminate(state)) &&
+            !isBoolean(checked) &&
+            isNullish(checked)
+        ) {
+            checked = !!state;
         } else if (Array.isArray(state)) {
             // otherwise set checked true if the value is contained
             // within the state.
