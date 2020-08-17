@@ -18,17 +18,15 @@ import 'pretty-checkbox/src/pretty-checkbox.scss';
 
 function Main() {
     return (
-        <React.StrictMode>
-            <main>
-                <Basic />
-                <Functional />
-                <Indeterminate />
-                <AllRadio />
-                <AllSwitch />
-                <Formik />
-                <RHF />
-            </main>
-        </React.StrictMode>
+        <main>
+            <Basic />
+            <Functional />
+            <Indeterminate />
+            <AllRadio />
+            <AllSwitch />
+            <Formik />
+            <RHF />
+        </main>
     );
 }
 
