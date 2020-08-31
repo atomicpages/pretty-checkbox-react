@@ -14,6 +14,11 @@ import { State } from '../state/State';
 import { useIndeterminate } from './useIndeterminate';
 
 export type CheckboxProps = PCRCheckboxRadioProps<UseCheckboxState['state']> & {
+    /**
+     * Mark the underlying HTML input checkbox as `indeterminate`. This prop doesn't change
+     * icons for you, it just ensures we have the correct `aria-checked` value
+     * and the checkbox has indeterminate status.
+     */
     indeterminate?: boolean;
 };
 

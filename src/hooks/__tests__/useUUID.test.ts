@@ -1,8 +1,8 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid/non-secure';
 import { useUUID } from '../useUUID';
 
-jest.mock('nanoid');
+jest.mock('nanoid/non-secure');
 
 // @ts-ignore
 nanoid.mockImplementation(() => '1234');
