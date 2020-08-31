@@ -43,7 +43,10 @@
             [
                 "@pika/plugin-ts-standard-pkg",
                 {
-                    "excludes": "playground/**"
+                    "args": [
+                        "--target",
+                        "es2019"
+                    ]
                 }
             ],
             [
