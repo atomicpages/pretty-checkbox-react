@@ -1,3 +1,6 @@
+const path = require('path');
+const { createRequireFromPath } = require('module');
+
 const github = 'https://github.com/atomicpages/pretty-checkbox-react';
 
 module.exports = {
@@ -8,7 +11,10 @@ module.exports = {
     favicon: 'img/favicon.ico',
     organizationName: 'atomicpages', // Usually your GitHub org/user name.
     projectName: 'pretty-checkbox-react', // Usually your repo name.
-    stylesheets: ['https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css'],
+    stylesheets: [
+        'https://unpkg.com/@djthoms/pretty-checkbox@3.0.4/dist/pretty-checkbox.min.css',
+        'https://cdn.materialdesignicons.com/5.5.55/css/materialdesignicons.min.css',
+    ],
     themeConfig: {
         navbar: {
             title: 'Pretty Checkbox React',
@@ -23,7 +29,6 @@ module.exports = {
                     label: 'Docs',
                     position: 'left',
                 },
-                // { to: 'blog', label: 'Blog', position: 'left' },
                 {
                     href: github,
                     label: 'GitHub',
@@ -31,57 +36,63 @@ module.exports = {
                 },
             ],
         },
+        prism: {
+            theme: require('prism-react-renderer/themes/github'),
+            darkTheme: require('prism-react-renderer/themes/palenight'),
+        },
         footer: {
             style: 'dark',
             links: [
                 {
                     title: 'Docs',
                     items: [
-                        // {
-                        //     label: 'Style Guide',
-                        //     to: 'docs/',
-                        // },
                         {
-                            label: 'Second Doc',
-                            to: 'docs/doc2/',
+                            label: 'Style Guide',
+                            to: 'docs/',
                         },
                     ],
                 },
-                // {
-                //     title: 'More',
-                //     items: [
-                //         {
-                //             label: 'Blog',
-                //             to: 'blog',
-                //         },
-                //         {
-                //             label: 'GitHub',
-                //             href: 'https://github.com/facebook/docusaurus',
-                //         },
-                //     ],
-                // },
             ],
-            copyright: `Copyright &copy; ${new Date().getFullYear()} Dennis Thompson. Built with Docusaurus.`,
+            copyright: `Made with \u2665 by Dennis Thompson \uFF5C &copy; ${new Date().getFullYear()} \uFF5C Built with Docusaurus.`,
         },
     },
-    plugins: ['docusaurus-plugin-sass', '@docusaurus/plugin-ideal-image'],
+    plugins: [
+        [
+            'docusaurus-plugin-sass',
+            {
+                implementation: require('sass'),
+            },
+        ],
+        '@docusaurus/plugin-ideal-image',
+        [
+            'docusaurus-plugin-react-docgen-typescript',
+            {
+                src: ['../src/**/*.{ts,tsx}', '!../src/**/*.test.*'],
+                global: true,
+                parserOptions: {
+                    shouldExtractLiteralValuesFromEnum: true,
+                    shouldRemoveUndefinedFromOptional: true,
+                    propFilter: prop => {
+                        if (prop.parent) {
+                            return !prop.parent.fileName.includes('@types/react');
+                        }
+
+                        return prop.name !== 'iconType';
+                    },
+                },
+            },
+        ],
+    ],
     themes: ['@docusaurus/theme-live-codeblock'],
     presets: [
         [
             '@docusaurus/preset-classic',
             {
                 docs: {
-                    // It is recommended to set document id as docs home page (`docs/` path).
                     homePageId: 'getting-started/installation',
                     sidebarPath: require.resolve('./sidebars.js'),
-                    // Please change this to your repo.
                     editUrl: `${github}/edit/master/docs/`,
                 },
-                // blog: {
-                //     showReadingTime: true,
-                //     // Please change this to your repo.
-                //     editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/blog/',
-                // },
                 theme: {
                     customCss: require.resolve('./src/css/custom.scss'),
                 },

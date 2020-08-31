@@ -60,10 +60,10 @@ function App() {
 
 ## Locked
 
-In addition to `disabled` states, there's also this thing called `locked` state. Functionally speaking they are the same; however visually they are different. Disabling an input field changes the visual appearance, whereas `locked` does not. For the curious reader, under the hood PCR blocks user interaction using CSS `pointer-events: none`.
+In addition to `disabled` states, there's also this thing called `locked` state. Functionally speaking they are the same; however visually they are different. Disabling an input field changes the visual appearance, whereas `locked` does not. For the curious reader, under the hood PCR blocks user interaction using some CSS magic with `pointer-events: none`.
 
 :::caution
-While this might seem enticing, there are some serious accessibility concerns with using this prop. Visually impaired users rely on contract top help them see ([WCAG 2 for more info](https://webaim.org/articles/contrast/)).
+While this might seem enticing, there are accessibility concerns with using this prop. ([See WCAG 2 for more info](https://webaim.org/articles/contrast/)).
 :::
 
 ```jsx live
