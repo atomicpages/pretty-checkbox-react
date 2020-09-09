@@ -1,0 +1,22 @@
+---
+id: radio
+title: Radio API
+---
+
+import PropsTable from '../../src/components/PropsTable';
+
+## `Radio` API
+
+<PropsTable displayName="Radio" />
+
+## `useRadioState` API
+
+<PropsTable displayName="useRadioState" />
+
+### `useRadioState` Return
+
+| Name       | Type                                                 | Description                                                                                                   |
+| ---------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `state`    | `string` \| `boolean`                                | The state object of the radio. This can be a boolean or an array of items.                                    |
+| `setState` | `React.Dispatch<React.SetStateAction<typeof state>>` | The React dispatch function from `useState` or a reference to `this.setState`                                 |
+| `onChange` | `React.ChangeEventHandler<HTMLInputElement>`         | The change handler to be called by the input control when a change event fires. This calls `setState` for you |

@@ -1,5 +1,4 @@
 const path = require('path');
-const { createRequireFromPath } = require('module');
 
 const github = 'https://github.com/atomicpages/pretty-checkbox-react';
 
@@ -58,12 +57,20 @@ module.exports = {
     },
     plugins: [
         [
-            'docusaurus-plugin-sass',
+            '@djthoms/docusaurus-plugin-sass',
             {
                 implementation: require('sass'),
             },
         ],
         '@docusaurus/plugin-ideal-image',
+        [
+            'docusaurus-plugin-module-alias',
+            {
+                alias: {
+                    '@local/pretty-checkbox-react': path.resolve(__dirname, '../src/index.ts'),
+                },
+            },
+        ],
         [
             'docusaurus-plugin-react-docgen-typescript',
             {
@@ -89,7 +96,6 @@ module.exports = {
             '@docusaurus/preset-classic',
             {
                 docs: {
-                    homePageId: 'getting-started/installation',
                     sidebarPath: require.resolve('./sidebars.js'),
                     editUrl: `${github}/edit/master/docs/`,
                 },

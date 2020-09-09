@@ -1,14 +1,14 @@
 ---
-id: installation
+id: get-started
 title: Get Started
-sidebar_label: Installation
+slug: /
 ---
 
-Pretty Checkbox React (PCR for short) is a small, a11y friendly implementation of Pretty Checkbox :star: with easy as pie usage :pie:
+Pretty Checkbox React (PCR for short) is a small, a11y friendly implementation of Pretty Checkbox :star: with easy as pie usage :pie:.
 
 ## Installation
 
-First, make sure `react` and `react-dom` 16.9+  are installed:
+Awesome much? I think yes! To get PCR, first make sure `react` and `react-dom` 16.9+  are installed:
 
 ```sh
 npm i react react-dom
@@ -22,7 +22,7 @@ npm i @djthoms/pretty-checkbox pretty-checkbox-react
 
 ## Usage
 
-Pretty Checkbox React exposes three components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) that are importable in your super groovy development environment:
+Pretty Checkbox React exposes three components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) that are importable in your fancy development environment:
 
 -   `Checkbox`
 -   `Radio`

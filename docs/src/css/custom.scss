@@ -44,6 +44,13 @@
     }
 }
 
+.table {
+    &__sort {
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
 .form {
     // width: 100%;
     display: table;

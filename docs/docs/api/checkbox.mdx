@@ -1,0 +1,22 @@
+---
+id: checkbox
+title: Checkbox API
+---
+
+import PropsTable from '../../src/components/PropsTable';
+
+## `Checkbox` API
+
+<PropsTable displayName="Checkbox" />
+
+## `useCheckboxState` API
+
+<PropsTable displayName="useCheckboxState" />
+
+### `useCheckboxState` Return
+
+| Name       | Type                                                 | Description                                                                                                   |
+| ---------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `state`    | `string` \| `boolean` \| `any[]`                     | The state object of the checkbox. This can be a boolean or an array of items.                                 |
+| `setState` | `React.Dispatch<React.SetStateAction<typeof state>>` | The React dispatch function from `useState` or a reference to `this.setState`                                 |
+| `onChange` | `React.ChangeEventHandler<HTMLInputElement>`         | The change handler to be called by the input control when a change event fires. This calls `setState` for you |
