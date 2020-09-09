@@ -12,7 +12,7 @@ export type PCRSwitchProps<S = any> = Omit<CommonProps<S>, 'variation' | 'animat
      * Switch has built-in animations. Do not specify
      * an animation.
      */
-    animation?: void;
+    animation?: undefined;
 
     /**
      * @private

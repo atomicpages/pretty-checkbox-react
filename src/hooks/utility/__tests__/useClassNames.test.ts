@@ -50,6 +50,7 @@ describe('useClassNames tests', () => {
             Object {
               "p-bigger": undefined,
               "p-default": true,
+              "p-has-focus": undefined,
               "p-locked": undefined,
               "p-plain": undefined,
               "p-pulse": "pulse",
