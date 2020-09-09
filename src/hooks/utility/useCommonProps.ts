@@ -20,6 +20,7 @@ export const useCommonProps = <S>(props: CommonProps<S>) => {
         id = defaultId,
         className,
         bigger,
+        hasFocus,
         ...rest
     } = props;
 
@@ -33,6 +34,7 @@ export const useCommonProps = <S>(props: CommonProps<S>) => {
         className,
         bigger,
         style,
+        hasFocus,
         htmlProps: rest,
     };
 };

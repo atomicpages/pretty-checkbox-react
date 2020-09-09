@@ -1,7 +1,17 @@
 import * as React from 'react';
 
 export type UseCheckboxState = {
+    /**
+     * The state object of the checkbox. This can be a boolean or
+     * an array of items.
+     * @default false
+     */
     state?: boolean | string | any[];
+
+    /**
+     * Your change handlers to run _after_ the default dispatch
+     * has occurred.
+     */
     onChange?: React.InputHTMLAttributes<HTMLInputElement>['onChange'];
 };
 

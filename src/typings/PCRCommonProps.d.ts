@@ -18,6 +18,11 @@ export type CommonProps<S> = React.InputHTMLAttributes<HTMLInputElement> & {
     variant?: string;
 
     /**
+     * Set true to enable focus styling.
+     */
+    hasFocus?: boolean;
+
+    /**
      * The state of the control. Typically a boolean, string, or string array.
      */
     state?: S;

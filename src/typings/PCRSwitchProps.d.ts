@@ -7,7 +7,12 @@ export type PCRSwitchProps<S = any> = Omit<CommonProps<S>, 'variation' | 'animat
      * The shape of the Switch.
      */
     shape?: Shape;
-    animation?: undefined;
+
+    /**
+     * Switch has built-in animations. Do not specify
+     * an animation.
+     */
+    animation?: void;
 
     /**
      * @private

@@ -6,7 +6,7 @@ import { PCRCheckboxRadioProps } from '../../typings/PCRCheckboxRadioProps';
  * controls.
  */
 export const useCheckboxRadioProps = <S, P extends PCRCheckboxRadioProps<S>>(props: P) => {
-    const { shape, plain, icon, indeterminate, ...rest } = props;
+    const { shape, plain, icon, indeterminate, hasFocus, ...rest } = props;
 
     return { shape, plain, icon, indeterminate, ...useCommonProps(rest) };
 };
