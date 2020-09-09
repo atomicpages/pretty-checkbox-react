@@ -35,6 +35,10 @@ export const useIndeterminate = ({
             typeof indeterminateFromProps !== 'undefined'
         ) {
             ref.current.checked = indeterminateFromProps;
+
+            // fix needs to come from pretty-checkbox
+            // ref.current.indeterminate = indeterminateFromProps;
+
             setStatus(indeterminateFromProps);
         }
     }, [indeterminateFromProps, state]);
