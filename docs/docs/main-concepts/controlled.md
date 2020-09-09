@@ -111,7 +111,7 @@ Not sold on the PCR's super awesome hooks? That's okay :cry:. Because our hooks 
 ### React `useState`
 
 :::note
-Passing `setState` while optional, is recommended since PCR internally handles different types of state. For full control use the `checked` prop instead of passing `setState`.
+Passing `setState` while optional, is recommended since PCR internally handles different types of state. For full control use the `checked` prop.
 :::
 
 ```jsx live

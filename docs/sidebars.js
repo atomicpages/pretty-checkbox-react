@@ -4,6 +4,7 @@ module.exports = {
         {
             'Main Concepts': [
                 'main-concepts/components',
+                // 'main-concepts/internationalization',
                 'main-concepts/accessibility',
                 'main-concepts/uncontrolled',
                 'main-concepts/controlled',
@@ -19,7 +20,7 @@ module.exports = {
             ],
         },
         {
-            Components: ['checkbox'],
+            Components: ['checkbox', 'radio', 'switch'],
         },
         {
             'API Reference': ['api/checkbox', 'api/radio', 'api/switch'],

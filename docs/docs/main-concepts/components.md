@@ -97,3 +97,49 @@ Custom `data-*` attribute or something else? PCR has your back :sunglasses:
 ```jsx
 <Radio data-testid="tlr">@testing-library/react ready</Radio>
 ```
+
+## Tree Shaking & Modules
+
+PCR is totally modular and is [side-effect free](https://webpack.js.org/guides/tree-shaking/#clarifying-tree-shaking-and-sideeffects). If you're using webpack, snowpack, or another modern bundler that supports [ES Modules or CJS Modules](https://webpack.js.org/concepts/modules/).
+
+### Transpiling from Source
+
+In addition to ES and CJS modules, PCR also packages the transpiled typescript source code for special application needs 🙂. A typical flow might look like:
+
+```js title="App.js"
+import { Checkbox, useCheckboxState } from 'pretty-checkbox-react/dist-src/index';
+
+// use your imports
+```
+
+If you're using babel make sure you have the following:
+
+-   presets
+    -   `@babel/preset-react`
+-   plugins
+    -   `@babel/plugin-proposal-optional-chaining`
+
+```js title="webpack.config.js"
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.jsx?/,
+                // prevent exclusion of PCR from node_modules
+                // to allow babel to transpile for you
+                exclude: /(?!node_modules\/pretty-checkbox-react\/)/,
+                options: {
+                    presets: [
+                        [
+                            '@babel/preset-env',
+                            { corejs: 3 }
+                        ],
+                        '@babel/preset-react'
+                    ],
+                    plugins: ['@babel/plugin-proposal-optional-chaining'],
+                },
+            },
+        ],
+    },
+};
+```
