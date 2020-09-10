@@ -11,7 +11,7 @@ export type PCRSwitchProps<S = any> = Omit<CommonProps<S>, 'variation' | 'animat
     /**
      * Choose a color. Note: solid colors only for switch.
      */
-    color: Colors;
+    color?: Colors;
 
     /**
      * Switch has built-in animations. Do not specify
