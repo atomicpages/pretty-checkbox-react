@@ -4,7 +4,7 @@ module.exports = {
         {
             'Main Concepts': [
                 'main-concepts/components',
-                // 'main-concepts/internationalization',
+                'main-concepts/internationalization',
                 'main-concepts/accessibility',
                 'main-concepts/uncontrolled',
                 'main-concepts/controlled',

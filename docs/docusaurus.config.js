@@ -11,7 +11,7 @@ module.exports = {
     organizationName: 'atomicpages', // Usually your GitHub org/user name.
     projectName: 'pretty-checkbox-react', // Usually your repo name.
     stylesheets: [
-        'https://unpkg.com/@djthoms/pretty-checkbox@3.0.4/dist/pretty-checkbox.min.css',
+        'https://unpkg.com/@djthoms/pretty-checkbox@3.1.0/dist/pretty-checkbox.min.css',
         'https://cdn.materialdesignicons.com/5.5.55/css/materialdesignicons.min.css',
     ],
     themeConfig: {
@@ -56,6 +56,30 @@ module.exports = {
         },
     },
     plugins: [
+        [
+            '@docusaurus/plugin-pwa',
+            {
+                debug: true,
+                offlineModeActivationStrategies: ['appInstalled', 'queryString'],
+                pwaHead: [
+                    {
+                        tagName: 'link',
+                        rel: 'icon',
+                        href: '/img/logo.png',
+                    },
+                    {
+                        tagName: 'link',
+                        rel: 'manifest',
+                        href: '/manifest.json', // your PWA manifest
+                    },
+                    {
+                        tagName: 'meta',
+                        name: 'theme-color',
+                        content: 'rgb(131, 56, 194)',
+                    },
+                ],
+            },
+        ],
         [
             '@djthoms/docusaurus-plugin-sass',
             {

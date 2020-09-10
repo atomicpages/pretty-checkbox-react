@@ -9,14 +9,15 @@
         "deploy": "docusaurus deploy"
     },
     "dependencies": {
+        "@djthoms/pretty-checkbox": "^3.0.3",
         "@docusaurus/core": "^2.0.0-alpha.58",
         "@docusaurus/plugin-ideal-image": "^2.0.0-alpha.58",
+        "@docusaurus/plugin-pwa": "^2.0.0-alpha.63",
         "@docusaurus/preset-classic": "^2.0.0-alpha.58",
         "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.58",
         "@docusaurus/theme-search-algolia": "^2.0.0-alpha.58",
         "@mdi/js": "^5.5.55",
         "clsx": "^1.1.1",
-        "pretty-checkbox": "^3.0.3",
         "pretty-checkbox-react": "^3.0.0-alpha.1",
         "react-markdown": "^4.3.1"
     },

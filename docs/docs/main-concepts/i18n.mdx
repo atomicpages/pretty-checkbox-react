@@ -1,0 +1,26 @@
+---
+id: internationalization
+title: Internationalization
+---
+
+import '@djthoms/pretty-checkbox/src/rtl.scss';
+
+PCR doesn't contain any locale-specific strings that are rendered in the browser. Since you, the super awesome user of PCR, provides all the content, it seamlessly integrates into your i18n/l10n/g11n solution :smile:
+
+## RTL Usage
+
+PCR RTL usage requires no extra config for support; however, you **do** need to import one extra file from `@djthomps/pretty-checkbox`:
+
+```js title="index.js"
+import '@djthoms/pretty-checkbox/src/pretty-checkbox.scss';
+import '@djthoms/pretty-checkbox/src/rtl.scss';
+```
+
+In the example, below we're using the `direction` property to achiev RTL direction,
+but in most cases you'd add the `dir` attribute to the `html` tag directly.
+
+```jsx live
+<div style={{ direction: 'rtl' }}>
+    <Checkbox>مرحبا</Checkbox>
+</div>
+```

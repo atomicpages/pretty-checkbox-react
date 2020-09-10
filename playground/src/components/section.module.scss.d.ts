@@ -1,12 +1,6 @@
 declare namespace SectionModuleScssNamespace {
     export interface ISectionModuleScss {
-        file: string;
         link: string;
-        mappings: string;
-        names: string;
-        sources: string;
-        sourcesContent: string;
-        version: string;
     }
 }
 

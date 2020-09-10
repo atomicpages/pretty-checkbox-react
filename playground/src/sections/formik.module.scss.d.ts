@@ -1,13 +1,7 @@
 declare namespace FormikModuleScssNamespace {
     export interface IFormikModuleScss {
         error: string;
-        file: string;
         form: string;
-        mappings: string;
-        names: string;
-        sources: string;
-        sourcesContent: string;
-        version: string;
     }
 }
 
