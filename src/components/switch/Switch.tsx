@@ -10,6 +10,8 @@ import { State } from '../state/State';
 import { PCRSwitchProps } from '../../typings/PCRSwitchProps';
 import { useCommonProps } from '../../hooks/utility/useCommonProps';
 import { UseCheckboxState } from '../checkbox/Checkbox';
+import mergeRefs from 'react-merge-refs';
+import { useAriaChecked } from './useAriaChecked';
 
 export const Switch = React.forwardRef<HTMLInputElement, PCRSwitchProps>((props, ref) => {
     const { checked, value, state, ...rest } = useControlled<
@@ -20,16 +22,21 @@ export const Switch = React.forwardRef<HTMLInputElement, PCRSwitchProps>((props,
     const { children, locked, color, id, className, style, htmlProps } = useCommonProps(rest);
     const styles = useLocked({ locked, style });
 
+    const htmlRef = useAriaChecked({ setState: props.setState, checked });
+
     return (
         <div
             style={styles}
             className={classNames('pretty', 'p-switch', useClassNames(props, true), className)}>
             <input
-                ref={ref}
+                ref={mergeRefs([ref, htmlRef])}
                 type="checkbox"
                 role="switch"
                 value={value}
                 id={id}
+                // required for role="switch"
+                // @see https://www.w3.org/TR/wai-aria-1.1/#switch
+                aria-checked={checked}
                 checked={checked}
                 {...htmlProps}
             />
