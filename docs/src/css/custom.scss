@@ -78,4 +78,7 @@ html[data-theme='light'] {
     .docusaurus-highlight-code-line {
         background-color: #fffbdd;
     }
+    .button.button--secondary.button--outline:not(.button--active):not(:hover) {
+        color: white;
+    }
 }

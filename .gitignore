@@ -76,3 +76,6 @@ yarn-error.log
 
 # Cypress
 cypress/videos/
+
+# Docs
+docs/build/

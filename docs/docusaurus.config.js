@@ -46,13 +46,34 @@ module.exports = {
                     title: 'Docs',
                     items: [
                         {
-                            label: 'Style Guide',
+                            label: 'Getting Started',
                             to: 'docs/',
+                        },
+                        {
+                            label: 'Main Concepts',
+                            to: 'docs/main-concepts/components/',
+                        },
+                        {
+                            label: 'API Reference',
+                            to: 'docs/api/checkbox/',
+                        },
+                    ],
+                },
+                {
+                    title: 'More',
+                    items: [
+                        {
+                            label: 'Github',
+                            href: 'https://github.com/atomicpages/pretty-checkbox-react',
+                        },
+                        {
+                            label: 'Pretty Checkbox',
+                            href: 'https://lokesh-coder.github.io/pretty-checkbox/',
                         },
                     ],
                 },
             ],
-            copyright: `Made with \u2665 by Dennis Thompson \uFF5C &copy; ${new Date().getFullYear()} \uFF5C Built with Docusaurus.`,
+            copyright: `Made with \u2665 by Dennis Thompson & Docusaurus \uFF5C &copy; ${new Date().getFullYear()}`,
         },
     },
     plugins: [

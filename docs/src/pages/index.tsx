@@ -9,38 +9,23 @@ import styles from './styles.module.scss';
 
 const features = [
     {
-        title: 'Easy to use',
-        imageUrl: 'img/undraw_docusaurus_mountain.svg',
-        description: (
-            <>
-                Docusaurus was designed from the ground up to be easily installed and used to get
-                your website up and running quickly.
-            </>
-        ),
+        title: 'Easy to Use',
+        icon: '👩‍💻',
+        description: 'Easy as pie 🥧 usage. Install, import, and starting using right away!',
     },
     {
-        title: <>Focus on What Matters</>,
-        imageUrl: 'img/undraw_docusaurus_tree.svg',
-        description: (
-            <>
-                Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go ahead and
-                move your docs into the <code>docs</code> directory.
-            </>
-        ),
+        title: 'Customization Ready',
+        icon: '💅',
+        description: 'Adapt Pretty Checkbox React so it fits right into your design system 😎',
     },
     {
-        title: <>Powered by React</>,
-        imageUrl: 'img/undraw_docusaurus_react.svg',
-        description: (
-            <>
-                Extend or customize your website layout by reusing React. Docusaurus can be extended
-                while reusing the same header and footer.
-            </>
-        ),
+        title: 'Powered by React',
+        icon: '🚀',
+        description: 'Powered by React, Pretty Checkbox React is uber fast and has a low profile.',
     },
 ];
 
-function Feature({ imageUrl, title, description }) {
+function Feature({ imageUrl = '', title, description, icon }) {
     const imgUrl = useBaseUrl(imageUrl);
 
     return (
@@ -50,6 +35,11 @@ function Feature({ imageUrl, title, description }) {
                     <img className={styles.featureImage} src={imgUrl} alt={title} />
                 </div>
             )}
+            {icon ? (
+                <p className="text--center" style={{ fontSize: '4em' }}>
+                    {icon}
+                </p>
+            ) : null}
             <h3>{title}</h3>
             <p>{description}</p>
         </div>
@@ -58,7 +48,6 @@ function Feature({ imageUrl, title, description }) {
 
 function Home() {
     const context = useDocusaurusContext();
-
     const { siteConfig = {} } = context;
 
     return (
