@@ -4,7 +4,7 @@
     # command = "yarn build"
     base = "."
     publish = "docs/build/"
-    command = "npm i && cd docs/ && yarn build"
+    command = "npm i && cd docs/ && npm i && npm run build"
 
 [[headers]]
     for = "/*"
