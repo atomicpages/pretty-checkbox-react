@@ -55,6 +55,9 @@ const plugins = [
 ];
 
 if (process.env.NODE_ENV !== 'production') {
+    // const [, config] = plugins[plugins.length - 1];
+    // config.src = ['../src/**/*.{ts,tsx}', '!../src/**/*.test.*'];
+
     plugins.push([
         'docusaurus-plugin-module-alias',
         {

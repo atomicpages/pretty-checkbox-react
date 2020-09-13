@@ -9,9 +9,18 @@ type PropsTableProps = {
 
 const PropsTable = ({ displayName }: PropsTableProps) => {
     const [dir, setDir] = React.useState('desc');
-    const { props } = usePluginData('docusaurus-plugin-react-docgen-typescript').find(item => {
-        return item.displayName === displayName;
-    });
+    const data = usePluginData('docusaurus-plugin-react-docgen-typescript');
+    let props = {};
+
+    if (data) {
+        const comp = data.find(item => {
+            return item.displayName === displayName;
+        });
+
+        if (comp) {
+            props = comp.props;
+        }
+    }
 
     return (
         <table className="table">
