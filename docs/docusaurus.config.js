@@ -2,6 +2,69 @@ const path = require('path');
 
 const github = 'https://github.com/atomicpages/pretty-checkbox-react';
 
+const plugins = [
+    [
+        '@docusaurus/plugin-pwa',
+        {
+            debug: true,
+            offlineModeActivationStrategies: ['appInstalled', 'queryString'],
+            pwaHead: [
+                {
+                    tagName: 'link',
+                    rel: 'icon',
+                    href: '/img/logo.png',
+                },
+                {
+                    tagName: 'link',
+                    rel: 'manifest',
+                    href: '/manifest.json', // your PWA manifest
+                },
+                {
+                    tagName: 'meta',
+                    name: 'theme-color',
+                    content: 'rgb(131, 56, 194)',
+                },
+            ],
+        },
+    ],
+    [
+        '@djthoms/docusaurus-plugin-sass',
+        {
+            implementation: require('sass'),
+        },
+    ],
+    '@docusaurus/plugin-ideal-image',
+    [
+        'docusaurus-plugin-react-docgen-typescript',
+        {
+            src: ['../src/**/*.{ts,tsx}', '!../src/**/*.test.*'],
+            global: true,
+            parserOptions: {
+                shouldExtractLiteralValuesFromEnum: true,
+                shouldRemoveUndefinedFromOptional: true,
+                propFilter: prop => {
+                    if (prop.parent) {
+                        return !prop.parent.fileName.includes('@types/react');
+                    }
+
+                    return prop.name !== 'iconType';
+                },
+            },
+        },
+    ],
+];
+
+if (process.env.NODE_ENV !== 'production') {
+    plugins.push([
+        'docusaurus-plugin-module-alias',
+        {
+            alias: {
+                'pretty-checkbox-react': path.resolve(__dirname, '../src/index.ts'),
+            },
+        },
+    ]);
+}
+
 module.exports = {
     title: 'Pretty Checkbox React',
     tagline: 'A small, super awesome React wrapper around pretty-checkbox 💅',
@@ -76,65 +139,7 @@ module.exports = {
             copyright: `Made with \u2665 by Dennis Thompson & Docusaurus \uFF5C &copy; ${new Date().getFullYear()}`,
         },
     },
-    plugins: [
-        [
-            '@docusaurus/plugin-pwa',
-            {
-                debug: true,
-                offlineModeActivationStrategies: ['appInstalled', 'queryString'],
-                pwaHead: [
-                    {
-                        tagName: 'link',
-                        rel: 'icon',
-                        href: '/img/logo.png',
-                    },
-                    {
-                        tagName: 'link',
-                        rel: 'manifest',
-                        href: '/manifest.json', // your PWA manifest
-                    },
-                    {
-                        tagName: 'meta',
-                        name: 'theme-color',
-                        content: 'rgb(131, 56, 194)',
-                    },
-                ],
-            },
-        ],
-        [
-            '@djthoms/docusaurus-plugin-sass',
-            {
-                implementation: require('sass'),
-            },
-        ],
-        '@docusaurus/plugin-ideal-image',
-        [
-            'docusaurus-plugin-module-alias',
-            {
-                alias: {
-                    '@local/pretty-checkbox-react': path.resolve(__dirname, '../src/index.ts'),
-                },
-            },
-        ],
-        [
-            'docusaurus-plugin-react-docgen-typescript',
-            {
-                src: ['../src/**/*.{ts,tsx}', '!../src/**/*.test.*'],
-                global: true,
-                parserOptions: {
-                    shouldExtractLiteralValuesFromEnum: true,
-                    shouldRemoveUndefinedFromOptional: true,
-                    propFilter: prop => {
-                        if (prop.parent) {
-                            return !prop.parent.fileName.includes('@types/react');
-                        }
-
-                        return prop.name !== 'iconType';
-                    },
-                },
-            },
-        ],
-    ],
+    plugins,
     themes: ['@docusaurus/theme-live-codeblock'],
     presets: [
         [

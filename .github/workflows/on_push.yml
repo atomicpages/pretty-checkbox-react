@@ -1,15 +1,6 @@
 on: push
 name: Build & Publish Docs
 jobs:
-    checkChangesInDocs:
-        name: Check changes in docs
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@master
-            - name: Check changes in stories
-              uses: netlify/actions/diff-includes@master
-              with:
-                  args: docs
     build:
         runs-on: ubuntu-latest
         strategy:
@@ -28,3 +19,12 @@ jobs:
                   npm run build
               env:
                   CI: true
+    checkChangesInDocs:
+        name: Check changes in docs
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - name: Check changes in stories
+              uses: netlify/actions/diff-includes@master
+              with:
+                  args: docs

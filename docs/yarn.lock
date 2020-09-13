@@ -1138,7 +1138,7 @@
     "@francoischalifour/autocomplete-preset-algolia" "^1.0.0-alpha.28"
     algoliasearch "^4.0.0"
 
-"@docusaurus/core@2.0.0-alpha.64", "@docusaurus/core@^2.0.0-alpha.58":
+"@docusaurus/core@2.0.0-alpha.64", "@docusaurus/core@^2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-2.0.0-alpha.64.tgz#08031993fcfff78b395091ec06ed1ab38c06e689"
   integrity sha512-lIFAaBz5SvN/vIMrljHwUiT+EGglqmCbKWUXsGwg8FZ86SqkD0T5hPtpaQBIDkerSMzOqntokUEcXB46AQsieQ==
@@ -1249,10 +1249,10 @@
     unist-util-visit "^2.0.2"
     url-loader "^4.1.0"
 
-"@docusaurus/module-type-aliases@^2.0.0-alpha.51":
-  version "2.0.0-alpha.51"
-  resolved "https://registry.yarnpkg.com/@docusaurus/module-type-aliases/-/module-type-aliases-2.0.0-alpha.51.tgz#7b8f9f772b315571c23db125653f4fc621abfeea"
-  integrity sha512-vBwk49W3DNvr+mbOgizLMI2TAxykqJYlcnpn4N7yvpWNteL2MfjzRf6rgJVJvlN2nrHhDyWDF9imwZpGDKSApg==
+"@docusaurus/module-type-aliases@^2.0.0-alpha.64":
+  version "2.0.0-alpha.64"
+  resolved "https://registry.yarnpkg.com/@docusaurus/module-type-aliases/-/module-type-aliases-2.0.0-alpha.64.tgz#ccc6dcf4cf3306d21eb32271fbaf8a714a1ab963"
+  integrity sha512-R+urxGabqB4j10jsfEV6QiC/0RZD2IuNUoL9gYzxpq1SMuIk0W+Nz0q9lzIXAHpUnmGlnt00YSe6QdaQusMUnQ==
 
 "@docusaurus/plugin-content-blog@2.0.0-alpha.64":
   version "2.0.0-alpha.64"
@@ -1345,7 +1345,7 @@
   dependencies:
     "@docusaurus/core" "2.0.0-alpha.64"
 
-"@docusaurus/plugin-ideal-image@^2.0.0-alpha.58":
+"@docusaurus/plugin-ideal-image@^2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-ideal-image/-/plugin-ideal-image-2.0.0-alpha.64.tgz#62b021fb950d04449ead1da6ca1b2a2b0647b627"
   integrity sha512-G6+G+9Fgv5NLDWsq5YjZIxYCxECm+MstcbMvRNSVNSEhBmW/FKT9jG9ssX8oXSBwrMRiWiX2mGUtUIYplHVrjg==
@@ -1359,7 +1359,7 @@
     sharp "^0.25.2"
     webpack "^4.44.1"
 
-"@docusaurus/plugin-pwa@^2.0.0-alpha.63":
+"@docusaurus/plugin-pwa@^2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-pwa/-/plugin-pwa-2.0.0-alpha.64.tgz#a142b6ef4d0c4379426c3a6a4fb5544e803330be"
   integrity sha512-idyrgsUYMYC0gCiQbI8xtwk3b8ibLZt9hi5D9BLG7klpArT3h0iT3NbsxjmT7Fb9wZenebACNbN7mhRdU3xmzw==
@@ -1390,7 +1390,7 @@
     fs-extra "^8.1.0"
     sitemap "^3.2.2"
 
-"@docusaurus/preset-classic@^2.0.0-alpha.58":
+"@docusaurus/preset-classic@^2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/preset-classic/-/preset-classic-2.0.0-alpha.64.tgz#ce141f909a2071cf7b2736a3c35d9eb6226d61e2"
   integrity sha512-j2L7WzLXRLQyDub/hALNZGfL/mNMuMpG+GhWgfHWi/Fb8BRppGMikVp9VqrnlJ8D8OWhkkVcruUkjFO0ODfXmQ==
@@ -1433,7 +1433,7 @@
     react-toggle "^4.1.1"
     use-onclickoutside "^0.3.1"
 
-"@docusaurus/theme-live-codeblock@^2.0.0-alpha.58":
+"@docusaurus/theme-live-codeblock@^2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/theme-live-codeblock/-/theme-live-codeblock-2.0.0-alpha.64.tgz#065c5f14bcc55a7bfca69076b6093e931b3f75f6"
   integrity sha512-9Ttl5Xu+uATZAW3IptMj7H+Vt6IexW6mVDEcrIWm6RLaEpN8XmmgFqwO6tBv217nPP1EsJ6m0D3zMX3WMzwZew==
@@ -1445,7 +1445,7 @@
     prism-react-renderer "^1.1.0"
     react-live "^2.2.1"
 
-"@docusaurus/theme-search-algolia@2.0.0-alpha.64", "@docusaurus/theme-search-algolia@^2.0.0-alpha.58":
+"@docusaurus/theme-search-algolia@2.0.0-alpha.64", "@docusaurus/theme-search-algolia@^2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/theme-search-algolia/-/theme-search-algolia-2.0.0-alpha.64.tgz#6778c2ec050529355c4e96a35ddbd19d14731b8f"
   integrity sha512-cxFOzxOoXC+UrfaZ65PqrvfEu8supZevcBzVhI8cD+TJGZmtHzys0XveSAYJORPqEm6abh+BdSDQY7Wn4nhqYA==
@@ -8716,7 +8716,7 @@ pretty-bytes@^5.3.0:
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.4.1.tgz#cd89f79bbcef21e3d21eb0da68ffe93f803e884b"
   integrity sha512-s1Iam6Gwz3JI5Hweaz4GoCD1WUNUIyzePFy5+Js2hjwGVt2Z79wNN+ZKOZ2vB6C+Xs6njyB84Z1IthQg8d9LxA==
 
-pretty-checkbox-react@^3.0.0-beta.1:
+pretty-checkbox-react@next:
   version "3.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/pretty-checkbox-react/-/pretty-checkbox-react-3.0.0-beta.1.tgz#e4bdbcfe10b2fbe5f304ebbeaece99da22958f38"
   integrity sha512-AccE1rAJMMIseel8hZEiktAIepsqufG+27je+Ggccx48U+pSW4vIP4GzXo8uKQF1B2C/bZwC32jiOYpqcpmO4Q==

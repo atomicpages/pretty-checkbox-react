@@ -8,7 +8,7 @@
 import React from 'react';
 import { mdiCheck } from '@mdi/js';
 
-import * as PCR from '@local/pretty-checkbox-react';
+import * as PCR from 'pretty-checkbox-react';
 import * as Scale from '../../components/Scale';
 
 const noop = (e: any) => {

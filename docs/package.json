@@ -10,18 +10,18 @@
     },
     "dependencies": {
         "@djthoms/pretty-checkbox": "^3.0.3",
-        "@docusaurus/core": "^2.0.0-alpha.58",
-        "@docusaurus/plugin-ideal-image": "^2.0.0-alpha.58",
-        "@docusaurus/plugin-pwa": "^2.0.0-alpha.63",
-        "@docusaurus/preset-classic": "^2.0.0-alpha.58",
-        "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.58",
-        "@docusaurus/theme-search-algolia": "^2.0.0-alpha.58",
+        "@docusaurus/core": "^2.0.0-alpha.64",
+        "@docusaurus/plugin-ideal-image": "^2.0.0-alpha.64",
+        "@docusaurus/plugin-pwa": "^2.0.0-alpha.64",
+        "@docusaurus/preset-classic": "^2.0.0-alpha.64",
+        "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.64",
+        "@docusaurus/theme-search-algolia": "^2.0.0-alpha.64",
         "@mdi/js": "^5.5.55",
         "clsx": "^1.1.1",
-        "pretty-checkbox-react": "^3.0.0-beta.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
-        "react-markdown": "^4.3.1"
+        "react-markdown": "^4.3.1",
+        "pretty-checkbox-react": "next"
     },
     "browserslist": {
         "production": [
@@ -37,7 +37,7 @@
     },
     "devDependencies": {
         "@djthoms/docusaurus-plugin-sass": "^0.2.0",
-        "@docusaurus/module-type-aliases": "^2.0.0-alpha.51",
+        "@docusaurus/module-type-aliases": "^2.0.0-alpha.64",
         "docusaurus-plugin-module-alias": "^0.0.1",
         "docusaurus-plugin-react-docgen-typescript": "^0.0.1",
         "react-docgen-typescript": "^1.20.4",
