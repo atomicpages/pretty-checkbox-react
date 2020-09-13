@@ -1,7 +1,10 @@
 [build]
-    base = "docs/"
-    publish = "build/"
-    command = "yarn build"
+    # base = "docs/"
+    # publish = "build/"
+    # command = "yarn build"
+    base = "."
+    publish = "docs/build/"
+    command = "npm i && cd docs/ && yarn build"
 
 [[headers]]
     for = "/*"
