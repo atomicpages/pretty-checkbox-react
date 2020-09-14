@@ -25,5 +25,8 @@ module.exports = {
         {
             'API Reference': ['api/checkbox', 'api/radio', 'api/switch'],
         },
+        {
+            'Migration Guide': ['migration/migrating-2.x', 'migration/migrating-1.x'],
+        },
     ],
 };
