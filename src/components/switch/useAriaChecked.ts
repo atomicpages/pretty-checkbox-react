@@ -12,7 +12,8 @@ const handler = (e: any) => {
 
 /**
  * A small hook to help manage correct aria-checked state when switch
- * is used as an uncontrolled component.
+ * is used as an uncontrolled component. We need this to run
+ * for a11y purposes. FOr the `switch` role, `aria-checked` is required.
  */
 export const useAriaChecked = ({ setState, checked }: UseAriaCheckedOptions) => {
     const ref = React.useRef<HTMLInputElement>(null);
