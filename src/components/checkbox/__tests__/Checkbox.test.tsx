@@ -2,7 +2,7 @@ import * as React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 import { Checkbox, useCheckboxState } from '../Checkbox';
-import { createSmokeTests, getByValue } from '../../../../tests/testingUtils';
+import { createSmokeTests, getByValue } from '../../../tests/testingUtils';
 
 describe('Checkbox tests', () => {
     createSmokeTests(Checkbox, useCheckboxState);
