@@ -40,11 +40,7 @@ function App() {
         </Checkbox>
     )
 }
-```
-
-## `inputProps`
-
-The `inputProps` prop has been removed in favor of a _flat_ structure. For example:
+````
 
 ## `inputProps`
 
