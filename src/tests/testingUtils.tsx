@@ -11,6 +11,7 @@ export const getByValue = (container: HTMLElement, value: string) => {
     return res;
 };
 
+// eslint-disable-next-line react/display-name
 const createComponent = (component: any, hook: Function, args: Record<string, any> = {}) => (
     p = {}
 ) => {

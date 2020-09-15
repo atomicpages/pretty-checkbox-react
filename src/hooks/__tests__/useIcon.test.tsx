@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { renderHook } from '@testing-library/react-hooks';
 import { useIcon } from '../useIcon';
 
@@ -49,5 +50,19 @@ describe('useIcon hook tests', () => {
         );
 
         expect(result.current).toMatchObject({ iconType: 'image' });
+    });
+
+    it("should work when components don't define a class name", () => {
+        const Rectangle = () => (
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" className="svg">
+                <rect width="100%" height="100%" fill="red" />
+            </svg>
+        );
+
+        const instance = React.createElement(Rectangle);
+
+        const { result } = renderHook(() => useIcon(instance as React.ReactElement<any, any>));
+
+        expect(result.current.icon).toEqual(instance);
     });
 });
