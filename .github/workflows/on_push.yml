@@ -19,10 +19,10 @@ jobs:
                   npm run build
               env:
                   CI: true
-            - name: Coveralls
-              uses: coverallsapp/github-action@master
-              with:
-                  github-token: ${{ secrets.COVERALLS_TOKEN }}
+            # - name: Coveralls
+            #   uses: coverallsapp/github-action@master
+            #   with:
+            #       github-token: ${{ secrets.COVERALLS_TOKEN }}
     checkChangesInDocs:
         name: Check changes in docs
         runs-on: ubuntu-latest
