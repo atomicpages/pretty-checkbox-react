@@ -1,4 +1,4 @@
-<h4 align="center">Quickly integrate pretty checkbox Components (checkbox, switch, radio) with React</h4>
+<h4 align="center">A flexible, yet simple React API around Pretty Checkbox</h4>
 
 <p align="center">
  <a href="https://github.com/atomicpages/pretty-checkbox-react/releases">
@@ -10,15 +10,9 @@
   <a href="https://www.npmjs.com/package/pretty-checkbox-react" target="_blank" rel="nofollow noreferred noopener">
     <img src="https://img.shields.io/npm/dm/pretty-checkbox-react.svg?style=flat-square" alt="Downloads">
   </a>
-  <a href="https://travis-ci.org/atomicpages/pretty-checkbox-react" target="_blank" rel="nofollow noreferred noopener">
-    <img alt="Build Status" src="https://img.shields.io/travis/atomicpages/pretty-checkbox-react.svg?style=flat-square">
-  </a>
   <a href='https://coveralls.io/github/atomicpages/pretty-checkbox-react?branch=master' target="_blank" rel="nofollow noreferred noopener">
     <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/atomicpages/pretty-checkbox-react/master.svg?style=flat-square">
   </a>
-  <a href="https://codeclimate.com/github/atomicpages/pretty-checkbox-react/maintainability" target="_blank" rel="nofollow noreferred noopener">
-    <img src="https://api.codeclimate.com/v1/badges/e7cca7813f2905d7aca7/maintainability" />
-    </a>
 </p>
 <br>
 
@@ -32,7 +26,7 @@ Pretty Checkbox React (PCR for short) is a small react wrapper around the the pr
 
 ## Getting Started
 
-> pretty checkbox react depends on react >=16.8. Make sure you have React 16.8 or above installed.
+> Pretty Checkbox React uses hooks heavily., Be sure you're running React 16.9 or later :smile:. Not using hooks? No sweat &ndash; you still need 16.9+! PCR is compatible with classes, too!
 
 ```sh
 npm i pretty-checkbox pretty-checkbox-react
@@ -41,9 +35,15 @@ npm i pretty-checkbox pretty-checkbox-react
 yarn add pretty-checkbox pretty-checkbox-react
 ```
 
+Make sure you're on a supported version of React and React DOM:
+
+```sh
+npm i react@^16.9 react-dom@^16.9
+```
+
 ## Basic Usage
 
-PCR components are easy to use and require no additional setup. They support controlled and uncontrolled modes and pass pretty much all props down to the underlying `input` element.
+PCR components are easy to use and require no additional setup. Use as controlled or uncontrolled, use with hooks or with classes, and pass all the props you want -- it's all forwarded to the underlying `input` element. Hungry for more? Head on over the the [doc site](https://pretty-checkbox-react.netlify.app/).
 
 ```tsx
 import * as React from 'react';
@@ -51,23 +51,6 @@ import { Checkbox } from 'pretty-checkbox-react';
 
 function App() {
     return <Checkbox>Do you agree to the terms and conditions?</Checkbox>;
-}
-```
-
-### Colors &amp; Variants
-
-Like `pretty-checkbox`, `colors`, `variant`, and `shapes` are supported via props:
-
-```tsx
-import * as React from 'react';
-import { Checkbox } from 'pretty-checkbox-react';
-
-function App() {
-    return (
-        <Checkbox color="primary" shape="curve" variant="thick">
-            Do you agree to the terms and conditions?
-        </Checkbox>
-    );
 }
 ```
 
@@ -94,7 +77,7 @@ function App() {
 
 ### Controlled Mode
 
-For your state needs, PCR components can be controlled, too. For convenience, there are hooks provided that abstract the typical, mundane tasks or creating stateful components:
+Use our awesome hooks to abstract away state logic!
 
 ```tsx
 import * as React from 'react';
@@ -125,18 +108,22 @@ function App() {
 }
 ```
 
-### Loading CSS
+## Documentation
 
-PCR provides an API around `pretty-checkbox` which means the CSS needs to get loaded by your application. If you're using webpack, [`css-loader`](https://webpack.js.org/loaders/css-loader/) probably would be ideal since you can import it alongside your app. Not using webpack? Add it to your `index.html` :+1:
+PCR has extensive docs documented here: https://pretty-checkbox-react.netlify.app/. Give it a read and see what PCR is all about :+1:.
 
-### Changelog
+### Legacy Docs
 
-See the releases page.
+For posterity purposes, PCR 1.x docs are still hosted here: https://atomicpages.github.io/pretty-checkbox-react/home/
 
-### Contributions
+## Changelog
+
+Head on over to [releases](https://github.com/atomicpages/pretty-checkbox-react/releases) :tada:
+
+## Contributions
 
 Shout out to [Lokesh](https://github.com/lokesh-coder) for creating the original [pretty-checkbox library](https://github.com/lokesh-coder/pretty-checkbox) :star:
 
-### License
+## License
 
 This project is licensed under the MIT License
