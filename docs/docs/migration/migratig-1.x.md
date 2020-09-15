@@ -42,6 +42,27 @@ function App() {
 }
 ```
 
+## `inputProps`
+
+The `inputProps` prop has been removed in favor of a _flat_ structure. For example:
+
+## `inputProps`
+
+The `inputProps` prop has been removed in favor of a _flat_ structure. For example:
+
+```diff
+function App() {
+    const onFocus = React.useCallback(() => { ... }, []);
+
+    return (
+        <Checkbox
+-           inputProps={{ onFocus }}
++           onFocus={onFocus}
+        >Testing</Checkbox>
+    );
+}
+```
+
 ## Render Prop
 
 Render prop (a.k.a child render function) has been removed from PCR 3.x. In practice the render prop approach was error-prone and often lead to error conditions and frustration. If you really require customization of the `.state` div, open an issue on github.
