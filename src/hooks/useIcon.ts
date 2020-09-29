@@ -14,10 +14,14 @@ export const useIcon = (icon: PCRCheckboxRadioProps['icon']) => {
                 type = 'svg';
             }
 
+            // icons that contain `type` substring
+            // won't fail with a word boundary search
+            const re = new RegExp(`\\b${type}\\b`);
+
             return {
                 iconType: icon.props['data-type'] || type,
                 icon:
-                    icon.props.className && !icon.props.className.includes(type)
+                    icon.props.className && !re.test(icon.props.className)
                         ? React.cloneElement(icon, {
                               ...icon.props,
                               className: classNames(icon.props.className, type),

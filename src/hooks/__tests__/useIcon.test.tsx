@@ -65,4 +65,20 @@ describe('useIcon hook tests', () => {
 
         expect(result.current.icon).toEqual(instance);
     });
+
+    it('should work when icon contain the type as a substring', () => {
+        const { result } = renderHook(() =>
+            useIcon(
+                React.createElement('i', { className: 'myicon myicon-star' }) as React.ReactElement<
+                    any,
+                    any
+                >
+            )
+        );
+
+        expect(result.current).toMatchObject({ iconType: 'icon' });
+
+        // @ts-ignore
+        expect(result.current.icon.props.className).toContain('icon');
+    });
 });
