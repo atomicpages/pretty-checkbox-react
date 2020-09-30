@@ -13,10 +13,12 @@ import { UseCheckboxState } from '../checkbox/Checkbox';
 import mergeRefs from 'react-merge-refs';
 import { useAriaChecked } from './useAriaChecked';
 
-export const Switch = React.forwardRef<HTMLInputElement, PCRSwitchProps>((props, ref) => {
+export type SwitchProps<S = UseRadioState['state'] | UseCheckboxState['state']> = PCRSwitchProps<S>;
+
+export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>((props, ref) => {
     const { checked, value, state, ...rest } = useControlled<
         UseRadioState['state'] | UseCheckboxState['state'],
-        PCRSwitchProps<UseRadioState['state'] | UseCheckboxState['state']>
+        SwitchProps
     >(props);
 
     const { children, locked, color, id, className, style, htmlProps } = useCommonProps(rest);

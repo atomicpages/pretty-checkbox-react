@@ -2,7 +2,10 @@ import { CommonProps, Colors } from './PCRCommonProps';
 
 type Shape = 'fill' | 'slim';
 
-export type PCRSwitchProps<S = any> = Omit<CommonProps<S>, 'variation' | 'animation' | 'color'> & {
+export type PCRSwitchProps<S = any> = Omit<
+    CommonProps<S>,
+    'variation' | 'animation' | 'color' | 'type'
+> & {
     /**
      * The shape of the Switch.
      */
@@ -18,6 +21,11 @@ export type PCRSwitchProps<S = any> = Omit<CommonProps<S>, 'variation' | 'animat
      * an animation.
      */
     animation?: undefined;
+
+    /**
+     * Override the kind of switch. Defaults to checkbox.
+     */
+    type?: 'checkbox' | 'radio';
 
     /**
      * @private
