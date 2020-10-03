@@ -31,7 +31,7 @@ describe('Checkbox tests', () => {
             );
         };
 
-        const { container } = render(<Wrapper />);
+        const { container, getByLabelText } = render(<Wrapper />);
         fireEvent.click(getByValue(container, 'apples'));
 
         expect(cloneState).toEqual(['apples']);
@@ -41,6 +41,9 @@ describe('Checkbox tests', () => {
 
         fireEvent.click(getByValue(container, 'apples'));
         expect(cloneState).toEqual(['bananas']);
+
+        fireEvent.click(getByLabelText('Apples'));
+        expect(cloneState).toEqual(['bananas', 'apples']);
     });
 
     it('should support indeterminate state via state hook', () => {

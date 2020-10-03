@@ -8,6 +8,7 @@ module.exports = {
                 'main-concepts/accessibility',
                 'main-concepts/uncontrolled',
                 'main-concepts/controlled',
+                'main-concepts/testing',
             ],
         },
         {

@@ -62,3 +62,7 @@ function App() {
 ## Render Prop
 
 Render prop (a.k.a child render function) has been removed from PCR 3.x. In practice the render prop approach was error-prone and often lead to error conditions and frustration. If you really require customization of the `.state` div, open an issue on github.
+
+## `data-testid`
+
+The default `data-testid` props like `pcr-wrapper` and `pcr-input` were removed in PCR 2.x. Add your own attribute for testing purposes :sunglasses:. Read more about how [props are forward here](/docs/main-concepts/components#everything-else).

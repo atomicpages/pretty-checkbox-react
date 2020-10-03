@@ -19,10 +19,10 @@
         "@docusaurus/theme-search-algolia": "^2.0.0-alpha.64",
         "@mdi/js": "^5.5.55",
         "clsx": "^1.1.1",
+        "pretty-checkbox-react": "^3.0.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
-        "react-markdown": "^4.3.1",
-        "pretty-checkbox-react": "next"
+        "react-markdown": "^4.3.1"
     },
     "browserslist": {
         "production": [
