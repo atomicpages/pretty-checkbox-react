@@ -141,6 +141,11 @@ module.exports = {
             ],
             copyright: `Made with \u2665 by Dennis Thompson & Docusaurus \uFF5C &copy; ${new Date().getFullYear()}`,
         },
+        algolia: {
+            apiKey: process.env.ALGOLIA_KEY,
+            indexName: 'pretty-checkbox',
+            searchParameters: {}, // Optional (if provided by Algolia)
+        },
     },
     plugins,
     themes: ['@docusaurus/theme-live-codeblock'],
