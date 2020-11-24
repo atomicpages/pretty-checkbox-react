@@ -156,3 +156,23 @@ class App extends React.Component {
     }
 }
 ```
+
+### Using `checked`
+
+For ultra fine-grained control you can use the `checked` prop to _completely_ control the input:
+
+```jsx live
+function App() {
+    const [checked, setChecked] = React.useState(false);
+
+    const onChange = React.useCallback(() => {
+        setChecked(prev => !prev);
+    }, []);
+
+    return (
+        <Checkbox checked={checked} onChange={onChange}>
+            Checked: {checked + ''}
+        </Checkbox>
+    );
+}
+```

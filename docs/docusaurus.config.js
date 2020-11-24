@@ -143,7 +143,7 @@ module.exports = {
         },
         algolia: {
             apiKey: process.env.ALGOLIA_KEY,
-            indexName: 'pretty-checkbox',
+            indexName: 'pretty-checkbox-react',
             searchParameters: {}, // Optional (if provided by Algolia)
         },
     },

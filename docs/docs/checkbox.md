@@ -256,3 +256,32 @@ Controlled indeterminates have a whole host of usages including trees!
     return App;
 })()
 ```
+
+### `indeterminate` Gotchas
+
+No pun intended :laughing:. Okay, but seriously there's one gotcha regarding `indeterminate` prop usage you need to be aware of. In rare cases usage of the `indeterminate` prop with `checked` will result in the checkbox becoming immediately checked after React re-renders the component. Be sure `indeterminate` is `undefined`:
+
+```jsx {3}
+<Checkbox
+    checked={checked}
+    indeterminate={indeterminate || undefined}
+    onChange={/* ... */}
+    icon={/* ... */} />
+```
+
+This is due to a side effect in `useIndeterminate.ts` and in particular the three highlighted lines below:
+
+```js {3,5,7}
+React.useEffect(() => {
+    if (
+        state !== 'indeterminate' &&
+        ref.current &&
+        typeof indeterminateFromProps !== 'undefined'
+    ) {
+        ref.current.checked = indeterminateFromProps;
+        setStatus(indeterminateFromProps);
+    }
+}, [indeterminateFromProps, state]);
+```
+
+If `indeterminateFromProps` is `false` (not `undefined`) then our checkbox becomes immediately unchecked :cry:.
