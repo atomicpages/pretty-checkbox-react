@@ -1,6 +1,4 @@
 import './wdyr';
-import 'react-hot-loader';
-import { hot } from 'react-hot-loader/root';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -16,7 +14,7 @@ import { Indeterminate } from './sections/Indeterminate';
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 // import '@mdi/font/css/materialdesignicons.css';
 
-function Main() {
+function App() {
     return (
         <main>
             <Basic />
@@ -29,7 +27,5 @@ function Main() {
         </main>
     );
 }
-
-const App = hot(Main);
 
 ReactDOM.render(<App />, document.querySelector('#root'));

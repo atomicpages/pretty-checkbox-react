@@ -1,11 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
+import * as path from 'path';
+import * as webpack from 'webpack';
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
-module.exports = {
-    mode: process.env.NODE_ENV || 'development',
+const __DEV__ = (process.env.NODE_ENV as webpack.Configuration['mode']) || 'development';
+
+const config: webpack.Configuration = {
+    mode: __DEV__,
     entry: path.resolve(__dirname, './src/index.tsx'),
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -17,11 +21,14 @@ module.exports = {
             chunkFilename: '[id].[contenthash].css',
         }),
         new HtmlWebpackPlugin({ template: path.resolve('./public/index.html') }),
-    ],
+        __DEV__ && new webpack.HotModuleReplacementPlugin(),
+        __DEV__ && new ReactRefreshWebpackPlugin(),
+    ].filter(Boolean),
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
         alias: {
-            'react-dom': '@hot-loader/react-dom',
+            react: path.join(__dirname, '../node_modules/react'),
+            'react-dom': path.join(__dirname, '../node_modules/react-dom'),
         },
     },
     module: {
@@ -29,13 +36,7 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: process.env.NODE_ENV === 'development',
-                            reloadAll: true,
-                        },
-                    },
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: '@teamsupercell/typings-for-css-modules-loader',
                         options: {
@@ -63,7 +64,13 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                use: [
+                    __DEV__ && {
+                        loader: 'babel-loader',
+                        options: { plugins: ['react-refresh/babel'] },
+                    },
+                    'ts-loader',
+                ].filter(Boolean),
                 exclude: /node_modules/,
             },
             {
@@ -72,9 +79,13 @@ module.exports = {
             },
         ],
     },
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'eval-cheap-module-source-map',
+    // @ts-ignore
     devServer: {
         compress: true,
         port: 9000,
+        hot: true,
     },
 };
+
+export default config;
