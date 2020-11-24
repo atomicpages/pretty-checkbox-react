@@ -32,14 +32,14 @@ describe('Checkbox tests', () => {
         };
 
         const { container, getByLabelText } = render(<Wrapper />);
-        fireEvent.click(getByValue(container, 'apples'));
+        fireEvent.click(getByValue(container as HTMLElement, 'apples'));
 
         expect(cloneState).toEqual(['apples']);
 
-        fireEvent.click(getByValue(container, 'bananas'));
+        fireEvent.click(getByValue(container as HTMLElement, 'bananas'));
         expect(cloneState).toEqual(['apples', 'bananas']);
 
-        fireEvent.click(getByValue(container, 'apples'));
+        fireEvent.click(getByValue(container as HTMLElement, 'apples'));
         expect(cloneState).toEqual(['bananas']);
 
         fireEvent.click(getByLabelText('Apples'));
