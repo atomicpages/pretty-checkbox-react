@@ -123,6 +123,10 @@ module.exports = {
                             label: 'API Reference',
                             to: 'docs/api/checkbox/',
                         },
+                        {
+                            label: 'Alternative Technologies',
+                            to: 'docs/api/usage/preact',
+                        },
                     ],
                 },
                 {
@@ -142,7 +146,7 @@ module.exports = {
             copyright: `Made with \u2665 by Dennis Thompson & Docusaurus \uFF5C &copy; ${new Date().getFullYear()}`,
         },
         algolia: {
-            apiKey: process.env.ALGOLIA_KEY,
+            apiKey: process.env.ALGOLIA_KEY || 'abc',
             indexName: 'pretty-checkbox-react',
             searchParameters: {}, // Optional (if provided by Algolia)
         },

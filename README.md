@@ -39,7 +39,14 @@ Make sure you're on a supported version of React and React DOM:
 
 ```sh
 npm i react@^16.9 react-dom@^16.9
+
+# or use the latest and greatest react
+npm i react react-dom
 ```
+
+### Using Preact?
+
+PCR seamlessly integrates with Preact :sunglasses:, you don't even need to include `preact/compat`!
 
 ## Basic Usage
 

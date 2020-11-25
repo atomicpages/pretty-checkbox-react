@@ -29,5 +29,8 @@ module.exports = {
         {
             'Migration Guide': ['migration/migrating-2.x', 'migration/migrating-1.x'],
         },
+        {
+            'Other Technologies': ['usage/preact'],
+        },
     ],
 };
