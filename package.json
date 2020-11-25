@@ -83,7 +83,7 @@
     },
     "devDependencies": {
         "@djthoms/eslint-config": "^3.0.0",
-        "@djthoms/prettier-config": "^2.0.0",
+        "@djthoms/prettier-config": "^3.0.0",
         "@pika/pack": "^0.5.0",
         "@pika/plugin-build-node": "^0.9.2",
         "@pika/plugin-build-web": "^0.9.2",
