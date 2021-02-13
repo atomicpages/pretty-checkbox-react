@@ -15,15 +15,17 @@
         "React",
         "React Hooks",
         "CSS",
-        "Checkbox"
+        "Checkbox",
+        "Preact"
     ],
     "scripts": {
         "lint": "eslint \"src/**/*.{ts,tsx}\"",
         "test": "jest",
         "clean": "rimraf pkg/**",
-        "build": "npm-run-all --parallel ts-check lint clean test -s build:pika",
+        "build": "npm-run-all -p ts-check lint clean test -s build:pika",
         "build:pika": "pika build",
         "ts-check": "tsc --noEmit",
+        "start": "cd docs && yarn && yarn start",
         "version": "npm run build"
     },
     "repository": {
@@ -82,22 +84,22 @@
         "react-dom": "^16.9.0 || ^17.0.0"
     },
     "devDependencies": {
-        "@djthoms/eslint-config": "^3.0.0",
-        "@djthoms/prettier-config": "^2.0.0",
+        "@djthoms/eslint-config": "^4.0.0",
+        "@djthoms/prettier-config": "^3.0.0",
         "@pika/pack": "^0.5.0",
         "@pika/plugin-build-node": "^0.9.2",
         "@pika/plugin-build-web": "^0.9.2",
         "@pika/plugin-ts-standard-pkg": "^0.9.2",
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.0.0",
-        "@testing-library/react-hooks": "^3.3.0",
+        "@testing-library/react-hooks": "^5.0.0",
         "@types/classnames": "^2.2.10",
         "@types/jest": "^26.0.10",
         "@types/node": "^14.6.0",
         "@types/react": "^17.0.0",
         "eslint": "^7.7.0",
         "flowgen": "^1.11.0",
-        "husky": "^4.2.5",
+        "husky": "^5.0.0",
         "jest": "^26.4.2",
         "jest-image-snapshot": "^4.0.2",
         "npm-run-all": "^4.1.5",

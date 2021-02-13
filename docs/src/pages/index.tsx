@@ -23,13 +23,18 @@ const features = [
         icon: '🚀',
         description: 'Powered by React, Pretty Checkbox React is uber fast and has a low profile.',
     },
+    {
+        title: 'Preact Compatible',
+        icon: '🍱',
+        description: 'Works with Preact without and headaches!',
+    },
 ];
 
 function Feature({ imageUrl = '', title, description, icon }) {
     const imgUrl = useBaseUrl(imageUrl);
 
     return (
-        <div className={clsx('col col--4', styles.feature)}>
+        <div className={clsx('col col--3 text--center', styles.feature)}>
             {imgUrl && (
                 <div className="text--center">
                     <img className={styles.featureImage} src={imgUrl} alt={title} />

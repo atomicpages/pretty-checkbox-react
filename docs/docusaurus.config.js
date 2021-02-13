@@ -125,7 +125,7 @@ module.exports = {
                         },
                         {
                             label: 'Alternative Technologies',
-                            to: 'docs/api/usage/preact',
+                            to: 'docs/usage/preact',
                         },
                     ],
                 },
