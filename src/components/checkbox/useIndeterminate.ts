@@ -12,11 +12,11 @@ export const useIndeterminate = ({
     state,
     indeterminate: indeterminateFromProps,
 }: UseIndeterminateOptions): {
-    ref: React.RefObject<HTMLInputElement>;
+    ref: React.MutableRefObject<HTMLInputElement>;
     'aria-checked': React.AriaAttributes['aria-checked'];
 } => {
     const [indeterminate, setStatus] = React.useState(false);
-    const ref = React.useRef<HTMLInputElement>(null);
+    const ref = React.useRef<HTMLInputElement>(null) as React.MutableRefObject<HTMLInputElement>;
 
     React.useEffect(() => {
         if (state !== undefined && ref.current) {

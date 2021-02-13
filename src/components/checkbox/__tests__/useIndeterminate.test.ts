@@ -9,8 +9,7 @@ describe('useIndeterminate tests', () => {
             },
         });
 
-        // @ts-ignore
-        result.current.ref.current = {};
+        result.current.ref.current = {} as any;
         rerender({ state: 'indeterminate' });
 
         expect(result.current['aria-checked']).toBe('mixed');
@@ -24,8 +23,7 @@ describe('useIndeterminate tests', () => {
             },
         });
 
-        // @ts-ignore
-        result.current.ref.current = { checked: false };
+        result.current.ref.current = { checked: false } as any;
         rerender({ indeterminate: true, state: undefined });
 
         expect(result.current['aria-checked']).toBe('mixed');

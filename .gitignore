@@ -3,6 +3,8 @@ coverage/
 dist/
 pkg/
 docs/.docusaurus
+.yalc
+yalc.lock
 
 # Logs
 logs

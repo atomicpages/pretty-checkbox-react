@@ -7,7 +7,6 @@ module.exports = {
     coveragePathIgnorePatterns: ['<rootDir>/src/typings/'],
     modulePathIgnorePatterns: ['pkg/', 'resources/', 'playground/', 'cypress/'],
     testPathIgnorePatterns: ['<rootDir>/src/index.ts'],
-    setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
     globals: {
         'ts-jest': {
             tsconfig: '<rootDir>/tsconfig.test.json',

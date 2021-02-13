@@ -22,11 +22,13 @@
 
 # Pretty Checkbox React
 
-Pretty Checkbox React (PCR for short) is a small react wrapper around the the pretty awesome library pretty checkbox.
+Pretty Checkbox React (PCR for short) is a small react wrapper around the the pretty awesome library
+pretty checkbox.
 
 ## Getting Started
 
-> Pretty Checkbox React uses hooks heavily., Be sure you're running React 16.9 or later :smile:. Not using hooks? No sweat &ndash; you still need 16.9+! PCR is compatible with classes, too!
+> Pretty Checkbox React uses hooks heavily., Be sure you're running React 16.9 or later :smile:. Not
+> using hooks? No sweat &ndash; you still need 16.9+! PCR is compatible with classes, too!
 
 ```sh
 npm i pretty-checkbox pretty-checkbox-react
@@ -50,7 +52,10 @@ PCR seamlessly integrates with Preact :sunglasses:, you don't even need to inclu
 
 ## Basic Usage
 
-PCR components are easy to use and require no additional setup. Use as controlled or uncontrolled, use with hooks or with classes, and pass all the props you want -- it's all forwarded to the underlying `input` element. Hungry for more? Head on over the the [doc site](https://pretty-checkbox-react.netlify.app/).
+PCR components are easy to use and require no additional setup. Use as controlled or uncontrolled,
+use with hooks or with classes, and pass all the props you want -- it's all forwarded to the
+underlying `input` element. Hungry for more? Head on over the the
+[doc site](https://pretty-checkbox-react.netlify.app/).
 
 ```tsx
 import * as React from 'react';
@@ -63,7 +68,8 @@ function App() {
 
 ### Uncontrolled Usage
 
-Add a `ref` and get access to the input element. Uncontrolled mode allows for seamless integration with form solutions like `react-hook-form`:
+Add a `ref` and get access to the input element. Uncontrolled mode allows for seamless integration
+with form solutions like `react-hook-form`:
 
 ```tsx
 import * as React from 'react';
@@ -117,11 +123,13 @@ function App() {
 
 ## Documentation
 
-PCR has extensive docs documented here: https://pretty-checkbox-react.netlify.app/. Give it a read and see what PCR is all about :+1:.
+PCR has extensive docs documented here: https://pretty-checkbox-react.netlify.app/. Give it a read
+and see what PCR is all about :+1:.
 
 ### Legacy Docs
 
-For posterity purposes, PCR 1.x docs are still hosted here: https://atomicpages.github.io/pretty-checkbox-react/home/
+For posterity purposes, PCR 1.x docs are still hosted here:
+https://atomicpages.github.io/pretty-checkbox-react/home/
 
 ## Changelog
 
@@ -129,7 +137,8 @@ Head on over to [releases](https://github.com/atomicpages/pretty-checkbox-react/
 
 ## Contributions
 
-Shout out to [Lokesh](https://github.com/lokesh-coder) for creating the original [pretty-checkbox library](https://github.com/lokesh-coder/pretty-checkbox) :star:
+Shout out to [Lokesh](https://github.com/lokesh-coder) for creating the original
+[pretty-checkbox library](https://github.com/lokesh-coder/pretty-checkbox) :star:
 
 ## License
 

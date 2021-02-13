@@ -1,10 +1,4 @@
 {
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
-    ],
-    "deno.enable": false
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

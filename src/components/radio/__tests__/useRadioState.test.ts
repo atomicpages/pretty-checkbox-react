@@ -8,8 +8,7 @@ describe('useRadioState tests', () => {
         expect(result.current.state).toBe(false);
 
         act(() => {
-            // @ts-ignore
-            result.current.onChange({ currentTarget: { value: '' } });
+            result.current.onChange({ currentTarget: { value: '' } } as any);
         });
 
         expect(result.current.state).toBe(true);
@@ -19,8 +18,7 @@ describe('useRadioState tests', () => {
         const { result } = renderHook(() => useRadioState());
 
         act(() => {
-            // @ts-ignore
-            result.current.onChange({ currentTarget: { value: 'apples' } });
+            result.current.onChange({ currentTarget: { value: 'apples' } } as any);
         });
 
         expect(result.current.state).toBe('apples');
@@ -33,8 +31,7 @@ describe('useRadioState tests', () => {
         const { result } = renderHook(() => useRadioState({ onChange }));
 
         act(() => {
-            // @ts-ignore
-            result.current.onChange(args);
+            result.current.onChange(args as any);
         });
 
         expect(onChange).toHaveBeenCalledTimes(1);

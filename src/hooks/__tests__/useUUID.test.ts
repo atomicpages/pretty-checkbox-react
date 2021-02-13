@@ -3,13 +3,10 @@ import { nanoid } from 'nanoid/non-secure';
 import { useUUID } from '../useUUID';
 
 jest.mock('nanoid/non-secure');
-
-// @ts-ignore
-nanoid.mockImplementation(() => '1234');
+(nanoid as any).mockImplementation(() => '1234');
 
 afterAll(() => {
-    // @ts-ignore
-    nanoid.mockRestore();
+    (nanoid as any).mockRestore();
 });
 
 describe('useUUID tests', () => {

@@ -19,9 +19,7 @@ describe('useClassNames tests', () => {
         };
 
         Object.keys(trials).forEach(key => {
-            // @ts-ignore
-            expect(useClassNames({ animation: key })).toMatchObject({
-                // @ts-ignore
+            expect(useClassNames({ animation: key } as any)).toMatchObject({
                 'p-default': trials[key],
             });
         });

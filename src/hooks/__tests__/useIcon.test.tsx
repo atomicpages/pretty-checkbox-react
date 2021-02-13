@@ -21,9 +21,7 @@ describe('useIcon hook tests', () => {
         );
 
         expect(result.current).toMatchObject({ iconType: 'icon' });
-
-        // @ts-ignore
-        expect(result.current.icon.props.className).toContain('icon');
+        expect(result.current.icon?.props.className).toContain('icon');
     });
 
     it('should work with svg elements', () => {
@@ -77,8 +75,6 @@ describe('useIcon hook tests', () => {
         );
 
         expect(result.current).toMatchObject({ iconType: 'icon' });
-
-        // @ts-ignore
-        expect(result.current.icon.props.className).toContain('icon');
+        expect(result.current.icon?.props.className).toContain('icon');
     });
 });

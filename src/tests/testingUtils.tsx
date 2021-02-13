@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-export */
 import * as React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
@@ -11,10 +12,12 @@ export const getByValue = (container: HTMLElement, value: string) => {
     return res;
 };
 
-// eslint-disable-next-line react/display-name
-const createComponent = (component: any, hook: Function, args: Record<string, any> = {}) => (
-    p = {}
-) => {
+const createComponent = (
+    component: any,
+    hook: (args: any) => any,
+    args: Record<string, any> = {}
+    // eslint-disable-next-line react/display-name
+) => (p = {}) => {
     const props = hook(args);
 
     return React.createElement(component, {
@@ -31,7 +34,7 @@ const createComponent = (component: any, hook: Function, args: Record<string, an
  * 3. It can be used as a controlled component
  * 4. It connects with state hooks as expected
  */
-export const createSmokeTests = (component: any, hook?: Function) => {
+export const createSmokeTests = (component: any, hook?: (args: any) => any) => {
     it('should render without errors', () => {
         expect(() => {
             render(React.createElement(component));
@@ -67,6 +70,7 @@ export const createSmokeTests = (component: any, hook?: Function) => {
             const { getByTestId } = render(<Wrapper />);
             fireEvent.click(getByTestId('pretty'));
 
+            // eslint-disable-next-line jest/no-conditional-expect
             expect(onChange).toHaveBeenCalledTimes(1);
         }
     });

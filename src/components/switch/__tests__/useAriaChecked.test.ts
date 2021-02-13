@@ -12,13 +12,14 @@ describe('useAriaChecked tests', () => {
             },
         });
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         result.current.current = {
             checked: true,
             setAttribute,
             addEventListener,
             removeEventListener: () => null,
-        };
+        } as any;
 
         rerender({ checked: false });
 
