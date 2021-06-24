@@ -16,7 +16,11 @@ const onSubmit = (data: Inputs) => {
 const required = { required: true };
 
 export const RHF = () => {
-    const { register, handleSubmit, errors } = useForm<Inputs>();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<Inputs>();
 
     return (
         <>
@@ -27,10 +31,10 @@ export const RHF = () => {
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <div>
                     <label htmlFor="name">Name: </label>
-                    <input name="name" id="name" type="text" ref={register(required)} required />
+                    <input id="name" type="text" {...register('name', { required: true })} />
                 </div>
                 <div>
-                    <Checkbox name="tac" ref={register(required)}>
+                    <Checkbox {...register('tac', { required: true })}>
                         Do you agree to the terms and conditions?
                     </Checkbox>
                     {errors.tac && (

@@ -1,17 +1,15 @@
 name: Release
-
 on:
     release:
         types: [released]
-
 jobs:
     publish:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v1
-            - uses: actions/setup-node@v1
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
               with:
-                  node-version: 12
+                  node-version: 16
                   registry-url: https://registry.npmjs.org/
             - name: npm install
               run: npm i
@@ -21,4 +19,4 @@ jobs:
               working-directory: ./pkg
               run: npm publish
               env:
-                  NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
