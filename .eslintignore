@@ -1,5 +1,4 @@
-dist/
-node_modules/
-pkg/
-coverage/
-playground/
+dist-*
+node_modules
+coverage
+playground

@@ -12,20 +12,23 @@ export const getByValue = (container: HTMLElement, value: string) => {
     return res;
 };
 
-const createComponent = (
-    component: any,
-    hook: (args: any) => any,
-    args: Record<string, any> = {}
+const createComponent =
+    (
+        component: any,
+        hook: (args: any) => any,
+        args: Record<string, any> = {}
+        // eslint-disable-next-line react/display-name
+    ) =>
     // eslint-disable-next-line react/display-name
-) => (p = {}) => {
-    const props = hook(args);
+    (p = {}) => {
+        const props = hook(args);
 
-    return React.createElement(component, {
-        ...p,
-        ...props,
-        'data-testid': 'pretty',
-    });
-};
+        return React.createElement(component, {
+            ...p,
+            ...props,
+            'data-testid': 'pretty',
+        });
+    };
 
 /**
  * A generic smoke test creation function which checks:

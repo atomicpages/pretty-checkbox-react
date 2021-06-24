@@ -1,7 +1,6 @@
 node_modules/
 coverage/
-dist/
-pkg/
+dist-*
 docs/.docusaurus
 .yalc
 yalc.lock

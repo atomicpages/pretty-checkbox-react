@@ -6,7 +6,7 @@ module.exports = {
     coverageReporters: ['text', 'html', 'text-summary', 'lcov'],
     collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/index.ts', '!src/tests/testingUtils.tsx'],
     coveragePathIgnorePatterns: ['<rootDir>/src/typings/'],
-    modulePathIgnorePatterns: ['pkg/', 'resources/', 'playground/', 'cypress/'],
+    modulePathIgnorePatterns: ['dist-*', 'resources/', 'playground/', 'cypress/'],
     testPathIgnorePatterns: ['<rootDir>/src/index.ts'],
     globals: {
         'ts-jest': {

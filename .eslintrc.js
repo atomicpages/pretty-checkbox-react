@@ -12,4 +12,8 @@ module.exports = {
         '@djthoms/eslint-config/react-typescript',
         '@djthoms/eslint-config/typescript',
     ],
+    rules: {
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+    },
 };
