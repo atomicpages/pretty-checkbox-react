@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import mergeRefs from 'react-merge-refs';
 
 import { useCheckboxState, UseCheckboxState } from './useCheckboxState';
@@ -48,7 +48,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>((props
     return (
         <div
             style={styles}
-            className={classNames(
+            className={clsx(
                 'pretty',
                 useClassNames({
                     ...props,

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { State } from '../state/State';
 
@@ -37,7 +37,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref)
     return (
         <div
             style={styles}
-            className={classNames(
+            className={clsx(
                 'pretty',
                 useClassNames({
                     ...props,

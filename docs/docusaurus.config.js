@@ -27,18 +27,13 @@ const plugins = [
             ],
         },
     ],
-    [
-        '@djthoms/docusaurus-plugin-sass',
-        {
-            implementation: require('sass'),
-        },
-    ],
+    'docusaurus-plugin-sass',
     '@docusaurus/plugin-ideal-image',
     [
         'docusaurus-plugin-react-docgen-typescript',
         {
             src: ['../src/**/*.{ts,tsx}', '!../src/**/*.test.*'],
-            global: true,
+            global: false,
             parserOptions: {
                 shouldExtractLiteralValuesFromEnum: true,
                 shouldRemoveUndefinedFromOptional: true,
@@ -71,8 +66,10 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = {
     title: 'Pretty Checkbox React',
     tagline: 'A small, super awesome React wrapper around pretty-checkbox 💅',
-    url: 'https://your-docusaurus-test-site.com',
+    url: 'https://pretty-checkbox-react.netlify.app/',
     baseUrl: '/',
+    onBrokenLinks: 'throw',
+    onBrokenMarkdownLinks: 'throw',
     favicon: 'img/favicon.ico',
     organizationName: 'atomicpages', // Usually your GitHub org/user name.
     projectName: 'pretty-checkbox-react', // Usually your repo name.

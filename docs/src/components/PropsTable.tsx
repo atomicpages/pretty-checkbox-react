@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { usePluginData } from '@docusaurus/useGlobalData';
+import { useDynamicImport } from 'docusaurus-plugin-react-docgen-typescript/pkg/dist-src/hooks/useDynamicImport';
 
 import Markdown from 'react-markdown';
 
@@ -7,20 +7,9 @@ type PropsTableProps = {
     displayName: string;
 };
 
-const PropsTable = ({ displayName }: PropsTableProps) => {
+const PropsTable: React.FC<PropsTableProps> = ({ displayName }) => {
     const [dir, setDir] = React.useState('desc');
-    const data = usePluginData('docusaurus-plugin-react-docgen-typescript');
-    let props = {};
-
-    if (data) {
-        const comp = data.find(item => {
-            return item.displayName === displayName;
-        });
-
-        if (comp) {
-            props = comp.props;
-        }
-    }
+    const props: any = useDynamicImport(displayName);
 
     return (
         <table className="table">
@@ -40,7 +29,7 @@ const PropsTable = ({ displayName }: PropsTableProps) => {
                 </tr>
             </thead>
             <tbody>
-                {Object.keys(props)
+                {Object.keys(props || {})
                     .sort((a, b) => {
                         const desc = dir === 'desc';
 
@@ -72,7 +61,8 @@ const PropsTable = ({ displayName }: PropsTableProps) => {
                                 </td>
                                 <td>{props[key].defaultValue?.value}</td>
                                 <td>
-                                    <Markdown source={props[key].description} />
+                                    {/* <Markdown source={props[key].description} /> */}
+                                    {props[key].description}
                                 </td>
                             </tr>
                         );

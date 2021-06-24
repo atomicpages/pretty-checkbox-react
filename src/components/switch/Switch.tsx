@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { useClassNames } from '../../hooks/utility/useClassNames';
 import { useControlled } from '../../hooks/utility/useControlled';
@@ -29,7 +29,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>((props, re
     return (
         <div
             style={styles}
-            className={classNames('pretty', 'p-switch', useClassNames(props, true), className)}>
+            className={clsx('pretty', 'p-switch', useClassNames(props, true), className)}>
             <input
                 ref={mergeRefs([ref, htmlRef])}
                 type="checkbox"

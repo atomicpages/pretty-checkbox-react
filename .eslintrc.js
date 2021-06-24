@@ -9,6 +9,7 @@ module.exports = {
         '@djthoms/eslint-config',
         '@djthoms/eslint-config/jest',
         '@djthoms/eslint-config/react',
+        '@djthoms/eslint-config/react-typescript',
         '@djthoms/eslint-config/typescript',
     ],
 };

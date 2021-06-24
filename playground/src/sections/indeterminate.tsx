@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { Checkbox, useCheckboxState } from '../../../src/index';
 import { Section } from '../components/Section';
@@ -13,7 +13,7 @@ const IndeterminateCheckbox = () => {
             {...checkbox}
             icon={
                 <i
-                    className={classNames('mdi', {
+                    className={clsx('mdi', {
                         'mdi-minus': checkbox.state === 'indeterminate',
                         'mdi-check': checkbox.state === true,
                     })}
@@ -36,7 +36,7 @@ const Tree = () => {
                 <Checkbox
                     icon={
                         <i
-                            className={classNames('mdi', {
+                            className={clsx('mdi', {
                                 'mdi-minus': group.state === 'indeterminate',
                                 'mdi-check': group.state === true,
                             })}

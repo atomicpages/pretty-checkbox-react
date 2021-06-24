@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { PCRCheckboxRadioProps } from '../typings/PCRCheckboxRadioProps';
 
@@ -24,7 +24,7 @@ export const useIcon = (icon: PCRCheckboxRadioProps['icon']) => {
                     icon.props.className && !re.test(icon.props.className)
                         ? React.cloneElement(icon, {
                               ...icon.props,
-                              className: classNames(icon.props.className, type),
+                              className: clsx(icon.props.className, type),
                           })
                         : icon,
             };
