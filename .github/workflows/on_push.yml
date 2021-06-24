@@ -19,6 +19,7 @@ jobs:
                   npm run build
               env:
                   CI: true
+                  HUSKY_SKIP_INSTALL: 1
             - name: Coveralls
               uses: coverallsapp/github-action@master
               with:

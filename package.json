@@ -24,7 +24,7 @@
         "test": "jest",
         "clean": "rimraf pkg/**",
         "build": "npm-run-all -p ts-check lint clean test -s build:pika",
-        "build:pika": "pika build",
+        "build:pika": "pika-pack build",
         "ts-check": "tsc --noEmit",
         "start": "cd docs && yarn && yarn start",
         "prune": "rimraf coverage pkg node_modules package-lock.json",
