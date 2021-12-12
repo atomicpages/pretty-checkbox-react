@@ -1,18 +1,18 @@
 [build]
-    # base = "docs/"
-    # publish = "build/"
-    # command = "yarn build"
-    base = "."
-    publish = "docs/build/"
-    command = "npm i && cd docs/ && npm i && npm run build"
+  # base = "docs/"
+  # publish = "build/"
+  # command = "yarn build"
+  base = "."
+  publish = "docs/build/"
+  command = "npm i && cd docs/ && npm i && npm run build"
 
 [[headers]]
-    for = "/*"
+  for = "/*"
 
-    [headers.values]
-        X-Frame-Options = "DENY"
-        X-XSS-Protection = "1; mode=block"
-        cache-control = '''
-        max-age=0,
-        no-cache,
-        must-revalidate'''
+[headers.values]
+  X-Frame-Options = "DENY"
+  X-XSS-Protection = "1; mode=block"
+  cache-control = '''
+  max-age=0,
+  no-cache,
+  must-revalidate'''

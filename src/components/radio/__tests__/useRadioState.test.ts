@@ -2,39 +2,39 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import { useRadioState } from '../useRadioState';
 
 describe('useRadioState tests', () => {
-    it('should toggle state values when a change occurs', () => {
-        const { result } = renderHook(() => useRadioState());
+  it('should toggle state values when a change occurs', () => {
+    const { result } = renderHook(() => useRadioState());
 
-        expect(result.current.state).toBe(false);
+    expect(result.current.state).toBe(false);
 
-        act(() => {
-            result.current.onChange({ currentTarget: { value: '' } } as any);
-        });
-
-        expect(result.current.state).toBe(true);
+    act(() => {
+      result.current.onChange({ currentTarget: { value: '' } } as any);
     });
 
-    it('should select the value when a change occurs', () => {
-        const { result } = renderHook(() => useRadioState());
+    expect(result.current.state).toBe(true);
+  });
 
-        act(() => {
-            result.current.onChange({ currentTarget: { value: 'apples' } } as any);
-        });
+  it('should select the value when a change occurs', () => {
+    const { result } = renderHook(() => useRadioState());
 
-        expect(result.current.state).toBe('apples');
+    act(() => {
+      result.current.onChange({ currentTarget: { value: 'apples' } } as any);
     });
 
-    it('should call a user-provided onChange handler', () => {
-        const args = { currentTarget: { value: '' } };
-        const onChange = jest.fn();
+    expect(result.current.state).toBe('apples');
+  });
 
-        const { result } = renderHook(() => useRadioState({ onChange }));
+  it('should call a user-provided onChange handler', () => {
+    const args = { currentTarget: { value: '' } };
+    const onChange = jest.fn();
 
-        act(() => {
-            result.current.onChange(args as any);
-        });
+    const { result } = renderHook(() => useRadioState({ onChange }));
 
-        expect(onChange).toHaveBeenCalledTimes(1);
-        expect(onChange).toHaveBeenCalledWith(args);
+    act(() => {
+      result.current.onChange(args as any);
     });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(args);
+  });
 });

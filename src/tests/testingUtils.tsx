@@ -3,29 +3,27 @@ import * as React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 export const getByValue = (container: HTMLElement, value: string) => {
-    const res = container.querySelector(`[value=${value}]`);
+  const res = container.querySelector(`[value=${value}]`);
 
-    if (!res) {
-        throw new Error(`No element found with value: ${value}`);
-    }
+  if (!res) {
+    throw new Error(`No element found with value: ${value}`);
+  }
 
-    return res;
+  return res;
 };
 
-const createComponent = (
-    component: any,
-    hook: (args: any) => any,
-    args: Record<string, any> = {}
-    // eslint-disable-next-line react/display-name
-) => (p = {}) => {
+const createComponent =
+  (component: any, hook: (args: any) => any, args: Record<string, any> = {}) =>
+  // eslint-disable-next-line react/display-name
+  (p = {}) => {
     const props = hook(args);
 
     return React.createElement(component, {
-        ...p,
-        ...props,
-        'data-testid': 'pretty',
+      ...p,
+      ...props,
+      'data-testid': 'pretty',
     });
-};
+  };
 
 /**
  * A generic smoke test creation function which checks:
@@ -35,43 +33,43 @@ const createComponent = (
  * 4. It connects with state hooks as expected
  */
 export const createSmokeTests = (component: any, hook?: (args: any) => any) => {
-    it('should render without errors', () => {
-        expect(() => {
-            render(React.createElement(component));
-        }).not.toThrow();
-    });
+  it('should render without errors', () => {
+    expect(() => {
+      render(React.createElement(component));
+    }).not.toThrow();
+  });
 
-    it('should forward refs', () => {
-        const ref = React.createRef<HTMLInputElement>();
-        render(React.createElement(component, { ref }));
-        expect(ref.current).toBeInstanceOf(HTMLInputElement);
-    });
+  it('should forward refs', () => {
+    const ref = React.createRef<HTMLInputElement>();
+    render(React.createElement(component, { ref }));
+    expect(ref.current).toBeInstanceOf(HTMLInputElement);
+  });
 
-    it('should work as a controlled component', () => {
-        const onChange = jest.fn();
+  it('should work as a controlled component', () => {
+    const onChange = jest.fn();
 
-        const { getByTestId } = render(
-            React.createElement(component, { onChange, 'data-testid': 'pretty' })
-        );
+    const { getByTestId } = render(
+      React.createElement(component, { onChange, 'data-testid': 'pretty' })
+    );
 
-        fireEvent.click(getByTestId('pretty'), { currentTarget: { value: '' } });
-        expect(onChange).toHaveBeenCalledTimes(1);
-    });
+    fireEvent.click(getByTestId('pretty'), { currentTarget: { value: '' } });
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
 
-    it('should integrate with state hooks', () => {
-        expect(hook).toBeInstanceOf(Function);
+  it('should integrate with state hooks', () => {
+    expect(hook).toBeInstanceOf(Function);
 
-        // if to make tsc happy
-        if (hook) {
-            const onChange = jest.fn();
+    // if to make tsc happy
+    if (hook) {
+      const onChange = jest.fn();
 
-            const Wrapper = createComponent(component, hook, { onChange });
+      const Wrapper = createComponent(component, hook, { onChange });
 
-            const { getByTestId } = render(<Wrapper />);
-            fireEvent.click(getByTestId('pretty'));
+      const { getByTestId } = render(<Wrapper />);
+      fireEvent.click(getByTestId('pretty'));
 
-            // eslint-disable-next-line jest/no-conditional-expect
-            expect(onChange).toHaveBeenCalledTimes(1);
-        }
-    });
+      // eslint-disable-next-line jest/no-conditional-expect
+      expect(onChange).toHaveBeenCalledTimes(1);
+    }
+  });
 };

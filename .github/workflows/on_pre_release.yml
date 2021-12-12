@@ -1,24 +1,24 @@
 name: Pre Release
 
 on:
-    release:
-        types: [prereleased]
+  release:
+    types: [prereleased]
 
 jobs:
-    publish:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-              with:
-                  node-version: 16
-                  registry-url: https://registry.npmjs.org/
-            - name: npm install
-              run: npm i
-            - name: build
-              run: npm run build
-            - name: publish
-              working-directory: ./pkg
-              run: npm publish --tag next
-              env:
-                  NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: npm install
+        run: npm i
+      - name: build
+        run: npm run build
+      - name: publish
+        working-directory: ./pkg
+        run: npm publish --tag next
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}

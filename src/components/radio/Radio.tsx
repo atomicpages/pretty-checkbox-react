@@ -12,47 +12,61 @@ import { useCheckboxRadioProps } from '../../hooks/utility/useCheckboxRadioProps
 import { PCRCheckboxRadioProps } from '../../typings/PCRCheckboxRadioProps';
 import { UseRadioState, useRadioState } from './useRadioState';
 
-export type RadioProps = Omit<PCRCheckboxRadioProps<UseRadioState['state']>, 'indeterminate'>;
+export type RadioProps = Omit<
+  PCRCheckboxRadioProps<UseRadioState['state']>,
+  'indeterminate'
+>;
 
-export const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref) => {
-    const { checked, value, state, ...rest } = useControlled<UseRadioState['state'], RadioProps>(
-        props
-    );
+export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
+  (props, ref) => {
+    const { checked, value, state, ...rest } = useControlled<
+      UseRadioState['state'],
+      RadioProps
+    >(props);
 
     const {
-        shape = 'round',
-        children,
-        locked,
-        color,
-        id,
-        className,
-        style,
-        icon: propsIcon,
-        htmlProps,
+      shape = 'round',
+      children,
+      locked,
+      color,
+      id,
+      className,
+      style,
+      icon: propsIcon,
+      htmlProps,
     } = useCheckboxRadioProps<UseRadioState['state'], RadioProps>(rest);
 
     const styles = useLocked({ locked, style });
     const { icon, iconType } = useIcon(propsIcon);
 
     return (
-        <div
-            style={styles}
-            className={clsx(
-                'pretty',
-                useClassNames({
-                    ...props,
-                    shape,
-                    iconType,
-                }),
-                className
-            )}>
-            <input ref={ref} value={value} type="radio" id={id} checked={checked} {...htmlProps} />
-            <State id={id} icon={icon} color={color}>
-                {children}
-            </State>
-        </div>
+      <div
+        style={styles}
+        className={clsx(
+          'pretty',
+          useClassNames({
+            ...props,
+            shape,
+            iconType,
+          }),
+          className
+        )}
+      >
+        <input
+          ref={ref}
+          value={value}
+          type="radio"
+          id={id}
+          checked={checked}
+          {...htmlProps}
+        />
+        <State id={id} icon={icon} color={color}>
+          {children}
+        </State>
+      </div>
     );
-});
+  }
+);
 
 Radio.displayName = 'Radio';
 

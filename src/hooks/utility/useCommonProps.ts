@@ -8,33 +8,33 @@ import { CommonProps } from '../../typings/PCRCommonProps';
  * user has specified one of their own.
  */
 export const useCommonProps = <S>(props: CommonProps<S>) => {
-    const defaultId = useUUID();
+  const defaultId = useUUID();
 
-    const {
-        locked,
-        color,
-        variant,
-        animation,
-        children,
-        style,
-        id = defaultId,
-        className,
-        bigger,
-        hasFocus,
-        ...rest
-    } = props;
+  const {
+    locked,
+    color,
+    variant,
+    animation,
+    children,
+    style,
+    id = defaultId,
+    className,
+    bigger,
+    hasFocus,
+    ...rest
+  } = props;
 
-    return {
-        locked,
-        color,
-        variant,
-        animation,
-        children,
-        id,
-        className,
-        bigger,
-        style,
-        hasFocus,
-        htmlProps: rest,
-    };
+  return {
+    locked,
+    color,
+    variant,
+    animation,
+    children,
+    id,
+    className,
+    bigger,
+    style,
+    hasFocus,
+    htmlProps: rest,
+  };
 };

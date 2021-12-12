@@ -3,14 +3,13 @@ id: animations
 title: Animations
 ---
 
-:::note
-Animations overrides are applicable to `Checkbox` and `Radio` only
-:::
+:::note Animations overrides are applicable to `Checkbox` and `Radio` only :::
 
-In terms of basic concepts we're at the end of the road folks. We've learned a lot about what PCR can do, now it's time to explore the crown jewel of the library: animations.
+In terms of basic concepts we're at the end of the road folks. We've learned a lot about what PCR
+can do, now it's time to explore the crown jewel of the library: animations.
 
 <div align="center">
-    <img src="https://media.giphy.com/media/XRnbDusSE2cBG/giphy.gif" alt="adevnture time" />
+  <img src="https://media.giphy.com/media/XRnbDusSE2cBG/giphy.gif" alt="adevnture time" />
 </div>
 
 Animations are broken into two categories:
@@ -22,38 +21,40 @@ Possible values: `smooth`, `pulse`, `tada`, `jelly`, and `rotate`.
 
 ## Universal Animations
 
-Universal, or basic, animations work with all configurations of `Checkbox` and `Radio` (including with icons). Out of the list of five, there are **two** that can be used universally:
+Universal, or basic, animations work with all configurations of `Checkbox` and `Radio` (including
+with icons). Out of the list of five, there are **two** that can be used universally:
 
--   `smooth`
--   `pulse`
+- `smooth`
+- `pulse`
 
 ```jsx live
 <>
-    <Checkbox animation="smooth">Smooth</Checkbox>
-    <Checkbox animation="pulse" color="info-o">
-        Pulse
-    </Checkbox>
+  <Checkbox animation="smooth">Smooth</Checkbox>
+  <Checkbox animation="pulse" color="info-o">
+    Pulse
+  </Checkbox>
 </>
 ```
 
 ## Icon Animations
 
-Icons animations are intended to be used when the [`icon` prop](icons) is defined. There are three _new_ animations that can be used:
+Icons animations are intended to be used when the [`icon` prop](icons) is defined. There are three
+_new_ animations that can be used:
 
--   `tada`
--   `jelly`
--   `rotate`
+- `tada`
+- `jelly`
+- `rotate`
 
 ```jsx live
 <>
-    <Checkbox animation="tada" icon={<i className="mdi mdi-check" />}>
-        Tada
-    </Checkbox>
-    <Checkbox animation="jelly" color="danger" icon={<i className="mdi mdi-bug" />}>
-        Jelly
-    </Checkbox>
-    <Checkbox animation="rotate" plain icon={<i className="mdi mdi-close" />}>
-        Rotate
-    </Checkbox>
+  <Checkbox animation="tada" icon={<i className="mdi mdi-check" />}>
+    Tada
+  </Checkbox>
+  <Checkbox animation="jelly" color="danger" icon={<i className="mdi mdi-bug" />}>
+    Jelly
+  </Checkbox>
+  <Checkbox animation="rotate" plain icon={<i className="mdi mdi-close" />}>
+    Rotate
+  </Checkbox>
 </>
 ```

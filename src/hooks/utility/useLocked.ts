@@ -2,8 +2,8 @@ import * as React from 'react';
 import { CommonProps } from '../../typings/PCRCommonProps';
 
 export type UseLockedArgs = {
-    locked: CommonProps<unknown>['locked'];
-    style?: React.CSSProperties;
+  locked: CommonProps<unknown>['locked'];
+  style?: React.CSSProperties;
 };
 
 const lockedStyles: React.CSSProperties = { pointerEvents: 'none' };
@@ -14,12 +14,12 @@ const lockedStyles: React.CSSProperties = { pointerEvents: 'none' };
  * event handlers. Supports IE 11+
  */
 export const useLocked = ({ locked, style }: UseLockedArgs) => {
-    if (locked) {
-        return {
-            ...lockedStyles,
-            ...style,
-        };
-    }
+  if (locked) {
+    return {
+      ...lockedStyles,
+      ...style,
+    };
+  }
 
-    return style;
+  return style;
 };

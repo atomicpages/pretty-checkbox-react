@@ -15,17 +15,17 @@ import 'pretty-checkbox/src/pretty-checkbox.scss';
 // import '@mdi/font/css/materialdesignicons.css';
 
 function App() {
-    return (
-        <main>
-            <Basic />
-            <Functional />
-            <Indeterminate />
-            <AllRadio />
-            <AllSwitch />
-            <Formik />
-            <RHF />
-        </main>
-    );
+  return (
+    <main>
+      <Basic />
+      <Functional />
+      <Indeterminate />
+      <AllRadio />
+      <AllSwitch />
+      <Formik />
+      <RHF />
+    </main>
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#root'));

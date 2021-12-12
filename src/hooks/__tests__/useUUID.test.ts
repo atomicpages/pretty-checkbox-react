@@ -6,12 +6,12 @@ jest.mock('nanoid/non-secure');
 (nanoid as any).mockImplementation(() => '1234');
 
 afterAll(() => {
-    (nanoid as any).mockRestore();
+  (nanoid as any).mockRestore();
 });
 
 describe('useUUID tests', () => {
-    it('should generate a UUID', () => {
-        const { result } = renderHook(() => useUUID());
-        expect(result.current).toEqual('pcr_1234');
-    });
+  it('should generate a UUID', () => {
+    const { result } = renderHook(() => useUUID());
+    expect(result.current).toEqual('pcr_1234');
+  });
 });

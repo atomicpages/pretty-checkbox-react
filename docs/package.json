@@ -1,48 +1,47 @@
 {
-    "name": "pcr-docs",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-        "start": "docusaurus start",
-        "build": "docusaurus build",
-        "swizzle": "docusaurus swizzle",
-        "deploy": "docusaurus deploy",
-        "serve": "docusaurus serve"
-    },
-    "dependencies": {
-        "@djthoms/pretty-checkbox": "^3.0.3",
-        "@docusaurus/core": "^2.0.0-beta.1",
-        "@docusaurus/plugin-ideal-image": "^2.0.0-beta.1",
-        "@docusaurus/plugin-pwa": "^2.0.0-beta.1",
-        "@docusaurus/preset-classic": "^2.0.0-beta.1",
-        "@docusaurus/theme-live-codeblock": "^2.0.0-beta.1",
-        "@docusaurus/theme-search-algolia": "^2.0.0-beta.1",
-        "@mdi/js": "^5.5.55",
-        "clsx": "^1.1.1",
-        "pretty-checkbox-react": "^3.0.0",
-        "react": "^17.0.0",
-        "react-dom": "^17.0.0",
-        "react-markdown": "^6.0.0"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "docusaurus-plugin-sass": "^0.2.1",
-        "@docusaurus/module-type-aliases": "^2.0.0-beta.1",
-        "docusaurus-plugin-module-alias": "^0.0.2",
-        "docusaurus-plugin-react-docgen-typescript": "^0.1.0",
-        "react-docgen-typescript": "^2.0.0",
-        "sass": "^1.35.1",
-        "typescript": "^4.0.2"
-    }
+  "name": "pcr-docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve"
+  },
+  "dependencies": {
+    "@djthoms/pretty-checkbox": "^3.0.3",
+    "@docusaurus/core": "^2.0.0-beta.13",
+    "@docusaurus/plugin-ideal-image": "^2.0.0-beta.13",
+    "@docusaurus/plugin-pwa": "^2.0.0-beta.13",
+    "@docusaurus/preset-classic": "^2.0.0-beta.13",
+    "@docusaurus/theme-live-codeblock": "^2.0.0-beta.13",
+    "@docusaurus/theme-search-algolia": "^2.0.0-beta.13",
+    "@mdi/js": "^6.0.0",
+    "clsx": "^1.1.1",
+    "pretty-checkbox-react": "^3.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.13",
+    "docusaurus-plugin-module-alias": "^0.0.2",
+    "docusaurus-plugin-react-docgen-typescript": "^0.1.0",
+    "docusaurus-plugin-sass": "^0.2.1",
+    "react-docgen-typescript": "^2.0.0",
+    "sass": "^1.35.1",
+    "typescript": "^4.5.3"
+  }
 }

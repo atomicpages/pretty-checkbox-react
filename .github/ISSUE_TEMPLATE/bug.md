@@ -45,13 +45,14 @@ labels: 'bug, needs triage'
 
 <!-- Include as many relevant details about the environment you experienced the bug in -->
 
--   Docusaurus version used:
--   Environment name and version (e.g. Chrome 78.0.3904.108, Node.js 10.17.0):
--   Operating system and version (desktop or mobile):
+- Docusaurus version used:
+- Environment name and version (e.g. Chrome 78.0.3904.108, Node.js 10.17.0):
+- Operating system and version (desktop or mobile):
 
 ## Reproducible Demo
 
-(Paste the link to an example repo (e.g. csb, etc.) along with exact instructions to reproduce the issue.)
+(Paste the link to an example repo (e.g. csb, etc.) along with exact
+instructions to reproduce the issue.)
 
 <!--
   What happens if you skip this step?

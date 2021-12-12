@@ -3,8 +3,8 @@ id: redux
 title: Redux
 ---
 
-In lieu of using custom hooks, you should control state yourself when integrating with external
-state systems like redux, flux, etc.
+In lieu of using custom hooks, you should control state yourself when
+integrating with external state systems like redux, flux, etc.
 
 <!-- prettier-ignore -->
 :::caution
@@ -19,17 +19,17 @@ Here's a quick example of using redux with PCR:
 import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
-    const accepted = useSelector(state => state.accepted);
-    const dispatch = useDispatch();
+  const accepted = useSelector((state) => state.accepted);
+  const dispatch = useDispatch();
 
-    const onChange = React.useCallback(e => {
-        dispatch({ type: 'tac', actions: { accepted: e.currentTarget.checked } });
-    }, []);
+  const onChange = React.useCallback((e) => {
+    dispatch({ type: 'tac', actions: { accepted: e.currentTarget.checked } });
+  }, []);
 
-    return (
-        <Checkbox onChange={onChange} checked={accepted}>
-            Accept terms and conditions?
-        </Checkbox>
-    );
+  return (
+    <Checkbox onChange={onChange} checked={accepted}>
+      Accept terms and conditions?
+    </Checkbox>
+  );
 }
 ```

@@ -12,21 +12,21 @@ import * as PCR from 'pretty-checkbox-react';
 import * as Scale from '../../components/Scale';
 
 const noop = (e: any) => {
-    if (e) {
-        e.preventDefault();
-    }
+  if (e) {
+    e.preventDefault();
+  }
 
-    return null;
+  return null;
 };
 
 // Add react-live imports you need here
 const ReactLiveScope = {
-    React,
-    noop,
-    mdiCheck,
-    ...React,
-    ...Scale,
-    ...PCR,
+  React,
+  noop,
+  mdiCheck,
+  ...React,
+  ...Scale,
+  ...PCR,
 };
 
 export default ReactLiveScope;
