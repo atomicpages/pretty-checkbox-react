@@ -1,8 +1,9 @@
 /* eslint-disable jest/no-export */
 import * as React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 export const getByValue = (container: HTMLElement, value: string) => {
+  // eslint-disable-next-line testing-library/no-node-access
   const res = container.querySelector(`[value=${value}]`);
 
   if (!res) {
@@ -48,11 +49,14 @@ export const createSmokeTests = (component: any, hook?: (args: any) => any) => {
   it('should work as a controlled component', () => {
     const onChange = jest.fn();
 
-    const { getByTestId } = render(
+    render(
       React.createElement(component, { onChange, 'data-testid': 'pretty' })
     );
 
-    fireEvent.click(getByTestId('pretty'), { currentTarget: { value: '' } });
+    fireEvent.click(screen.getByTestId('pretty'), {
+      currentTarget: { value: '' },
+    });
+
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
@@ -65,8 +69,8 @@ export const createSmokeTests = (component: any, hook?: (args: any) => any) => {
 
       const Wrapper = createComponent(component, hook, { onChange });
 
-      const { getByTestId } = render(<Wrapper />);
-      fireEvent.click(getByTestId('pretty'));
+      render(<Wrapper />);
+      fireEvent.click(screen.getByTestId('pretty'));
 
       // eslint-disable-next-line jest/no-conditional-expect
       expect(onChange).toHaveBeenCalledTimes(1);

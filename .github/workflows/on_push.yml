@@ -3,18 +3,17 @@ name: Build & Publish Docs
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: npm install, build, and test
         run: |
-          npm i
+          npm ci
           npm t
           npm run build
         env:
@@ -24,12 +23,40 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifacts@master
+        with:
+          name: bundle
+          path: pkg
   checkChangesInDocs:
     name: Check changes in docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Check changes in stories
         uses: netlify/actions/diff-includes@master
         with:
           args: docs
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    if: github.ref === 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+        run: npm ci
+      - name: Release
+        uses: actions/download-artifact@master
+        with:
+          name: bundle
+          path: pkg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

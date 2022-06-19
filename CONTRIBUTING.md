@@ -50,6 +50,12 @@ Pretty Checkbox React uses github as its source of truth and all changes are
 public from the beginning :+1. When a change is made, github actions will lint,
 build, and test Pretty Checkbox React code.
 
+### Commit Messages
+
+Commits as of 06/19/2022 use
+[conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/) so
+please be sure to follow the convention :smile:.
+
 ### Branch Organization
 
 Pretty Checkbox React has one main branch: `master`. This is where the code

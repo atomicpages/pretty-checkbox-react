@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { State } from '../State';
 
@@ -11,17 +11,17 @@ describe('State tests', () => {
   });
 
   it('should render the label', () => {
-    const { queryByText } = render(<State>Hello</State>);
-    expect(queryByText('Hello')).not.toBeNull();
+    render(<State>Hello</State>);
+    expect(screen.getByText('Hello')).not.toBeNull();
   });
 
   it('should add colors', () => {
-    const { getByTestId } = render(
+    render(
       <State data-testid="test" color="danger">
         Danger!
       </State>
     );
 
-    expect(getByTestId('test').className.includes('danger')).toBe(true);
+    expect(screen.getByTestId('test').className.includes('danger')).toBe(true);
   });
 });

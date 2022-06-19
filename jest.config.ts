@@ -1,4 +1,7 @@
-module.exports = {
+// eslint-disable-next-line jest/no-jest-import
+import type { Config } from 'jest';
+
+const config: Config = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   collectCoverage: true,
@@ -13,3 +16,5 @@ module.exports = {
   modulePathIgnorePatterns: ['pkg/', 'resources/', 'playground/', 'cypress/'],
   testPathIgnorePatterns: ['<rootDir>/src/index.ts'],
 };
+
+export default config;

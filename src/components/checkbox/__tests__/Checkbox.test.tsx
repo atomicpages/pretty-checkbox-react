@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { Checkbox, useCheckboxState } from '../Checkbox';
 import { createSmokeTests, getByValue } from '../../../tests/testingUtils';
@@ -31,7 +31,7 @@ describe('Checkbox tests', () => {
       );
     };
 
-    const { container, getByLabelText } = render(<Wrapper />);
+    const { container } = render(<Wrapper />);
     fireEvent.click(getByValue(container as HTMLElement, 'apples'));
 
     expect(cloneState).toEqual(['apples']);
@@ -42,7 +42,7 @@ describe('Checkbox tests', () => {
     fireEvent.click(getByValue(container as HTMLElement, 'apples'));
     expect(cloneState).toEqual(['bananas']);
 
-    fireEvent.click(getByLabelText('Apples'));
+    fireEvent.click(screen.getByLabelText('Apples'));
     expect(cloneState).toEqual(['bananas', 'apples']);
   });
 
@@ -57,8 +57,9 @@ describe('Checkbox tests', () => {
       );
     };
 
-    const { getByTestId } = render(<Wrapper />);
-
-    expect(getByTestId('pretty').getAttribute('aria-checked')).toBe('mixed');
+    render(<Wrapper />);
+    expect(screen.getByTestId('pretty').getAttribute('aria-checked')).toBe(
+      'mixed'
+    );
   });
 });
