@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
-    "nanoid": "^3.0.0",
+    "nanoid": "^4.0.0",
     "react-merge-refs": "^1.1.0"
   },
   "devDependencies": {
