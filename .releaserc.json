@@ -21,12 +21,7 @@
       }
     ],
     "@semantic-release/github",
-    [
-      "@semantic-release/npm",
-      {
-        "pkgRoot": "pkg"
-      }
-    ],
+    "@semantic-release/npm",
     [
       "@semantic-release/git",
       {

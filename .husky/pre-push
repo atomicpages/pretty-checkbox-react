@@ -1,4 +1,38 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run prepush
+echoerr() { printf "%s\n" "$*" >&2; }
+
+matches() {
+  local input="$1"
+  local pattern="$2"
+  echo "$input" | grep -q "$pattern"
+}
+
+getRemoteHead() {
+  # gets the current branch
+  local remote=$(git status -sb)
+  local defaultBranch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+
+  # check to see if the branch exists on remote
+  if $(echo "$remote" | grep -q "...origin/"); then
+    echoerr "Branch exists on remote"
+    echo $(git rev-parse --abbrev-ref HEAD)
+  else
+    echoerr "Branch does not exist on remote"
+    echo "$defaultBranch"
+  fi
+}
+
+echo 'Fetching latest remote...'
+git fetch
+
+readonly CURRENT_BR=$(git branch --show-current)
+readonly BR=$(getRemoteHead)
+echo "Using branch: $BR"
+
+readonly DIFF=$(git --no-pager diff origin/${BR} ${CURRENT_BR} --name-only)
+
+if matches "$DIFF" "src/"; then
+  npm run prepush
+fi
