@@ -18,6 +18,13 @@
     "Checkbox",
     "Preact"
   ],
+  "module": "dist/esm/index.js",
+  "main": "dist/cjs/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "homepage": "https://github.com/atomicpages/pretty-checkbox-react#readme",
   "bugs": {
     "url": "https://github.com/atomicpages/pretty-checkbox-react/issues"
@@ -36,9 +43,12 @@
     "prepare": "husky install",
     "test": "jest",
     "test:fast": "jest --collectCoverage=false",
-    "clean": "rimraf pkg/**",
-    "build": "pika-pack build",
-    "ts-check": "tsc --noEmit",
+    "prebuild": "rimraf dist/**",
+    "build:esm": "swc src --ignore **/__tests__/** -d dist/esm",
+    "build:cjs": "swc src --ignore **/__tests__/** -d dist/cjs -C module.type=commonjs",
+    "build:types": "tsc -p .",
+    "build": "npm-run-all -p build:*",
+    "ts-check": "tsc --noEmit --emitDeclarationOnly false",
     "start": "cd docs && yarn && yarn start",
     "prune": "rimraf coverage pkg node_modules package-lock.json",
     "version": "npm run build",
@@ -65,12 +75,11 @@
     "@commitlint/config-conventional": "^17.0.2",
     "@djthoms/eslint-config": "^5.0.1",
     "@djthoms/prettier-config": "^4.0.0",
-    "@pika/pack": "^0.5.0",
-    "@pika/plugin-build-node": "^0.9.2",
-    "@pika/plugin-build-web": "^0.9.2",
-    "@pika/plugin-ts-standard-pkg": "^0.9.2",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.204",
+    "@swc/jest": "^0.2.21",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.0.0",
     "@testing-library/react-hooks": "^7.0.0",
@@ -83,8 +92,6 @@
     "jest-environment-jsdom": "^28.1.1",
     "lint-staged": "^13.0.0",
     "npm-run-all": "^4.1.5",
-    "pika-plugin-legacy-browser": "^2.0.0",
-    "pika-plugin-typedefs-to-flow": "^0.0.3",
     "pretty-checkbox": "^3.0.3",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
@@ -98,42 +105,5 @@
     "pretty-checkbox": "^3.0.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
-  },
-  "@pika/pack": {
-    "pipeline": [
-      [
-        "@pika/plugin-ts-standard-pkg",
-        {
-          "args": [
-            "--target",
-            "es2019"
-          ]
-        }
-      ],
-      [
-        "@pika/plugin-build-web"
-      ],
-      [
-        "@pika/plugin-build-node"
-      ],
-      [
-        "pika-plugin-legacy-browser",
-        {
-          "name": "PrettyCheckboxReact",
-          "format": "umd",
-          "minify": true,
-          "external": [
-            "react"
-          ],
-          "globals": {
-            "react": "React"
-          },
-          "sourcemap": true
-        }
-      ],
-      [
-        "pika-plugin-typedefs-to-flow"
-      ]
-    ]
   }
 }

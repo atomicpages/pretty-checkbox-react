@@ -58,6 +58,7 @@ if (process.env.NODE_ENV !== 'production') {
     {
       alias: {
         'pretty-checkbox-react': path.resolve(__dirname, '../src/index.ts'),
+        react: path.resolve(__dirname, '../node_modules/react'),
       },
     },
   ]);
@@ -142,11 +143,11 @@ module.exports = {
       ],
       copyright: `Made with \u2665 by Dennis Thompson & Docusaurus \uFF5C &copy; ${new Date().getFullYear()}`,
     },
-    algolia: {
-      apiKey: process.env.ALGOLIA_KEY || 'abc',
-      indexName: 'pretty-checkbox-react',
-      searchParameters: {}, // Optional (if provided by Algolia)
-    },
+    // algolia: {
+    //   apiKey: process.env.ALGOLIA_KEY || 'abc',
+    //   indexName: 'pretty-checkbox-react',
+    //   searchParameters: {}, // Optional (if provided by Algolia)
+    // },
   },
   plugins,
   themes: ['@docusaurus/theme-live-codeblock'],

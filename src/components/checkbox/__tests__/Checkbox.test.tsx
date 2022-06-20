@@ -1,7 +1,8 @@
-import * as React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { Checkbox, useCheckboxState } from '../Checkbox';
+import { Checkbox } from '../Checkbox';
+import { useCheckboxState } from '../useCheckboxState';
+
 import { createSmokeTests, getByValue } from '../../../tests/testingUtils';
 
 describe('Checkbox tests', () => {

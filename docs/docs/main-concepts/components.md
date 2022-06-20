@@ -65,11 +65,11 @@ Don't want to use the super awesome UUID generator? No biggie. Use your own
 :+1:. Here's an example using `shortid` instead:
 
 ```jsx
-import React from 'react';
+import { useRef } from 'react';
 import shortid from 'shortid';
 
 function App() {
-  const id = React.useRef('MY_PROJECT' + shortid.generate());
+  const id = useRef('MY_PROJECT' + shortid.generate());
 
   return <Checkbox id={id}>Here's my ID, officer</Checkbox>;
 }

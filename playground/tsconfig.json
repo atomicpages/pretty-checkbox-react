@@ -3,8 +3,8 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",
-    "target": "es6",
-    "jsx": "react",
+    "target": "ES2017",
+    "jsx": "react-jsx",
     "allowJs": true,
     "esModuleInterop": true,
     "downlevelIteration": true

@@ -2,7 +2,6 @@
 import type { Config } from 'jest';
 
 const config: Config = {
-  preset: 'ts-jest',
   testEnvironment: 'jsdom',
   collectCoverage: true,
   coverageDirectory: 'coverage',
@@ -15,6 +14,9 @@ const config: Config = {
   coveragePathIgnorePatterns: ['<rootDir>/src/typings/'],
   modulePathIgnorePatterns: ['pkg/', 'resources/', 'playground/', 'cypress/'],
   testPathIgnorePatterns: ['<rootDir>/src/index.ts'],
+  transform: {
+    '^.+\\.(t|j)sx?$': '@swc/jest',
+  },
 };
 
 export default config;

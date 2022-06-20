@@ -1,12 +1,11 @@
-import * as React from 'react';
-
+import { useEffect } from 'react';
 import { Switch, useCheckboxState } from '../../../src';
 import { Section } from '../components/Section';
 
 const ControlledSwitch = () => {
   const checkbox = useCheckboxState({ state: [] });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if ((checkbox.state as string[]).includes('enable.dark')) {
       document.body.classList.add('dark');
     } else {

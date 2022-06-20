@@ -1,8 +1,7 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
 import mergeRefs from 'react-merge-refs';
 
-import { useCheckboxState, UseCheckboxState } from './useCheckboxState';
 import { useLocked } from '../../hooks/utility/useLocked';
 import { useIcon } from '../../hooks/useIcon';
 import { useClassNames } from '../../hooks/utility/useClassNames';
@@ -13,7 +12,11 @@ import { PCRCheckboxRadioProps } from '../../typings/PCRCheckboxRadioProps';
 import { State } from '../state/State';
 import { useIndeterminate } from './useIndeterminate';
 
-export type CheckboxProps = PCRCheckboxRadioProps<UseCheckboxState['state']> & {
+import type { UseCheckboxStateOptions } from './useCheckboxState';
+
+export type CheckboxProps = PCRCheckboxRadioProps<
+  UseCheckboxStateOptions['state']
+> & {
   /**
    * Mark the underlying HTML input checkbox as `indeterminate`. This prop doesn't change
    * icons for you, it just ensures we have the correct `aria-checked` value
@@ -22,10 +25,10 @@ export type CheckboxProps = PCRCheckboxRadioProps<UseCheckboxState['state']> & {
   indeterminate?: boolean;
 };
 
-export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
     const { checked, value, state, ...rest } = useControlled<
-      UseCheckboxState['state'],
+      UseCheckboxStateOptions['state'],
       CheckboxProps
     >(props);
 
@@ -39,7 +42,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       indeterminate,
       icon: propsIcon,
       htmlProps,
-    } = useCheckboxRadioProps<UseCheckboxState['state'], CheckboxProps>(rest);
+    } = useCheckboxRadioProps<UseCheckboxStateOptions['state'], CheckboxProps>(
+      rest
+    );
 
     const { ref: intRef, ...aria } = useIndeterminate({
       state,
@@ -80,5 +85,3 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 );
 
 Checkbox.displayName = 'Checkbox';
-
-export { useCheckboxState, UseCheckboxState };

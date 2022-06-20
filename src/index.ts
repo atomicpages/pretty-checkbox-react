@@ -1,3 +1,3 @@
-export * from './components/checkbox/Checkbox';
-export * from './components/radio/Radio';
-export * from './components/switch/Switch';
+export * from './components/checkbox';
+export * from './components/radio';
+export * from './components/switch';

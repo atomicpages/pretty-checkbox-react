@@ -1,5 +1,5 @@
 /* eslint-disable jest/no-export */
-import * as React from 'react';
+import { createElement, createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 export const getByValue = (container: HTMLElement, value: string) => {
@@ -19,7 +19,7 @@ const createComponent =
   (p = {}) => {
     const props = hook(args);
 
-    return React.createElement(component, {
+    return createElement(component, {
       ...p,
       ...props,
       'data-testid': 'pretty',
@@ -36,22 +36,20 @@ const createComponent =
 export const createSmokeTests = (component: any, hook?: (args: any) => any) => {
   it('should render without errors', () => {
     expect(() => {
-      render(React.createElement(component));
+      render(createElement(component));
     }).not.toThrow();
   });
 
   it('should forward refs', () => {
-    const ref = React.createRef<HTMLInputElement>();
-    render(React.createElement(component, { ref }));
+    const ref = createRef<HTMLInputElement>();
+    render(createElement(component, { ref }));
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
 
   it('should work as a controlled component', () => {
     const onChange = jest.fn();
 
-    render(
-      React.createElement(component, { onChange, 'data-testid': 'pretty' })
-    );
+    render(createElement(component, { onChange, 'data-testid': 'pretty' }));
 
     fireEvent.click(screen.getByTestId('pretty'), {
       currentTarget: { value: '' },

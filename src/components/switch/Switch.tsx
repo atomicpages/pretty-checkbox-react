@@ -1,26 +1,27 @@
-import * as React from 'react';
 import clsx from 'clsx';
 
 import { useClassNames } from '../../hooks/utility/useClassNames';
 import { useControlled } from '../../hooks/utility/useControlled';
-import { UseRadioState } from '../..';
 import { useLocked } from '../../hooks/utility/useLocked';
 import { State } from '../state/State';
 
 import { PCRSwitchProps } from '../../typings/PCRSwitchProps';
 import { useCommonProps } from '../../hooks/utility/useCommonProps';
-import { UseCheckboxState } from '../checkbox/Checkbox';
 import mergeRefs from 'react-merge-refs';
 import { useAriaChecked } from './useAriaChecked';
+import { forwardRef } from 'react';
+
+import type { UseRadioStateOptions } from '../radio/useRadioState';
+import type { UseCheckboxStateOptions } from '../checkbox/useCheckboxState';
 
 export type SwitchProps<
-  S = UseRadioState['state'] | UseCheckboxState['state']
+  S = UseRadioStateOptions['state'] | UseCheckboxStateOptions['state']
 > = PCRSwitchProps<S>;
 
-export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
+export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   (props, ref) => {
     const { checked, value, state, ...rest } = useControlled<
-      UseRadioState['state'] | UseCheckboxState['state'],
+      UseRadioStateOptions['state'] | UseCheckboxStateOptions['state'],
       SwitchProps
     >(props);
 

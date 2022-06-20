@@ -33,7 +33,6 @@ that are importable in your fancy development environment:
 - `Switch`
 
 ```jsx title="index.js"
-import React from 'react';
 import ReactDOM from 'react-dom';
 import { Checkbox, Radio, Switch } from 'pretty-checkbox-react';
 

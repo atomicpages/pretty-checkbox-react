@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import { createElement } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { useIcon } from '../useIcon';
 
@@ -13,7 +12,7 @@ describe('useIcon hook tests', () => {
   it('should return an icon with a custom classname and type', () => {
     const { result } = renderHook(() =>
       useIcon(
-        React.createElement('i', {
+        createElement('i', {
           className: 'far far-star',
         }) as React.ReactElement<any, any>
       )
@@ -26,7 +25,7 @@ describe('useIcon hook tests', () => {
   it('should work with svg elements', () => {
     const { result } = renderHook(() =>
       useIcon(
-        React.createElement('svg', {
+        createElement('svg', {
           className: 'far far-star',
         }) as React.ReactElement<any, any>
       )
@@ -38,7 +37,7 @@ describe('useIcon hook tests', () => {
   it('should work with img elements', () => {
     const { result } = renderHook(() =>
       useIcon(
-        React.createElement('img', {
+        createElement('img', {
           className: 'far far-star',
         }) as React.ReactElement<any, any>
       )
@@ -54,7 +53,7 @@ describe('useIcon hook tests', () => {
       </svg>
     );
 
-    const instance = React.createElement(Rectangle);
+    const instance = createElement(Rectangle);
 
     const { result } = renderHook(() =>
       useIcon(instance as React.ReactElement<any, any>)
@@ -66,7 +65,7 @@ describe('useIcon hook tests', () => {
   it('should work when icon contain the type as a substring', () => {
     const { result } = renderHook(() =>
       useIcon(
-        React.createElement('i', {
+        createElement('i', {
           className: 'myicon myicon-star',
         }) as React.ReactElement<any, any>
       )

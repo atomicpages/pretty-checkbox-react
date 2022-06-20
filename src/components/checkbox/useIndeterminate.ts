@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { UseCheckboxState } from './useCheckboxState';
+import { useState, useRef, useEffect } from 'react';
+import { UseCheckboxStateOptions } from './useCheckboxState';
 
 export type UseIndeterminateOptions = {
   checked?: boolean;
-  state?: UseCheckboxState['state'];
+  state?: UseCheckboxStateOptions['state'];
   indeterminate?: boolean;
 };
 
@@ -15,12 +15,12 @@ export const useIndeterminate = ({
   ref: React.MutableRefObject<HTMLInputElement>;
   'aria-checked': React.AriaAttributes['aria-checked'];
 } => {
-  const [indeterminate, setStatus] = React.useState(false);
-  const ref = React.useRef<HTMLInputElement>(
+  const [indeterminate, setStatus] = useState(false);
+  const ref = useRef<HTMLInputElement>(
     null
   ) as React.MutableRefObject<HTMLInputElement>;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (state !== undefined && ref.current) {
       setStatus(state === 'indeterminate');
     }
@@ -30,7 +30,7 @@ export const useIndeterminate = ({
   // we should check to ensure state isn't set to indeterminate
   // since we don't want ot clobber the state value if
   // it is defined.
-  React.useEffect(() => {
+  useEffect(() => {
     if (
       state !== 'indeterminate' &&
       ref.current &&

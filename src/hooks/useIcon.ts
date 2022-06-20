@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { useMemo, cloneElement } from 'react';
 import clsx from 'clsx';
 
 import { PCRCheckboxRadioProps } from '../typings/PCRCheckboxRadioProps';
 
 export const useIcon = (icon: PCRCheckboxRadioProps['icon']) => {
-  return React.useMemo(() => {
+  return useMemo(() => {
     if (icon) {
       let type: 'icon' | 'svg' | 'image' = 'icon';
 
@@ -22,7 +22,7 @@ export const useIcon = (icon: PCRCheckboxRadioProps['icon']) => {
         iconType: icon.props['data-type'] || type,
         icon:
           icon.props.className && !re.test(icon.props.className)
-            ? React.cloneElement(icon, {
+            ? cloneElement(icon, {
                 ...icon.props,
                 className: clsx(icon.props.className, type),
               })

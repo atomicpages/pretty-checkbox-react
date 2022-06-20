@@ -48,8 +48,7 @@ certainty so you must add two props yourself with one of the following values:
 - `className`
 - `data-type`
 
-```jsx {7}
-import React from 'react';
+```jsx {5}
 import { Check } from 'react-feather';
 
 function App() {

@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { useState, useCallback } from 'react';
 
-export type UseCheckboxState = {
+export type UseCheckboxStateOptions = {
   /**
    * The state object of the checkbox. This can be a boolean or
    * an array of items.
@@ -17,29 +17,30 @@ export type UseCheckboxState = {
 
 const INDETERMINATE_STATE = 'indeterminate';
 
-const dispatch = (value: string) => (state: UseCheckboxState['state']) => {
-  if (Array.isArray(state)) {
-    const index = state.indexOf(value);
+const dispatch =
+  (value: string) => (state: UseCheckboxStateOptions['state']) => {
+    if (Array.isArray(state)) {
+      const index = state.indexOf(value);
 
-    if (index === -1) {
-      state.push(value);
-    } else {
-      state.splice(index, 1);
+      if (index === -1) {
+        state.push(value);
+      } else {
+        state.splice(index, 1);
+      }
+
+      return [...state];
+    } else if (value !== '') {
+      return [value];
     }
 
-    return [...state];
-  } else if (value !== '') {
-    return [value];
-  }
-
-  return !state;
-};
+    return !state;
+  };
 
 export const useCheckboxState = ({
   state: initialState = false,
   onChange,
-}: UseCheckboxState = {}) => {
-  const [state, setState] = React.useState(() => {
+}: UseCheckboxStateOptions = {}) => {
+  const [state, setState] = useState(() => {
     if (
       typeof initialState === 'string' &&
       initialState !== INDETERMINATE_STATE
@@ -53,7 +54,7 @@ export const useCheckboxState = ({
   return {
     state,
     setState,
-    onChange: React.useCallback(
+    onChange: useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
 

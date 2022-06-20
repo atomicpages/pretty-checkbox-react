@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export type Colors = 'primary' | 'success' | 'info' | 'warning' | 'danger';
 type ColorsOutline =
   | 'primary-o'

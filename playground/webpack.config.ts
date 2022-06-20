@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import * as path from 'path';
-import * as webpack from 'webpack';
+import path from 'path';
+import webpack from 'webpack';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -22,7 +22,6 @@ const config: webpack.Configuration = {
       chunkFilename: '[id].[contenthash].css',
     }),
     new HtmlWebpackPlugin({ template: path.resolve('./public/index.html') }),
-    __DEV__ && new webpack.HotModuleReplacementPlugin(),
     __DEV__ && new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
   resolve: {
@@ -70,7 +69,12 @@ const config: webpack.Configuration = {
             loader: 'babel-loader',
             options: { plugins: ['react-refresh/babel'] },
           },
-          'ts-loader',
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: Boolean(process.env.DEBUG),
+            },
+          },
         ].filter(Boolean),
         exclude: /node_modules/,
       },
@@ -85,7 +89,6 @@ const config: webpack.Configuration = {
   devServer: {
     compress: true,
     port: 9000,
-    hot: true,
   },
 };
 

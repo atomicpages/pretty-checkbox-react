@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { useState, useCallback } from 'react';
 
-export type UseRadioState = {
+export type UseRadioStateOptions = {
   state?: boolean | string;
   onChange?: React.InputHTMLAttributes<HTMLInputElement>['onChange'];
 };
@@ -8,13 +8,13 @@ export type UseRadioState = {
 export const useRadioState = ({
   state: initialState = false,
   onChange,
-}: UseRadioState = {}) => {
-  const [state, setState] = React.useState(initialState);
+}: UseRadioStateOptions = {}) => {
+  const [state, setState] = useState(initialState);
 
   return {
     state,
     setState,
-    onChange: React.useCallback(
+    onChange: useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
 

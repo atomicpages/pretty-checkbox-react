@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { CommonProps } from '../../typings/PCRCommonProps';
 
 export type UseLockedArgs = {

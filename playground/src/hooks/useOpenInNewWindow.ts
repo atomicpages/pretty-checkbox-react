@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 
 type UseOpenInNewWindow = {
   container: HTMLElement;
@@ -45,10 +45,10 @@ export const useOpenInNewWindow = ({
   container,
   features = 'width=600,height=400,scrollbars=true,noopener=true',
 }: UseOpenInNewWindow) => {
-  const open = React.useRef(false);
-  const win = React.useRef<Window>(null);
+  const open = useRef(false);
+  const win = useRef<Window>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       if (open.current) {
         win.current.close();
@@ -57,7 +57,7 @@ export const useOpenInNewWindow = ({
   }, [container]);
 
   return {
-    open: React.useCallback(() => {
+    open: useCallback(() => {
       if (!open.current) {
         win.current = window.open('', '', features);
         copyStyles(headerStyles, win.current.document);
@@ -70,7 +70,7 @@ export const useOpenInNewWindow = ({
         });
       }
     }, []),
-    close: React.useCallback(() => {
+    close: useCallback(() => {
       win.current.close();
     }, []),
   };

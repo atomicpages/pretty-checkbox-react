@@ -32,19 +32,7 @@ pretty awesome library pretty checkbox.
 > is compatible with classes, too!
 
 ```sh
-npm i pretty-checkbox pretty-checkbox-react
-
-# or with yarn
-yarn add pretty-checkbox pretty-checkbox-react
-```
-
-Make sure you're on a supported version of React and React DOM:
-
-```sh
-npm i react@^16.9 react-dom@^16.9
-
-# or use the latest and greatest react
-npm i react react-dom
+npm i react react-dom pretty-checkbox pretty-checkbox-react
 ```
 
 ### Using Preact?

@@ -1,6 +1,5 @@
 import './wdyr';
 
-import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Basic } from './sections/basic';

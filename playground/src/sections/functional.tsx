@@ -1,11 +1,11 @@
-import React from 'react';
+import { useRef, useEffect, useReducer } from 'react';
 import { Checkbox, useCheckboxState } from '../../../src/index';
 import { Section } from '../components/Section';
 
 const UncontrolledCheckbox = () => {
-  const ref = React.useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLInputElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('ref', ref.current);
   }, []);
 
@@ -28,7 +28,7 @@ const ControlledStateHook = () => {
 ControlledStateHook.whyDidYouRender = true;
 
 const ControlledManually = () => {
-  const [checked, toggle] = React.useReducer((s) => !s, false);
+  const [checked, toggle] = useReducer((s) => !s, false);
 
   return (
     <>

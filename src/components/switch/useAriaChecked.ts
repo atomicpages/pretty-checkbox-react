@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useRef, useEffect } from 'react';
 import { PCRSwitchProps } from '../../typings/PCRSwitchProps';
 
 export type UseAriaCheckedOptions = {
@@ -19,9 +19,9 @@ export const useAriaChecked = ({
   setState,
   checked,
 }: UseAriaCheckedOptions) => {
-  const ref = React.useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLInputElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const elem = ref.current;
     let bound = false;
 

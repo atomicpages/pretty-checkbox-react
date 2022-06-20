@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
 
 import { State } from '../state/State';
@@ -10,64 +10,60 @@ import { useControlled } from '../../hooks/utility/useControlled';
 
 import { useCheckboxRadioProps } from '../../hooks/utility/useCheckboxRadioProps';
 import { PCRCheckboxRadioProps } from '../../typings/PCRCheckboxRadioProps';
-import { UseRadioState, useRadioState } from './useRadioState';
+import type { UseRadioStateOptions } from './useRadioState';
 
 export type RadioProps = Omit<
-  PCRCheckboxRadioProps<UseRadioState['state']>,
+  PCRCheckboxRadioProps<UseRadioStateOptions['state']>,
   'indeterminate'
 >;
 
-export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
-  (props, ref) => {
-    const { checked, value, state, ...rest } = useControlled<
-      UseRadioState['state'],
-      RadioProps
-    >(props);
+export const Radio = forwardRef<HTMLInputElement, RadioProps>((props, ref) => {
+  const { checked, value, state, ...rest } = useControlled<
+    UseRadioStateOptions['state'],
+    RadioProps
+  >(props);
 
-    const {
-      shape = 'round',
-      children,
-      locked,
-      color,
-      id,
-      className,
-      style,
-      icon: propsIcon,
-      htmlProps,
-    } = useCheckboxRadioProps<UseRadioState['state'], RadioProps>(rest);
+  const {
+    shape = 'round',
+    children,
+    locked,
+    color,
+    id,
+    className,
+    style,
+    icon: propsIcon,
+    htmlProps,
+  } = useCheckboxRadioProps<UseRadioStateOptions['state'], RadioProps>(rest);
 
-    const styles = useLocked({ locked, style });
-    const { icon, iconType } = useIcon(propsIcon);
+  const styles = useLocked({ locked, style });
+  const { icon, iconType } = useIcon(propsIcon);
 
-    return (
-      <div
-        style={styles}
-        className={clsx(
-          'pretty',
-          useClassNames({
-            ...props,
-            shape,
-            iconType,
-          }),
-          className
-        )}
-      >
-        <input
-          ref={ref}
-          value={value}
-          type="radio"
-          id={id}
-          checked={checked}
-          {...htmlProps}
-        />
-        <State id={id} icon={icon} color={color}>
-          {children}
-        </State>
-      </div>
-    );
-  }
-);
+  return (
+    <div
+      style={styles}
+      className={clsx(
+        'pretty',
+        useClassNames({
+          ...props,
+          shape,
+          iconType,
+        }),
+        className
+      )}
+    >
+      <input
+        ref={ref}
+        value={value}
+        type="radio"
+        id={id}
+        checked={checked}
+        {...htmlProps}
+      />
+      <State id={id} icon={icon} color={color}>
+        {children}
+      </State>
+    </div>
+  );
+});
 
 Radio.displayName = 'Radio';
-
-export { UseRadioState, useRadioState };

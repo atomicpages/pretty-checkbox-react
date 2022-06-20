@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 import { useCheckboxState } from '../../../src';
 
 export const useTreeState = ({ values }) => {
@@ -6,7 +6,7 @@ export const useTreeState = ({ values }) => {
   const items = useCheckboxState({ state: [] });
 
   // updates items when group is toggled
-  React.useEffect(() => {
+  useEffect(() => {
     if (group.state === true) {
       items.setState(values);
     } else if (group.state === false) {
@@ -15,7 +15,7 @@ export const useTreeState = ({ values }) => {
   }, [group.state]);
 
   // updates group when items is toggled
-  React.useEffect(() => {
+  useEffect(() => {
     if ((items.state as string[]).length === values.length) {
       group.setState(true);
     } else if ((items.state as string[]).length) {

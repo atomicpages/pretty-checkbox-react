@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useCallback } from 'react';
 import { Radio, useRadioState } from '../../../src/index';
 import { Section } from '../components/Section';
 
@@ -22,14 +22,11 @@ const ControlledRadio = () => {
 };
 
 const ManualControlRadio = () => {
-  const [state, setState] = React.useState('');
+  const [state, setState] = useState('');
 
-  const onChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setState(e.currentTarget.value);
-    },
-    []
-  );
+  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setState(e.currentTarget.value);
+  }, []);
 
   return (
     <>

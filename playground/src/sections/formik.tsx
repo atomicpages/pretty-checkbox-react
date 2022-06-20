@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useFormik } from 'formik';
 import { Checkbox } from '../../../src';
 
