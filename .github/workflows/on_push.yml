@@ -23,7 +23,7 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifacts@master
+      - uses: actions/upload-artifact@v3
         with:
           name: bundle
           path: pkg
@@ -41,7 +41,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    if: github.ref === 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -50,12 +50,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Install Dependencies
         run: npm ci
-      - name: Release
-        uses: actions/download-artifact@master
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
         with:
           name: bundle
           path: pkg
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
