@@ -41,7 +41,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    if: github.ref === 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -50,12 +50,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Install Dependencies
         run: npm ci
-      - name: Release
+      - name: Download Artifacts
         uses: actions/download-artifact@master
         with:
           name: bundle
           path: pkg
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
