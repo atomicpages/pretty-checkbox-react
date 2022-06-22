@@ -1,13 +1,13 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 // eslint-disable-next-line import/no-unresolved
-import { useDynamicImport } from 'docusaurus-plugin-react-docgen-typescript/pkg/dist-src/hooks/useDynamicImport';
+import { useDynamicImport } from 'docusaurus-plugin-react-docgen-typescript/dist/esm/hooks';
 
 type PropsTableProps = {
   displayName: string;
 };
 
 const PropsTable: React.FC<PropsTableProps> = ({ displayName }) => {
-  const [dir, setDir] = React.useState('desc');
+  const [dir, setDir] = useState('desc');
   const props: any = useDynamicImport(displayName);
 
   return (
