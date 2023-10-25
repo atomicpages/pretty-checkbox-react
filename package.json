@@ -61,7 +61,7 @@
     "react-merge-refs": "^1.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.2",
+    "@commitlint/cli": "^18.1.0",
     "@commitlint/config-conventional": "^17.0.2",
     "@djthoms/eslint-config": "^5.0.1",
     "@djthoms/prettier-config": "^4.0.0",
