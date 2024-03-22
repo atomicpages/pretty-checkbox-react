@@ -37,7 +37,7 @@
     "type-fest": "^1.2.1",
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
     "@mdi/font": "^5.9.55",
