@@ -1,13 +1,13 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: '/'
+    directory: "/"
     schedule:
       interval: daily
-      time: '13:00'
+      time: "13:00"
     open-pull-requests-limit: 10
     ignore:
-      - dependency-name: '@types/node'
+      - dependency-name: "@types/node"
         versions:
           - 14.14.28
           - 14.14.30
@@ -27,7 +27,7 @@ updates:
           - 7.22.0
           - 7.23.0
           - 7.24.0
-      - dependency-name: '@testing-library/react-hooks'
+      - dependency-name: "@testing-library/react"
         versions:
           - 5.0.3
           - 5.1.0
@@ -48,7 +48,7 @@ updates:
       - dependency-name: nanoid
         versions:
           - 3.1.21
-      - dependency-name: '@types/react'
+      - dependency-name: "@types/react"
         versions:
           - 17.0.3
       - dependency-name: typescript
@@ -58,9 +58,9 @@ updates:
       - dependency-name: jest-image-snapshot
         versions:
           - 4.4.0
-      - dependency-name: '@djthoms/prettier-config'
+      - dependency-name: "@djthoms/prettier-config"
         versions:
           - 3.1.0
-      - dependency-name: '@djthoms/eslint-config'
+      - dependency-name: "@djthoms/eslint-config"
         versions:
           - 4.0.0

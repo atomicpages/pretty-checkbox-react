@@ -1,28 +1,31 @@
-import { useLocked } from '../useLocked';
+import { useLocked } from "../useLocked";
 
-describe('useLocked tests', () => {
-  it('should disable pointer events when locked', () => {
+describe("useLocked tests", () => {
+  it("should disable pointer events when locked", () => {
     expect(useLocked({ locked: true })).toMatchObject({
-      pointerEvents: 'none',
+      pointerEvents: "none",
     });
   });
 
-  it('should merge pre-existing styles', () => {
+  it("should merge pre-existing styles", () => {
     expect(
-      useLocked({ locked: true, style: { display: 'flex', flex: '1 0 100%' } })
+      useLocked({ locked: true, style: { display: "flex", flex: "1 0 100%" } }),
     ).toMatchObject({
-      pointerEvents: 'none',
-      display: 'flex',
-      flex: '1 0 100%',
+      pointerEvents: "none",
+      display: "flex",
+      flex: "1 0 100%",
     });
   });
 
-  it('should return pre-existing styles when not locked', () => {
+  it("should return pre-existing styles when not locked", () => {
     expect(
-      useLocked({ locked: false, style: { display: 'flex', flex: '1 0 100%' } })
+      useLocked({
+        locked: false,
+        style: { display: "flex", flex: "1 0 100%" },
+      }),
     ).toMatchObject({
-      display: 'flex',
-      flex: '1 0 100%',
+      display: "flex",
+      flex: "1 0 100%",
     });
   });
 });

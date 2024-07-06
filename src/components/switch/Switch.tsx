@@ -1,26 +1,27 @@
-import * as React from 'react';
-import clsx from 'clsx';
+import * as React from "react";
+import mergeRefs from "react-merge-refs";
 
-import { useClassNames } from '../../hooks/utility/useClassNames';
-import { useControlled } from '../../hooks/utility/useControlled';
-import { UseRadioState } from '../..';
-import { useLocked } from '../../hooks/utility/useLocked';
-import { State } from '../state/State';
+import clsx from "clsx";
 
-import { PCRSwitchProps } from '../../typings/PCRSwitchProps';
-import { useCommonProps } from '../../hooks/utility/useCommonProps';
-import { UseCheckboxState } from '../checkbox/Checkbox';
-import mergeRefs from 'react-merge-refs';
-import { useAriaChecked } from './useAriaChecked';
+import { useAriaChecked } from "./useAriaChecked";
+import type { UseRadioState } from "../..";
+import { useClassNames } from "../../hooks/utility/useClassNames";
+import { useCommonProps } from "../../hooks/utility/useCommonProps";
+import { useControlled } from "../../hooks/utility/useControlled";
+import { useLocked } from "../../hooks/utility/useLocked";
+import type { PCRSwitchProps } from "../../typings/PCRSwitchProps";
+import type { UseCheckboxState } from "../checkbox/Checkbox";
+import { State } from "../state/State";
 
 export type SwitchProps<
-  S = UseRadioState['state'] | UseCheckboxState['state']
+  S = UseRadioState["state"] | UseCheckboxState["state"],
 > = PCRSwitchProps<S>;
 
 export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
   (props, ref) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { checked, value, state, ...rest } = useControlled<
-      UseRadioState['state'] | UseCheckboxState['state'],
+      UseRadioState["state"] | UseCheckboxState["state"],
       SwitchProps
     >(props);
 
@@ -34,12 +35,11 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
       <div
         style={styles}
         className={clsx(
-          'pretty',
-          'p-switch',
+          "pretty",
+          "p-switch",
           useClassNames(props, true),
-          className
-        )}
-      >
+          className,
+        )}>
         <input
           ref={mergeRefs([ref, htmlRef])}
           type="checkbox"
@@ -57,7 +57,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
         </State>
       </div>
     );
-  }
+  },
 );
 
-Switch.displayName = 'Switch';
+Switch.displayName = "Switch";

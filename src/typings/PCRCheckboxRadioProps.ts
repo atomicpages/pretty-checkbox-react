@@ -1,10 +1,10 @@
-import { CommonProps } from './PCRCommonProps';
+import type { CommonProps } from "./PCRCommonProps";
 
-type Shape = 'curve' | 'round';
-type Fill = 'thick' | 'fill';
-type Animation = 'smooth' | 'jelly' | 'tada' | 'rotate' | 'pulse';
+type Shape = "curve" | "round";
+type Fill = "thick" | "fill";
+type Animation = "smooth" | "jelly" | "tada" | "rotate" | "pulse";
 
-export type PCRCheckboxRadioProps<S = any> = Omit<CommonProps<S>, 'type'> & {
+export type PCRCheckboxRadioProps<S = any> = Omit<CommonProps<S>, "type"> & {
   /**
    * The shape of the checkbox or radio.
    */
@@ -34,10 +34,10 @@ export type PCRCheckboxRadioProps<S = any> = Omit<CommonProps<S>, 'type'> & {
   /**
    * The icon to pass (as JSX) to the checkbox or radio.
    */
-  icon?: React.ReactElement<any, 'svg' | 'i' | 'em' | 'img'>;
+  icon?: React.ReactElement<any, "svg" | "i" | "em" | "img">;
 
   /**
    * @private
    */
-  iconType?: 'svg' | 'icon' | 'image';
+  iconType?: "svg" | "icon" | "image";
 };

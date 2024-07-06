@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useClassNames tests should return an expected object 1`] = `
+{
+  "p-bigger": undefined,
+  "p-default": true,
+  "p-has-focus": undefined,
+  "p-locked": undefined,
+  "p-plain": undefined,
+  "p-pulse": "pulse",
+  "p-round": "round",
+  "p-thick": "thick",
+  "p-undefined": undefined,
+}
+`;

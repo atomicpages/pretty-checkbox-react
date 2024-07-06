@@ -1,8 +1,8 @@
-import { CommonProps } from '../../typings/PCRCommonProps';
+import type { CommonProps } from "../../typings/PCRCommonProps";
 
-const isBoolean = (e: unknown) => typeof e === 'boolean';
+const isBoolean = (e: unknown) => typeof e === "boolean";
 const isNullish = (e: unknown) => e === null || e === undefined;
-const isIndeterminate = (e: unknown) => e === 'indeterminate';
+const isIndeterminate = (e: unknown) => e === "indeterminate";
 
 /**
  * A generic way to setup controlled components by
@@ -41,7 +41,7 @@ export const useControlled = <S, P extends CommonProps<S>>(props: P) => {
     // string to prevent 'on' values. Use the defaultValue
     // if provided
     if (isNullish(value)) {
-      value = defaultValue || '';
+      value = defaultValue ?? "";
     }
   }
 

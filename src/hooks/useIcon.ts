@@ -1,17 +1,18 @@
-import * as React from 'react';
-import clsx from 'clsx';
+import * as React from "react";
 
-import { PCRCheckboxRadioProps } from '../typings/PCRCheckboxRadioProps';
+import clsx from "clsx";
 
-export const useIcon = (icon: PCRCheckboxRadioProps['icon']) => {
+import type { PCRCheckboxRadioProps } from "../typings/PCRCheckboxRadioProps";
+
+export const useIcon = (icon: PCRCheckboxRadioProps["icon"]) => {
   return React.useMemo(() => {
     if (icon) {
-      let type: 'icon' | 'svg' | 'image' = 'icon';
+      let type: "icon" | "svg" | "image" = "icon";
 
-      if (icon.type === 'img') {
-        type = 'image';
-      } else if (icon.type === 'svg') {
-        type = 'svg';
+      if (icon.type === "img") {
+        type = "image";
+      } else if (icon.type === "svg") {
+        type = "svg";
       }
 
       // icons that contain `type` substring
@@ -19,7 +20,7 @@ export const useIcon = (icon: PCRCheckboxRadioProps['icon']) => {
       const re = new RegExp(`\\b${type}\\b`);
 
       return {
-        iconType: icon.props['data-type'] || type,
+        iconType: icon.props["data-type"] || type,
         icon:
           icon.props.className && !re.test(icon.props.className)
             ? React.cloneElement(icon, {

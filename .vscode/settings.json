@@ -1,4 +1,5 @@
 {
+  "prettier.enable": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "eslint.validate": [
     "javascript",

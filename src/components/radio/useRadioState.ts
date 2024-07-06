@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 
 export type UseRadioState = {
   state?: boolean | string;
-  onChange?: React.InputHTMLAttributes<HTMLInputElement>['onChange'];
+  onChange?: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
 };
 
 export const useRadioState = ({
@@ -19,18 +19,18 @@ export const useRadioState = ({
         const { value } = e.currentTarget;
 
         setState((current) => {
-          if (value !== '') {
+          if (value !== "") {
             return value;
           }
 
           return !current;
         });
 
-        if (typeof onChange === 'function') {
+        if (typeof onChange === "function") {
           onChange(e);
         }
       },
-      [onChange]
+      [onChange],
     ),
   };
 };

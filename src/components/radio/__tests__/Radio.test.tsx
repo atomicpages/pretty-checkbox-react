@@ -1,6 +1,6 @@
-import { Radio, useRadioState } from '../Radio';
-import { createSmokeTests } from '../../../tests/testingUtils';
+import { createSmokeTests } from "../../../tests/testingUtils";
+import { Radio, useRadioState } from "../Radio";
 
-describe('Radio tests', () => {
+describe("Radio tests", () => {
   createSmokeTests(Radio, useRadioState);
 });

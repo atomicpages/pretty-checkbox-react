@@ -1,5 +1,5 @@
-import { useUUID } from '../useUUID';
-import { CommonProps } from '../../typings/PCRCommonProps';
+import type { CommonProps } from "../../typings/PCRCommonProps";
+import { useUUID } from "../useUUID";
 
 /**
  * Filters out the noise of prop mayhem with PCR. This separates

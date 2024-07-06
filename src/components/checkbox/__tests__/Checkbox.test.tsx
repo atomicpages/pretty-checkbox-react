@@ -1,13 +1,12 @@
-import * as React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from "@testing-library/react";
 
-import { Checkbox, useCheckboxState } from '../Checkbox';
-import { createSmokeTests, getByValue } from '../../../tests/testingUtils';
+import { createSmokeTests, getByValue } from "../../../tests/testingUtils";
+import { Checkbox, useCheckboxState } from "../Checkbox";
 
-describe('Checkbox tests', () => {
+describe("Checkbox tests", () => {
   createSmokeTests(Checkbox, useCheckboxState);
 
-  it('should work with an array of items', () => {
+  it("should work with an array of items", () => {
     const cloneState: string[] = [];
 
     const Wrapper = () => {
@@ -32,23 +31,23 @@ describe('Checkbox tests', () => {
     };
 
     const { container } = render(<Wrapper />);
-    fireEvent.click(getByValue(container as HTMLElement, 'apples'));
+    fireEvent.click(getByValue(container, "apples"));
 
-    expect(cloneState).toEqual(['apples']);
+    expect(cloneState).toEqual(["apples"]);
 
-    fireEvent.click(getByValue(container as HTMLElement, 'bananas'));
-    expect(cloneState).toEqual(['apples', 'bananas']);
+    fireEvent.click(getByValue(container, "bananas"));
+    expect(cloneState).toEqual(["apples", "bananas"]);
 
-    fireEvent.click(getByValue(container as HTMLElement, 'apples'));
-    expect(cloneState).toEqual(['bananas']);
+    fireEvent.click(getByValue(container, "apples"));
+    expect(cloneState).toEqual(["bananas"]);
 
-    fireEvent.click(screen.getByLabelText('Apples'));
-    expect(cloneState).toEqual(['bananas', 'apples']);
+    fireEvent.click(screen.getByLabelText("Apples"));
+    expect(cloneState).toEqual(["bananas", "apples"]);
   });
 
-  it('should support indeterminate state via state hook', () => {
+  it("should support indeterminate state via state hook", () => {
     const Wrapper = () => {
-      const checkbox: any = useCheckboxState({ state: 'indeterminate' });
+      const checkbox: any = useCheckboxState({ state: "indeterminate" });
 
       return (
         <Checkbox {...checkbox} data-testid="pretty">
@@ -58,8 +57,8 @@ describe('Checkbox tests', () => {
     };
 
     render(<Wrapper />);
-    expect(screen.getByTestId('pretty').getAttribute('aria-checked')).toBe(
-      'mixed'
+    expect(screen.getByTestId("pretty").getAttribute("aria-checked")).toBe(
+      "mixed",
     );
   });
 });

@@ -1,12 +1,13 @@
-import * as React from 'react';
-import { CommonProps } from '../../typings/PCRCommonProps';
+import type * as React from "react";
+
+import type { CommonProps } from "../../typings/PCRCommonProps";
 
 export type UseLockedArgs = {
-  locked: CommonProps<unknown>['locked'];
+  locked: CommonProps<unknown>["locked"];
   style?: React.CSSProperties;
 };
 
-const lockedStyles: React.CSSProperties = { pointerEvents: 'none' };
+const lockedStyles: React.CSSProperties = { pointerEvents: "none" };
 
 /**
  * A simplier way to prevent checking when PCR is in locked mode.

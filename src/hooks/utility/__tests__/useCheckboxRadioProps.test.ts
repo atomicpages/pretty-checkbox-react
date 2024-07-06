@@ -1,16 +1,17 @@
-import { renderHook } from '@testing-library/react-hooks';
-import { useCheckboxRadioProps } from '../useCheckboxRadioProps';
+import { renderHook } from "@testing-library/react";
 
-describe('useCheckboxRadioProps tests', () => {
-  it('should remove checkbox and radio props and filter out common props', () => {
+import { useCheckboxRadioProps } from "../useCheckboxRadioProps";
+
+describe("useCheckboxRadioProps tests", () => {
+  it("should remove checkbox and radio props and filter out common props", () => {
     const { result } = renderHook(() =>
       useCheckboxRadioProps({
-        shape: 'curve',
-      })
+        shape: "curve",
+      }),
     );
 
     expect(result.current).toMatchObject({
-      shape: 'curve',
+      shape: "curve",
       htmlProps: expect.any(Object),
     });
   });

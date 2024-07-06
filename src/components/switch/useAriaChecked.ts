@@ -1,13 +1,14 @@
-import * as React from 'react';
-import { PCRSwitchProps } from '../../typings/PCRSwitchProps';
+import * as React from "react";
+
+import type { PCRSwitchProps } from "../../typings/PCRSwitchProps";
 
 export type UseAriaCheckedOptions = {
-  setState?: PCRSwitchProps['setState'];
-  checked?: PCRSwitchProps['checked'];
+  setState?: PCRSwitchProps["setState"];
+  checked?: PCRSwitchProps["checked"];
 };
 
 const handler = (e: any) => {
-  e.currentTarget.setAttribute('aria-checked', e.currentTarget.checked + '');
+  e.currentTarget.setAttribute("aria-checked", e.currentTarget.checked + "");
 };
 
 /**
@@ -26,14 +27,14 @@ export const useAriaChecked = ({
     let bound = false;
 
     if (!setState && !checked && elem) {
-      elem.setAttribute('aria-checked', elem.checked + '');
-      elem.addEventListener('change', handler);
+      elem.setAttribute("aria-checked", elem.checked + "");
+      elem.addEventListener("change", handler);
       bound = true;
     }
 
     return () => {
       if (bound && elem) {
-        elem.removeEventListener('change', handler);
+        elem.removeEventListener("change", handler);
       }
     };
   }, [setState, checked]);

@@ -1,8 +1,9 @@
-import { renderHook, act } from '@testing-library/react-hooks';
-import { useAriaChecked } from '../useAriaChecked';
+import { renderHook, act } from "@testing-library/react";
 
-describe('useAriaChecked tests', () => {
-  it('should set the correct aria checked status for uncontrolled components', () => {
+import { useAriaChecked } from "../useAriaChecked";
+
+describe("useAriaChecked tests", () => {
+  it("should set the correct aria checked status for uncontrolled components", () => {
     const setAttribute = jest.fn();
     const addEventListener = jest.fn();
 
@@ -23,10 +24,10 @@ describe('useAriaChecked tests', () => {
 
     rerender({ checked: false });
 
-    expect(setAttribute).toHaveBeenCalledWith('aria-checked', 'true');
+    expect(setAttribute).toHaveBeenCalledWith("aria-checked", "true");
     expect(addEventListener).toHaveBeenCalledWith(
-      'change',
-      expect.any(Function)
+      "change",
+      expect.any(Function),
     );
 
     act(() => {

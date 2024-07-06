@@ -1,31 +1,31 @@
-import * as React from 'react';
-import clsx from 'clsx';
+import * as React from "react";
 
-import { State } from '../state/State';
+import clsx from "clsx";
 
-import { useLocked } from '../../hooks/utility/useLocked';
-import { useIcon } from '../../hooks/useIcon';
-import { useClassNames } from '../../hooks/utility/useClassNames';
-import { useControlled } from '../../hooks/utility/useControlled';
-
-import { useCheckboxRadioProps } from '../../hooks/utility/useCheckboxRadioProps';
-import { PCRCheckboxRadioProps } from '../../typings/PCRCheckboxRadioProps';
-import { UseRadioState, useRadioState } from './useRadioState';
+import { UseRadioState, useRadioState } from "./useRadioState";
+import { useIcon } from "../../hooks/useIcon";
+import { useCheckboxRadioProps } from "../../hooks/utility/useCheckboxRadioProps";
+import { useClassNames } from "../../hooks/utility/useClassNames";
+import { useControlled } from "../../hooks/utility/useControlled";
+import { useLocked } from "../../hooks/utility/useLocked";
+import type { PCRCheckboxRadioProps } from "../../typings/PCRCheckboxRadioProps";
+import { State } from "../state/State";
 
 export type RadioProps = Omit<
-  PCRCheckboxRadioProps<UseRadioState['state']>,
-  'indeterminate'
+  PCRCheckboxRadioProps<UseRadioState["state"]>,
+  "indeterminate"
 >;
 
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   (props, ref) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { checked, value, state, ...rest } = useControlled<
-      UseRadioState['state'],
+      UseRadioState["state"],
       RadioProps
     >(props);
 
     const {
-      shape = 'round',
+      shape = "round",
       children,
       locked,
       color,
@@ -34,7 +34,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       style,
       icon: propsIcon,
       htmlProps,
-    } = useCheckboxRadioProps<UseRadioState['state'], RadioProps>(rest);
+    } = useCheckboxRadioProps<UseRadioState["state"], RadioProps>(rest);
 
     const styles = useLocked({ locked, style });
     const { icon, iconType } = useIcon(propsIcon);
@@ -43,15 +43,14 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       <div
         style={styles}
         className={clsx(
-          'pretty',
+          "pretty",
           useClassNames({
             ...props,
             shape,
             iconType,
           }),
-          className
-        )}
-      >
+          className,
+        )}>
         <input
           ref={ref}
           value={value}
@@ -65,9 +64,9 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
         </State>
       </div>
     );
-  }
+  },
 );
 
-Radio.displayName = 'Radio';
+Radio.displayName = "Radio";
 
 export { UseRadioState, useRadioState };

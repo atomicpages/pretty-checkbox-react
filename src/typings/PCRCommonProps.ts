@@ -1,16 +1,16 @@
-import * as React from 'react';
+import type * as React from "react";
 
-export type Colors = 'primary' | 'success' | 'info' | 'warning' | 'danger';
+export type Colors = "primary" | "success" | "info" | "warning" | "danger";
 type ColorsOutline =
-  | 'primary-o'
-  | 'success-o'
-  | 'info-o'
-  | 'warning-o'
-  | 'danger-o';
+  | "primary-o"
+  | "success-o"
+  | "info-o"
+  | "warning-o"
+  | "danger-o";
 
 export type CommonProps<S> = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
-  'color'
+  "color"
 > & {
   /**
    * Set true to enable locked mode.

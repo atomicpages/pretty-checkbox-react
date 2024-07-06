@@ -1,19 +1,19 @@
-import * as React from 'react';
-import clsx from 'clsx';
-import mergeRefs from 'react-merge-refs';
+import * as React from "react";
+import mergeRefs from "react-merge-refs";
 
-import { useCheckboxState, UseCheckboxState } from './useCheckboxState';
-import { useLocked } from '../../hooks/utility/useLocked';
-import { useIcon } from '../../hooks/useIcon';
-import { useClassNames } from '../../hooks/utility/useClassNames';
-import { useControlled } from '../../hooks/utility/useControlled';
+import clsx from "clsx";
 
-import { useCheckboxRadioProps } from '../../hooks/utility/useCheckboxRadioProps';
-import { PCRCheckboxRadioProps } from '../../typings/PCRCheckboxRadioProps';
-import { State } from '../state/State';
-import { useIndeterminate } from './useIndeterminate';
+import { useCheckboxState, UseCheckboxState } from "./useCheckboxState";
+import { useIndeterminate } from "./useIndeterminate";
+import { useIcon } from "../../hooks/useIcon";
+import { useCheckboxRadioProps } from "../../hooks/utility/useCheckboxRadioProps";
+import { useClassNames } from "../../hooks/utility/useClassNames";
+import { useControlled } from "../../hooks/utility/useControlled";
+import { useLocked } from "../../hooks/utility/useLocked";
+import type { PCRCheckboxRadioProps } from "../../typings/PCRCheckboxRadioProps";
+import { State } from "../state/State";
 
-export type CheckboxProps = PCRCheckboxRadioProps<UseCheckboxState['state']> & {
+export type CheckboxProps = PCRCheckboxRadioProps<UseCheckboxState["state"]> & {
   /**
    * Mark the underlying HTML input checkbox as `indeterminate`. This prop doesn't change
    * icons for you, it just ensures we have the correct `aria-checked` value
@@ -25,7 +25,7 @@ export type CheckboxProps = PCRCheckboxRadioProps<UseCheckboxState['state']> & {
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
     const { checked, value, state, ...rest } = useControlled<
-      UseCheckboxState['state'],
+      UseCheckboxState["state"],
       CheckboxProps
     >(props);
 
@@ -39,7 +39,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       indeterminate,
       icon: propsIcon,
       htmlProps,
-    } = useCheckboxRadioProps<UseCheckboxState['state'], CheckboxProps>(rest);
+    } = useCheckboxRadioProps<UseCheckboxState["state"], CheckboxProps>(rest);
 
     const { ref: intRef, ...aria } = useIndeterminate({
       state,
@@ -54,14 +54,13 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       <div
         style={styles}
         className={clsx(
-          'pretty',
+          "pretty",
           useClassNames({
             ...props,
             iconType,
           }),
-          className
-        )}
-      >
+          className,
+        )}>
         <input
           ref={mergeRefs([ref, intRef])}
           value={value}
@@ -76,9 +75,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         </State>
       </div>
     );
-  }
+  },
 );
 
-Checkbox.displayName = 'Checkbox';
+Checkbox.displayName = "Checkbox";
 
 export { useCheckboxState, UseCheckboxState };

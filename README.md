@@ -41,10 +41,7 @@ yarn add pretty-checkbox pretty-checkbox-react
 Make sure you're on a supported version of React and React DOM:
 
 ```sh
-npm i react@^16.9 react-dom@^16.9
-
-# or use the latest and greatest react
-npm i react react-dom
+npm install react react-dom
 ```
 
 ### Using Preact?
@@ -61,7 +58,7 @@ for more? Head on over the the
 [doc site](https://pretty-checkbox-react.netlify.app/).
 
 ```tsx
-import { Checkbox } from 'pretty-checkbox-react';
+import { Checkbox } from "pretty-checkbox-react";
 
 function App() {
   return <Checkbox>Do you agree to the terms and conditions?</Checkbox>;
@@ -74,8 +71,8 @@ Add a `ref` and get access to the input element. Uncontrolled mode allows for
 seamless integration with form solutions like `react-hook-form`:
 
 ```tsx
-import { useEffect, useRef } from 'react';
-import { Checkbox } from 'pretty-checkbox-react';
+import { useEffect, useRef } from "react";
+import { Checkbox } from "pretty-checkbox-react";
 
 function App() {
   const ref = useRef(null);
@@ -97,8 +94,8 @@ function App() {
 Use our awesome hooks to abstract away state logic!
 
 ```tsx
-import { useCallback } from 'react';
-import { Checkbox, useCheckboxState } from 'pretty-checkbox-react';
+import { useCallback } from "react";
+import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 
 function App() {
   const checkbox = useCheckboxState();
@@ -109,10 +106,10 @@ function App() {
 
       if (!checkbox.state) {
         // update the state manually from the `confirm` result
-        checkbox.setState(confirm('Do you agree to the terms and conditions?'));
+        checkbox.setState(confirm("Do you agree to the terms and conditions?"));
       }
     },
-    [checkbox]
+    [checkbox],
   );
 
   return (

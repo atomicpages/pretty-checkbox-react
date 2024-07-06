@@ -1,10 +1,10 @@
-import { CommonProps, Colors } from './PCRCommonProps';
+import type { CommonProps, Colors } from "./PCRCommonProps";
 
-type Shape = 'fill' | 'slim';
+type Shape = "fill" | "slim";
 
 export type PCRSwitchProps<S = any> = Omit<
   CommonProps<S>,
-  'variation' | 'animation' | 'color' | 'type'
+  "variation" | "animation" | "color" | "type"
 > & {
   /**
    * The shape of the Switch.
@@ -25,7 +25,7 @@ export type PCRSwitchProps<S = any> = Omit<
   /**
    * Override the kind of switch. Defaults to checkbox.
    */
-  type?: 'checkbox' | 'radio';
+  type?: "checkbox" | "radio";
 
   /**
    * @private

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 export type UseCheckboxState = {
   /**
@@ -12,12 +12,12 @@ export type UseCheckboxState = {
    * Your change handlers to run _after_ the default dispatch
    * has occurred.
    */
-  onChange?: React.InputHTMLAttributes<HTMLInputElement>['onChange'];
+  onChange?: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
 };
 
-const INDETERMINATE_STATE = 'indeterminate';
+const INDETERMINATE_STATE = "indeterminate";
 
-const dispatch = (value: string) => (state: UseCheckboxState['state']) => {
+const dispatch = (value: string) => (state: UseCheckboxState["state"]) => {
   if (Array.isArray(state)) {
     const index = state.indexOf(value);
 
@@ -27,8 +27,9 @@ const dispatch = (value: string) => (state: UseCheckboxState['state']) => {
       state.splice(index, 1);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return [...state];
-  } else if (value !== '') {
+  } else if (value !== "") {
     return [value];
   }
 
@@ -41,7 +42,7 @@ export const useCheckboxState = ({
 }: UseCheckboxState = {}) => {
   const [state, setState] = React.useState(() => {
     if (
-      typeof initialState === 'string' &&
+      typeof initialState === "string" &&
       initialState !== INDETERMINATE_STATE
     ) {
       return [initialState];
@@ -59,11 +60,11 @@ export const useCheckboxState = ({
 
         setState(dispatch(value));
 
-        if (typeof onChange === 'function') {
+        if (typeof onChange === "function") {
           onChange(e);
         }
       },
-      [onChange]
+      [onChange],
     ),
   };
 };

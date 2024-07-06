@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "@djthoms/eslint-config",
+    "@djthoms/eslint-config/typescript",
+    "@djthoms/eslint-config/react",
+    "@djthoms/eslint-config/react-typescript",
+    "@djthoms/eslint-config/jest",
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unsafe-assignment": "warn",
+    "@typescript-eslint/no-unsafe-member-access": "warn",
+    "@typescript-eslint/no-unsafe-call": "warn",
+    "@typescript-eslint/no-unsafe-argument": "warn",
+  }
+}

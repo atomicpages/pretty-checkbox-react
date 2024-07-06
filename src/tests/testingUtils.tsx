@@ -1,6 +1,7 @@
 /* eslint-disable jest/no-export */
-import * as React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import * as React from "react";
+
+import { fireEvent, render, screen } from "@testing-library/react";
 
 export const getByValue = (container: HTMLElement, value: string) => {
   // eslint-disable-next-line testing-library/no-node-access
@@ -22,7 +23,7 @@ const createComponent =
     return React.createElement(component, {
       ...p,
       ...props,
-      'data-testid': 'pretty',
+      "data-testid": "pretty",
     });
   };
 
@@ -34,33 +35,33 @@ const createComponent =
  * 4. It connects with state hooks as expected
  */
 export const createSmokeTests = (component: any, hook?: (args: any) => any) => {
-  it('should render without errors', () => {
+  it("should render without errors", () => {
     expect(() => {
       render(React.createElement(component));
     }).not.toThrow();
   });
 
-  it('should forward refs', () => {
+  it("should forward refs", () => {
     const ref = React.createRef<HTMLInputElement>();
     render(React.createElement(component, { ref }));
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
 
-  it('should work as a controlled component', () => {
+  it("should work as a controlled component", () => {
     const onChange = jest.fn();
 
     render(
-      React.createElement(component, { onChange, 'data-testid': 'pretty' })
+      React.createElement(component, { onChange, "data-testid": "pretty" }),
     );
 
-    fireEvent.click(screen.getByTestId('pretty'), {
-      currentTarget: { value: '' },
+    fireEvent.click(screen.getByTestId("pretty"), {
+      currentTarget: { value: "" },
     });
 
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it('should integrate with state hooks', () => {
+  it("should integrate with state hooks", () => {
     expect(hook).toBeInstanceOf(Function);
 
     // if to make tsc happy
@@ -70,7 +71,7 @@ export const createSmokeTests = (component: any, hook?: (args: any) => any) => {
       const Wrapper = createComponent(component, hook, { onChange });
 
       render(<Wrapper />);
-      fireEvent.click(screen.getByTestId('pretty'));
+      fireEvent.click(screen.getByTestId("pretty"));
 
       // eslint-disable-next-line jest/no-conditional-expect
       expect(onChange).toHaveBeenCalledTimes(1);
