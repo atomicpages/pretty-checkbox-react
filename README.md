@@ -25,6 +25,13 @@
 Pretty Checkbox React (PCR for short) is a small react wrapper around the the
 pretty awesome library pretty checkbox.
 
+## Public Archive
+
+With headless component libraries like headless-ui, radix, and base the need for bespoke components 
+is long gone. This was built at a time where the ecosystem was rapid evolving and the concept of
+headless components didn't really exist. I'd recommend using [shadcn](https://ui.shadcn.com/) for any
+headless compnents moving forward. Thanks for the support over the years!
+
 ## Getting Started
 
 > Pretty Checkbox React uses hooks heavily., Be sure you're running React 16.9
